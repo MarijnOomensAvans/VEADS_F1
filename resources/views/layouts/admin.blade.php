@@ -125,5 +125,6 @@
 </div>
 <script src="{{ asset('js/dashmix.core.min-1.5.js') }}"></script>
 <script src="{{ asset('js/dashmix.app.min-1.5.js') }}"></script>
+@yield('scripts')
 </body>
 </html>

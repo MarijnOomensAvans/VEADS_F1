@@ -9,7 +9,10 @@
         <div class="block block-rounded block-bordered">
             <div class="block-content">
                 <div class="row">
-                    <div class="col-12 col-md-5 offset-md-7">
+                    <div class="col-12 col-md-7">
+                        <a href="{{ route('admin/events/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Evenement toevoegen</a>
+                    </div>
+                    <div class="col-12 col-md-5">
                         <form method="get">
                             <div class="form-group">
                                 <div class="input-group">
@@ -30,6 +33,7 @@
                             <thead>
                             <tr>
                                 <th>Event naam</th>
+                                <th>Event start</th>
                                 <th>Event locatie</th>
                                 <th class="text-center" style="width: 150px;">Aanmeldingen</th>
                                 <th class="text-center" style="width: 150px;">Acties</th>
@@ -44,13 +48,14 @@
                             @foreach($events as $event)
                                 <tr>
                                     <td>{{ $event->name }}</td>
+                                    <td>{{ $event->datetime->start->format('d-m-Y \o\m H:i') }}</td>
                                     <td>{{ $event->address->city }}</td>
                                     <td class="text-center">{{ $event->applications->count() }}</td>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></button>
-                                            <button type="button" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></button>
-                                            <button type="button" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></button>
+                                            <a href="{{ route('admin/event', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
+                                            <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
+                                            <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
                                         </div>
                                     </td>
                                 </tr>

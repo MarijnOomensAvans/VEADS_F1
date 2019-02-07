@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use App\Event;
+use App\EventDateTime;
+use App\Http\Requests\StoreEvent;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -20,13 +23,17 @@ class EventController extends Controller
     {
     	$q = $request->query('q');
 
+    	$events = Event::leftJoin('addresses', 'events.address_id', '=', 'addresses.id')
+		    ->leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
+		    ->orderBy('event_date_times.start')
+	        ->select('events.*');
+
     	if (!empty($q)) {
-		    $events = Event::leftJoin('addresses', 'events.address_id', '=', 'addresses.id')
-		        ->where('name', 'like', '%' . $q . '%')
+		    $events = $events->where('name', 'like', '%' . $q . '%')
 			    ->orWhere('addresses.city', 'like', '%' . $q . '%')
 			    ->paginate(15);
 	    } else {
-		    $events = Event::paginate(15);
+		    $events = $events->paginate(15);
 	    }
 
         return view('events/index', compact('events', 'q'));
@@ -39,7 +46,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events/create');
     }
 
     /**
@@ -48,9 +55,36 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEvent $request)
     {
-        //
+        $validated = $request->validated();
+
+        $address = new Address();
+        $address->street = $validated['street'];
+        $address->number = $validated['number'];
+        $address->number_modifier = $validated['number_modifier'] ?? '';
+        $address->zipcode = $validated['zipcode'];
+        $address->city = $validated['city'];
+        $address->country = $validated['country'];
+
+        $address->save();
+
+        $event = new Event();
+        $event->address_id = $address->id;
+        $event->name = $validated['name'];
+        $event->description = $validated['description'];
+        $event->price = $validated['price'];
+
+        $event->save();
+
+	    $date = new EventDateTime();
+	    $date->event_id = $event->id;
+	    $date->start = \DateTime::createFromFormat('U', strtotime($validated['start_date'] . " " . $validated['start_time']));
+	    $date->end = \DateTime::createFromFormat('U', strtotime($validated['end_date'] . " " . $validated['end_time']));
+
+	    $date->save();
+
+        return redirect('admin/events/' . $event->id);
     }
 
     /**
@@ -61,7 +95,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('events/show', compact('event'));
     }
 
     /**
