@@ -43,7 +43,7 @@
                         <div class="btn-group">
                             <a href="{{ route('admin/events') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
                             <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                            <a href="#" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
+                            <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
                         </div>
                     </div>
                 </div>

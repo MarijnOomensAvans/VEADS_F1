@@ -35,9 +35,9 @@ class StoreEvent extends FormRequest
 	        'city' => 'required',
 	        'country' => 'required',
 	        'start_date' => 'required|date',
-	        'start_time' => 'required|date_format:h:i',
+	        'start_time' => 'required|date_format:H:i',
             'end_date' => 'required|date',
-            'end_time' => 'required|date_format:h:i'
+            'end_time' => 'required|date_format:H:i'
         ];
     }
 }

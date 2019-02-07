@@ -79,8 +79,8 @@ class EventController extends Controller
 
 	    $date = new EventDateTime();
 	    $date->event_id = $event->id;
-	    $date->start = \DateTime::createFromFormat('U', strtotime($validated['start_date'] . " " . $validated['start_time']));
-	    $date->end = \DateTime::createFromFormat('U', strtotime($validated['end_date'] . " " . $validated['end_time']));
+	    $date->start = new \DateTime($validated['start_date'] . " " . $validated['start_time']);
+	    $date->end = new \DateTime($validated['end_date'] . " " . $validated['end_time']);
 
 	    $date->save();
 
@@ -106,7 +106,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('events/edit', compact('event'));
     }
 
     /**
@@ -116,9 +116,34 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(StoreEvent $request, Event $event)
     {
-        //
+        $validated = $request->validated();
+
+        $address = $event->address()->first();
+	    $address->street = $validated['street'];
+	    $address->number = $validated['number'];
+	    $address->number_modifier = $validated['number_modifier'] ?? '';
+	    $address->zipcode = $validated['zipcode'];
+	    $address->city = $validated['city'];
+	    $address->country = $validated['country'];
+
+	    $address->save();
+
+	    $event->name = $validated['name'];
+	    $event->description = $validated['description'];
+	    $event->price = $validated['price'];
+
+	    $event->save();
+
+	    $date = $event->datetime()->first();
+	    $date->event_id = $event->id;
+	    $date->start = new \DateTime($validated['start_date'] . " " . $validated['start_time']);
+	    $date->end = new \DateTime($validated['end_date'] . " " . $validated['end_time']);
+
+	    $date->save();
+
+	    return redirect('admin/events/' . $event->id);
     }
 
     /**
