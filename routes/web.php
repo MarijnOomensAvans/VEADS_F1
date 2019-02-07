@@ -25,4 +25,4 @@ Route::post('/admin/events/create', 'EventController@store')->name('admin/events
 Route::get('/admin/events/{event}/edit', 'EventController@edit')->name('admin/events/edit')->where('event', '[0-9]+');
 Route::post('/admin/events/{event}/edit', 'EventController@update')->name('admin/events/edit')->where('event', '[0-9]+');
 Route::get('/admin/events/{event}/destroy', 'EventController@destroy')->name('admin/events/destroy')->where('event', '[0-9]+');
-Route::post('/admin/events/{event}/destroy', 'EventController@destroy')->name('admin/events/destroy')->where('event', '[0-9]+');
+Route::post('/admin/events/{event}/destroy', 'EventController@delete')->name('admin/events/destroy')->where('event', '[0-9]+');

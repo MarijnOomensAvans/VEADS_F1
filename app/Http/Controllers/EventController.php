@@ -154,6 +154,23 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        return view('events/destroy', compact('event'));
+    }
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  \Illuminate\Http\Request $request
+	 * @param  \App\Event  $event
+	 * @return \Illuminate\Http\Response
+	 */
+    public function delete(Request $request, Event $event) {
+    	if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+    		$event->datetime()->delete();
+		    $event->delete();
+		    $event->address()->delete();
+	    }
+
+	    return redirect('admin/events');
     }
 }
