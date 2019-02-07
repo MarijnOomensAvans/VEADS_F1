@@ -18,7 +18,7 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="q" placeholder="Evenement zoeken" value="{{ $q }}">
                                     <div class="input-group-append">
-                                        <button type="button" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary">
                                             <i class="fa fa-search mr-1"></i> Zoeken
                                         </button>
                                     </div>
@@ -42,7 +42,7 @@
                             <tbody>
                             @if($events->total() < 1)
                                 <tr class="table-info">
-                                    <td class="text-center" colspan="4">Geen evenementen gevonden.</td>
+                                    <td class="text-center" colspan="5">Geen evenementen gevonden.</td>
                                 </tr>
                             @endif
                             @foreach($events as $event)
