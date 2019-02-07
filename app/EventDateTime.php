@@ -17,6 +17,11 @@ class EventDateTime extends Model
         'end'
     ];
 
+    protected $dates = [
+    	'start',
+	    'end'
+    ];
+
     public function event() {
         return $this->belongsTo('App\Event');
     }
