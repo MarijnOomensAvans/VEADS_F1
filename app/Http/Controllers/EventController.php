@@ -16,9 +16,20 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('events/index');
+    	$q = $request->query('q');
+
+    	if (!empty($q)) {
+		    $events = Event::leftJoin('addresses', 'events.address_id', '=', 'addresses.id')
+		        ->where('name', 'like', '%' . $q . '%')
+			    ->orWhere('addresses.city', 'like', '%' . $q . '%')
+			    ->paginate(15);
+	    } else {
+		    $events = Event::paginate(15);
+	    }
+
+        return view('events/index', compact('events', 'q'));
     }
 
     /**
