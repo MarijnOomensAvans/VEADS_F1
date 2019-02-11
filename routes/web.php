@@ -12,16 +12,21 @@
 */
 
 Route::view('/', 'front.home');
-Route::view('/event', 'front.event');
+Route::get('/event', 'EventController@frontIndex');
+Route::get('/event/{id}', 'EventController@frontShow');
 
 Auth::routes();
 
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/admin/events', 'EventController@index')->name('admin/events');
-Route::get('/admin/events/{event}', 'EventController@show')->name('admin/event')->where('event', '[0-9]+');
-Route::get('/admin/events/create', 'EventController@create')->name('admin/events/create');
-Route::post('/admin/events/create', 'EventController@store')->name('admin/events/create');
-Route::get('/admin/events/{event}/edit', 'EventController@edit')->name('admin/events/edit')->where('event', '[0-9]+');
-Route::post('/admin/events/{event}/edit', 'EventController@update')->name('admin/events/edit')->where('event', '[0-9]+');
-Route::get('/admin/events/{event}/destroy', 'EventController@destroy')->name('admin/events/destroy')->where('event', '[0-9]+');
-Route::post('/admin/events/{event}/destroy', 'EventController@delete')->name('admin/events/destroy')->where('event', '[0-9]+');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
+{
+    Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('/events', 'EventController@index')->name('admin/events');
+    Route::get('/events/{event}', 'EventController@show')->name('admin/event')->where('event', '[0-9]+');
+    Route::get('/events/create', 'EventController@create')->name('admin/events/create');
+    Route::post('/events/create', 'EventController@store')->name('admin/events/create');
+    Route::get('/events/{event}/edit', 'EventController@edit')->name('admin/events/edit')->where('event', '[0-9]+');
+    Route::post('/events/{event}/edit', 'EventController@update')->name('admin/events/edit')->where('event', '[0-9]+');
+    Route::get('/events/{event}/destroy', 'EventController@destroy')->name('admin/events/destroy')->where('event', '[0-9]+');
+    Route::post('/events/{event}/destroy', 'EventController@delete')->name('admin/events/destroy')->where('event', '[0-9]+');
+});
+

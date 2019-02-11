@@ -8,20 +8,20 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
         <meta name="author" content="ThemeZaa">
 
-        <link rel="stylesheet" href="css/theme/animate.css" />
-        <link rel="stylesheet" href="css/theme/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/theme/et-line-icons.css" />
-        <link rel="stylesheet" href="css/theme/font-awesome.min.css" />
-        <link rel="stylesheet" href="css/theme/themify-icons.css">
-        <link rel="stylesheet" href="css/theme/swiper.min.css">
-        <link rel="stylesheet" href="css/theme/justified-gallery.min.css">
-        <link rel="stylesheet" href="css/theme/magnific-popup.css" />
-        <link rel="stylesheet" type="text/css" href="revolution/css/settings.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="revolution/css/layers.css">
-        <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css">
-        <link rel="stylesheet" href="css/theme/bootsnav.css">
-        <link rel="stylesheet" href="css/theme/style.css" />
-        <link rel="stylesheet" href="css/theme/responsive.css" />
+        <link rel="stylesheet" href="/css/theme/animate.css" />
+        <link rel="stylesheet" href="/css/theme/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/theme/et-line-icons.css" />
+        <link rel="stylesheet" href="/css/theme/font-awesome.min.css" />
+        <link rel="stylesheet" href="/css/theme/themify-icons.css">
+        <link rel="stylesheet" href="/css/theme/swiper.min.css">
+        <link rel="stylesheet" href="/css/theme/justified-gallery.min.css">
+        <link rel="stylesheet" href="/css/theme/magnific-popup.css" />
+        <link rel="stylesheet" type="text/css" href="/revolution/css/settings.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/revolution/css/layers.css">
+        <link rel="stylesheet" type="text/css" href="/revolution/css/navigation.css">
+        <link rel="stylesheet" href="/css/theme/bootsnav.css">
+        <link rel="stylesheet" href="/css/theme/style.css" />
+        <link rel="stylesheet" href="/css/theme/responsive.css" />
         <!--[if IE]>
             <script src="js/theme/html5shiv.js"></script>
         <![endif]-->
@@ -64,7 +64,7 @@
                 <div class="container nav-header-container">
                     <div class="row">
                         <div class="col-md-2 col-xs-5">
-                            <a href="index.html" title="Pofo" class="logo"><img src="images/logo.png" data-rjs="images/logo@2x.png" class="logo-dark default" alt="Pofo"><img src="images/logo-white.png" data-rjs="images/logo-white@2x.png" alt="Pofo" class="logo-light"></a>
+                            <a href="index.html" title="Pofo" class="logo"><img src="/images/logo.png" data-rjs="/images/logo@2x.png" class="logo-dark default" alt="Pofo"><img src="/images/logo-white.png" data-rjs="/images/logo-white@2x.png" alt="Pofo" class="logo-light"></a>
                         </div>
                         <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
                             <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
@@ -77,11 +77,11 @@
                                 <ul id="accordion" class="nav navbar-nav navbar-left no-margin alt-font text-normal" data-in="fadeIn" data-out="fadeOut">
                                     <!-- start menu item -->
                                     <li>
-                                        <a href="javascript:void(0);">Home</a>
+                                        <a href="/">Home</a>
                                     </li>
 
                                     <li>
-                                        <a href="javascript:void(0);">Evenementen</a>
+                                        <a href="/event">Evenementen</a>
                                     </li>
 
                                     <li>
@@ -118,7 +118,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12 social-style-2 xs-text-center display-table">
                             <div class="display-table-cell vertical-align-middle">
-                                <a href="index.html"><img class="footer-logo" src="images/logo-white.png" data-rjs="images/logo-white@2x.png" alt="Pofo"></a>
+                                <a href="index.html"><img class="footer-logo" src="/images/logo-white.png" data-rjs="/images/logo-white@2x.png" alt="Pofo"></a>
                                 <div class="social-icon-style-8">
                                     <ul class="text-extra-small margin-20px-top xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none">
                                         <li class="display-inline-block margin-10px-right"><a href="http://twitter.com" target="_blank" title="Twitter">Twitter</a></li>
@@ -144,35 +144,35 @@
         
         <a class="scroll-top-arrow" href="javascript:void(0);"><i class="ti-arrow-up"></i></a>
 
-        <script type="text/javascript" src="js/theme/jquery.js"></script>
-        <script type="text/javascript" src="js/theme/modernizr.js"></script>
-        <script type="text/javascript" src="js/theme/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/theme/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="js/theme/skrollr.min.js"></script>
-        <script type="text/javascript" src="js/theme/smooth-scroll.js"></script>
-        <script type="text/javascript" src="js/theme/jquery.appear.js"></script>
-        <script type="text/javascript" src="js/theme/bootsnav.js"></script>
-        <script type="text/javascript" src="js/theme/jquery.nav.js"></script>
-        <script type="text/javascript" src="js/theme/wow.min.js"></script>
-        <script type="text/javascript" src="js/theme/page-scroll.js"></script>
-        <script type="text/javascript" src="js/theme/swiper.min.js"></script>
-        <script type="text/javascript" src="js/theme/jquery.count-to.js"></script>
-        <script type="text/javascript" src="js/theme/jquery.stellar.js"></script>
-        <script type="text/javascript" src="js/theme/jquery.magnific-popup.min.js"></script>
-        <script type="text/javascript" src="js/theme/isotope.pkgd.min.js"></script>
-        <script type="text/javascript" src="js/theme/imagesloaded.pkgd.min.js"></script>
-        <script type="text/javascript" src="js/theme/classie.js"></script>
-        <script type="text/javascript" src="js/theme/hamburger-menu.js"></script>
-        <script type="text/javascript" src="js/theme/counter.js"></script>
-        <script type="text/javascript" src="js/theme/jquery.fitvids.js"></script>
-        <script type="text/javascript" src="js/theme/equalize.min.js"></script>
-        <script type="text/javascript" src="js/theme/skill.bars.jquery.js"></script> 
-        <script type="text/javascript" src="js/theme/justified-gallery.min.js"></script>
-        <script type="text/javascript" src="js/theme/jquery.easypiechart.min.js"></script>
-        <script type="text/javascript" src="js/theme/instafeed.min.js"></script>
-        <script type="text/javascript" src="js/theme/retina.min.js"></script>
-        <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script type="text/javascript" src="js/theme/main.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.js"></script>
+        <script type="text/javascript" src="/js/theme/modernizr.js"></script>
+        <script type="text/javascript" src="/js/theme/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="/js/theme/skrollr.min.js"></script>
+        <script type="text/javascript" src="/js/theme/smooth-scroll.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.appear.js"></script>
+        <script type="text/javascript" src="/js/theme/bootsnav.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.nav.js"></script>
+        <script type="text/javascript" src="/js/theme/wow.min.js"></script>
+        <script type="text/javascript" src="/js/theme/page-scroll.js"></script>
+        <script type="text/javascript" src="/js/theme/swiper.min.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.count-to.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.stellar.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="/js/theme/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/js/theme/imagesloaded.pkgd.min.js"></script>
+        <script type="text/javascript" src="/js/theme/classie.js"></script>
+        <script type="text/javascript" src="/js/theme/hamburger-menu.js"></script>
+        <script type="text/javascript" src="/js/theme/counter.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="/js/theme/equalize.min.js"></script>
+        <script type="text/javascript" src="/js/theme/skill.bars.jquery.js"></script> 
+        <script type="text/javascript" src="/js/theme/justified-gallery.min.js"></script>
+        <script type="text/javascript" src="/js/theme/jquery.easypiechart.min.js"></script>
+        <script type="text/javascript" src="/js/theme/instafeed.min.js"></script>
+        <script type="text/javascript" src="/js/theme/retina.min.js"></script>
+        <script type="text/javascript" src="/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/js/theme/main.js"></script>
     </body>
 </html>
