@@ -27,7 +27,7 @@ class StoreEvent extends FormRequest
         return [
             'name' => 'required|max:50',
 	        'description' => 'required',
-	        'price' => 'numeric',
+	        'price' => 'numeric|max:9999.99',
 	        'street' => 'required|max:50',
 	        'number' => 'required|numeric',
 	        'number_modifier' => 'max:5',
