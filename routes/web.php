@@ -13,9 +13,9 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-Auth::routes();
+Auth::routes(['verify' => false, 'register' => false]);
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/events', 'EventController@index')->name('admin/events');
