@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'front.home');
+Route::view('/event', 'front.event');
 
 Auth::routes();
 
