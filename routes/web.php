@@ -11,11 +11,11 @@
 |
 */
 
-Route::view('/', 'front.home');
+Route::view('/', 'front.home')->name('home');
 Route::get('/event', 'EventController@frontIndex');
 Route::get('/event/{id}', 'EventController@frontShow');
 
-Auth::routes();
+Auth::routes(['verify' => false, 'register' => false]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {

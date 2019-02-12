@@ -58,7 +58,7 @@ $inputLgWidth = 12 - $labelLgWidth;
                                             <i class="fa fa-euro-sign"></i>
                                         </span>
                                     </div>
-                                    <input type="number" step="0.01" min="0" name="price" id="price" class="form-control{{ ($errors->has('price') ? ' is-invalid' : '') }}" value="{{ old('price', $event->price ?? '0.00') }}" />
+                                    <input type="number" step="0.01" min="0" max="9999.99 " name="price" id="price" class="form-control{{ ($errors->has('price') ? ' is-invalid' : '') }}" value="{{ old('price', $event->price ?? '0.00') }}" />
                                 </div>
                                 @if($errors->has('price'))
                                     <div class="invalid-feedback">
