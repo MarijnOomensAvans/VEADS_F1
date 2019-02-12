@@ -2,25 +2,19 @@
 
 @section('content')
 
-        <section class="wow fadeIn no-padding main-slider mobile-height top-space">
-            <div class="swiper-full-screen swiper-container width-100 white-move">
-                <div class="swiper-wrapper">
+        <section class="no-padding main-slider mobile-height top-space">
+            <div class="swiper-full-screen swiper-container width-80 white-move">
                     <!-- start slider item -->
-                    <div class="swiper-slide cover-background" style="background-image:url('images/homepage-5-slider-img-3.jpg');">
+                    <div class="cover-background height-400px" style="background-image:url('images/homepage-5-slider-img-3.jpg');">
                         <div class="opacity-extra-medium bg-extra-dark-gray"></div>
-                        <div class="container position-relative one-fourth-screen xs-height-400px">
                             <div class="slider-typography text-center">
                                 <div class="slider-text-middle-main">
                                     <div class="slider-text-middle">
-                                        <span class="text-large text-very-light-gray font-weight-300 width-95 center-col margin-25px-bottom display-block xs-margin-15px-bottom">we combine design, thinking and technical craft</span>
-                                        <h1 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-95 center-col margin-35px-bottom xs-margin-15px-bottom">Crafting Digital Experiences</h1>
-                                        <div class="btn-dual"><a href="https://themeforest.net/item/pofo-creative-agency-corporate-and-portfolio-multipurpose-template/20645944?ref=themezaa" target="_blank" class="btn btn-white btn-rounded btn-medium xs-margin-two-all">Purchase Now</a></div>
+                                        <h1 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-95 center-col margin-35px-bottom xs-margin-15px-bottom">VEADS</h1>
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination swiper-pagination-white swiper-full-screen-pagination"></div>
                 <div class="swiper-button-next swiper-button-black-highlight display-none"></div>
@@ -28,12 +22,12 @@
             </div>
         </section>
 
-        <section class="no-padding wow fadeIn">
+        <section class="no-padding">
             <div class="container-fluid no-padding">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <!-- start portfolio item -->
-                        <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4 wow slideInDown">
+                        <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4">
                             <div class="position-relative overflow-hidden">
                                 <figure>
                                     <img src="images/case-study-01.jpg" alt="" >
@@ -49,7 +43,7 @@
                         </div>
                         <!-- end portfolio item -->
                         <!-- start portfolio  item -->
-                        <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4 wow slideInDown" data-wow-delay="0.2s">
+                        <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.2s">
                             <div class="position-relative overflow-hidden">
                                 <figure>
                                     <img src="images/case-study-02.jpg" alt="" >
@@ -65,7 +59,7 @@
                         </div>
                         <!-- end portfolio item -->
                         <!-- start portfolio  item -->
-                        <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4 wow slideInDown" data-wow-delay="0.4s">
+                        <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.4s">
                             <div class="position-relative overflow-hidden">
                                 <figure>
                                     <img src="images/case-study-03.jpg" alt="" >

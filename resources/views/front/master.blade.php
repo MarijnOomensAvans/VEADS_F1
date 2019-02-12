@@ -27,44 +27,12 @@
         <![endif]-->
     </head>
     <body>
-        <header class="header-with-topbar">
-            <div class="top-header-area bg-black padding-5px-tb">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12 text-uppercase alt-font xs-no-padding-lr xs-text-center">
-                            <a href="tel:1234567890" class="text-link-white xs-width-100" title="Call us 123-456-7890">Call us 123-456-7890</a>
-                            <div class="separator-line-verticle-extra-small bg-dark-gray display-inline-block margin-two-lr hidden-xs position-relative vertical-align-middle top-minus1"></div>
-                            <a href="mailto:no-reply@domain.com" class="text-link-white xs-width-100" title="no-reply@domain.com">no-reply@domain.com</a>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12 hidden-xs xs-no-padding-lr text-right">
-                            <div class="icon-social-very-small xs-width-100 xs-text-center display-inline-block">
-                                <a href="https://www.facebook.com/" title="Facebook" target="_blank" class="text-link-white"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                                <a href="https://twitter.com/" title="Twitter" target="_blank" class="text-link-white"><i class="fab fa-twitter"></i></a>
-                                <a href="https://linkedin.com/" title="Linked In" target="_blank" class="text-link-white"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://plus.google.com" title="Google Plus" target="_blank" class="text-link-white"><i class="fab fa-google-plus-g"></i></a>                            
-                            </div>  
-                            <div class="separator-line-verticle-extra-small bg-dark-gray display-inline-block margin-two-lr hidden-xs position-relative vertical-align-middle"></div>
-                            <div class="btn-group dropdown-style-1 xs-width-100 xs-text-center xs-margin-three-bottom display-inline-block">
-                                <button type="button" class="btn dropdown-toggle xs-width-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    English <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu xs-width-100">
-                                    <li><a href="javascript:void(0);" title="English"><span class="icon-country usa"></span>English</a></li>
-                                    <li><a href="javascript:void(0);" title="England"><span class="icon-country england"></span>England</a></li>
-                                    <li><a href="javascript:void(0);" title="France"><span class="icon-country france"></span>France</a></li>
-                                    <li><a href="javascript:void(0);" title="China"><span class="icon-country china"></span>China</a></li>
-                                    <li><a href="javascript:void(0);" title="Hong Kong"><span class="icon-country hong-kong"></span>Hong Kong</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <nav class="navbar navbar-default bootsnav navbar-top header-light-transparent bg-transparent nav-box-width">
+        <header class="header">
+            <nav class="navbar navbar-default bootsnav navbar-fixed-top header-light-transparent bg-transparent nav-box-width">
                 <div class="container nav-header-container">
                     <div class="row">
                         <div class="col-md-2 col-xs-5">
-                            <a href="index.html" title="Pofo" class="logo"><img src="/images/logo.png" data-rjs="/images/logo@2x.png" class="logo-dark default" alt="Pofo"><img src="/images/logo-white.png" data-rjs="/images/logo-white@2x.png" alt="Pofo" class="logo-light"></a>
+                            <a href="index.html" title="Veads" class="logo"><img src="/images/logo.png" data-rjs="/images/logo@2x.png" class="logo-dark default" alt="Veads logo"></a>
                         </div>
                         <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
                             <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
