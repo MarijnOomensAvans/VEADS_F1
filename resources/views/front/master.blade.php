@@ -32,7 +32,7 @@
                 <div class="container nav-header-container">
                     <div class="row">
                         <div class="col-md-2 col-xs-5">
-                            <a href="index.html" title="Veads" class="logo"><img src="/images/logo.png" data-rjs="/images/logo@2x.png" class="logo-dark default" alt="Veads logo"></a>
+                            <a href="index.html" title="Veads" class="logo"><img src="/images/logo.png" class="logo-dark default" alt="Veads logo"></a>
                         </div>
                         <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
                             <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
@@ -69,42 +69,27 @@
 
         @yield('content')
 
-        <footer class="footer-modern-dark bg-extra-dark-gray padding-five-tb xs-padding-30px-tb">
-            <div class="footer-widget-area padding-40px-bottom xs-padding-30px-bottom">
+        <footer class="footer-modern-dark bg-extra-dark-gray padding-two-tb xs-padding-30px-tb">
+            <div class="footer-widget-area">
                 <div class="container">
                     <div class="row equalize xs-equalize-auto">
                         <div class="col-md-4 col-sm-12 col-xs-12 xs-text-center sm-margin-three-bottom xs-margin-20px-bottom display-table">
                             <div class="display-table-cell vertical-align-middle">
-                                <h6 class="text-dark-gray width-70 md-width-100 no-margin-bottom">London Based Creative Studio</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12 xs-text-center xs-margin-20px-bottom display-table">
-                            <div class="display-table-cell vertical-align-middle">
-                                <span class="display-block">301 The Greenhouse,<br>Custard Factory, London, E2 8DY.</span>
-                                <a href="mailto:sales@domain.com" title="sales@domain.com">sales@domain.com</a>   |   +44 (0) 123 456 7890
+                                <h6 class="text-dark-gray width-70 md-width-100 no-margin-bottom">Wat gaat u dit jaar nog doen?</h6>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12 social-style-2 xs-text-center display-table">
                             <div class="display-table-cell vertical-align-middle">
-                                <a href="index.html"><img class="footer-logo" src="/images/logo-white.png" data-rjs="/images/logo-white@2x.png" alt="Pofo"></a>
+                                <a href="index.html"><img class="footer-logo" src="/images/logo.png" alt="Logo"></a>
                                 <div class="social-icon-style-8">
                                     <ul class="text-extra-small margin-20px-top xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none">
                                         <li class="display-inline-block margin-10px-right"><a href="http://twitter.com" target="_blank" title="Twitter">Twitter</a></li>
                                         <li class="display-inline-block margin-10px-right"><a href="http://facebook.com" target="_blank" title="Facebook">Facebook</a></li>
                                         <li class="display-inline-block margin-10px-right"><a href="http://instagram.com" target="_blank" title="Instagram">Instagram</a></li>
-                                        <li class="display-inline-block"><a href="http://dribbble.com" target="_blank" title="Dribbble">Dribbble</a></li>                                                              
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="footer-bottom border-top border-color-medium-dark-gray padding-40px-top xs-padding-30px-top">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12 text-left text-small xs-text-center">POFO - Portfolio Concept Theme</div>
-                        <div class="col-md-6 col-sm-6 col-xs-12 text-right text-small xs-text-center">&copy; 2017 POFO is Proudly Powered by <a href="../../index.html" target="_blank" title="ThemeZaa">ThemeZaa</a></div>
                     </div>
                 </div>
             </div>

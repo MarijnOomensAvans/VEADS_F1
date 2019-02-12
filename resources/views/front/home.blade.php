@@ -5,7 +5,7 @@
         <section class="no-padding main-slider mobile-height top-space">
             <div class="swiper-full-screen swiper-container width-80 white-move">
                     <!-- start slider item -->
-                    <div class="cover-background height-400px" style="background-image:url('images/homepage-5-slider-img-3.jpg');">
+                    <div class="cover-background height-400px" style="background-image:url('images/homepageheaderimage.jpg');">
                         <div class="opacity-extra-medium bg-extra-dark-gray"></div>
                             <div class="slider-typography text-center">
                                 <div class="slider-text-middle-main">
@@ -22,8 +22,8 @@
             </div>
         </section>
 
-        <section class="no-padding">
-            <div class="container-fluid no-padding">
+        <section>
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <!-- start portfolio item -->
