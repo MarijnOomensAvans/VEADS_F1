@@ -10,9 +10,6 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-	public function __construct() {
-		$this->middleware("auth");
-	}
 
 	/**
      * Display a listing of the resource.
@@ -172,5 +169,15 @@ class EventController extends Controller
 	    }
 
 	    return redirect('admin/events');
+    }
+
+
+    public function frontIndex(){
+        $events = Event::all();
+        return view('front.events', ['events' => $events]);
+    }
+
+    public function frontShow(Request $request, $id){
+        return view('front.event', ['event' => Event::find($id)]);
     }
 }
