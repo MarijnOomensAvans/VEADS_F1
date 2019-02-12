@@ -33,10 +33,7 @@
                                     <img src="images/case-study-01.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
                                     <figcaption>
-                                        <span class="text-medium-gray margin-10px-bottom display-inline-block ">Rubber Studio</span>
-                                        <div class="bg-deep-pink separator-line-horrizontal-full display-inline-block margin-10px-bottom"></div>
-                                        <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">A Rich Heritage & Brand History</span>
-                                        <a href="single-project-page-03.html" class="btn btn-very-small btn-white font-weight-300">view case study</a>
+                                        <span class="text-extra-large display-block text-white alt-font margin-200px-left margin-200px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Veads</span>
                                     </figcaption>
                                 </figure>
                             </div>
@@ -49,10 +46,7 @@
                                     <img src="images/case-study-02.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
                                     <figcaption>
-                                        <span class="text-medium-gray margin-10px-bottom display-inline-block ">RedDot Media</span>
-                                        <div class="bg-deep-pink separator-line-horrizontal-full display-inline-block margin-10px-bottom"></div>
-                                        <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Global Partners Increases Revenue</span>
-                                        <a href="single-project-page-04.html" class="btn btn-very-small btn-white font-weight-300">view case study</a>
+                                        <span class="text-extra-large display-block text-white alt-font margin-200px-left margin-200px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Modoll</span>
                                     </figcaption>
                                 </figure>
                             </div>
@@ -65,10 +59,7 @@
                                     <img src="images/case-study-03.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
                                     <figcaption>
-                                        <span class="text-medium-gray margin-10px-bottom display-inline-block ">Third Eye Glasses</span>
-                                        <div class="bg-deep-pink separator-line-horrizontal-full display-inline-block margin-10px-bottom"></div>
-                                        <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Improves Sales Efficiency with us</span>
-                                        <a href="single-project-page-05.html" class="btn btn-very-small btn-white font-weight-300">view case study</a>
+                                        <span class="text-extra-large display-block text-white alt-font margin-200px-left margin-200px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Dollcare</span>
                                     </figcaption>
                                 </figure>
                             </div>
