@@ -254,6 +254,7 @@ a.text-very-light-gray-hover:hover {color:#ededed !important;}
 .bg-light-gray {background-color:#f7f7f7}
 .bg-very-light-gray {background-color:#fafafa}
 .bg-deep-pink {background-color:#ff214f;}
+.bg-light-blue {background-color:#00BFFF;}
 .bg-transparent-white { background-color: rgba(255,255,255,0.3); background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(37%, rgba(255,255,255,0)), color-stop(96%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1))); background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 ); }
 .bg-transparent-black { background-color: rgba(0,0,0,0); background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(37%, rgba(0,0,0,0)), color-stop(96%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,1))); background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 ); }
 .bg-white-opacity { background-color: rgba(255, 255, 255, 0.85); }
@@ -794,6 +795,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .margin-twenty-four-bottom {margin-bottom:24%}
 .margin-twenty-four-half-bottom {margin-bottom:24.5%}
 .margin-twenty-five-bottom {margin-bottom:25%}
+.margin-hon-bottom {margin-bottom:350%}
 .margin-5px-bottom {margin-bottom:5px}
 .margin-10px-bottom {margin-bottom:10px}
 .margin-15px-bottom {margin-bottom:15px}
@@ -937,6 +939,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .margin-twenty-four-left {margin-left:24%}
 .margin-twenty-four-half-left {margin-left:24.5%}
 .margin-twenty-five-left {margin-left:25%}
+.margin-hon-left{margin-left: 320%;}
 .margin-5px-left {margin-left:5px}
 .margin-10px-left {margin-left:10px}
 .margin-15px-left {margin-left:15px}
@@ -3235,7 +3238,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 
 /* feature box style 4 */
 .grid-item.feature-box-4 {overflow: hidden; position: relative; border-radius: 50%;}
-.grid-item.feature-box-4 figure img {width: 100%; cursor: auto;}
+.grid-item.feature-box-4 figure img {width: 100%; height: 500px; cursor: auto;}
 .grid-item.feature-box-4 figure figcaption {position: absolute; left: 0px; top: auto; z-index: 9; bottom: 0px; transform: translateY(0); -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); transition: transform .35s ease-out; -webkit-transition: transform .35s ease-out; -moz-transition: transform .35s ease-out; -ms-transition: transform .35s ease-out; -o-transition: transform .35s ease-out; padding: 0 0 15px 60px; width: auto; height:auto; text-align: left; opacity: 1; cursor: default;}
 .grid-item.feature-box-4 figure:hover img, .feature-box-4 figure:focus img {opacity: 1; -ms-transform: none; -webkit-transform: none; -moz-transform: none; -o-transform: none;  transform: none;}
 .grid-item.feature-box-4 figure:hover figcaption {transform: translateY(-50px); -webkit-transform: translateY(-50px); -moz-transform: translateY(-50px); -ms-transform: translateY(-50px); -o-transform: translateY(-50px); }
