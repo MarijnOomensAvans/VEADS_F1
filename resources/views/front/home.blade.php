@@ -7,7 +7,6 @@
                     <!-- start slider item -->
                     <div class="cover-background height-400px" style="background-image:url('images/homepageheaderimage.jpg');">
                       <div class="opacity-medium bg-light-blue"></div>
-                        <div class="opacity-extra-medium bg-extra-dark-gray"></div>
                             <div class="slider-typography text-center">
                                 <div class="slider-text-middle-main">
                                     <div class="slider-text-middle">
@@ -29,7 +28,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <!-- start portfolio item -->
                         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4">
-                            <div class="position-relative overflow-hidden border-radius-100">
+                            <div class="position-relative overflow-hidden border-radius-25">
                                 <figure>
                                     <img src="images/case-study-01.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>

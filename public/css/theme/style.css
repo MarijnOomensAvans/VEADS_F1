@@ -254,7 +254,7 @@ a.text-very-light-gray-hover:hover {color:#ededed !important;}
 .bg-light-gray {background-color:#f7f7f7}
 .bg-very-light-gray {background-color:#fafafa}
 .bg-deep-pink {background-color:#ff214f;}
-.bg-light-blue {background-color:#00BFFF;}
+.bg-light-blue {background-color:#2bd7f2;}
 .bg-transparent-white { background-color: rgba(255,255,255,0.3); background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(37%, rgba(255,255,255,0)), color-stop(96%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1))); background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 ); }
 .bg-transparent-black { background-color: rgba(0,0,0,0); background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(37%, rgba(0,0,0,0)), color-stop(96%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,1))); background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 ); }
 .bg-white-opacity { background-color: rgba(255, 255, 255, 0.85); }
@@ -422,6 +422,8 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .btn.btn-black:hover, .btn.btn-black:focus {background: transparent; color: #000}
 .btn.btn-dark-gray {background: #232323; border-color: #232323; color: #fff}
 .btn.btn-dark-gray:hover, .btn.btn-dark-gray:focus {background: transparent; color: #232323}
+.btn.btn-light-blue {background: #2bd7f2; border-color: #2bd7f2; color: #fff}
+.btn.btn-light-blue:hover, .btn.btn-dark-gray:focus {background: transparent; color: #2bd7f2}
 .btn.btn-light-gray {background: #dbdbdb; border-color: #dbdbdb; color: #232323}
 .btn.btn-light-gray:hover, .btn.btn-light-gray:focus {background: transparent; border-color: #dbdbdb; color: #dbdbdb}
 .btn.btn-deep-pink {background: #ff214f; border-color: #ff214f; color: #ffffff}
@@ -551,8 +553,10 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .border-radius-8 {border-radius:8px}
 .border-radius-9 {border-radius:9px}
 .border-radius-10 {border-radius:10px}
+.border-radius-25 {border-radius:25%}
 .border-radius-50 {border-radius:50%}
 .border-radius-100 {border-radius:100%}
+.border-radius-event {border-bottom-left-radius:20%; border-bottom-right-radius: 20%}
 .border-radius-none {border-radius:0}
 
 /* ===================================
@@ -561,7 +565,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 
 .aside-title {position: relative; overflow:hidden}
 .aside-title span {display: inline-block; vertical-align:middle; margin-right: 20px;}
-.aside-title:after {content: ""; display: inline-block; width: 100%; background: #ff214f; height: 1px; top: 50%; position: absolute;}
+.aside-title:after {content: ""; display: inline-block; width: 100%; background: #2bd7f2; height: 1px; top: 50%; position: absolute;}
 .right-sidebar {padding-right:45px;}
 .left-sidebar {padding-left:45px;}
 
@@ -939,6 +943,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .margin-twenty-four-left {margin-left:24%}
 .margin-twenty-four-half-left {margin-left:24.5%}
 .margin-twenty-five-left {margin-left:25%}
+.margin-eighty-left{margin-left:80%}
 .margin-hon-left{margin-left: 320%;}
 .margin-5px-left {margin-left:5px}
 .margin-10px-left {margin-left:10px}

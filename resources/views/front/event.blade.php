@@ -1,8 +1,8 @@
-@extends('front.master') 
+@extends('front.master')
 @section('content')
 
-<section class="wow fadeIn cover-background background-position-top top-space" style="background-image: url(&quot;/images/homepage-3-slider-img-3.jpg&quot;); margin-top: 72px; visibility: visible; animation-name: fadeIn;">
-    <div class="opacity-medium bg-extra-dark-gray"></div>
+<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/images/homepage-3-slider-img-3.jpg&quot;); margin-top: 72px; visibility: visible;">
+    <div class="opacity-medium bg-light-blue"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
@@ -14,7 +14,7 @@
     </div>
 </section>
 
-<section class="wow fadeIn padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible; animation-name: fadeIn;">
+<section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
     <div class="container">
         <div class="row">
             <div class="col-md-12 display-table">
@@ -37,7 +37,7 @@
         <div class="row">
             <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
                 <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
-                    <img src="/images/blog-details-img19.jpg" alt="" class="width-100 margin-45px-bottom" data-no-retina="">
+                    <img src="/images/blog-details-img19.jpg" alt="" class=" border-radius-100 width-100 margin-45px-bottom" data-no-retina="">
                     <p>
                         {!!$event->description!!}
                     </p>
@@ -69,15 +69,15 @@
                 <div class="margin-45px-bottom xs-margin-25px-bottom">
                     <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Informatie</span></div>
                     <ul class="list-style-6 margin-50px-bottom text-small">
-                        <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
-                        <li><a>Datum Eind: </a><span>{{$event->datetime->end}}</span></li>
+                   {{--     <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
+                        <li><a>Datum Eind: </a><span>{{$event->datetime->end}}</span></li>   --}}
                         <li><a>Prijs: </a><span>€{{$event->price}}</span></li>
                         <li>
                             <a>Locatie: </a>
-                            <span>
+                        {{--    <span>
                                 {{$event->address->street}} {{$event->address->number}} {{$event->address->number_modifier}}
                                 <br/>
-                                {{$event->address->zipcode}} {{$event->address->city}}
+                                {{$event->address->zipcode}} {{$event->address->city}} --}}
                             </span>
                         </li>
                     </ul>
@@ -89,7 +89,7 @@
                             <div class="position-relative">
                                 <input type="text" class="bg-transparent text-small border-color-extra-light-gray medium-input pull-left" placeholder="naam">
                                 <input type="text" class="bg-transparent text-small border-color-extra-light-gray medium-input pull-left" placeholder="e-mail">
-                                <button class="btn btn-dark-gray btn-small" type="submit">Inschrijven</button>
+                                <button class="btn btn-light-blue btn-small" type="submit">Inschrijven</button>
                             </div>
                         </form>
                     </div>

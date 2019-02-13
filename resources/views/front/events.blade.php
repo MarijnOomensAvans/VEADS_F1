@@ -1,7 +1,7 @@
-@extends('front.master') 
+@extends('front.master')
 @section('content')
 
-<section class="wow fadeIn cover-background background-position-top top-space" style="background-image: url(&quot;/images/homepage-9-parallax-img5.jpg&quot;); margin-top: 72px; visibility: visible; animation-name: fadeIn;">
+<section class="cover-background background-position-top top-space" style="background-image: url(&quot;/images/homepage-9-parallax-img5.jpg&quot;); margin-top: 72px; visibility: visible; animation-name: fadeIn;">
     <div class="opacity-medium bg-extra-dark-gray"></div>
     <div class="container">
         <div class="row">
@@ -15,11 +15,11 @@
 </section>
 
 
-<section class="wow fadeIn hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
+<section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
         <div class="row equalize xs-equalize-auto">
             @foreach ($events as $event)
-                <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center wow fadeInUp" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
+                <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
                     <div class="blog-post bg-light-gray inner-match-height">
                         <div class="blog-post-images overflow-hidden position-relative">
                             <a href="/event/{{$event->id}}">
