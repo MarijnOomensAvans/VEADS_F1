@@ -69,15 +69,15 @@
                 <div class="margin-45px-bottom xs-margin-25px-bottom">
                     <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Informatie</span></div>
                     <ul class="list-style-6 margin-50px-bottom text-small">
-                   {{--     <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
-                        <li><a>Datum Eind: </a><span>{{$event->datetime->end}}</span></li>   --}}
+                       <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
+                        <li><a>Datum Eind: </a><span>{{$event->datetime->end}}</span></li>
                         <li><a>Prijs: </a><span>€{{$event->price}}</span></li>
                         <li>
                             <a>Locatie: </a>
-                        {{--    <span>
+                            <span>
                                 {{$event->address->street}} {{$event->address->number}} {{$event->address->number_modifier}}
                                 <br/>
-                                {{$event->address->zipcode}} {{$event->address->city}} --}}
+                                {{$event->address->zipcode}} {{$event->address->city}} 
                             </span>
                         </li>
                     </ul>
