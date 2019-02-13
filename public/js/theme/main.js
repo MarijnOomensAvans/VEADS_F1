@@ -2664,16 +2664,6 @@ $(document).ready(function () {
     var $allNonRatinaImages = $("img:not([data-rjs])");
     $allNonRatinaImages.attr('data-no-retina', '');
 
-    /*==============================================================*/
-    //demo button  - START CODE
-    /*==============================================================*/
-
-    var $buythemediv = '<div class="buy-theme alt-font sm-display-none"><a href="https://themeforest.net/item/pofo-creative-agency-corporate-and-portfolio-multipurpose-template/20645944?ref=themezaa" target="_blank"><i class="ti-shopping-cart"></i><span>Buy Theme</span></a></div><div class="all-demo alt-font sm-display-none"><a href="mailto:info@themezaa.com?subject=POFO – Creative Agency, Corporate and Portfolio Multi-purpose Template - Quick Question"><i class="ti-email"></i><span>Quick Question?</span></a></div>';
-    $('body').append($buythemediv);
-
-    /*==============================================================*/
-    //demo button  - END CODE
-    /*==============================================================*/
 
     $(document).on("touchstart", ".sidebar-wrapper", function () {
         clearOpen();
