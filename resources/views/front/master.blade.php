@@ -32,7 +32,7 @@
                 <div class="container nav-header-container">
                     <div class="row">
                         <div class="col-md-2 col-xs-5">
-                            <a href="index.html" title="Veads" class="logo"><img src="/images/logo.png" class="logo-dark default" alt="Veads logo"></a>
+                            <a href="/" title="Veads" class="logo"><img src="/images/logo.png" class="logo-dark default" alt="Veads logo"></a>
                         </div>
                         <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
                             <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </footer>
-        
+
         <a class="scroll-top-arrow" href="javascript:void(0);"><i class="ti-arrow-up"></i></a>
 
         <script type="text/javascript" src="/js/theme/jquery.js"></script>
@@ -119,7 +119,7 @@
         <script type="text/javascript" src="/js/theme/counter.js"></script>
         <script type="text/javascript" src="/js/theme/jquery.fitvids.js"></script>
         <script type="text/javascript" src="/js/theme/equalize.min.js"></script>
-        <script type="text/javascript" src="/js/theme/skill.bars.jquery.js"></script> 
+        <script type="text/javascript" src="/js/theme/skill.bars.jquery.js"></script>
         <script type="text/javascript" src="/js/theme/justified-gallery.min.js"></script>
         <script type="text/javascript" src="/js/theme/jquery.easypiechart.min.js"></script>
         <script type="text/javascript" src="/js/theme/instafeed.min.js"></script>
