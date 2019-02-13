@@ -29,7 +29,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <!-- start portfolio item -->
                         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4">
-                            <div class="position-relative overflow-hidden">
+                            <div class="position-relative overflow-hidden border-radius-100">
                                 <figure>
                                     <img src="images/case-study-01.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
@@ -42,7 +42,7 @@
                         <!-- end portfolio item -->
                         <!-- start portfolio  item -->
                         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.2s">
-                            <div class="position-relative overflow-hidden">
+                            <div class="position-relative overflow-hidden border-radius-100">
                                 <figure>
                                     <img src="images/case-study-02.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
@@ -55,7 +55,7 @@
                         <!-- end portfolio item -->
                         <!-- start portfolio  item -->
                         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.4s">
-                            <div class="position-relative overflow-hidden">
+                            <div class="position-relative overflow-hidden border-radius-100">
                                 <figure>
                                     <img src="images/case-study-03.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
