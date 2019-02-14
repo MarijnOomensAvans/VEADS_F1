@@ -30,7 +30,7 @@
                         <div class="post-details padding-40px-all sm-padding-20px-all">
                             <a href="/event/{{$event->id}}" class="alt-font post-title text-medium text-extra-dark-gray width-100 display-block md-width-100 margin-15px-bottom">{{$event->name}}</a>
                             <p>
-                                {{substr(strip_tags($event->description), 0, 100)}}...
+                                {!! substr(strip_tags($event->description), 0, 100) !!}...
                             </p>
                         </div>
                     </div>
