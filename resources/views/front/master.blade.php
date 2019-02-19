@@ -28,7 +28,7 @@
     </head>
     <body>
         <header class="header">
-            <nav class="navbar navbar-default bootsnav navbar-fixed-top header-light-transparent bg-transparent nav-box-width">
+            <nav class="navbar navbar-default bootsnav navbar-fixed-top header-light bg-transparent nav-box-width">
                 <div class="container nav-header-container">
                     <div class="row">
                         <div class="col-md-2 col-xs-5">
