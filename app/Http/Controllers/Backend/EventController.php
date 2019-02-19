@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use App\Address;
 use App\Event;
 use App\EventDateTime;
 use App\Http\Requests\StoreEvent;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EventController extends Controller
 {
@@ -172,12 +173,5 @@ class EventController extends Controller
     }
 
 
-    public function frontIndex(){
-        $events = Event::all();
-        return view('front.events', ['events' => $events]);
-    }
-
-    public function frontShow(Request $request, $id){
-        return view('front.event', ['event' => Event::find($id)]);
-    }
+    
 }
