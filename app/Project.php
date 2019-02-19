@@ -12,6 +12,15 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-
+        'name',
+        'description'
     ];
+
+    public function address() {
+        return $this->belongsTo('App\Address');
+    }
+
+    public function events() {
+        return $this->hasMany('App\Event');
+    }
 }

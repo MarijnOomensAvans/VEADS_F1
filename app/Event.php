@@ -43,4 +43,8 @@ class Event extends Model
             ->belongsToMany('App\Picture')
             ->withTimestamps();
     }
+
+    public function project() {
+        return $this->belongsTo('App\Project');
+    }
 }

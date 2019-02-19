@@ -8,7 +8,7 @@
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-content">
-                <div class="row mb-5">
+                <div class="row mb-3">
                     <div class="col-12 col-sm-4"><label>Evenement omschrijving</label></div>
                     <div class="col-12 col-sm-8">{!! $event->description !!}</div>
                 </div>

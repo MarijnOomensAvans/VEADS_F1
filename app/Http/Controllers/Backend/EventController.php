@@ -29,12 +29,13 @@ class EventController extends Controller
 	        ->select('events.*');
 
     	if (!empty($q)) {
-		    $events = $events->where('name', 'like', '%' . $q . '%')
-			    ->orWhere('addresses.city', 'like', '%' . $q . '%')
-			    ->paginate(15);
-	    } else {
-		    $events = $events->paginate(15);
-	    }
+            $events = $events->where('name', 'like', '%' . $q . '%')
+                ->orWhere('addresses.country', 'like', '%' . $q . '%')
+                ->orWhere('addresses.city', 'like', '%' . $q . '%')
+                ->orWhere('addresses.street', 'like', '%' . $q . '%');
+        }
+
+        $events = $events->paginate(15);
 
         return view('events/index', compact('events', 'q'));
     }
@@ -59,29 +60,17 @@ class EventController extends Controller
     {
         $validated = $request->validated();
 
-        $address = new Address();
-        $address->street = $validated['street'];
-        $address->number = $validated['number'];
-        $address->number_modifier = $validated['number_modifier'] ?? '';
-        $address->zipcode = $validated['zipcode'];
-        $address->city = $validated['city'];
-        $address->country = $validated['country'];
-
+        $address = new Address($validated);
         $address->save();
 
-        $event = new Event();
+        $event = new Event($validated);
         $event->address_id = $address->id;
-        $event->name = $validated['name'];
-        $event->description = $validated['description'];
-        $event->price = $validated['price'];
-
         $event->save();
 
 	    $date = new EventDateTime();
 	    $date->event_id = $event->id;
 	    $date->start = new \DateTime($validated['start_date'] . " " . $validated['start_time']);
 	    $date->end = new \DateTime($validated['end_date'] . " " . $validated['end_time']);
-
 	    $date->save();
 
         if ($request->hasFile('image')) {
@@ -125,26 +114,16 @@ class EventController extends Controller
         $validated = $request->validated();
 
         $address = $event->address()->first();
-	    $address->street = $validated['street'];
-	    $address->number = $validated['number'];
-	    $address->number_modifier = $validated['number_modifier'] ?? '';
-	    $address->zipcode = $validated['zipcode'];
-	    $address->city = $validated['city'];
-	    $address->country = $validated['country'];
+	    $address->fill($validated);
+        $address->save();
 
-	    $address->save();
-
-	    $event->name = $validated['name'];
-	    $event->description = $validated['description'];
-	    $event->price = $validated['price'];
-
+        $event->fill($validated);
 	    $event->save();
 
 	    $date = $event->datetime()->first();
 	    $date->event_id = $event->id;
 	    $date->start = new \DateTime($validated['start_date'] . " " . $validated['start_time']);
 	    $date->end = new \DateTime($validated['end_date'] . " " . $validated['end_time']);
-
 	    $date->save();
 
         if ($request->hasFile('image')) {

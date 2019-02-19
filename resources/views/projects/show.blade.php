@@ -8,9 +8,18 @@
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-content">
-                <div class="row mb-5">
+                <div class="row mb-3">
                     <div class="col-12 col-sm-4"><label>Project omschrijving</label></div>
                     <div class="col-12 col-sm-8">{!! $project->description !!}</div>
+                </div>
+                <hr/>
+                <div class="row mb-3">
+                    <div class="col-12 col-sm-4"><label>Adres</label></div>
+                    <div class="col-12 col-sm-8">
+                        {{ $project->address->street . ' ' . $project->address->number . $project->address->number_modifier }}<br/>
+                        {{ $project->address->zipcode . ' ' . $project->address->city }}<br/>
+                        {{ $project->address->country }}
+                    </div>
                 </div>
                 <hr/>
                 <div class="row mb-3">

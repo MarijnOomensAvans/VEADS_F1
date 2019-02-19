@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreProject extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreProject extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return !Auth::guest();
     }
 
     /**
@@ -24,7 +25,14 @@ class StoreProject extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:50',
+            'description' => 'required',
+            'street' => 'required|max:50',
+            'number' => 'required|numeric',
+            'number_modifier' => 'max:5',
+            'zipcode' => 'required',
+            'city' => 'required',
+            'country' => 'required'
         ];
     }
 }

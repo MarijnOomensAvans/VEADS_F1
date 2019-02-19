@@ -36,12 +36,12 @@
                         <span class="nav-main-link-name">Evenementen</span>
                     </a>
                 </li>
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon si si-grid"></i>--}}
-                        {{--<span class="nav-main-link-name">Projecten</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/project') !== false ? ' active' : '' }}" href="{{ route('admin/projects') }}">
+                        <i class="nav-main-link-icon si si-grid"></i>
+                        <span class="nav-main-link-name">Projecten</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
                         {{--<i class="nav-main-link-icon far fa-images"></i>--}}
