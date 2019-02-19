@@ -6,8 +6,10 @@ use App\Address;
 use App\Event;
 use App\EventDateTime;
 use App\Http\Requests\StoreEvent;
+use App\Picture;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -82,6 +84,10 @@ class EventController extends Controller
 
 	    $date->save();
 
+        if ($request->hasFile('image')) {
+            $this->saveImages($event, $request->file('image'));
+        }
+
         return redirect('admin/events/' . $event->id);
     }
 
@@ -141,6 +147,10 @@ class EventController extends Controller
 
 	    $date->save();
 
+        if ($request->hasFile('image')) {
+            $this->saveImages($event, $request->file('image'));
+        }
+
 	    return redirect('admin/events/' . $event->id);
     }
 
@@ -164,14 +174,50 @@ class EventController extends Controller
 	 */
     public function delete(Request $request, Event $event) {
     	if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-    		$event->datetime()->delete();
-		    $event->delete();
+    	    $pictures = $event->pictures;
+
+            $event->pictures()->detach();
+
+            foreach($pictures as $picture) {
+                Storage::delete("images/" . $picture->path);
+                $picture->delete();
+            }
+
+            $event->datetime()->delete();
+            $event->delete();
 		    $event->address()->delete();
 	    }
 
 	    return redirect('admin/events');
     }
 
+    private function saveImages(Event $event, $images) {
+        foreach($images as $image) {
+            $name = $image->getClientOriginalName();
+            $filename = $image->hashName();
+            $image->storeAs('images', $filename);
 
-    
+            $picture = new Picture();
+            $picture->name = $name;
+            $picture->path = $filename;
+            $picture->date = \DateTime::createFromFormat('U', $image->getCTime());
+            $picture->save();
+
+            $event->pictures()->attach($picture->id);
+        }
+    }
+
+    public function destroyImage(Event $event, Picture $picture) {
+        return view('events/image', compact('event', 'picture'));
+    }
+
+    public function deleteImage(Request $request, Event $event, Picture $picture) {
+        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            Storage::delete("images/" . $picture->path);
+            $picture->events()->detach();
+            $picture->delete();
+        }
+
+        return redirect('admin/events/' . $event->id);
+    }
 }

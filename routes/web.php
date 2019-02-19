@@ -14,6 +14,7 @@
 Route::view('/', 'front.home')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
+Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 
 Auth::routes(['verify' => false, 'register' => false]);
 
@@ -28,5 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::post('/events/{event}/edit', 'Backend\\EventController@update')->name('admin/events/edit')->where('event', '[0-9]+');
     Route::get('/events/{event}/destroy', 'Backend\\EventController@destroy')->name('admin/events/destroy')->where('event', '[0-9]+');
     Route::post('/events/{event}/destroy', 'Backend\\EventController@delete')->name('admin/events/destroy')->where('event', '[0-9]+');
+    Route::get('/events/{event}/image/{picture}', 'Backend\\EventController@destroyImage')->name('admin/events/image')->where('event', '[0-9]+')->where('picture', '[0-9]+');
+    Route::post('/events/{event}/image/{picture}', 'Backend\\EventController@deleteImage')->name('admin/events/image')->where('event', '[0-9]+')->where('picture', '[0-9]+');
 });
 
