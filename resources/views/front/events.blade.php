@@ -23,7 +23,9 @@
                     <div class="blog-post bg-light-gray inner-match-height">
                         <div class="blog-post-images overflow-hidden position-relative">
                             <a href="/event/{{$event->id}}">
-                                <img src="images/blog-img31.jpg" alt="" data-no-retina="">
+                                @if(count($event->pictures) > 0)
+                                    <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" data-no-retina="">
+                                @endif
                                 <div class="blog-hover-icon"><span class="text-extra-large font-weight-300">+</span></div>
                             </a>
                         </div>
