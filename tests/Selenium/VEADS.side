@@ -1,0 +1,296 @@
+{
+  "id": "62638e69-372a-4843-844e-b80bafac9234",
+  "version": "2.0",
+  "name": "VEADS",
+  "url": "https://veads-dev.ontwikkel.it",
+  "tests": [{
+    "id": "42889889-6089-4939-ada3-c4fd7483e739",
+    "name": "Evenement toevoegen",
+    "commands": [{
+      "id": "9b9ca315-fea9-467a-9f1b-9d9a93cea7ba",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/events",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "683f24e5-ea72-40ba-9de6-5acb3101ddda",
+      "comment": "",
+      "command": "store",
+      "target": "Test evenement",
+      "targets": [],
+      "value": "eventName"
+    }, {
+      "id": "0e5fb974-7f77-4e9f-854e-e48c6fe5af00",
+      "comment": "",
+      "command": "store",
+      "target": "2019-02-20",
+      "targets": [],
+      "value": "eventStartDate"
+    }, {
+      "id": "d7ee67c8-d6c5-42f5-8a1c-ea26e6168000",
+      "comment": "",
+      "command": "store",
+      "target": "2019-02-21",
+      "targets": [],
+      "value": "eventEndDate"
+    }, {
+      "id": "637d5d9f-9bb0-4ae0-a92e-0599d8447f70",
+      "comment": "",
+      "command": "store",
+      "target": "10:00",
+      "targets": [],
+      "value": "eventStartTime"
+    }, {
+      "id": "69bd9ab8-67b0-41e8-b8cf-f495ce84185f",
+      "comment": "",
+      "command": "store",
+      "target": "11:00",
+      "targets": [],
+      "value": "eventEndTime"
+    }, {
+      "id": "b5715730-c400-4cbc-9e86-4c3b01b97630",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de405019-0e41-4f34-a067-593f714a163e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Evenement toevoegen",
+      "targets": [
+        ["linkText=Evenement toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenement toevoegen')]", "xpath:link"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://veads-dev.ontwikkel.it/admin/events/create')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Evenement toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "71b0e64f-1dc8-47f2-9254-faf733c678fb",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${eventName}"
+    }, {
+      "id": "d1a3e46b-26ae-475b-a28c-8ae8b4653651",
+      "comment": "",
+      "command": "type",
+      "target": "css=.note-editable",
+      "targets": [
+        ["css=.note-editable", "css:finder"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[2]/div/div/div[3]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]", "xpath:position"]
+      ],
+      "value": "<p>Dit is een test evenement</p>"
+    }, {
+      "id": "4a3875d6-cdf5-43bd-9a31-bc6f962d93ea",
+      "comment": "",
+      "command": "type",
+      "target": "id=start_date",
+      "targets": [
+        ["id=start_date", "id"],
+        ["name=start_date", "name"],
+        ["css=#start_date", "css:finder"],
+        ["xpath=//input[@id='start_date']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "${eventStartDate}"
+    }, {
+      "id": "8457a3cd-5677-423e-80de-5a4accb3942f",
+      "comment": "",
+      "command": "type",
+      "target": "id=end_date",
+      "targets": [
+        ["id=end_date", "id"],
+        ["name=end_date", "name"],
+        ["css=#end_date", "css:finder"],
+        ["xpath=//input[@id='end_date']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "${eventEndDate}"
+    }, {
+      "id": "44a39d3c-fcce-40f5-9165-101e027979e7",
+      "comment": "",
+      "command": "type",
+      "target": "id=start_time",
+      "targets": [
+        ["id=start_time", "id"],
+        ["name=start_time", "name"],
+        ["css=#start_time", "css:finder"],
+        ["xpath=//input[@id='start_time']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": "${eventStartTime}"
+    }, {
+      "id": "b3005bc3-af03-48f1-9e10-28c8e4d7a31e",
+      "comment": "",
+      "command": "type",
+      "target": "id=end_time",
+      "targets": [
+        ["id=end_time", "id"],
+        ["name=end_time", "name"],
+        ["css=#end_time", "css:finder"],
+        ["xpath=//input[@id='end_time']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[5]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/input", "xpath:position"]
+      ],
+      "value": "${eventEndTime}"
+    }, {
+      "id": "11dc8b12-2bed-4356-871f-8366f143b801",
+      "comment": "",
+      "command": "type",
+      "target": "id=street",
+      "targets": [
+        ["id=street", "id"],
+        ["name=street", "name"],
+        ["css=#street", "css:finder"],
+        ["xpath=//input[@id='street']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[6]/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/input", "xpath:position"]
+      ],
+      "value": "Onderwijsboulevard"
+    }, {
+      "id": "bc0df9bc-f006-4678-a501-4fd11d749d19",
+      "comment": "",
+      "command": "type",
+      "target": "id=number",
+      "targets": [
+        ["id=number", "id"],
+        ["name=number", "name"],
+        ["css=#number", "css:finder"],
+        ["xpath=//input[@id='number']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[6]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div[2]/input", "xpath:position"]
+      ],
+      "value": "215"
+    }, {
+      "id": "6eddca63-653f-4ffe-87f4-f4efc8ab7bf0",
+      "comment": "",
+      "command": "type",
+      "target": "id=zipcode",
+      "targets": [
+        ["id=zipcode", "id"],
+        ["name=zipcode", "name"],
+        ["css=#zipcode", "css:finder"],
+        ["xpath=//input[@id='zipcode']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[7]/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": "5211DG"
+    }, {
+      "id": "61ff722b-04ca-4d72-8fa7-562928a888b5",
+      "comment": "",
+      "command": "type",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["name=city", "name"],
+        ["css=#city", "css:finder"],
+        ["xpath=//input[@id='city']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[7]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div[2]/input", "xpath:position"]
+      ],
+      "value": "'s-Hertogenbosch"
+    }, {
+      "id": "32ac7407-b694-4bac-a978-955f0b38b099",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-12 > .btn",
+      "targets": [
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div[9]/div/button", "xpath:idRelative"],
+        ["xpath=//div[9]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "493ed7a4-ee2c-460b-947b-62ee99e36a45",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//main[@id='main-container']/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Evenementen')]", "xpath:innerText"]
+      ],
+      "value": "${eventName}"
+    }]
+  }, {
+    "id": "20ecafd6-88ca-4794-a5ab-6200a5117714",
+    "name": "Evenement verwijderen",
+    "commands": [{
+      "id": "9d63250e-a256-408e-8d0e-6aa6ef9e29d8",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/events",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b05bcb5-b37f-4a65-afbb-eb96710e3e01",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11538abb-ca75-42b7-95c7-0e516a513c57",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Test evenement')]/td[5]/div/a[3]",
+      "targets": [
+        ["css=tr:nth-child(3) .fa-trash", "css:finder"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div[2]/div/table/tbody/tr[3]/td[5]/div/a[3]/span", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[5]/div/a[3]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "93f15d08-9dba-4f0f-8f6d-daf0820d5f58",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ja')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "19e322d5-9110-4c77-a215-5a9d92cfbdf2",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Test evenement')]/td[5]/div/a[3]",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "2d710faf-ff9f-43fa-99c9-16dfa8f4b5c9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://veads-dev.ontwikkel.it/"],
+  "plugins": []
+}

@@ -2,7 +2,7 @@
 @section('content')
 
 <section class="cover-background background-position-top top-space" style="background-image: url(&quot;/images/homepage-9-parallax-img5.jpg&quot;); margin-top: 72px; visibility: visible; animation-name: fadeIn;">
-    <div class="opacity-medium bg-extra-dark-gray"></div>
+    <div class="opacity-extra-medium bg-extra-dark-gray"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
@@ -23,7 +23,9 @@
                     <div class="blog-post bg-light-gray inner-match-height">
                         <div class="blog-post-images overflow-hidden position-relative">
                             <a href="/event/{{$event->id}}">
-                                <img src="images/blog-img31.jpg" alt="" data-no-retina="">
+                                @if(count($event->pictures) > 0)
+                                    <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" data-no-retina="">
+                                @endif
                                 <div class="blog-hover-icon"><span class="text-extra-large font-weight-300">+</span></div>
                             </a>
                         </div>

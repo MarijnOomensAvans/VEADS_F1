@@ -80,7 +80,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12 social-style-2 xs-text-center display-table">
                             <div class="display-table-cell vertical-align-middle">
-                                <a href="index.html"><img class="footer-logo" src="/images/logo.png" alt="Logo"></a>
+                                <a href="/"><img class="footer-logo" src="/images/logo.png" alt="Logo"></a>
                                 <div class="social-icon-style-8">
                                     <ul class="text-extra-small margin-20px-top xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none">
                                         <li class="display-inline-block margin-10px-right"><a href="http://twitter.com" target="_blank" title="Twitter">Twitter</a></li>

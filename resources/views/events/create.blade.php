@@ -22,7 +22,7 @@ $inputLgWidth = 12 - $labelLgWidth;
             <div class="block-content">
                 <div class="row">
                     <div class="col-12">
-                        <form method="post" action="{{ (isset($event) ? route('admin/events/edit', ['event' => $event]) : route('admin/events/create')) }}">
+                        <form method="post" action="{{ (isset($event) ? route('admin/events/edit', ['event' => $event]) : route('admin/events/create')) }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                                 <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="name">Evenement naam</label>
@@ -164,6 +164,13 @@ $inputLgWidth = 12 - $labelLgWidth;
                                             {{ $errors->first('country') }}
                                         </div>
                                     @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-5">
+                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="image">Foto's</label>
+                                <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-{{ $inputLgWidth }}">
+                                    <input type="file" name="image[]" id="image" accept="image/jpeg,image/jpg,image/png,image/png,image/svg" multiple/>
                                 </div>
                             </div>
 

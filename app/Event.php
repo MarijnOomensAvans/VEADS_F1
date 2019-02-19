@@ -37,4 +37,10 @@ class Event extends Model
             ->withPivot('task')
             ->withTimestamps();
     }
+
+    public function pictures() {
+        return $this
+            ->belongsToMany('App\Picture')
+            ->withTimestamps();
+    }
 }
