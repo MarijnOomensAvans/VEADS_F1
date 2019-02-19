@@ -6,7 +6,7 @@
             <div class="swiper-full-screen swiper-container width-80 white-move">
                     <!-- start slider item -->
                     <div class="cover-background height-400px" style="background-image:url('images/homepageheaderimage.jpg');">
-                      <div class="opacity-medium bg-light-blue"></div>
+                      <div class="opacity-extra-medium bg-light-blue"></div>
                             <div class="slider-typography text-center">
                                 <div class="slider-text-middle-main">
                                     <div class="slider-text-middle">
