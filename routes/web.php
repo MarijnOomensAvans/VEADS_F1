@@ -28,5 +28,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::post('/events/{event}/edit', 'EventController@update')->name('admin/events/edit')->where('event', '[0-9]+');
     Route::get('/events/{event}/destroy', 'EventController@destroy')->name('admin/events/destroy')->where('event', '[0-9]+');
     Route::post('/events/{event}/destroy', 'EventController@delete')->name('admin/events/destroy')->where('event', '[0-9]+');
+
+    Route::get('/projects', 'ProjectController@index')->name('admin/projects');
+    Route::get('/projects/{project}', 'ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
+    Route::get('/projects/create', 'ProjectController@create')->name('admin/projects/create');
+    Route::post('/projects/create', 'ProjectController@store')->name('admin/projects/create');
+    Route::get('/projects/{project}/edit', 'ProjectController@edit')->name('admin/projects/edit')->where('project', '[0-9]+');
+    Route::post('/projects/{project}/edit', 'ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
+    Route::get('/projects/{project}/destroy', 'ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    Route::post('/projects/{project}/destroy', 'ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
 });
 

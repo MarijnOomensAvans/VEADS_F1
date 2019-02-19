@@ -169,6 +169,7 @@ $inputLgWidth = 12 - $labelLgWidth;
 
                             <div class="form-group row">
                                 <div class="col-12 text-right">
+                                    <a href="{{ route('admin/events') }}" class="btn btn-secondary">Annuleren</a>
                                     <button type="submit" class="btn btn-primary">Opslaan</button>
                                 </div>
                             </div>
