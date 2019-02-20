@@ -2,7 +2,7 @@
   "id": "62638e69-372a-4843-844e-b80bafac9234",
   "version": "2.0",
   "name": "VEADS",
-  "url": "https://veads-dev.ontwikkel.it",
+  "url": "http://veads_f1.test/",
   "tests": [{
     "id": "42889889-6089-4939-ada3-c4fd7483e739",
     "name": "Evenement toevoegen",
@@ -282,6 +282,201 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "e43619b5-c185-49d9-912d-a4cd5f364933",
+    "name": "Project toevoegen",
+    "commands": [{
+      "id": "20d58300-1206-4a35-9c75-abe506f5e008",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/projects",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11030278-ba3d-4e35-b21f-b55bb5bdad60",
+      "comment": "",
+      "command": "store",
+      "target": "Dit is een test project",
+      "targets": [],
+      "value": "projectName"
+    }, {
+      "id": "216fab3c-f6d7-447b-950e-98bb6d1d4140",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dcc5aa0b-283d-494a-9d57-9e17440b5f5d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Project toevoegen",
+      "targets": [
+        ["linkText=Project toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Project toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/projects/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Project toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f562931-2a28-4d2d-a5d2-a56aba6211fc",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${projectName}"
+    }, {
+      "id": "1c7dfd64-c507-44d1-9d29-528406b1af96",
+      "comment": "",
+      "command": "type",
+      "target": "css=.note-editable",
+      "targets": [
+        ["css=.note-editable", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[3]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]", "xpath:position"]
+      ],
+      "value": "<p>Project omschrijving</p>"
+    }, {
+      "id": "cd76efed-7517-4183-8d33-92594e51338c",
+      "comment": "",
+      "command": "type",
+      "target": "id=street",
+      "targets": [
+        ["id=street", "id"],
+        ["name=street", "name"],
+        ["css=#street", "css:finder"],
+        ["xpath=//input[@id='street']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "Onderwijsboulevard"
+    }, {
+      "id": "f7f933c2-7846-4082-b0fc-5b2b412768a2",
+      "comment": "",
+      "command": "type",
+      "target": "id=number",
+      "targets": [
+        ["id=number", "id"],
+        ["name=number", "name"],
+        ["css=#number", "css:finder"],
+        ["xpath=//input[@id='number']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": "215"
+    }, {
+      "id": "80f6de91-94f2-4031-8e61-cfc7fec939bf",
+      "comment": "",
+      "command": "type",
+      "target": "id=zipcode",
+      "targets": [
+        ["id=zipcode", "id"],
+        ["name=zipcode", "name"],
+        ["css=#zipcode", "css:finder"],
+        ["xpath=//input[@id='zipcode']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "5211DG"
+    }, {
+      "id": "42b65719-534b-4053-b52a-e2bf39d06a8c",
+      "comment": "",
+      "command": "type",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["name=city", "name"],
+        ["css=#city", "css:finder"],
+        ["xpath=//input[@id='city']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": "'s-Hertogenbosch"
+    }, {
+      "id": "4703a151-e8d0-44b2-b448-0f7ab0ff8e92",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div/button", "xpath:idRelative"],
+        ["xpath=//div[6]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "46d51304-fdc8-46db-8880-53bf9b0d7c87",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Dit is een test project')]", "xpath:innerText"]
+      ],
+      "value": "${projectName}"
+    }]
+  }, {
+    "id": "44bff17f-d0a9-48dc-b86f-d3e6570a3af9",
+    "name": "Project verwijderen",
+    "commands": [{
+      "id": "36d75533-c8da-4ae1-a83c-35a31b2a035d",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/projects",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa36c5fb-c460-4898-a1b3-a082e5a2b98c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10665982-8118-4628-9d4d-7c4c8eda2d99",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Dit is een test project')]/td[2]/div/a[3]",
+      "targets": [
+        ["css=tr:nth-child(3) .fa-trash", "css:finder"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div[2]/div/table/tbody/tr[3]/td[5]/div/a[3]/span", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[5]/div/a[3]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "822a9bac-e723-4eca-abeb-5ed37e94e719",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div/div/form/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ja')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6091b6d-4fd1-4bd9-a006-44feed333b64",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Dit is een test project')]/td[2]/div/a[3]",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "2d710faf-ff9f-43fa-99c9-16dfa8f4b5c9",
@@ -291,6 +486,6 @@
     "timeout": 300,
     "tests": []
   }],
-  "urls": ["https://veads-dev.ontwikkel.it/"],
+  "urls": ["https://veads-dev.ontwikkel.it/", "http://veads_f1.test/"],
   "plugins": []
 }
