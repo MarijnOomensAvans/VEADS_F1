@@ -37,10 +37,38 @@
         <div class="row">
             <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
                 <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
-                    <img src="/images/blog-details-img19.jpg" alt="" class=" border-radius-100 width-100 margin-45px-bottom" data-no-retina="">
+                    
+                    @if(count($event->pictures) > 0)
+                        <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" class=" border-radius-100 width-100 margin-45px-bottom" data-no-retina="">
+                    @endif
                     <p>
                         {!!$event->description!!}
                     </p>
+                    <div class="row lightbox-gallery">
+                    <div class="col-md-12 no-padding xs-padding-15px-lr">
+                        <ul class="portfolio-grid work-3col hover-option4 gutter-medium" style="position: relative; height: 1250px;">
+                            <li class="grid-sizer"></li>
+                            @foreach($event->pictures as $picture)
+                                <li class="grid-item web branding design fadeInUp" style="visibility: visible; animation-name: fadeInUp; position: absolute; left: 0%; top: 0px;">
+                                    <a href="/image/{{ $picture->path }}/{{ $picture->name }}" title="Lightbox gallery image title...">
+                                        <figure>
+                                            <div class="portfolio-img bg-extra-dark-gray"><img src="/image/{{ $picture->path }}/{{ $picture->name }}" class="project-img-gallery" data-no-retina=""></div>
+                                            <figcaption>
+                                                <div class="portfolio-hover-main text-center">
+                                                    <div class="portfolio-hover-box vertical-align-middle">
+                                                        <div class="portfolio-hover-content position-relative">
+                                                            <i class="ti-zoom-in text-white fa-2x"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 margin-seven-bottom margin-eight-top">
                     <div class="divider-full bg-medium-light-gray"></div>

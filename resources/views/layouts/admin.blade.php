@@ -36,43 +36,43 @@
                         <span class="nav-main-link-name">Evenementen</span>
                     </a>
                 </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon si si-grid"></i>
-                        <span class="nav-main-link-name">Projecten</span>
-                    </a>
-                </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon far fa-images"></i>
-                        <span class="nav-main-link-name">Foto's</span>
-                    </a>
-                </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon far fa-file"></i>
-                        <span class="nav-main-link-name">Content</span>
-                    </a>
-                </li>
-                <li class="nav-main-item nav-main-heading">Connecties</li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon fas fa-users"></i>
-                        <span class="nav-main-link-name">Vrijwilligers</span>
-                    </a>
-                </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon far fa-id-card"></i>
-                        <span class="nav-main-link-name">Werknemers</span>
-                    </a>
-                </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon far fa-handshake"></i>
-                        <span class="nav-main-link-name">Partners</span>
-                    </a>
-                </li>
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon si si-grid"></i>--}}
+                        {{--<span class="nav-main-link-name">Projecten</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon far fa-images"></i>--}}
+                        {{--<span class="nav-main-link-name">Foto's</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon far fa-file"></i>--}}
+                        {{--<span class="nav-main-link-name">Content</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-main-item nav-main-heading">Connecties</li>--}}
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon fas fa-users"></i>--}}
+                        {{--<span class="nav-main-link-name">Vrijwilligers</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon far fa-id-card"></i>--}}
+                        {{--<span class="nav-main-link-name">Werknemers</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon far fa-handshake"></i>--}}
+                        {{--<span class="nav-main-link-name">Partners</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
             </ul>
         </div>
     </nav>
