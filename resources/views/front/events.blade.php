@@ -1,13 +1,30 @@
 @extends('front.master')
 @section('content')
 
-<section class="cover-background background-position-top top-space" style="background-image: url(&quot;/images/homepage-9-parallax-img5.jpg&quot;); margin-top: 72px; visibility: visible; animation-name: fadeIn;">
-    <div class="opacity-extra-medium bg-extra-dark-gray"></div>
+<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/images/homepage-9-parallax-img5.jpg&quot;); margin-top: 72px; visibility: visible; animation-name: fadeIn;">
+    <div class="opacity-medium bg-light-blue"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
                 <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
                     <h1 class="alt-font text-white font-weight-600 no-margin-bottom">Evenementen</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 display-table">
+                <div class="display-table-cell vertical-align-middle text-left">
+                    <div class="breadcrumb alt-font text-small no-margin-bottom">
+                        <ul>
+                            <li><a href="/" class="text-medium-gray">Home</a></li>
+                            <li><a href="/event" class="text-medium-gray">Evenementen</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
