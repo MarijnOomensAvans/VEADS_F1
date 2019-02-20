@@ -65,6 +65,11 @@ class EventController extends Controller
 
         $event = new Event($validated);
         $event->address_id = $address->id;
+
+        if ($validated['project_id'] == 0) {
+            $event->project_id = null;
+        }
+
         $event->save();
 
 	    $date = new EventDateTime();
@@ -118,6 +123,11 @@ class EventController extends Controller
         $address->save();
 
         $event->fill($validated);
+
+        if ($validated['project_id'] == 0) {
+            $event->project_id = null;
+        }
+
 	    $event->save();
 
 	    $date = $event->datetime()->first();
@@ -170,6 +180,20 @@ class EventController extends Controller
 	    return redirect('admin/events');
     }
 
+    public function destroyImage(Event $event, Picture $picture) {
+        return view('events/image', compact('event', 'picture'));
+    }
+
+    public function deleteImage(Request $request, Event $event, Picture $picture) {
+        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            Storage::delete("images/" . $picture->path);
+            $picture->events()->detach();
+            $picture->delete();
+        }
+
+        return redirect('admin/events/' . $event->id);
+    }
+
     private function saveImages(Event $event, $images) {
         foreach($images as $image) {
             $name = $image->getClientOriginalName();
@@ -184,19 +208,5 @@ class EventController extends Controller
 
             $event->pictures()->attach($picture->id);
         }
-    }
-
-    public function destroyImage(Event $event, Picture $picture) {
-        return view('events/image', compact('event', 'picture'));
-    }
-
-    public function deleteImage(Request $request, Event $event, Picture $picture) {
-        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            Storage::delete("images/" . $picture->path);
-            $picture->events()->detach();
-            $picture->delete();
-        }
-
-        return redirect('admin/events/' . $event->id);
     }
 }

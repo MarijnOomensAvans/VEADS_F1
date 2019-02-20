@@ -108,7 +108,9 @@
         </div>
     </header>
     <main id="main-container">
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
     </main>
     <footer id="page-footer" class="bg-body-light">
         <div class="content py-0">
@@ -125,6 +127,7 @@
 </div>
 <script src="{{ asset('js/dashmix.core.min-1.5.js') }}"></script>
 <script src="{{ asset('js/dashmix.app.min-1.5.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 @yield('scripts')
 </body>
 </html>

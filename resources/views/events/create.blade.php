@@ -36,7 +36,7 @@ $inputLgWidth = 12 - $labelLgWidth;
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-5">
                                 <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="description">Evenement omschrijving</label>
                                 <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
                                     <textarea class="form-control{{ ($errors->has('description') ? ' is-invalid' : '') }}" name="description" id="description" rows="15" placeholder="Evenement omschrijving">{{ old('description', $event->description ?? '') }}</textarea>
@@ -45,6 +45,13 @@ $inputLgWidth = 12 - $labelLgWidth;
                                             {{ $errors->first('description') }}
                                         </div>
                                     @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-5">
+                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="name">Project</label>
+                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
+                                    <project-search-component project="{{ old('project_id', $event->project_id ?? '') }}"></project-search-component>
                                 </div>
                             </div>
 

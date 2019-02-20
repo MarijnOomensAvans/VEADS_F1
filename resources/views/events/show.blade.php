@@ -13,6 +13,15 @@
                     <div class="col-12 col-sm-8">{!! $event->description !!}</div>
                 </div>
                 <hr/>
+                @if(!empty($event->project))
+                    <div class="row mb-3">
+                        <div class="col-12 col-sm-4"><label>Project</label></div>
+                        <div class="col-12 col-sm-8">
+                            <a href="{{ route('admin/project', ['project' => $event->project]) }}">{{ $event->project->name }}</a>
+                        </div>
+                    </div>
+                    <hr/>
+                @endif
                 @if($event->price > 0)
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4"><label>Entreeprijs</label></div>

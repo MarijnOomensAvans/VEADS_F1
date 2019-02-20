@@ -32,8 +32,8 @@ class ProjectController extends Controller
 
         $projects = $projects->paginate(15);
 
-        if ($request->acceptsJson()) {
-            return response()->json($projects);
+        if ($request->query('json')) {
+            return response()->json(compact('projects', 'q'));
         }
 
         return view('projects/index', compact('projects', 'q'));
@@ -75,8 +75,12 @@ class ProjectController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Request $request, Project $project)
     {
+        if ($request->query('json')) {
+            return response()->json(compact('project'));
+        }
+
         return view('projects/show', compact('project'));
     }
 

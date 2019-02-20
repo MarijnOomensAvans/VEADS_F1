@@ -22,6 +22,19 @@
                     </div>
                 </div>
                 <hr/>
+                @if(!empty($project->events))
+                <div class="row mb-3">
+                    <div class="col-12 col-sm-4"><label>Evenementen</label></div>
+                    <div class="col-12 col-sm-8">
+                        <ul>
+                            @foreach($project->events as $event)
+                                <li><a href="{{ route('admin/event', ['event' => $event]) }}">{{ $event->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                <hr/>
+                @endif
                 <div class="row mb-3">
                     <div class="col-12 text-right">
                         <div class="btn-group">
