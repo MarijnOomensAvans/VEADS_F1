@@ -20,6 +20,15 @@ Auth::routes(['verify' => false, 'register' => false]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
+    Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
+    Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
+    Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');
+    Route::post('/projects/create', 'Backend\\ProjectController@store')->name('admin/projects/create');
+    Route::get('/projects/{project}/edit', 'Backend\\ProjectController@edit')->name('admin/projects/edit')->where('project', '[0-9]+');
+    Route::post('/projects/{project}/edit', 'Backend\\ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
+    Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
+
     Route::get('/', 'Backend\\AdminController@index')->name('admin');
     Route::get('/events', 'Backend\\EventController@index')->name('admin/events');
     Route::get('/events/{event}', 'Backend\\EventController@show')->name('admin/event')->where('event', '[0-9]+');

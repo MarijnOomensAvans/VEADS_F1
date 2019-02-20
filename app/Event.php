@@ -15,7 +15,8 @@ class Event extends Model
         'address_id',
         'name',
         'description',
-        'price'
+        'price',
+        'project_id'
     ];
 
     public function address() {
@@ -42,5 +43,9 @@ class Event extends Model
         return $this
             ->belongsToMany('App\Picture')
             ->withTimestamps();
+    }
+
+    public function project() {
+        return $this->belongsTo('App\Project');
     }
 }
