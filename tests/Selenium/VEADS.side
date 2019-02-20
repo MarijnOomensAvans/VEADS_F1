@@ -2,7 +2,7 @@
   "id": "62638e69-372a-4843-844e-b80bafac9234",
   "version": "2.0",
   "name": "VEADS",
-  "url": "http://veads_f1.test/",
+  "url": "https://veads-dev.ontwikkel.it/",
   "tests": [{
     "id": "42889889-6089-4939-ada3-c4fd7483e739",
     "name": "Evenement toevoegen",
