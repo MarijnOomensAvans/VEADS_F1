@@ -14,6 +14,8 @@
 Route::view('/', 'front.home')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
+Route::get('/project', 'Frontend\\ProjectController@frontIndex');
+Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 
 Auth::routes(['verify' => false, 'register' => false]);
