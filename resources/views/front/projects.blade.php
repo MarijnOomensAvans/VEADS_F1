@@ -56,5 +56,31 @@
             @endforeach
         </div>
     </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center margin-100px-top sm-margin-50px-top position-relative wow fadeInUp"
+        style="visibility: visible; animation-name: fadeInUp;">
+        <div class="pagination text-small text-uppercase text-extra-dark-gray">
+            @if ($projects->lastPage() > 1)
+            <ul>
+                <li class="{{ ($projects->currentPage() == 1) ? ' disabled' : '' }}">
+                    <a href="{{ $projects->url(1) }}">
+                    <i class="fas fa-long-arrow-alt-left margin-5px-right xs-display-none"></i>
+                    Prev</a>
+                </li>
+                @for ($i = 1; $i
+                <=$projects->lastPage(); $i++)
+                    <li class="{{ ($projects->currentPage() == $i) ? ' active' : '' }}">
+                        <a href="{{ $projects->url($i) }}">{{ $i }}</a>
+                    </li>
+                    @endfor
+                    <li class="{{ ($projects->currentPage() == $projects->lastPage()) ? ' disabled' : '' }}">
+                        <a href="{{ $projects->url($projects->currentPage()+1) }}">
+                            Next<i class="fas fa-long-arrow-alt-right margin-5px-left xs-display-none"></i>
+                        </a>
+                    </li>
+            </ul>
+            @endif
+        </div>
+    </div>
 </section>
 @endsection

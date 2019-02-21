@@ -9,7 +9,7 @@ use App\Project;
 class ProjectController extends Controller
 {
     public function frontIndex(){
-        $projects = Project::all();
+        $projects = Project::paginate(9);
         return view('front.projects', ['projects' => $projects]);
     }
 

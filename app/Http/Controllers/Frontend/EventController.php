@@ -9,7 +9,7 @@ use App\Event;
 class EventController extends Controller
 {
     public function frontIndex(){
-        $events = Event::all();
+        $events = Event::paginate(9);
         return view('front.events', ['events' => $events]);
     }
 
