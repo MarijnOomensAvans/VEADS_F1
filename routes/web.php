@@ -29,6 +29,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
     Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
 
+    Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
+    Route::get('/volunteers/{volunteer}', 'Backend\\VolunteerController@show')->name('admin/volunteer')->where('volunteer', '[0-9]+');
+    Route::get('/volunteers/create', 'Backend\\VolunteerController@create')->name('admin/volunteers/create');
+    Route::post('/volunteers/create', 'Backend\\VolunteerController@store')->name('admin/volunteers/create');
+    Route::get('/volunteers/{volunteer}/edit', 'Backend\\VolunteerController@edit')->name('admin/volunteers/edit')->where('volunteer', '[0-9]+');
+    Route::post('/volunteers/{volunteer}/edit', 'Backend\\VolunteerController@update')->name('admin/volunteers/edit')->where('volunteer', '[0-9]+');
+    Route::get('/volunteers/{volunteer}/destroy', 'Backend\\VolunteerController@destroy')->name('admin/volunteers/destroy')->where('volunteer', '[0-9]+');
+    Route::post('/volunteers/{volunteer}/destroy', 'Backend\\VolunteerController@delete')->name('admin/volunteers/destroy')->where('volunteer', '[0-9]+');
+    
     Route::get('/', 'Backend\\AdminController@index')->name('admin');
     Route::get('/events', 'Backend\\EventController@index')->name('admin/events');
     Route::get('/events/{event}', 'Backend\\EventController@show')->name('admin/event')->where('event', '[0-9]+');
