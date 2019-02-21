@@ -179,7 +179,7 @@ $inputLgWidth = 12 - $labelLgWidth;
                                 <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-{{ $inputLgWidth }}">
                                     <input type="file" name="image[]" id="image" accept="image/jpeg,image/jpg,image/png,image/png,image/svg" multiple/>
 
-                                    @if(count($event->pictures))
+                                    @if(isset($event) && count($event->pictures))
                                         <div class="row mt-3 items-push img-fluid-100">
                                             @each('events.partials.picture', $event->pictures, 'picture')
                                         </div>
