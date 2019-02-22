@@ -2,17 +2,24 @@
 
 @section('content')
     <div class="content">
-        <h1>{{ $event->name }}</h1>
+        @if (empty($event->name))
+            <h1>Naamloos evenement</h1>
+        @else
+            <h1>{{ $event->name }}</h1>
+        @endif
     </div>
 
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-content">
-                <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Evenement omschrijving</label></div>
-                    <div class="col-12 col-sm-8">{!! $event->description !!}</div>
-                </div>
-                <hr/>
+                @if(!empty($event->description))
+                    <div class="row mb-3">
+                        <div class="col-12 col-sm-4"><label>Evenement omschrijving</label></div>
+                        <div class="col-12 col-sm-8">{!! $event->description !!}</div>
+                    </div>
+                    <hr/>
+                @endif
+
                 @if(!empty($event->project))
                     <div class="row mb-3">
                         <div class="col-12 col-sm-4"><label>Project</label></div>
@@ -22,34 +29,56 @@
                     </div>
                     <hr/>
                 @endif
+
                 @if($event->price > 0)
-                <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Entreeprijs</label></div>
-                    <div class="col-12 col-sm-8">&euro;{{ number_format($event->price, 2, ',', '.') }}</div>
-                </div>
-                <hr/>
+                    <div class="row mb-3">
+                        <div class="col-12 col-sm-4"><label>Entreeprijs</label></div>
+                        <div class="col-12 col-sm-8">&euro;{{ number_format($event->price, 2, ',', '.') }}</div>
+                    </div>
+                    <hr/>
                 @endif
-                <div class="row">
-                    <div class="col-12 col-sm-4"><label>Evenement begindatum/-tijd</label></div>
-                    <div class="col-12 col-sm-8">{{ $event->datetime->start->format('d-m-Y \o\m H:i') }}</div>
-                </div>
+
+                @if(!empty($event->datetime))
+                    @if(!empty($event->datetime->start))
+                        <div class="row">
+                            <div class="col-12 col-sm-4"><label>Evenement begindatum/-tijd</label></div>
+                            <div class="col-12 col-sm-8">{{ $event->datetime->start->format('d-m-Y \o\m H:i') }}</div>
+                        </div>
+                    @endif
+
+                    @if(!empty($event->datetime->end))
+                        <div class="row mb-3">
+                            <div class="col-12 col-sm-4"><label>Evenement einddatum/-tijd</label></div>
+                            <div class="col-12 col-sm-8">{{ $event->datetime->end->format('d-m-Y \o\m H:i') }}</div>
+                        </div>
+                    @endif
+                    <hr/>
+                @endif
+
+                @if(!empty($event->address))
+                    <div class="row mb-3">
+                        <div class="col-12 col-sm-4"><label>Adres</label></div>
+                        <div class="col-12 col-sm-8">
+                            {{ $event->address->street . ' ' . $event->address->number . $event->address->number_modifier }}<br/>
+                            {{ $event->address->zipcode . ' ' . $event->address->city }}<br/>
+                            {{ $event->address->country }}
+                        </div>
+                    </div>
+                    <hr/>
+                @endif
+
                 <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Evenement einddatum/-tijd</label></div>
-                    <div class="col-12 col-sm-8">{{ $event->datetime->end->format('d-m-Y \o\m H:i') }}</div>
-                </div>
-                <hr/>
-                <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Adres</label></div>
+                    <div class="col-12 col-sm-4"><label>Gepubliceerd</label></div>
                     <div class="col-12 col-sm-8">
-                        {{ $event->address->street . ' ' . $event->address->number . $event->address->number_modifier }}<br/>
-                        {{ $event->address->zipcode . ' ' . $event->address->city }}<br/>
-                        {{ $event->address->country }}
+                        @if($event->published)
+                            <span class="fa fa-check"></span>
+                        @else
+                            <span class="fa fa-times"></span>
+                        @endif
                     </div>
                 </div>
 
                 @if(count($event->pictures))
-                    <hr/>
-
                     <div class="row">
                         <div class="col-12">
                             <label>Foto's</label>
@@ -59,9 +88,9 @@
                     <div class="row mb-3 items-push img-fluid-100">
                         @each('events.partials.picture', $event->pictures, 'picture')
                     </div>
+                    <hr/>
                 @endif
 
-                <hr/>
                 <div class="row mb-3">
                     <div class="col-12 text-right">
                         <div class="btn-group">

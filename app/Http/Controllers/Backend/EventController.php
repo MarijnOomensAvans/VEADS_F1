@@ -7,6 +7,7 @@ use App\Event;
 use App\EventDateTime;
 use App\Http\Requests\StoreEvent;
 use App\Picture;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -60,11 +61,26 @@ class EventController extends Controller
     {
         $validated = $request->validated();
 
-        $address = new Address($validated);
-        $address->save();
+        if (
+            (isset($validated['street']) && !empty($validated['street'])) &&
+            (isset($validated['number']) && !empty($validated['number'])) &&
+            (isset($validated['zipcode']) && !empty($validated['zipcode'])) &&
+            (isset($validated['city']) && !empty($validated['city'])) &&
+            (isset($validated['country']) && !empty($validated['country']))
+        ) {
+            $address = new Address($validated);
+            $address->save();
+        }
 
         $event = new Event($validated);
-        $event->address_id = $address->id;
+
+        if (!isset($validated['published'])) {
+            $event->published = 0;
+        }
+
+        if (isset($address)) {
+            $event->address_id = $address->id;
+        }
 
         if ($validated['project_id'] == 0) {
             $event->project_id = null;
@@ -72,11 +88,20 @@ class EventController extends Controller
 
         $event->save();
 
-	    $date = new EventDateTime();
-	    $date->event_id = $event->id;
-	    $date->start = new \DateTime($validated['start_date'] . " " . $validated['start_time']);
-	    $date->end = new \DateTime($validated['end_date'] . " " . $validated['end_time']);
-	    $date->save();
+        if (isset($validated['start_datetime']) || isset($validated['end_datetime'])) {
+            $date = new EventDateTime();
+            $date->event_id = $event->id;
+
+            if (isset($validated['start_datetime'])) {
+                $date->start = new Carbon($validated['start_datetime']);
+            }
+
+            if (isset($validated['end_datetime'])) {
+                $date->end = new Carbon($validated['end_datetime']);
+            }
+
+            $date->save();
+        }
 
         if ($request->hasFile('image')) {
             $this->saveImages($event, $request->file('image'));
@@ -119,10 +144,33 @@ class EventController extends Controller
         $validated = $request->validated();
 
         $address = $event->address()->first();
-	    $address->fill($validated);
-        $address->save();
+
+        if (
+            (isset($validated['street']) && !empty($validated['street'])) &&
+            (isset($validated['number']) && !empty($validated['number'])) &&
+            (isset($validated['zipcode']) && !empty($validated['zipcode'])) &&
+            (isset($validated['city']) && !empty($validated['city'])) &&
+            (isset($validated['country']) && !empty($validated['country']))
+        ) {
+            if (empty($address)) {
+                $address = new Address();
+            }
+
+            $address->fill($validated);
+            $address->save();
+
+            $event->address_id = $address->id;
+        } elseif (!empty($address)) {
+            $event->address_id = null;
+            $event->save();
+            $address->delete();
+        }
 
         $event->fill($validated);
+
+        if (!isset($validated['published'])) {
+            $event->published = 0;
+        }
 
         if ($validated['project_id'] == 0) {
             $event->project_id = null;
@@ -131,10 +179,26 @@ class EventController extends Controller
 	    $event->save();
 
 	    $date = $event->datetime()->first();
-	    $date->event_id = $event->id;
-	    $date->start = new \DateTime($validated['start_date'] . " " . $validated['start_time']);
-	    $date->end = new \DateTime($validated['end_date'] . " " . $validated['end_time']);
-	    $date->save();
+
+        if (isset($validated['start_datetime']) || isset($validated['end_datetime'])) {
+            if (empty($date)) {
+                $date = new EventDateTime();
+            }
+
+            $date->event_id = $event->id;
+
+            if (isset($validated['start_datetime'])) {
+                $date->start = new Carbon($validated['start_datetime']);
+            }
+
+            if (isset($validated['end_datetime'])) {
+                $date->end = new Carbon($validated['end_datetime']);
+            }
+
+            $date->save();
+        } elseif (!empty($date)) {
+            $date->delete();
+        }
 
         if ($request->hasFile('image')) {
             $this->saveImages($event, $request->file('image'));
