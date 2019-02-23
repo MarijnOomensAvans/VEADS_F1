@@ -16,7 +16,8 @@ class Event extends Model
         'name',
         'description',
         'price',
-        'project_id'
+        'project_id',
+        'published'
     ];
 
     public function address() {

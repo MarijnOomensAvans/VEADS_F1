@@ -36,6 +36,7 @@
                                 <th>Event start</th>
                                 <th>Event locatie</th>
                                 <th class="text-center" style="width: 150px;">Aanmeldingen</th>
+                                <th class="text-center" style="width: 100px">Gepubliceerd</th>
                                 <th class="text-center" style="width: 150px;">Acties</th>
                             </tr>
                             </thead>
@@ -48,9 +49,28 @@
                             @foreach($events as $event)
                                 <tr>
                                     <td>{{ $event->name }}</td>
-                                    <td>{{ $event->datetime->start->format('d-m-Y \o\m H:i') }}</td>
-                                    <td>{{ $event->address->city }}</td>
+                                    <td>
+                                        @if(!empty($event->datetime) && !empty($event->datetime->start))
+                                            {{ $event->datetime->start->format('d-m-Y \o\m H:i') }}
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!empty($event->address))
+                                            {{ $event->address->city }}
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
                                     <td class="text-center">{{ $event->applications->count() }}</td>
+                                    <td class="text-center">
+                                        @if($event->published)
+                                            <span class="fa fa-check"></span>
+                                        @else
+                                            <span class="fa fa-times"></span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('admin/event', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
