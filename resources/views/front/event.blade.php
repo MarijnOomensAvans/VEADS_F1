@@ -1,7 +1,7 @@
 @extends('front.master')
 @section('content')
 
-<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/images/homepage-3-slider-img-3.jpg&quot;); margin-top: 72px; visibility: visible;">
+<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}&quot;); margin-top: 72px; visibility: visible;">
     <div class="opacity-medium bg-light-blue"></div>
     <div class="container">
         <div class="row">
@@ -37,10 +37,12 @@
         <div class="row">
             <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
                 <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
-                    
+                    {{--
                     @if(count($event->pictures) > 0)
                         <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" class=" border-radius-100 width-100 margin-45px-bottom" data-no-retina="">
                     @endif
+                    --}}
+
                     <p>
                         {!!$event->description!!}
                     </p>
