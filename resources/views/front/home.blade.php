@@ -65,6 +65,63 @@
                             </div>
                         </div>
                         <!-- end portfolio item -->
+                </section>
+
+                <section>
+                <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
+                        <div class="position-relative overflow-hidden width-100">
+                            <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Social media feed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row position-relative">
+                    <div class="swiper-container swiper-pagination-bottom black-move blog-slider swiper-three-slides swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(-390px, 0px, 0px); transition-duration: 0ms;">
+                            <!-- start testimonial item -->
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom" style="width: 390px;">
+                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                                    <img src="images/avtar-14.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
+                                    <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Wij zijn met een showcase op het Robot Care event in Zeist op 14-6-2019. Kom allemaal kijken!</p>
+                                    <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Modoll Facebook</span>
+                                </div>
+                            </div>
+                            <!-- end testimonial item -->
+                            <!-- start testimonial item -->
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom" style="width: 390px;">
+                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                                    <img src="images/avtar-13.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
+                                    <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Nieuw evenement waarvoor wij nog vrijwilligers zoeken: paasontbijt 2019</p>
+                                    <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">VEADS Facebook</span>
+                                </div>
+                            </div>
+                            <!-- end testimonial item -->
+                            <!-- start testimonial item -->
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom" style="width: 390px;">
+                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                                    <img src="images/avtar-15.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
+                                    <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Nieuwe influencer gezocht met minimaal 1000 volgers op instagram.</p>
+                                    <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Modoll Twitter</span>
+                                </div>
+                            </div>
+                            <!-- end testimonial item -->
+                            <!-- start testimonial item -->
+                            <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom" style="width: 390px;">
+                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                                    <img src="images/avtar-16.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
+                                    <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Benefietconcert 2018 was weer een groot succes! We hopen iedereen volgend jaar weer te zien!</p>
+                                    <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">VEADS Instagram</span>
+                                </div>
+                            </div>
+                            <!-- end testimonial item -->
+                        </div>                        
+                        <div class="swiper-pagination swiper-pagination-three-slides height-auto swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+                    </div>
+                </div>
+            </div>
+                        
                     </div>
                 </div>
             </div>
