@@ -132,7 +132,7 @@ $inputLgWidth = 12 - $labelLgWidth;
                             <div class="form-group row mb-5">
                                 <div class="offset-sm-{{ $labelSmWidth }} offset-lg-{{ $labelLgWidth }} col-sm-{{ $inputSmWidth / 2 }} col-lg-{{ $inputLgWidth }}">
                                     <div class="custom-control custom-switch custom-control-lg mb-2">
-                                        <input type="checkbox" class="custom-control-input" id="published" name="published" checked>
+                                        <input type="checkbox" class="custom-control-input" id="published" name="published" checked value="1">
                                         <label class="custom-control-label" for="published">Gepubliceerd</label>
                                         <span class="fas fa-question-circle" data-toggle="tooltip" data-placement="top" title="Hiermee kun je aanpassen of dit evenement zichtbaar moet zijn op de website."></span>
                                     </div>
