@@ -54,13 +54,13 @@
                         {{--<span class="nav-main-link-name">Content</span>--}}
                     {{--</a>--}}
                 {{--</li>--}}
-                {{--<li class="nav-main-item nav-main-heading">Connecties</li>--}}
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon fas fa-users"></i>--}}
-                        {{--<span class="nav-main-link-name">Vrijwilligers</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
+                <li class="nav-main-item nav-main-heading">Connecties</li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/volunteer') !== false ? ' active' : '' }}" href="{{ route('admin/volunteers') }}">
+                        <i class="nav-main-link-icon fas fa-users"></i>
+                        <span class="nav-main-link-name">Vrijwilligers</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
                         {{--<i class="nav-main-link-icon far fa-id-card"></i>--}}

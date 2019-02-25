@@ -43,7 +43,7 @@
                             <tbody>
                             @if($events->total() < 1)
                                 <tr class="table-info">
-                                    <td class="text-center" colspan="5">Geen evenementen gevonden.</td>
+                                    <td class="text-center" colspan="6">Geen evenementen gevonden.</td>
                                 </tr>
                             @endif
                             @foreach($events as $event)
