@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Address;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVolunteer;
 use App\Volunteer;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class VolunteerController extends Controller
 {
@@ -15,9 +15,25 @@ class VolunteerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('volunteers.index', ['volunteers' => new LengthAwarePaginator([], 0, 15), 'q' => '']);
+        $q = $request->query('q');
+
+        $volunteers = Volunteer::leftJoin('addresses', 'volunteers.address_id', '=', 'addresses.id')
+            ->orderBy('volunteers.last_name')
+            ->select('volunteers.*');
+
+        if (!empty($q)) {
+            $volunteers = $volunteers->where('first_name', 'like', '%' . $q . '%')
+                ->orWhere('last_name', 'like', '%' . $q . '%')
+                ->orWhere('addresses.country', 'like', '%' . $q . '%')
+                ->orWhere('addresses.city', 'like', '%' . $q . '%')
+                ->orWhere('addresses.street', 'like', '%' . $q . '%');
+        }
+
+        $volunteers = $volunteers->paginate(15);
+
+        return view('volunteers.index', compact('volunteers', 'q'));
     }
 
     /**
@@ -38,7 +54,16 @@ class VolunteerController extends Controller
      */
     public function store(StoreVolunteer $request)
     {
-        //
+        $validated = $request->validated();
+
+        $address = new Address($validated);
+        $address->save();
+
+        $volunteer = new Volunteer($validated);
+        $volunteer->address_id = $address->id;
+        $volunteer->save();
+
+        return redirect('admin/volunteers/' . $volunteer->id);
     }
 
     /**
@@ -72,7 +97,17 @@ class VolunteerController extends Controller
      */
     public function update(StoreVolunteer $request, Volunteer $volunteer)
     {
-        //
+        $validated = $request->validated();
+
+        $address = $volunteer->address()->first();
+        $address->fill($validated);
+        $address->save();
+
+        $volunteer->fill($validated);
+        $volunteer->address_id = $address->id;
+        $volunteer->save();
+
+        return redirect('admin/volunteers/' . $volunteer->id);
     }
 
     /**
@@ -84,5 +119,14 @@ class VolunteerController extends Controller
     public function destroy(Volunteer $volunteer)
     {
         return view('volunteers.destroy', compact('volunteer'));
+    }
+
+    public function delete(Request $request, Volunteer $volunteer) {
+        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            $volunteer->delete();
+            $volunteer->address()->delete();
+        }
+
+        return redirect('admin/volunteers');
     }
 }

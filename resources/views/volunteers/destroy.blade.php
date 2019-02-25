@@ -15,7 +15,7 @@
                             <input type="hidden" name="confirm" value="1" />
 
                             <div class="alert alert-danger">
-                                Weet u zeker dat u de vrijwilliger '{{ $volunteer->name }}' wilt verwijderen?<br/>
+                                Weet u zeker dat u de vrijwilliger '{{ $volunteer->name }}' uit '{{ $volunteer->address->city }}' wilt verwijderen?<br/>
                                 <button type="submit" class="btn btn-danger">Ja</button>
                                 <a href="{{ route('admin/volunteers') }}" class="btn btn-secondary">Nee</a>
                             </div>

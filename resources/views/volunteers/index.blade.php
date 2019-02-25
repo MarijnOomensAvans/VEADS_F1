@@ -33,18 +33,20 @@
                             <thead>
                             <tr>
                                 <th>Naam</th>
+                                <th>Woonplaats</th>
                                 <th class="text-center" style="width: 150px;">Acties</th>
                             </tr>
                             </thead>
                             <tbody>
                             @if($volunteers->total() < 1)
                                 <tr class="table-info">
-                                    <td class="text-center" colspan="5">Geen vrijwilligers gevonden.</td>
+                                    <td class="text-center" colspan="3">Geen vrijwilligers gevonden.</td>
                                 </tr>
                             @endif
                             @foreach($volunteers as $volunteer)
                                 <tr>
                                     <td>{{ $volunteer->name }}</td>
+                                    <td>{{ $volunteer->address->city }}</td>
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('admin/volunteer', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>

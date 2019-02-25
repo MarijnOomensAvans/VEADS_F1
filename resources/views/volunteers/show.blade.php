@@ -14,6 +14,20 @@
                 </div>
                 <hr/>
                 <div class="row mb-3">
+                    <div class="col-12 col-sm-4"><label>Telefoonnummer</label></div>
+                    <div class="col-12 col-sm-8">{{ $volunteer->phone_number }}</div>
+                </div>
+                <hr/>
+                <div class="row mb-3">
+                    <div class="col-12 col-sm-4"><label>Adres</label></div>
+                    <div class="col-12 col-sm-8">
+                        {{ $volunteer->address->street . ' ' . $volunteer->address->number . $volunteer->address->number_modifier }}<br/>
+                        {{ $volunteer->address->zipcode . ' ' . $volunteer->address->city }}<br/>
+                        {{ $volunteer->address->country }}
+                    </div>
+                </div>
+                <hr/>
+                <div class="row mb-3">
                     <div class="col-12 text-right">
                         <div class="btn-group">
                             <a href="{{ route('admin/volunteers') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>

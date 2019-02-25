@@ -24,19 +24,43 @@ $inputLgWidth = 12 - $labelLgWidth;
                     <div class="col-12">
                         <form method="post" action="{{ (isset($volunteer) ? route('admin/volunteers/edit', ['volunteer' => $volunteer]) : route('admin/volunteers/create')) }}">
                             @csrf
-                            <div class="form-group row mb-5">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="name">Naam</label>
+                            <div class="form-group row">
+                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="first_name">Voornaam</label>
                                 <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
-                                    <input type="text" name="name" id="name" class="form-control{{ ($errors->has('name') ? ' is-invalid' : '') }}" value="{{ old('name', $volunteer->name ?? '') }}" placeholder="Naam" />
-                                    @if($errors->has('name'))
+                                    <input type="text" name="first_name" id="first_name" class="form-control{{ ($errors->has('first_name') ? ' is-invalid' : '') }}" value="{{ old('first_name', $volunteer->first_name ?? '') }}" placeholder="Voornaam" />
+                                    @if($errors->has('first_name'))
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('name') }}
+                                            {{ $errors->first('first_name') }}
                                         </div>
                                     @endif
                                 </div>
                             </div>
 
-                            @include('includes.forms.address', ['address' => (isset($volunteer) ? $volunteer->address: null)])
+                            <div class="form-group row mb-5">
+                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="last_name">Achternaam</label>
+                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
+                                    <input type="text" name="last_name" id="last_name" class="form-control{{ ($errors->has('last_name') ? ' is-invalid' : '') }}" value="{{ old('last_name', $volunteer->last_name ?? '') }}" placeholder="Achternaam" />
+                                    @if($errors->has('last_name'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('last_name') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-5">
+                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="phone_number">Telefoonnummer</label>
+                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
+                                    <input type="tel" name="phone_number" id="phone_number" class="form-control{{ ($errors->has('phone_number') ? ' is-invalid' : '') }}" value="{{ old('phone_number', $volunteer->phone_number ?? '') }}" placeholder="Telefoonnummer" />
+                                    @if($errors->has('phone_number'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('phone_number') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
+                            @include('includes.forms.address', ['address' => (isset($volunteer) ? $volunteer->address : null)])
 
                             <div class="form-group row">
                                 <div class="col-12 text-right">
