@@ -14,6 +14,7 @@
     </div>
 </section>
 
+<!-- Breadcrumbs -->
 <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
     <div class="container">
         <div class="row">
