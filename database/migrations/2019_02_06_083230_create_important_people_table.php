@@ -15,8 +15,7 @@ class CreateImportantPeopleTable extends Migration
     {
         Schema::create('important_people', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name', 50);
-            $table->string('last_name', 50);
+            $table->string('name', 50);
             $table->timestamps();
         });
     }
