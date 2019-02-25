@@ -53,12 +53,12 @@
                                     </li>
 
                                     <li>
-                                        <a href="javascript:void(0);">Projecten</a>
+                                        <a href="/project">Projecten</a>
                                     </li>
 
-                                    <li>
+                                    {{-- <li>
                                         <a href="javascript:void(0);">Contact</a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>

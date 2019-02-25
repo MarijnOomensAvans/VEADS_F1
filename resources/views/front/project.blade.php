@@ -1,13 +1,13 @@
 @extends('front.master')
 @section('content')
 
-<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}&quot;); margin-top: 72px; visibility: visible;">
+<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/images/homepage-3-slider-img-3.jpg&quot;); margin-top: 72px; visibility: visible;">
     <div class="opacity-medium bg-light-blue"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
                 <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
-                    <h1 class="alt-font text-white font-weight-600 no-margin-bottom">{{$event->name}}</h1>
+                    <h1 class="alt-font text-white font-weight-600 no-margin-bottom">{{$project->name}}</h1>
                 </div>
             </div>
         </div>
@@ -22,8 +22,8 @@
                     <div class="breadcrumb alt-font text-small no-margin-bottom">
                         <ul>
                             <li><a href="/" class="text-medium-gray">Home</a></li>
-                            <li><a href="/event" class="text-medium-gray">Evenementen</a></li>
-                            <li class="text-medium-gray">{{$event->name}}</li>
+                            <li><a href="/project" class="text-medium-gray">Projecten</a></li>
+                            <li class="text-medium-gray">{{$project->name}}</li>
                         </ul>
                     </div>
                 </div>
@@ -37,40 +37,34 @@
         <div class="row">
             <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
                 <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
-                    {{--
-                    @if(count($event->pictures) > 0)
-                        <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" class=" border-radius-100 width-100 margin-45px-bottom" data-no-retina="">
+                    
+                    @if(count($project->pictures) > 0)
+                        <img src="/image/{{ $project->pictures[0]->path }}/{{ $project->pictures[0]->name }}" class=" border-radius-100 width-100 margin-45px-bottom" data-no-retina="">
                     @endif
-                    --}}
-
                     <p>
-                        {!!$event->description!!}
+                        {!!$project->description!!}
                     </p>
-                    <div class="row lightbox-gallery">
-                    <div class="col-md-12 no-padding xs-padding-15px-lr">
-                        <ul class="portfolio-grid work-3col hover-option4 gutter-medium" style="position: relative; height: 1250px;">
-                            <li class="grid-sizer"></li>
-                            @foreach($event->pictures as $picture)
-                                <li class="grid-item web branding design fadeInUp" style="visibility: visible; animation-name: fadeInUp; position: absolute; left: 0%; top: 0px;">
-                                    <a href="/image/{{ $picture->path }}/{{ $picture->name }}" title="Lightbox gallery image title...">
-                                        <figure>
-                                            <div class="portfolio-img bg-extra-dark-gray"><img src="/image/{{ $picture->path }}/{{ $picture->name }}" class="project-img-gallery" data-no-retina=""></div>
-                                            <figcaption>
-                                                <div class="portfolio-hover-main text-center">
-                                                    <div class="portfolio-hover-box vertical-align-middle">
-                                                        <div class="portfolio-hover-content position-relative">
-                                                            <i class="ti-zoom-in text-white fa-2x"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
+                    <div class="row equalize xs-equalize-auto">
+                        @foreach ($project->events as $event)
+                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
+                                <div class="blog-post bg-light-gray inner-match-height">
+                                    <div class="blog-post-images overflow-hidden position-relative">
+                                        <a href="/event/{{$event->id}}">
+                                            @if(count($event->pictures) > 0)
+                                                <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" data-no-retina="">
+                                            @endif
+                                        </a>
+                                    </div>
+                                    <div class="post-details padding-40px-all sm-padding-20px-all">
+                                        <a href="/event/{{$event->id}}" class="alt-font post-title text-medium text-extra-dark-gray width-100 display-block md-width-100 margin-15px-bottom">{{$event->name}}</a>
+                                        <p>
+                                            {!! substr(strip_tags($event->description), 0, 100) !!}...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                </div>
                 </div>
                 {{-- <div class="col-md-12 col-sm-12 col-xs-12 margin-seven-bottom margin-eight-top">
                     <div class="divider-full bg-medium-light-gray"></div>
@@ -99,15 +93,12 @@
                 <div class="margin-45px-bottom xs-margin-25px-bottom">
                     <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Informatie</span></div>
                     <ul class="list-style-6 margin-50px-bottom text-small">
-                       <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
-                        <li><a>Datum Eind: </a><span>{{$event->datetime->end}}</span></li>
-                        <li><a>Prijs: </a><span>€{{$event->price}}</span></li>
                         <li>
                             <a>Locatie: </a>
                             <span>
-                                {{$event->address->street}} {{$event->address->number}} {{$event->address->number_modifier}}
+                                {{$project->address->street}} {{$project->address->number}} {{$project->address->number_modifier}}
                                 <br/>
-                                {{$event->address->zipcode}} {{$event->address->city}} 
+                                {{$project->address->zipcode}} {{$project->address->city}} 
                             </span>
                         </li>
                     </ul>
