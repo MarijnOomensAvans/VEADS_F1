@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Address;
+use App\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVolunteer;
+use App\Project;
 use App\Volunteer;
 use Illuminate\Http\Request;
 
@@ -128,5 +130,53 @@ class VolunteerController extends Controller
         }
 
         return redirect('admin/volunteers');
+    }
+
+    public function addProject(Volunteer $volunteer, Project $project) {
+        $p = Volunteer::whereHas('projects', function($query) use ($project) {
+            $query->where('id', '=', $project->id);
+        })->first();
+
+        if (empty($p)) {
+            $volunteer->projects()->attach($project->id);
+        }
+
+        return redirect('admin/volunteers/' . $volunteer->id);
+    }
+
+    public function removeProject(Volunteer $volunteer, Project $project) {
+        $p = Volunteer::whereHas('projects', function($query) use ($project) {
+            $query->where('id', '=', $project->id);
+        })->first();
+
+        if (!empty($p)) {
+            $volunteer->projects()->detach($project->id);
+        }
+
+        return redirect('admin/volunteers/' . $volunteer->id);
+    }
+
+    public function addEvent(Volunteer $volunteer, Event $event) {
+        $p = Volunteer::whereHas('events', function($query) use ($event) {
+            $query->where('id', '=', $event->id);
+        })->first();
+
+        if (empty($p)) {
+            $volunteer->events()->attach($event->id);
+        }
+
+        return redirect('admin/volunteers/' . $volunteer->id);
+    }
+
+    public function removeEvent(Volunteer $volunteer, Event $event) {
+        $p = Volunteer::whereHas('events', function($query) use ($event) {
+            $query->where('id', '=', $event->id);
+        })->first();
+
+        if (!empty($p)) {
+            $volunteer->events()->detach($event->id);
+        }
+
+        return redirect('admin/volunteers/' . $volunteer->id);
     }
 }

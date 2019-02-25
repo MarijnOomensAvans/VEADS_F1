@@ -38,6 +38,10 @@ class EventController extends Controller
 
         $events = $events->paginate(15);
 
+    	if ($request->query('json')) {
+    	    return response()->json(compact('events', 'q'));
+        }
+
         return view('events/index', compact('events', 'q'));
     }
 

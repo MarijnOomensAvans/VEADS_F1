@@ -26,7 +26,13 @@ class Volunteer extends Model
         // See https://laraveldaily.com/pivot-tables-and-many-to-many-relationships/ for information about the pivot table
         return $this
             ->belongsToMany('App\Event')
-            ->withPivot('task')
+            ->withTimestamps();
+    }
+
+    public function projects() {
+        // See https://laraveldaily.com/pivot-tables-and-many-to-many-relationships/ for information about the pivot table
+        return $this
+            ->belongsToMany('App\Project')
             ->withTimestamps();
     }
 

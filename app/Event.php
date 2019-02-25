@@ -44,7 +44,6 @@ class Event extends Model
         // See https://laraveldaily.com/pivot-tables-and-many-to-many-relationships/ for information about the pivot table
         return $this
             ->belongsToMany('App\Volunteer')
-            ->withPivot('task')
             ->withTimestamps();
     }
 

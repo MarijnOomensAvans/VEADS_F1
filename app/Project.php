@@ -23,4 +23,11 @@ class Project extends Model
     public function events() {
         return $this->hasMany('App\Event');
     }
+
+    public function volunteers() {
+        // See https://laraveldaily.com/pivot-tables-and-many-to-many-relationships/ for information about the pivot table
+        return $this
+            ->belongsToMany('App\Volunteer')
+            ->withTimestamps();
+    }
 }
