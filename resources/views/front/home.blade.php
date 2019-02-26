@@ -93,7 +93,7 @@
 
                             <!-- start card 1 -->
                             <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom carouselcard">
-                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                                <div class="margin-half-all bg-white box-shadow-light text-center padding-nine-all xs-padding-30px-all">
                                     <img src="images/avtar-14.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
                                     <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Wij zijn met een showcase op het Robot Care event in Zeist op 14-6-2019. Kom allemaal kijken!</p>
                                     <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Modoll Facebook</span>
@@ -123,7 +123,7 @@
 
                             <!-- start card 4 -->
                             <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom carouselcard">
-                                <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
+                                <div class="margin-half-all bg-white box-shadow-light text-center padding-nine-all xs-padding-30px-all">
                                     <img src="images/avtar-16.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
                                     <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Benefietconcert 2018 was weer een groot succes! We hopen iedereen volgend jaar weer te zien!</p>
                                     <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">VEADS Instagram</span>
