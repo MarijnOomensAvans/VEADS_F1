@@ -27,6 +27,7 @@ class StoreVolunteer extends FormRequest
         return [
             'first_name' => 'required|max:50',
             'last_name' => 'required|max:50',
+            'email' => 'required|email',
             'phone_number' => 'required|max:50',
             'street' => 'required|max:50',
             'number' => 'required|numeric',
