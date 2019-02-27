@@ -29,7 +29,7 @@
 <div class="form-group row">
     <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="street">Postcode/plaats</label>
     <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-4">
-        <input type="text" name="zipcode" id="zipcode" class="form-control{{ ($errors->has('zipcode') ? ' is-invalid' : '') }}" value="{{ old('zipcode', $address->zipcode ?? '') }}" placeholder="Postcode" />
+        <input type="text" name="zipcode" id="zipcode" class="form-control{{ ($errors->has('zipcode') ? ' is-invalid' : '') }}" value="{{ old('zipcode', $address->zipcode ?? '') }}" placeholder="Postcode" v-mask="'####AA'" />
         @if($errors->has('zipcode'))
             <div class="invalid-feedback">
                 {{ $errors->first('zipcode') }}
