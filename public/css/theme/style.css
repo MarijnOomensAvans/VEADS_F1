@@ -3243,7 +3243,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 
 /* feature box style 4 */
 .grid-item.feature-box-4 {margin-left: 6.5%; width: 25%; overflow: hidden; position: relative; border-radius: 50%;}
-.grid-item.feature-box-4 figure img {width: 100%; height: 100%; cursor: auto; max-width: 362.3px; min-width: 362.3px; max-height: 362.3px; min-height: 362.3px;}
+.grid-item.feature-box-4 figure img {width: 100%; height: 100%; cursor: auto; min-width: 362.3px; max-height: 362.3px; min-height: 362.3px;}
 .grid-item.feature-box-4 figure figcaption {position: absolute; left: 0px; top: auto; z-index: 9; bottom: 0px; transform: translateY(0); -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); transition: transform .35s ease-out; -webkit-transition: transform .35s ease-out; -moz-transition: transform .35s ease-out; -ms-transition: transform .35s ease-out; -o-transition: transform .35s ease-out; padding: 0 0 15px 60px; width: auto; height:auto; text-align: center; opacity: 1; cursor: default; width: 130%; height: 50%;}
 .grid-item.feature-box-4 figure:hover img, .feature-box-4 figure:focus img {opacity: 1; -ms-transform: none; -webkit-transform: none; -moz-transform: none; -o-transform: none;  transform: none;}
 .grid-item.feature-box-4 figure:hover figcaption {transform: translateY(-50px); -webkit-transform: translateY(-50px); -moz-transform: translateY(-50px); -ms-transform: translateY(-50px); -o-transform: translateY(-50px); }
