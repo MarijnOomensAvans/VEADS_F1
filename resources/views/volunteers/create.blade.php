@@ -49,6 +49,18 @@ $inputLgWidth = 12 - $labelLgWidth;
                             </div>
 
                             <div class="form-group row mb-5">
+                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="email">E-mailadres</label>
+                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
+                                    <input type="email" name="email" id="email" class="form-control{{ ($errors->has('email') ? ' is-invalid' : '') }}" value="{{ old('email', $volunteer->email ?? '') }}" placeholder="E-mailadres" />
+                                    @if($errors->has('email'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('email') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-5">
                                 <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="phone_number">Telefoonnummer</label>
                                 <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
                                     <input type="tel" name="phone_number" id="phone_number" class="form-control{{ ($errors->has('phone_number') ? ' is-invalid' : '') }}" value="{{ old('phone_number', $volunteer->phone_number ?? '') }}" placeholder="Telefoonnummer" />
