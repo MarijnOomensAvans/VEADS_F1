@@ -1,7 +1,7 @@
 @extends('front.master')
 @section('content')
 
-<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/images/homepage-3-slider-img-3.jpg&quot;); margin-top: 72px; visibility: visible;">
+<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}&quot;); margin-top: 72px; visibility: visible;">
     <div class="opacity-medium bg-light-blue"></div>
     <div class="container">
         <div class="row">
@@ -14,6 +14,7 @@
     </div>
 </section>
 
+<!-- Breadcrumbs -->
 <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
     <div class="container">
         <div class="row">
@@ -37,10 +38,12 @@
         <div class="row">
             <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
                 <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
-                    
+                    {{--
                     @if(count($event->pictures) > 0)
                         <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" class=" border-radius-100 width-100 margin-45px-bottom" data-no-retina="">
                     @endif
+                    --}}
+
                     <p>
                         {!!$event->description!!}
                     </p>
@@ -70,7 +73,7 @@
                     </div>
                 </div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-xs-12 margin-seven-bottom margin-eight-top">
+                {{-- <div class="col-md-12 col-sm-12 col-xs-12 margin-seven-bottom margin-eight-top">
                     <div class="divider-full bg-medium-light-gray"></div>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 sm-text-center">
@@ -91,7 +94,7 @@
                             <li><a class="pinterest" href="http://dribbble.com" target="_blank"><i class="fab fa-pinterest-p"></i></a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </main>
             <aside class="col-md-3 col-sm-12 col-xs-12 pull-right">
                 <div class="margin-45px-bottom xs-margin-25px-bottom">
@@ -110,7 +113,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="margin-45px-bottom xs-margin-25px-bottom">
+                {{-- <div class="margin-45px-bottom xs-margin-25px-bottom">
                     <div class="text-extra-dark-gray margin-25px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Inschrijven</span></div>
                     <div class="display-inline-block width-100">
                         <form>
@@ -121,7 +124,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> --}}
             </aside>
         </div>
     </div>

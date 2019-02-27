@@ -14,12 +14,32 @@
 Route::view('/', 'front.home')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
+Route::get('/project', 'Frontend\\ProjectController@frontIndex');
+Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 
 Auth::routes(['verify' => false, 'register' => false]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
+    Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
+    Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
+    Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');
+    Route::post('/projects/create', 'Backend\\ProjectController@store')->name('admin/projects/create');
+    Route::get('/projects/{project}/edit', 'Backend\\ProjectController@edit')->name('admin/projects/edit')->where('project', '[0-9]+');
+    Route::post('/projects/{project}/edit', 'Backend\\ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
+    Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
+
+    Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
+    Route::get('/volunteers/{volunteer}', 'Backend\\VolunteerController@show')->name('admin/volunteer')->where('volunteer', '[0-9]+');
+    Route::get('/volunteers/create', 'Backend\\VolunteerController@create')->name('admin/volunteers/create');
+    Route::post('/volunteers/create', 'Backend\\VolunteerController@store')->name('admin/volunteers/create');
+    Route::get('/volunteers/{volunteer}/edit', 'Backend\\VolunteerController@edit')->name('admin/volunteers/edit')->where('volunteer', '[0-9]+');
+    Route::post('/volunteers/{volunteer}/edit', 'Backend\\VolunteerController@update')->name('admin/volunteers/edit')->where('volunteer', '[0-9]+');
+    Route::get('/volunteers/{volunteer}/destroy', 'Backend\\VolunteerController@destroy')->name('admin/volunteers/destroy')->where('volunteer', '[0-9]+');
+    Route::post('/volunteers/{volunteer}/destroy', 'Backend\\VolunteerController@delete')->name('admin/volunteers/destroy')->where('volunteer', '[0-9]+');
+    
     Route::get('/', 'Backend\\AdminController@index')->name('admin');
     Route::get('/events', 'Backend\\EventController@index')->name('admin/events');
     Route::get('/events/{event}', 'Backend\\EventController@show')->name('admin/event')->where('event', '[0-9]+');

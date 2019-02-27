@@ -36,7 +36,7 @@ $inputLgWidth = 12 - $labelLgWidth;
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-5">
                                 <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="description">Evenement omschrijving</label>
                                 <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
                                     <textarea class="form-control{{ ($errors->has('description') ? ' is-invalid' : '') }}" name="description" id="description" rows="15" placeholder="Evenement omschrijving">{{ old('description', $event->description ?? '') }}</textarea>
@@ -45,6 +45,13 @@ $inputLgWidth = 12 - $labelLgWidth;
                                             {{ $errors->first('description') }}
                                         </div>
                                     @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-5">
+                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="name">Project</label>
+                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
+                                    <project-search-component project="{{ old('project_id', $event->project_id ?? '') }}"></project-search-component>
                                 </div>
                             </div>
 
@@ -70,18 +77,18 @@ $inputLgWidth = 12 - $labelLgWidth;
                             <div class="form-group row">
                                 <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="start_date">Begindatum/-tijd</label>
                                 <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-6">
-                                    <input type="date" name="start_date" id="start_date" class="form-control{{ ($errors->has('start_date') ? ' is-invalid' : '') }}" value="{{ old('start_date', (isset($event) ? $event->datetime->start->format('Y-m-d') : date('Y-m-d'))) }}" placeholder="dd-mm-jjjj" />
-                                    @if($errors->has('start_date'))
+                                    <input type="date" name="start_date" id="start_date" class="form-control{{ ($errors->has('start_datetime') ? ' is-invalid' : '') }}" value="{{ old('start_date', (isset($event) && !empty($event->datetime) && !empty($event->datetime->start) ? $event->datetime->start->format('Y-m-d') : '')) }}" placeholder="dd-mm-jjjj" />
+                                    @if($errors->has('start_datetime'))
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('start_date') }}
+                                            {{ $errors->first('start_datetime') }}
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-3">
-                                    <input type="time" name="start_time" id="start_time" class="form-control{{ ($errors->has('start_time') ? ' is-invalid' : '') }}" value="{{ old('start_time', (isset($event) ? $event->datetime->start->format('H:i') : '')) }}" placeholder="uu:mm" />
-                                    @if($errors->has('start_time'))
+                                    <input type="time" name="start_time" id="start_time" class="form-control{{ ($errors->has('start_datetime') ? ' is-invalid' : '') }}" value="{{ old('start_time', (isset($event) && !empty($event->datetime) && !empty($event->datetime->start) ? $event->datetime->start->format('H:i') : '')) }}" placeholder="uu:mm" />
+                                    @if($errors->has('start_datetime'))
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('start_time') }}
+                                            {{ $errors->first('start_datetime') }}
                                         </div>
                                     @endif
                                 </div>
@@ -90,92 +97,51 @@ $inputLgWidth = 12 - $labelLgWidth;
                             <div class="form-group row mb-5">
                                 <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="end_date">Einddatum/-tijd</label>
                                 <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-6">
-                                    <input type="date" name="end_date" id="end_date" class="form-control{{ ($errors->has('end_date') ? ' is-invalid' : '') }}" value="{{ old('end_date', (isset($event) ? $event->datetime->end->format('Y-m-d') : date('Y-m-d'))) }}" placeholder="dd-mm-jjjj" />
-                                    @if($errors->has('end_date'))
+                                    <input type="date" name="end_date" id="end_date" class="form-control{{ ($errors->has('end_datetime') ? ' is-invalid' : '') }}" value="{{ old('end_date', (isset($event) && !empty($event->datetime) && !empty($event->datetime->end) ? $event->datetime->end->format('Y-m-d') : '')) }}" placeholder="dd-mm-jjjj" />
+                                    @if($errors->has('end_datetime'))
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('end_date') }}
+                                            {{ $errors->first('end_datetime') }}
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-3">
-                                    <input type="time" name="end_time" id="end_time" class="form-control{{ ($errors->has('end_time') ? ' is-invalid' : '') }}" value="{{ old('end_time', (isset($event) ? $event->datetime->end->format('H:i') : '')) }}" placeholder="uu:mm" />
-                                    @if($errors->has('end_time'))
+                                    <input type="time" name="end_time" id="end_time" class="form-control{{ ($errors->has('end_datetime') ? ' is-invalid' : '') }}" value="{{ old('end_time', (isset($event) && !empty($event->datetime) && !empty($event->datetime->end) ? $event->datetime->end->format('H:i') : '')) }}" placeholder="uu:mm" />
+                                    @if($errors->has('end_datetime'))
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('end_time') }}
+                                            {{ $errors->first('end_datetime') }}
                                         </div>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="street">Adres</label>
-                                <div class="col-sm-{{ $inputSmWidth / 4 * 2}} col-lg-5">
-                                    <input type="text" name="street" id="street" class="form-control{{ ($errors->has('street') ? ' is-invalid' : '') }}" value="{{ old('street', $event->address->street ?? '') }}" placeholder="Straat" />
-                                    @if($errors->has('street'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('street') }}
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="col-sm-{{ $inputSmWidth / 4 }} col-lg-2">
-                                    <input type="number" step="1" min="1" name="number" id="number" class="form-control{{ ($errors->has('number') ? ' is-invalid' : '') }}" value="{{ old('number', $event->address->number ?? '') }}" placeholder="Nummer" />
-                                    @if($errors->has('number'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('number') }}
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="col-sm-{{ $inputSmWidth / 4 }} col-lg-2">
-                                    <input type="text" name="number_modifier" id="number_modifier" class="form-control{{ ($errors->has('number_modifier') ? ' is-invalid' : '') }}" value="{{ old('number_modifier', $event->address->number_modifier ?? '') }}" placeholder="Toevoeging" />
-                                    @if($errors->has('number_modifier'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('number_modifier') }}
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="street">Postcode/plaats</label>
-                                <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-4">
-                                    <input type="text" name="zipcode" id="zipcode" class="form-control{{ ($errors->has('zipcode') ? ' is-invalid' : '') }}" value="{{ old('zipcode', $event->address->zipcode ?? '') }}" placeholder="Postcode" />
-                                    @if($errors->has('zipcode'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('zipcode') }}
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-5">
-                                    <input type="text" name="city" id="city" class="form-control{{ ($errors->has('city') ? ' is-invalid' : '') }}"  value="{{ old('city', $event->address->city ?? '') }}" placeholder="Plaats" />
-                                    @if($errors->has('city'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('city') }}
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-5">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="country">Land</label>
-                                <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-{{ $inputLgWidth }}">
-                                    <input type="text" name="country" id="country" class="form-control{{ ($errors->has('country') ? ' is-invalid' : '') }}" value="{{ old('country', $event->address->country ?? 'Nederland') }}" placeholder="Land" />
-                                    @if($errors->has('country'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('country') }}
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
+                            @include('includes.forms.address', ['address' => (isset($event) ? $event->address: null)])
 
                             <div class="form-group row mb-5">
                                 <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="image">Foto's</label>
                                 <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-{{ $inputLgWidth }}">
                                     <input type="file" name="image[]" id="image" accept="image/jpeg,image/jpg,image/png,image/png,image/svg" multiple/>
+
+                                    @if(isset($event) && count($event->pictures))
+                                        <div class="row mt-3 items-push img-fluid-100">
+                                            @each('events.partials.picture', $event->pictures, 'picture')
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-5">
+                                <div class="offset-sm-{{ $labelSmWidth }} offset-lg-{{ $labelLgWidth }} col-sm-{{ $inputSmWidth / 2 }} col-lg-{{ $inputLgWidth }}">
+                                    <div class="custom-control custom-switch custom-control-lg mb-2">
+                                        <input type="checkbox" class="custom-control-input" id="published" name="published" {{ isset($event) && $event->published ? "checked" : '' }} value="1">
+                                        <label class="custom-control-label" for="published">Gepubliceerd</label>
+                                        <span class="fas fa-question-circle" data-toggle="tooltip" data-placement="top" title="Hiermee kun je aanpassen of dit evenement zichtbaar moet zijn op de website."></span>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12 text-right">
+                                    <a href="{{ route('admin/events') }}" class="btn btn-secondary">Annuleren</a>
                                     <button type="submit" class="btn btn-primary">Opslaan</button>
                                 </div>
                             </div>

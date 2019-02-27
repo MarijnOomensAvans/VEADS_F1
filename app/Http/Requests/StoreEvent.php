@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,20 +26,49 @@ class StoreEvent extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50',
-	        'description' => 'required',
+            'name' => 'max:50',
+	        'description' => '',
 	        'price' => 'numeric|max:9999.99',
-	        'street' => 'required|max:50',
-	        'number' => 'required|numeric',
+	        'street' => 'max:50|required_with:number,zipcode,city,country',
+	        'number' => 'numeric|nullable|required_with:street,zipcode,city,country',
 	        'number_modifier' => 'max:5',
-	        'zipcode' => 'required',
-	        'city' => 'required',
-	        'country' => 'required',
-	        'start_date' => 'required|date',
-	        'start_time' => 'required|date_format:H:i',
-            'end_date' => 'required|date',
-            'end_time' => 'required|date_format:H:i',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096'
+	        'zipcode' => 'required_with:street,number,city,country',
+	        'city' => 'required_with:street,number,zipcode,country',
+	        'country' => 'required_with:street,number,zipcode,city',
+	        'start_datetime' => 'date',
+            'end_datetime' => 'date|after_or_equal:start_datetime',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            'project_id' => 'numeric|min:0',
+            'published' => 'boolean'
         ];
+    }
+
+    protected function getValidatorInstance()
+    {
+        $data = $this->all();
+
+        if (isset($data['start_date']) && !empty($data['start_date'])) {
+            $date_str = $data['start_date'];
+
+            if (isset($data['start_time']) && !empty($data['start_time'])) {
+                $date_str .= " " . $data['start_time'];
+            }
+
+            $data["start_datetime"] = new Carbon($date_str);
+        }
+
+        if (isset($data['end_date']) && !empty($data['end_date'])) {
+            $date_str = $data['end_date'];
+
+            if (isset($data['end_time']) && !empty($data['end_time'])) {
+                $date_str .= " " . $data['end_time'];
+            }
+
+            $data["end_datetime"] = new Carbon($date_str);
+        }
+
+        $this->getInputSource()->replace($data);
+
+        return parent::getValidatorInstance();
     }
 }

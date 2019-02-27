@@ -7,6 +7,7 @@ use App\Event;
 use App\EventDateTime;
 use App\Http\Requests\StoreEvent;
 use App\Picture;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -29,12 +30,13 @@ class EventController extends Controller
 	        ->select('events.*');
 
     	if (!empty($q)) {
-		    $events = $events->where('name', 'like', '%' . $q . '%')
-			    ->orWhere('addresses.city', 'like', '%' . $q . '%')
-			    ->paginate(15);
-	    } else {
-		    $events = $events->paginate(15);
-	    }
+            $events = $events->where('name', 'like', '%' . $q . '%')
+                ->orWhere('addresses.country', 'like', '%' . $q . '%')
+                ->orWhere('addresses.city', 'like', '%' . $q . '%')
+                ->orWhere('addresses.street', 'like', '%' . $q . '%');
+        }
+
+        $events = $events->paginate(15);
 
         return view('events/index', compact('events', 'q'));
     }
@@ -59,30 +61,47 @@ class EventController extends Controller
     {
         $validated = $request->validated();
 
-        $address = new Address();
-        $address->street = $validated['street'];
-        $address->number = $validated['number'];
-        $address->number_modifier = $validated['number_modifier'] ?? '';
-        $address->zipcode = $validated['zipcode'];
-        $address->city = $validated['city'];
-        $address->country = $validated['country'];
+        if (
+            (isset($validated['street']) && !empty($validated['street'])) &&
+            (isset($validated['number']) && !empty($validated['number'])) &&
+            (isset($validated['zipcode']) && !empty($validated['zipcode'])) &&
+            (isset($validated['city']) && !empty($validated['city'])) &&
+            (isset($validated['country']) && !empty($validated['country']))
+        ) {
+            $address = new Address($validated);
+            $address->save();
+        }
 
-        $address->save();
+        $event = new Event($validated);
 
-        $event = new Event();
-        $event->address_id = $address->id;
-        $event->name = $validated['name'];
-        $event->description = $validated['description'];
-        $event->price = $validated['price'];
+        if (!isset($validated['published'])) {
+            $event->published = 0;
+        }
+
+        if (isset($address)) {
+            $event->address_id = $address->id;
+        }
+
+        if ($validated['project_id'] == 0) {
+            $event->project_id = null;
+        }
 
         $event->save();
 
-	    $date = new EventDateTime();
-	    $date->event_id = $event->id;
-	    $date->start = new \DateTime($validated['start_date'] . " " . $validated['start_time']);
-	    $date->end = new \DateTime($validated['end_date'] . " " . $validated['end_time']);
+        if (isset($validated['start_datetime']) || isset($validated['end_datetime'])) {
+            $date = new EventDateTime();
+            $date->event_id = $event->id;
 
-	    $date->save();
+            if (isset($validated['start_datetime'])) {
+                $date->start = new Carbon($validated['start_datetime']);
+            }
+
+            if (isset($validated['end_datetime'])) {
+                $date->end = new Carbon($validated['end_datetime']);
+            }
+
+            $date->save();
+        }
 
         if ($request->hasFile('image')) {
             $this->saveImages($event, $request->file('image'));
@@ -125,27 +144,61 @@ class EventController extends Controller
         $validated = $request->validated();
 
         $address = $event->address()->first();
-	    $address->street = $validated['street'];
-	    $address->number = $validated['number'];
-	    $address->number_modifier = $validated['number_modifier'] ?? '';
-	    $address->zipcode = $validated['zipcode'];
-	    $address->city = $validated['city'];
-	    $address->country = $validated['country'];
 
-	    $address->save();
+        if (
+            (isset($validated['street']) && !empty($validated['street'])) &&
+            (isset($validated['number']) && !empty($validated['number'])) &&
+            (isset($validated['zipcode']) && !empty($validated['zipcode'])) &&
+            (isset($validated['city']) && !empty($validated['city'])) &&
+            (isset($validated['country']) && !empty($validated['country']))
+        ) {
+            if (empty($address)) {
+                $address = new Address();
+            }
 
-	    $event->name = $validated['name'];
-	    $event->description = $validated['description'];
-	    $event->price = $validated['price'];
+            $address->fill($validated);
+            $address->save();
+
+            $event->address_id = $address->id;
+        } elseif (!empty($address)) {
+            $event->address_id = null;
+            $event->save();
+            $address->delete();
+        }
+
+        $event->fill($validated);
+
+        if (!isset($validated['published'])) {
+            $event->published = 0;
+        }
+
+        if ($validated['project_id'] == 0) {
+            $event->project_id = null;
+        }
 
 	    $event->save();
 
 	    $date = $event->datetime()->first();
-	    $date->event_id = $event->id;
-	    $date->start = new \DateTime($validated['start_date'] . " " . $validated['start_time']);
-	    $date->end = new \DateTime($validated['end_date'] . " " . $validated['end_time']);
 
-	    $date->save();
+        if (isset($validated['start_datetime']) || isset($validated['end_datetime'])) {
+            if (empty($date)) {
+                $date = new EventDateTime();
+            }
+
+            $date->event_id = $event->id;
+
+            if (isset($validated['start_datetime'])) {
+                $date->start = new Carbon($validated['start_datetime']);
+            }
+
+            if (isset($validated['end_datetime'])) {
+                $date->end = new Carbon($validated['end_datetime']);
+            }
+
+            $date->save();
+        } elseif (!empty($date)) {
+            $date->delete();
+        }
 
         if ($request->hasFile('image')) {
             $this->saveImages($event, $request->file('image'));
@@ -191,6 +244,20 @@ class EventController extends Controller
 	    return redirect('admin/events');
     }
 
+    public function destroyImage(Event $event, Picture $picture) {
+        return view('events/image', compact('event', 'picture'));
+    }
+
+    public function deleteImage(Request $request, Event $event, Picture $picture) {
+        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            Storage::delete("images/" . $picture->path);
+            $picture->events()->detach();
+            $picture->delete();
+        }
+
+        return redirect('admin/events/' . $event->id);
+    }
+
     private function saveImages(Event $event, $images) {
         foreach($images as $image) {
             $name = $image->getClientOriginalName();
@@ -205,19 +272,5 @@ class EventController extends Controller
 
             $event->pictures()->attach($picture->id);
         }
-    }
-
-    public function destroyImage(Event $event, Picture $picture) {
-        return view('events/image', compact('event', 'picture'));
-    }
-
-    public function deleteImage(Request $request, Event $event, Picture $picture) {
-        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            Storage::delete("images/" . $picture->path);
-            $picture->events()->detach();
-            $picture->delete();
-        }
-
-        return redirect('admin/events/' . $event->id);
     }
 }
