@@ -77,6 +77,7 @@
                         @endif
                     </div>
                 </div>
+                <hr/>
 
                 @if(count($event->pictures))
                     <div class="row">
@@ -89,6 +90,23 @@
                         @each('events.partials.picture', $event->pictures, 'picture')
                     </div>
                     <hr/>
+                @endif
+
+                @if(count($event->volunteers))
+                        <div class="row">
+                            <div class="col-12 col-sm-4"><label>Vrijwilligers</label></div>
+                            <div class="col-12 col-sm-8">
+                                <ul class="list-group mb-3">
+                                    @foreach($event->volunteers as $volunteer)
+                                        <li class="list-group-item">
+                                            <a href="{{ route('admin/volunteer', ['volunteer' => $volunteer]) }}">{{ $volunteer->name }}</a>
+                                            <a href="/admin/volunteers/{{ $volunteer->id }}/event/{{ $event->id }}/remove"><span class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Vrijwilliger verwijderen"></span></a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        <hr/>
                 @endif
 
                 <div class="row mb-3">

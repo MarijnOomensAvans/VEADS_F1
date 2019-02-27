@@ -22,6 +22,8 @@ Vue.use(require('vue-the-mask'));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('project-search-component', require('./components/ProjectSearchComponent.vue').default);
+Vue.component('volunteer-add-project-component', require('./components/VolunteerAddProjectComponent.vue').default);
+Vue.component('volunteer-add-event-component', require('./components/VolunteerAddEventComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
