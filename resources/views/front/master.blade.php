@@ -83,9 +83,8 @@
                                 <a href="/"><img class="footer-logo" src="/images/logo.png" alt="Logo"></a>
                                 <div class="social-icon-style-8">
                                     <ul class="text-extra-small margin-20px-top xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none">
-                                        <li class="display-inline-block margin-10px-right"><a href="http://twitter.com" target="_blank" title="Twitter">Twitter</a></li>
-                                        <li class="display-inline-block margin-10px-right"><a href="http://facebook.com" target="_blank" title="Facebook">Facebook</a></li>
-                                        <li class="display-inline-block margin-10px-right"><a href="http://instagram.com" target="_blank" title="Instagram">Instagram</a></li>
+                                        <li class="display-inline-block margin-10px-right"><a class="facebook text-white" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="display-inline-block margin-10px-right"><a class="instagram text-white" href="http://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
