@@ -14,7 +14,7 @@ class AlterVolunteersTableAddEmail extends Migration
     public function up()
     {
         Schema::table('volunteers', function (Blueprint $table) {
-            $table->string('email')->after('last_name');;
+            $table->string('email')->after('last_name')->nullable();
         });
     }
 

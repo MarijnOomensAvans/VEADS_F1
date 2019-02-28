@@ -73,7 +73,7 @@
     </div>
 </section>
 
-<section>
+<section class="bg-light-gray">
     <div class="container">
 
         <div class="row">
