@@ -559,6 +559,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .border-radius-50 {border-radius:50%}
 .border-radius-100 {border-radius:100%}
 .border-radius-event {border-bottom-left-radius:20%; border-bottom-right-radius: 20%}
+.border-radius-165px {border-radius: 165px;}
 .border-radius-none {border-radius:0}
 
 /* ===================================
@@ -2705,7 +2706,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
     Swiper carousel
 ====================================== */
 
-.swiper-container {overflow: hidden; position: relative; border-radius: 165px;}
+.swiper-container {overflow: hidden; position: relative;}
 .swiper-pagination-bullet-active {background: #232323}
 .swiper-pagination {width: 100%}
 .swiper-container-horizontal > .swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {bottom: 35px; width: 100%}
@@ -3244,7 +3245,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 .feature-box-1 .char-value {display: table-cell; vertical-align: middle}
 
 /* feature box style 4 */
-.grid-item.feature-box-4 {margin-left: 6.5%; width: 25%; overflow: hidden; position: relative; border-radius: 50%;}
+.grid-item.feature-box-4 {margin-left: 6.5%; width: 25%; overflow: hidden; position: relative;}
 .grid-item.feature-box-4 figure img {width: 100%; height: 100%; cursor: auto; min-width: 362.3px; max-height: 362.3px; min-height: 362.3px;}
 .grid-item.feature-box-4 figure figcaption {position: absolute; left: 0px; top: auto; z-index: 9; bottom: 0px; transform: translateY(0); -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); transition: transform .35s ease-out; -webkit-transition: transform .35s ease-out; -moz-transition: transform .35s ease-out; -ms-transition: transform .35s ease-out; -o-transition: transform .35s ease-out; padding: 0 0 15px 60px; width: auto; height:auto; text-align: center; opacity: 1; cursor: default; width: 130%; height: 50%;}
 .grid-item.feature-box-4 figure:hover img, .feature-box-4 figure:focus img {opacity: 1; -ms-transform: none; -webkit-transform: none; -moz-transform: none; -o-transform: none;  transform: none;}

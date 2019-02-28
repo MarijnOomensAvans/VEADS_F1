@@ -3,7 +3,7 @@
 @section('content')
 
         <section class="no-padding main-slider mobile-height top-space">
-            <div class="swiper-full-screen swiper-container width-80 white-move">
+            <div class="swiper-full-screen swiper-container width-80 white-move border-radius-165px">
                     <!-- start slider item -->
                     <div class="cover-background height-400px" style="background-image:url('images/homepageheaderimage.jpg');">
                       <div class="opacity-extra-medium bg-light-blue"></div>
@@ -28,7 +28,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <!-- start portfolio item -->
                         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4">
-                            <div class="position-relative overflow-hidden border-radius-100">
+                            <div class="position-relative overflow-hidden border-radius-25">
                                 <figure>
                                     <img src="images/case-study-01.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
@@ -41,7 +41,7 @@
                         <!-- end portfolio item -->
                         <!-- start portfolio  item -->
                         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.2s">
-                            <div class="position-relative overflow-hidden border-radius-100">
+                            <div class="position-relative overflow-hidden border-radius-25">
                                 <figure>
                                     <img src="images/case-study-02.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
@@ -54,7 +54,7 @@
                         <!-- end portfolio item -->
                         <!-- start portfolio  item -->
                         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.4s">
-                            <div class="position-relative overflow-hidden border-radius-100">
+                            <div class="position-relative overflow-hidden border-radius-25">
                                 <figure>
                                     <img src="images/case-study-03.jpg" alt="" >
                                     <div class="opacity-medium bg-extra-dark-gray"></div>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row position-relative">
                     <div class="swiper-container swiper-pagination-bottom black-move blog-slider swiper-three-slides swiper-container-horizontal">
                         <div class="swiper-wrapper" style="transform: translate3d(-390px, 0px, 0px); transition-duration: 0ms;">
@@ -116,12 +116,12 @@
                                 </div>
                             </div>
                             <!-- end testimonial item -->
-                        </div>                        
+                        </div>
                         <div class="swiper-pagination swiper-pagination-three-slides height-auto swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
                     </div>
                 </div>
             </div>
-                        
+
                     </div>
                 </div>
             </div>
