@@ -9,7 +9,7 @@ use App\Event;
 class HomeController extends Controller
 {
     public function index(){
-        $events = Event::all();
-        return view('front/home', ['events' => $events]);
+        $events = Event::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
+        return view('front/home', compact('events'));
     }
 }

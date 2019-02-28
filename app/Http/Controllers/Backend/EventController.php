@@ -10,6 +10,7 @@ use App\Picture;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
@@ -260,6 +261,35 @@ class EventController extends Controller
         }
 
         return redirect('admin/events/' . $event->id);
+    }
+
+    public function showFeatured() {
+        $events = Event::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
+
+        return view('events/featured', compact('events'));
+    }
+
+    public function storeFeatured(Request $request) {
+        $positions = $request->post('position');
+
+        if (!is_array($positions)) {
+            return redirect('admin/events/featured');
+        }
+
+        foreach($positions as $index => $position) {
+            if (empty($position)) {
+                continue;
+            }
+
+            DB::table('events')->where('featured_position', '=', $index)->update(['featured_position' => null]);
+
+            $event = Event::find($position);
+
+            $event->featured_position = $index;
+            $event->save();
+        }
+
+        return redirect('admin/events/featured');
     }
 
     private function saveImages(Event $event, $images) {
