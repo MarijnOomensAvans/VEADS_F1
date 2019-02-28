@@ -67,7 +67,7 @@
                         <!-- end portfolio item -->
                 </section>
 
-                <section>
+                <section class="bg-light-gray">
                 <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
