@@ -15,8 +15,8 @@ class AlterImportantPeopleTableSplitName extends Migration
     {
         Schema::table('important_people', function (Blueprint $table) {
             $table->dropColumn('name');
-            $table->string('first_name', 50);
-            $table->string('last_name', 50);
+            $table->string('first_name', 50)->nullable();
+            $table->string('last_name', 50)->nullable();
         });
     }
 
