@@ -82,9 +82,9 @@
                             <div class="display-table-cell vertical-align-middle">
                                 <a href="/"><img class="footer-logo" src="/images/logo.png" alt="Logo"></a>
                                 <div class="social-icon-style-8">
-                                    <ul class="text-extra-small margin-20px-top xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none">
-                                        <li class="display-inline-block margin-10px-right"><a class="facebook text-white" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li class="display-inline-block margin-10px-right"><a class="instagram text-white" href="http://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    <ul class="text-extra-small margin-20px-top xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none bigger-font">
+                                        <li class="display-inline-block margin-10px-right"><a class="facebook text-white" href="https://www.facebook.com/socialreturnworks/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="display-inline-block margin-10px-right"><a class="instagram text-white" href="https://www.instagram.com/voorelkaaraandeslag/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
