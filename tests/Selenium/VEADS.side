@@ -2,7 +2,7 @@
   "id": "62638e69-372a-4843-844e-b80bafac9234",
   "version": "2.0",
   "name": "VEADS",
-  "url": "http://veads_f1.test/",
+  "url": "http://localhost:8000/",
   "tests": [{
     "id": "42889889-6089-4939-ada3-c4fd7483e739",
     "name": "Evenement toevoegen",
@@ -559,6 +559,13 @@
       ],
       "value": "Puk"
     }, {
+      "id": "3809454b-e78b-4fa9-af77-bce03d0e5a4f",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [],
+      "value": "pietjepuk@live.nl"
+    }, {
       "id": "8925b6e8-521f-44f4-b00f-6396462d56bb",
       "comment": "",
       "command": "type",
@@ -726,6 +733,6 @@
     "timeout": 300,
     "tests": []
   }],
-  "urls": ["https://veads-dev.ontwikkel.it/", "http://veads_f1.test/"],
+  "urls": ["https://veads-dev.ontwikkel.it/", "http://veads_f1.test/", "https://localhost:8000/", "http://localhost:8000/"],
   "plugins": []
 }

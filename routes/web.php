@@ -11,7 +11,7 @@
 |
 */
 
-Route::view('/', 'front.home')->name('home');
+Route::get('/', 'Frontend\\HomeController@index')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
 Route::get('/project', 'Frontend\\ProjectController@frontIndex');
@@ -55,5 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::post('/events/{event}/destroy', 'Backend\\EventController@delete')->name('admin/events/destroy')->where('event', '[0-9]+');
     Route::get('/events/{event}/image/{picture}', 'Backend\\EventController@destroyImage')->name('admin/events/image')->where('event', '[0-9]+')->where('picture', '[0-9]+');
     Route::post('/events/{event}/image/{picture}', 'Backend\\EventController@deleteImage')->name('admin/events/image')->where('event', '[0-9]+')->where('picture', '[0-9]+');
+    Route::get('/events/featured', 'Backend\\EventController@showFeatured')->name('admin/events/featured');
+    Route::post('/events/featured', 'Backend\\EventController@storeFeatured')->name('admin/events/featured');
 });
 

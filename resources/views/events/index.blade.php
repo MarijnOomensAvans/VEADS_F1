@@ -11,6 +11,7 @@
                 <div class="row">
                     <div class="col-12 col-md-7">
                         <a href="{{ route('admin/events/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Evenement toevoegen</a>
+                        <a href="{{ route('admin/events/featured') }}" class="btn btn-primary"><span class="fas fa-star"></span> Uitgelichte evenementen</a>
                     </div>
                     <div class="col-12 col-md-5">
                         <form method="get">

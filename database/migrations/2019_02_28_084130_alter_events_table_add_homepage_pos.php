@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterVolunteersTableAddEmail extends Migration
+class AlterEventsTableAddHomepagePos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterVolunteersTableAddEmail extends Migration
      */
     public function up()
     {
-        Schema::table('volunteers', function (Blueprint $table) {
-            $table->string('email')->after('last_name')->nullable();
+        Schema::table('events', function (Blueprint $table) {
+            $table->unsignedInteger('featured_position')->unique()->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AlterVolunteersTableAddEmail extends Migration
      */
     public function down()
     {
-        Schema::table('volunteers', function (Blueprint $table) {
-            $table->dropColumn('email');
+        Schema::table('events', function (Blueprint $table) {
+            $table->dropColumn('featured_position');
         });
     }
 }
