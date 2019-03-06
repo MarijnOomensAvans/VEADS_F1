@@ -27,6 +27,7 @@ class AlterEventsTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
+            $table->dropForeign(['project_id']);
             $table->removeColumn('project_id');
         });
     }
