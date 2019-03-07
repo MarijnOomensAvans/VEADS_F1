@@ -25,6 +25,6 @@ class Address extends Model
     }
 
     public function applications() {
-        return $this->belongsToMany('App\Application');
+        return $this->belongsToMany('App\Visitor');
     }
 }

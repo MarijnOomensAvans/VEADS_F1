@@ -64,7 +64,7 @@
                                             N/A
                                         @endif
                                     </td>
-                                    <td class="text-center">{{ $event->applications->count() }}</td>
+                                    <td class="text-center">{{ $event->visitors->count() }}</td>
                                     <td class="text-center">
                                         @if($event->published)
                                             <span class="fa fa-check"></span>

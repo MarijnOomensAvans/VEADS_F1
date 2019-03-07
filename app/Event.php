@@ -28,8 +28,8 @@ class Event extends Model
         return $this->hasOne('App\EventDateTime');
     }
 
-    public function applications() {
-        return $this->hasMany('App\Application');
+    public function visitors() {
+        return $this->hasMany('App\Visitor');
     }
 
     public function importantPeople() {
