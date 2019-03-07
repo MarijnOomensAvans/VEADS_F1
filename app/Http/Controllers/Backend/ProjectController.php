@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Address;
+use App\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProject;
 use App\Project;
@@ -129,6 +130,8 @@ class ProjectController extends Controller
 
     public function delete(Request $request, Project $project) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            Event::where('project_id', $project->id)->update(['project_id' => null]);
+            $project->volunteers()->sync([]);
             $project->delete();
             $project->address()->delete();
         }
