@@ -31,7 +31,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4">
                     <div class="position-relative overflow-hidden border-radius-100">
                         <figure>
-                            <img src="images/case-study-01.jpg" alt="">
+                            <img src="images/case-study-01.jpg">
                             <div class="opacity-medium bg-extra-dark-gray"></div>
                             <figcaption>
                                 <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Veads</span>
@@ -45,7 +45,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.2s">
                     <div class="position-relative overflow-hidden border-radius-100">
                         <figure>
-                            <img src="images/case-study-02.jpg" alt="">
+                            <img src="images/case-study-02.jpg">
                             <div class="opacity-medium bg-extra-dark-gray"></div>
                             <figcaption>
                                 <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Modoll</span>
@@ -59,7 +59,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.4s">
                     <div class="position-relative overflow-hidden border-radius-100">
                         <figure>
-                            <img src="images/case-study-03.jpg" alt="">
+                            <img src="images/case-study-03.jpg">
                             <div class="opacity-medium bg-extra-dark-gray"></div>
                             <figcaption>
                                 <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Dollcare</span>
@@ -85,44 +85,50 @@
         </div>
 
         <div class="row position-relative">
-            <div class="swiper-container swiper-pagination-bottom black-move blog-slider swiper-three-slides swiper-container-horizontal">
-                <div class="swiper-wrapper" style="transform: translate3d(-390px, 0px, 0px); transition-duration: 0ms;">
+            <div class="row position-relative">
+                <div class="swiper-container swiper-pagination-bottom black-move blog-slider swiper-three-slides">
+                    <div class="swiper-wrapper">
 
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom carouselcard">
-                        <div class="margin-half-all bg-white box-shadow-light text-center padding-nine-all xs-padding-30px-all">
-                            <img src="images/avtar-14.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
-                            <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Wij zijn met een showcase op het Robot Care event in Zeist op 14-6-2019. Kom allemaal kijken!</p>
-                            <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Modoll Facebook</span>
-                        </div>
-                    </div>
+                        @foreach([1, 2, 3, 4, 5] as $i)
 
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom carouselcard">
-                        <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
-                            <img src="images/avtar-13.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
-                            <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Nieuw evenement waarvoor wij nog vrijwilligers zoeken: paasontbijt 2019</p>
-                            <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">VEADS Facebook</span>
-                        </div>
-                    </div>
+                            <div class="swiper-slide col-md-4 col-sm-4 col-xs-12 blog-post-style5 last-paragraph-no-margin">
+                                <div class="blog-post bg-white box-shadow-light"  style="border-radius: 20px">
+                                    <div class="blog-post-images overflow-hidden">
+                                        <a href="#">
+                                            @if($i == 3)
+                                                <img src="images/placeholder/facebook-placeholder.png">
+                                            @elseif($i == 5)
+                                                <img src="images/placeholder/instagram-placeholder.png">
+                                            @else
+                                                <img src="images/blog-img6.jpg">
+                                            @endif
+                                        </a>
+                                            
+                                        <div class="blog-categories bg-white text-uppercase text-extra-small alt-font">
+                                            @if($i == 3)
+                                                <a href="#">Facebook</a>
+                                            @else
+                                                <a href="#">Instagram</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
+                                        <div class="blog-hover-color"></div>
+                                        <a href="#" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom">OMG, dit heb je heel mooi gemaakt 🤗😍</a>
+                                        <div class="author">
+                                            <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">door <a href="#" class="text-medium-gray">MODAL</a>&nbsp;&nbsp;|&nbsp;&nbsp;20 April 2019</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom carouselcard">
-                        <div class="margin-half-all bg-white box-shadow-light text-center padding-fourteen-all xs-padding-30px-all">
-                            <img src="images/avtar-15.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
-                            <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Nieuwe influencer gezocht met minimaal 1000 volgers op instagram.</p>
-                            <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">Modoll Twitter</span>
-                        </div>
-                    </div>
+                        @endforeach
+                        
 
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 swiper-slide sm-margin-four-bottom carouselcard">
-                        <div class="margin-half-all bg-white box-shadow-light text-center padding-nine-all xs-padding-30px-all">
-                            <img src="images/avtar-16.jpg" class="border-radius-100 width-40 margin-25px-bottom sm-margin-15px-bottom" alt="" data-no-retina="">
-                            <p class="sm-margin-15px-bottom xs-margin-20px-bottom">Benefietconcert 2018 was weer een groot succes! We hopen iedereen volgend jaar weer te zien!</p>
-                            <span class="text-extra-dark-gray text-small text-uppercase display-block line-height-10 alt-font font-weight-600">VEADS Instagram</span>
-                        </div>
-                    </div>
-
+                    </div>                        
+                    <div class="swiper-pagination swiper-pagination-three-slides height-auto"></div>
                 </div>
             </div>
-            <div class="swiper-pagination swiper-pagination-three-slides height-auto swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
         </div>
     </div>
 </section>
@@ -144,7 +150,7 @@
                     <div class="blog-post-images overflow-hidden position-relative">
                         <a href="/event/{{$event->id}}">
                                 @if(count($event->pictures) > 0)
-                                    <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" data-no-retina="">
+                                    <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}">
                                 @endif
                             </a>
                     </div>
