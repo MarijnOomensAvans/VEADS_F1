@@ -40,7 +40,7 @@
                     <div class="blog-post bg-light-gray inner-match-height">
                         <div class="blog-post-images overflow-hidden position-relative">
                             <a href="/project/{{$project->id}}">
-                                @if(count($project->pictures) > 0)
+                                @if(!is_null($project->pictures) && count($project->pictures) > 0)
                                     <img src="/image/{{ $project->pictures[0]->path }}/{{ $project->pictures[0]->name }}" data-no-retina="">
                                 @endif
                             </a>
