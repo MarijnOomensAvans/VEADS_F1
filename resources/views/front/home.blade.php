@@ -3,7 +3,7 @@
 
 <!-- This section is the header -->
 <section class="no-padding main-slider mobile-height top-space">
-    <div class="swiper-full-screen swiper-container width-80 white-move">
+    <div class="swiper-full-screen swiper-container width-80 white-move border-radius-165px">
         <div class="cover-background height-400px" style="background-image:url('images/homepageheaderimage.jpg');">
             <div class="opacity-extra-medium bg-light-blue"></div>
             <div class="slider-typography text-center">
