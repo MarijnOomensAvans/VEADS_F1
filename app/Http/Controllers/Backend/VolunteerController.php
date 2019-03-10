@@ -57,7 +57,7 @@ class VolunteerController extends Controller
     public function store(StoreVolunteer $request)
     {
         $request->validate([
-            'phone_number' => 'required|regex:/(01)[0-9]{9}/',
+            'phone_number' => 'required|regex:/(06)[0-9]{9}/',
         ]);
 
         $validated = $request->validated();
