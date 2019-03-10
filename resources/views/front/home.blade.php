@@ -29,7 +29,7 @@
 
                 <!-- start card 1 -->
                 <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4">
-                    <div class="position-relative overflow-hidden border-radius-100">
+                    <div class="position-relative overflow-hidden border-radius-25">
                         <figure>
                             <img src="images/case-study-01.jpg" alt="">
                             <div class="opacity-medium bg-extra-dark-gray"></div>
@@ -43,7 +43,7 @@
 
                 <!-- start card  2 -->
                 <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.2s">
-                    <div class="position-relative overflow-hidden border-radius-100">
+                    <div class="position-relative overflow-hidden border-radius-25">
                         <figure>
                             <img src="images/case-study-02.jpg" alt="">
                             <div class="opacity-medium bg-extra-dark-gray"></div>
@@ -57,7 +57,7 @@
 
                 <!-- start card 3 -->
                 <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.4s">
-                    <div class="position-relative overflow-hidden border-radius-100">
+                    <div class="position-relative overflow-hidden border-radius-25">
                         <figure>
                             <img src="images/case-study-03.jpg" alt="">
                             <div class="opacity-medium bg-extra-dark-gray"></div>

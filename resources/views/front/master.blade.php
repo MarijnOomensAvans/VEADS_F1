@@ -69,13 +69,13 @@
 
         @yield('content')
 
-        <footer class="footer-modern-dark bg-extra-dark-gray padding-two-tb xs-padding-30px-tb">
+        <footer class="footer-modern-dark bg-royal-blue padding-two-tb xs-padding-30px-tb">
             <div class="footer-widget-area">
                 <div class="container">
                     <div class="row equalize xs-equalize-auto">
                         <div class="col-md-4 col-sm-12 col-xs-12 xs-text-center sm-margin-three-bottom xs-margin-20px-bottom display-table">
                             <div class="display-table-cell vertical-align-middle">
-                                <h6 class="text-dark-gray width-70 md-width-100 no-margin-bottom">Wat gaat u dit jaar nog doen?</h6>
+                                <h6 class="text-white width-70 md-width-100 no-margin-bottom">Wat gaat u dit jaar nog doen?</h6>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12 social-style-2 xs-text-center display-table">
