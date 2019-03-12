@@ -28,7 +28,11 @@ class StoreVolunteer extends FormRequest
             'first_name' => 'required|max:50',
             'last_name' => 'required|max:50',
             'email' => 'required|email',
-            'phone_number' => 'required|max:50',
+            'phone_number' => 
+              array(
+                'required',
+                'regex:/^(((0)[1-9]{2}[0-9][-]?[1-9][0-9]{5})|((\\+31|0|0031)[1-9][0-9][-]?[1-9][0-9]{6}))$/'
+              ),
             'street' => 'required|max:50',
             'number' => 'required|numeric',
             'number_modifier' => 'max:5',
