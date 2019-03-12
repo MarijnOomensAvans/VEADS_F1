@@ -31,10 +31,16 @@ class EventController extends Controller
 	        ->select('events.*');
 
     	if (!empty($q)) {
-            $events = $events->where('name', 'like', '%' . $q . '%')
-                ->orWhere('addresses.country', 'like', '%' . $q . '%')
-                ->orWhere('addresses.city', 'like', '%' . $q . '%')
-                ->orWhere('addresses.street', 'like', '%' . $q . '%');
+    	    $events = $events->where(function($query) use ($q) {
+                $query->where('name', 'like', '%' . $q . '%')
+                    ->orWhere('addresses.country', 'like', '%' . $q . '%')
+                    ->orWhere('addresses.city', 'like', '%' . $q . '%')
+                    ->orWhere('addresses.street', 'like', '%' . $q . '%');
+            });
+        }
+
+    	if ($request->has('published')) {
+    	    $events = $events->where('events.published', (bool) $request->get('published'));
         }
 
         $events = $events->paginate(15);

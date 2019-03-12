@@ -11,7 +11,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = \App\User::where('email', '=', 'info@veads.nl');
+        $user = \App\User::where('email', '=', 'info@veads.nl')->first();
 
         if (!empty($user)) {
             print("Skipping UserTableSeeder, because table is already seeded\n");

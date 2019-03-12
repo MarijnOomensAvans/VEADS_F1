@@ -24,7 +24,8 @@
     export default {
         props:[
             'event',
-            'position'
+            'position',
+            'published'
         ],
         components: {
             VueBootstrapTypeahead
@@ -43,7 +44,13 @@
         },
         methods: {
             async getEvents(query) {
-                const response = await fetch('/admin/events?json=true&q=' + query);
+                let url = '/admin/events?json=true&q=' + query;
+
+                if (this.published) {
+                    url += "&published=" + this.published;
+                }
+
+                const response = await fetch(url);
                 const suggestions = await response.json();
                 this.events = suggestions.events.data;
             },

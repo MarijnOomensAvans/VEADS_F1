@@ -1,7 +1,16 @@
 @extends('front.master')
+
+@php
+$background_image = '/images/homepageheaderimage.jpg';
+
+if (isset($event->pictures[0])) {
+    $background_image = '/image/' . $event->pictures[0]->path . '/' . $event->pictures[0]->name;
+}
+@endphp
+
 @section('content')
 
-<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}&quot;); margin-top: 72px; visibility: visible;">
+<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url('{{ $background_image }}'); margin-top: 72px; visibility: visible;">
     <div class="opacity-medium bg-light-blue"></div>
     <div class="container">
         <div class="row">
