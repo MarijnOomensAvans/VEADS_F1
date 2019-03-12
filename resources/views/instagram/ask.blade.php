@@ -32,12 +32,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    @if(!empty($instagram_user))
-        <div class="content">
-            <div class="row">
+            @if(!empty($instagram_user))
                 <div class="col-12 col-md-4">
                     <div class="block block-rounded block-bordered">
                         <div class="block-content">
@@ -45,11 +41,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    @else
-        <div class="content">
-            <div class="row">
+            @else
                 <div class="col-12 col-md-4">
                     <div class="block block-rounded block-bordered">
                         <div class="block-content">
@@ -57,9 +49,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
-    @endif
+    </div>
 
     @if(!empty($media))
         <div class="content">
