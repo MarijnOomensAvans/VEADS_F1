@@ -57,5 +57,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::post('/events/{event}/image/{picture}', 'Backend\\EventController@deleteImage')->name('admin/events/image')->where('event', '[0-9]+')->where('picture', '[0-9]+');
     Route::get('/events/featured', 'Backend\\EventController@showFeatured')->name('admin/events/featured');
     Route::post('/events/featured', 'Backend\\EventController@storeFeatured')->name('admin/events/featured');
+
+    Route::get('/instagram', 'Backend\\InstagramController@askAuthorization')->name('admin/instagram');
+    Route::get('/instagram/callback', 'Backend\\InstagramController@callback')->name('admin/instagram/callback');
 });
 
