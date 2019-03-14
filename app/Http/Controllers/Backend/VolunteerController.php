@@ -144,6 +144,10 @@ class VolunteerController extends Controller
         return redirect('admin/volunteers/' . $volunteer->id);
     }
 
+    public function addEmptyProject(Volunteer $volunteer) {
+        return redirect('admin/volunteers/' . $volunteer->id);
+    }
+
     public function removeProject(Volunteer $volunteer, Project $project) {
         $p = Volunteer::whereHas('projects', function($query) use ($project) {
             $query->where('id', '=', $project->id);
@@ -165,6 +169,11 @@ class VolunteerController extends Controller
             $volunteer->events()->attach($event->id);
         }
 
+        return redirect('admin/volunteers/' . $volunteer->id);
+    }
+
+    public function addEmptyEvent(Volunteer $volunteer)
+    {
         return redirect('admin/volunteers/' . $volunteer->id);
     }
 
