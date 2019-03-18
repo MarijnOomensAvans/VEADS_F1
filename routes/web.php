@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', 'Frontend\\HomeController@index')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
@@ -18,10 +8,13 @@ Route::get('/project', 'Frontend\\ProjectController@frontIndex');
 Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 
-Auth::routes(['verify' => false, 'register' => false]);
+Route::get('/login', 'Frontend\\AuthController@login');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
+    Auth::routes(['verify' => false, 'register' => false]);
+
     Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
     Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
     Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');
