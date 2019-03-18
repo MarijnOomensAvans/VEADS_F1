@@ -48,7 +48,7 @@ Table of contents
 body{ font-family: 'Roboto', sans-serif; -webkit-font-smoothing: antialiased;  font-smoothing: antialiased; font-size:14px; color:#6f6f6f; font-weight: 400;line-height: 24px;}
 body, html { height: 100%; -moz-osx-font-smoothing: grayscale;}
 a, a:active, a:focus { color: #6f6f6f; text-decoration: none; }
-a:hover, a:active{color: #ff214f; text-decoration: none;}
+a:hover, a:active{color: #2bd7f2; text-decoration: none;}
 a:focus, a:active, button:focus, button:active,.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none;}
 img {max-width:100%; height:auto; }
 video { background-size: cover; display: table-cell; vertical-align: middle; width: 100%; }
@@ -101,6 +101,7 @@ h6 {font-size:25px; line-height:30px}
 /* text color */
 .text-white {color:#FFF}
 .text-black {color:#000}
+.text-royal-blue {color:#0665d0}
 .text-extra-dark-gray {color:#232323}
 .text-dark-gray {color:#626262}
 .text-extra-medium-gray {color:#757575}
@@ -255,6 +256,7 @@ a.text-very-light-gray-hover:hover {color:#ededed !important;}
 .bg-very-light-gray {background-color:#fafafa}
 .bg-deep-pink {background-color:#ff214f;}
 .bg-light-blue {background-color:#2bd7f2;}
+.bg-royal-blue {background-color:#0665d0;}
 .bg-transparent-white { background-color: rgba(255,255,255,0.3); background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(37%, rgba(255,255,255,0)), color-stop(96%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1))); background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 ); }
 .bg-transparent-black { background-color: rgba(0,0,0,0); background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(37%, rgba(0,0,0,0)), color-stop(96%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,1))); background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,1) 96%, rgba(0,0,0,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 ); }
 .bg-white-opacity { background-color: rgba(255, 255, 255, 0.85); }
@@ -557,6 +559,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .border-radius-50 {border-radius:50%}
 .border-radius-100 {border-radius:100%}
 .border-radius-event {border-bottom-left-radius:20%; border-bottom-right-radius: 20%}
+.border-radius-165px {border-radius: 165px;}
 .border-radius-none {border-radius:0}
 
 /* ===================================
@@ -2703,7 +2706,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
     Swiper carousel
 ====================================== */
 
-.swiper-container {overflow: hidden; position: relative; border-radius: 165px;}
+.swiper-container {overflow: hidden; position: relative;}
 .swiper-pagination-bullet-active {background: #232323}
 .swiper-pagination {width: 100%}
 .swiper-container-horizontal > .swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {bottom: 35px; width: 100%}
@@ -3242,9 +3245,9 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 .feature-box-1 .char-value {display: table-cell; vertical-align: middle}
 
 /* feature box style 4 */
-.grid-item.feature-box-4 {overflow: hidden; position: relative; border-radius: 50%;}
-.grid-item.feature-box-4 figure img {width: 100%; height: 500px; cursor: auto;}
-.grid-item.feature-box-4 figure figcaption {position: absolute; left: 0px; top: auto; z-index: 9; bottom: 0px; transform: translateY(0); -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); transition: transform .35s ease-out; -webkit-transition: transform .35s ease-out; -moz-transition: transform .35s ease-out; -ms-transition: transform .35s ease-out; -o-transition: transform .35s ease-out; padding: 0 0 15px 60px; width: auto; height:auto; text-align: left; opacity: 1; cursor: default;}
+.grid-item.feature-box-4 {margin-left: 6.5%; width: 25%; overflow: hidden; position: relative;}
+.grid-item.feature-box-4 figure img {width: 100%; height: 100%; cursor: auto; min-width: 362.3px; max-height: 362.3px; min-height: 362.3px;}
+.grid-item.feature-box-4 figure figcaption {position: absolute; left: 0px; top: auto; z-index: 9; bottom: 0px; transform: translateY(0); -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); transition: transform .35s ease-out; -webkit-transition: transform .35s ease-out; -moz-transition: transform .35s ease-out; -ms-transition: transform .35s ease-out; -o-transition: transform .35s ease-out; padding: 0 0 15px 60px; width: auto; height:auto; text-align: center; opacity: 1; cursor: default; width: 130%; height: 50%;}
 .grid-item.feature-box-4 figure:hover img, .feature-box-4 figure:focus img {opacity: 1; -ms-transform: none; -webkit-transform: none; -moz-transform: none; -o-transform: none;  transform: none;}
 .grid-item.feature-box-4 figure:hover figcaption {transform: translateY(-50px); -webkit-transform: translateY(-50px); -moz-transform: translateY(-50px); -ms-transform: translateY(-50px); -o-transform: translateY(-50px); }
 .grid-item.feature-box-4 figure figcaption .btn {opacity: 0 }
@@ -3828,3 +3831,7 @@ aside .latest-post li figure {width: 75px;}
 .buy-theme:hover i, .all-demo:hover i {color: #fff}
 .buy-theme a, .all-demo a { color: #232323; font-size: 10px; text-transform: uppercase; padding:2px 10px; display: block; text-decoration: none; font-weight: 500 }
 .all-demo {transition-timing-function: ease-in-out; -moz-transition-timing-function: ease-in-out; -webkit-transition-timing-function: ease-in-out; -o-transition-timing-function: ease-in-out; transition-duration: .2s; -moz-transition-duration: .2s; -webkit-transition-duration: .2s; -o-transition-duration: .2s; position:fixed; top:172px; right: -105px; background: #fff; z-index: 1000; -moz-box-shadow:0 0 10px rgba(0,0,0,0.2);-webkit-box-shadow:0 0 10px rgba(0,0,0,0.2);box-shadow:0 0 10px rgba(0,0,0,0.2); z-index: 9999}
+.bigger-font {
+  font-size: 20px;
+}
+.carouselcard {height: 300px;max-height: 220px;}

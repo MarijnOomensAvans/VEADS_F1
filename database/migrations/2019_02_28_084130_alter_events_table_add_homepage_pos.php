@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterEventsTable extends Migration
+class AlterEventsTableAddHomepagePos extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AlterEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->unsignedInteger('project_id')->nullable()->default(null)->after('address_id');
+            $table->unsignedInteger('featured_position')->unique()->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AlterEventsTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->removeColumn('project_id');
+            $table->dropColumn('featured_position');
         });
     }
 }

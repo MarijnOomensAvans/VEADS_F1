@@ -11,6 +11,7 @@
                 <div class="row">
                     <div class="col-12 col-md-7">
                         <a href="{{ route('admin/events/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Evenement toevoegen</a>
+                        <a href="{{ route('admin/events/featured') }}" class="btn btn-primary"><span class="fas fa-star"></span> Uitgelichte evenementen</a>
                     </div>
                     <div class="col-12 col-md-5">
                         <form method="get">
@@ -36,21 +37,41 @@
                                 <th>Event start</th>
                                 <th>Event locatie</th>
                                 <th class="text-center" style="width: 150px;">Aanmeldingen</th>
+                                <th class="text-center" style="width: 100px">Gepubliceerd</th>
                                 <th class="text-center" style="width: 150px;">Acties</th>
                             </tr>
                             </thead>
                             <tbody>
                             @if($events->total() < 1)
                                 <tr class="table-info">
-                                    <td class="text-center" colspan="5">Geen evenementen gevonden.</td>
+                                    <td class="text-center" colspan="6">Geen evenementen gevonden.</td>
                                 </tr>
                             @endif
                             @foreach($events as $event)
                                 <tr>
                                     <td>{{ $event->name }}</td>
-                                    <td>{{ $event->datetime->start->format('d-m-Y \o\m H:i') }}</td>
-                                    <td>{{ $event->address->city }}</td>
-                                    <td class="text-center">{{ $event->applications->count() }}</td>
+                                    <td>
+                                        @if(!empty($event->datetime) && !empty($event->datetime->start))
+                                            {{ $event->datetime->start->format('d-m-Y \o\m H:i') }}
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(!empty($event->address))
+                                            {{ $event->address->city }}
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+                                    <td class="text-center">{{ $event->visitors->count() }}</td>
+                                    <td class="text-center">
+                                        @if($event->published)
+                                            <span class="fa fa-check"></span>
+                                        @else
+                                            <span class="fa fa-times"></span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('admin/event', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>

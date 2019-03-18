@@ -31,48 +31,54 @@
                 </li>
                 <li class="nav-main-item nav-main-heading">Content</li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link{{ Request::path() == 'admin/events' ? ' active' : '' }}" href="{{ route('admin/events') }}">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/event') !== false ? ' active' : '' }}" href="{{ route('admin/events') }}">
                         <i class="nav-main-link-icon far fa-calendar"></i>
                         <span class="nav-main-link-name">Evenementen</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/project') !== false ? ' active' : '' }}" href="{{ route('admin/projects') }}">
                         <i class="nav-main-link-icon si si-grid"></i>
                         <span class="nav-main-link-name">Projecten</span>
                     </a>
                 </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon far fa-images"></i>
-                        <span class="nav-main-link-name">Foto's</span>
-                    </a>
-                </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon far fa-file"></i>
-                        <span class="nav-main-link-name">Content</span>
-                    </a>
-                </li>
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon far fa-images"></i>--}}
+                        {{--<span class="nav-main-link-name">Foto's</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon far fa-file"></i>--}}
+                        {{--<span class="nav-main-link-name">Content</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
                 <li class="nav-main-item nav-main-heading">Connecties</li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/volunteer') !== false ? ' active' : '' }}" href="{{ route('admin/volunteers') }}">
                         <i class="nav-main-link-icon fas fa-users"></i>
                         <span class="nav-main-link-name">Vrijwilligers</span>
                     </a>
                 </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon far fa-id-card"></i>
-                        <span class="nav-main-link-name">Werknemers</span>
-                    </a>
-                </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">
-                        <i class="nav-main-link-icon far fa-handshake"></i>
-                        <span class="nav-main-link-name">Partners</span>
-                    </a>
-                </li>
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link{{ strpos(Request::path(), 'admin/instagram') !== false ? ' active' : '' }}" href="{{ route('admin/instagram') }}">--}}
+                        {{--<i class="nav-main-link-icon fab fa-instagram"></i>--}}
+                        {{--<span class="nav-main-link-name">Instagram</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon far fa-id-card"></i>--}}
+                        {{--<span class="nav-main-link-name">Werknemers</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-main-item">--}}
+                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
+                        {{--<i class="nav-main-link-icon far fa-handshake"></i>--}}
+                        {{--<span class="nav-main-link-name">Partners</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
             </ul>
         </div>
     </nav>
@@ -108,7 +114,9 @@
         </div>
     </header>
     <main id="main-container">
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
     </main>
     <footer id="page-footer" class="bg-body-light">
         <div class="content py-0">
@@ -125,6 +133,7 @@
 </div>
 <script src="{{ asset('js/dashmix.core.min-1.5.js') }}"></script>
 <script src="{{ asset('js/dashmix.app.min-1.5.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 @yield('scripts')
 </body>
 </html>

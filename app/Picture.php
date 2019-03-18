@@ -16,4 +16,14 @@ class Picture extends Model
         'name',
         'date'
     ];
+
+    protected $dates = [
+        'date',
+    ];
+
+    public function events() {
+        return $this
+            ->belongsToMany('App\Event')
+            ->withTimestamps();
+    }
 }

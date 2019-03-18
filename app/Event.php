@@ -15,7 +15,9 @@ class Event extends Model
         'address_id',
         'name',
         'description',
-        'price'
+        'price',
+        'project_id',
+        'published'
     ];
 
     public function address() {
@@ -26,8 +28,8 @@ class Event extends Model
         return $this->hasOne('App\EventDateTime');
     }
 
-    public function applications() {
-        return $this->hasMany('App\Application');
+    public function visitors() {
+        return $this->hasMany('App\Visitor');
     }
 
     public function importantPeople() {
@@ -36,5 +38,22 @@ class Event extends Model
             ->belongsToMany('App\ImportantPerson')
             ->withPivot('task')
             ->withTimestamps();
+    }
+
+    public function volunteers() {
+        // See https://laraveldaily.com/pivot-tables-and-many-to-many-relationships/ for information about the pivot table
+        return $this
+            ->belongsToMany('App\Volunteer')
+            ->withTimestamps();
+    }
+
+    public function pictures() {
+        return $this
+            ->belongsToMany('App\Picture')
+            ->withTimestamps();
+    }
+
+    public function project() {
+        return $this->belongsTo('App\Project');
     }
 }
