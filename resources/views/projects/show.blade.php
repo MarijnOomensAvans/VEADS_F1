@@ -8,12 +8,15 @@
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-content">
+                @if(!empty($project->description))
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4"><label>Project omschrijving</label></div>
                     <div class="col-12 col-sm-8">{!! $project->description !!}</div>
                 </div>
                 <hr/>
-                
+                @endif
+
+                @if(!empty($project->address) && !empty($project->address->street))
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4"><label>Adres</label></div>
                     <div class="col-12 col-sm-8">
@@ -23,8 +26,9 @@
                     </div>
                 </div>
                 <hr/>
-                
-                @if(!empty($project->events))
+                @endif
+
+                @if(is_array($project->events) && count($project->events))
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4"><label>Evenementen</label></div>
                     <div class="col-12 col-sm-8">
@@ -38,7 +42,7 @@
                 <hr/>
                 @endif
 
-                @if(count($project->volunteers))
+                @if(is_array($project->volunteers) && count($project->volunteers))
                     <div class="row">
                         <div class="col-12 col-sm-4"><label>Vrijwilligers</label></div>
                         <div class="col-12 col-sm-8">

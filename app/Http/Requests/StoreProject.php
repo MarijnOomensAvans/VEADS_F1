@@ -26,13 +26,13 @@ class StoreProject extends FormRequest
     {
         return [
             'name' => 'required|max:50',
-            'description' => 'required',
-            'street' => 'required|max:50',
-            'number' => 'required|numeric',
+            'description' => 'nullable',
+            'street' => 'max:50|required_with:number,zipcode,city',
+            'number' => 'required_with:street,zipcode,city',
             'number_modifier' => 'max:5',
-            'zipcode' => 'required',
-            'city' => 'required',
-            'country' => 'required'
+            'zipcode' => 'required_with:street,number,city',
+            'city' => 'required_with:street,number,zipcode',
+            'country' => 'required_with:street,number,zipcode,city'
         ];
     }
 }
