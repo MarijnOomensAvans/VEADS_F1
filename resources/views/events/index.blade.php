@@ -34,10 +34,10 @@
                             <thead>
                             <tr>
                                 <th>Event naam</th>
-                                <th>Event start</th>
-                                <th>Event locatie</th>
-                                <th class="text-center" style="width: 150px;">Aanmeldingen</th>
-                                <th class="text-center" style="width: 100px">Gepubliceerd</th>
+                                <th class="d-none d-md-table-cell">Event start</th>
+                                <th class="d-none d-lg-table-cell">Event locatie</th>
+                                <th class="text-center d-none d-lg-table-cell" style="width: 150px;">Aanmeldingen</th>
+                                <th class="text-center d-none d-md-table-cell" style="width: 100px">Gepubliceerd</th>
                                 <th class="text-center" style="width: 150px;">Acties</th>
                             </tr>
                             </thead>
@@ -50,22 +50,22 @@
                             @foreach($events as $event)
                                 <tr>
                                     <td>{{ $event->name }}</td>
-                                    <td>
+                                    <td class="d-none d-md-table-cell">
                                         @if(!empty($event->datetime) && !empty($event->datetime->start))
                                             {{ $event->datetime->start->format('d-m-Y \o\m H:i') }}
                                         @else
                                             N/A
                                         @endif
                                     </td>
-                                    <td>
+                                    <td class="d-none d-lg-table-cell">
                                         @if(!empty($event->address))
                                             {{ $event->address->city }}
                                         @else
                                             N/A
                                         @endif
                                     </td>
-                                    <td class="text-center">{{ $event->visitors->count() }}</td>
-                                    <td class="text-center">
+                                    <td class="text-center d-none d-lg-table-cell">{{ $event->visitors->count() }}</td>
+                                    <td class="text-center d-none d-md-table-cell">
                                         @if($event->published)
                                             <span class="fa fa-check"></span>
                                         @else
