@@ -56,6 +56,10 @@
                                         <a href="/project">Projecten</a>
                                     </li>
 
+                                    <li>
+                                        <a href="/ikhelpmee">Help mee</a>
+                                    </li>
+
                                     {{-- <li>
                                         <a href="javascript:void(0);">Contact</a>
                                     </li> --}}

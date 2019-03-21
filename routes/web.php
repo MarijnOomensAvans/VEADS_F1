@@ -2,6 +2,7 @@
 
 
 Route::get('/', 'Frontend\\HomeController@index')->name('home');
+Route::get('/ikhelpmee', 'Frontend\\WinWinController@index');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
 Route::get('/project', 'Frontend\\ProjectController@frontIndex');
