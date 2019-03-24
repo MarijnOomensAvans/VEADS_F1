@@ -9,16 +9,18 @@ Route::get('/project', 'Frontend\\ProjectController@frontIndex');
 Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 
+// frontend login
 Route::get('/login', 'Frontend\\AuthController@login');
+Route::post('/login', 'Frontend\\AuthController@loginPost');
+Route::get('/logout', 'Frontend\\AuthController@logout');
 
+// backend
 Route::group(['prefix' => 'admin'], function(){
     Auth::routes(['verify' => false, 'register' => false]);
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
-    
-
     Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
     Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
     Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');

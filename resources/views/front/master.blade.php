@@ -61,9 +61,18 @@
                                         <a href="/ikhelpmee">Help mee</a>
                                     </li>
 
-                                    <li>
-                                        <a href="javascript:void(0);">Inloggen</a>
-                                    </li>
+                                    @guest
+                                        <li>
+                                            <a href="/login">Inloggen</a>
+                                        </li>                                      
+                                    @endguest
+
+                                    @auth
+                                        <li>
+                                            <a href="/logout">Uitloggen</a>
+                                        </li>                                      
+                                    @endauth
+
                                 </ul>
                             </div>
                         </div>
@@ -72,7 +81,9 @@
             </nav>
         </header>
 
-        @yield('content')
+        <div id='content-wrapper'>
+            @yield('content')
+        </div>
 
         <footer class="footer-modern-dark bg-royal-blue padding-two-tb xs-padding-30px-tb">
             <div class="footer-widget-area">
