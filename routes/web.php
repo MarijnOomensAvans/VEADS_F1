@@ -68,4 +68,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('/contacts/{contact}/destroy', 'Backend\\ContactController@destroy')->name('admin/contacts/destroy')->where('contact', '[0-9]+');
     Route::post('/contacts/{contact}/destroy', 'Backend\\ContactController@delete')->name('admin/contacts/destroy')->where('contact', '[0-9]+');
 });
+Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->name('event/add-visitor')->where('event', '[0-9]+');
 
