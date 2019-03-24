@@ -9,17 +9,17 @@
                 <h5 class="alt-font font-weight-700 text-extra-dark-gray text-uppercase">tell us about your project</h5>
             </div>
         </div>
-        <form id="project-contact-form" action="javascript:void(0)" method="post">
+        <form id="project-contact-form" method="post">
             <div class="row">
-                <div class="col-md-6">
-                    <input type="text" name="name" id="name" placeholder="Name *" class="big-input">
+                <div class="col-md-offset-3 col-md-6">
+                    <input type="text" name="name" placeholder="E-mailadres" class="big-input">
                 </div>
                 
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <input type="text" name="phone" id="phone" placeholder="Phone" class="big-input">
+                <div class="col-md-offset-3 col-md-6">
+                    <input type="text" name="phone" placeholder="Wachtwoord" class="big-input">
                 </div>
             </div>
 

@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="/css/theme/bootsnav.css">
         <link rel="stylesheet" href="/css/theme/style.css" />
         <link rel="stylesheet" href="/css/theme/responsive.css" />
+        <link rel="stylesheet" href="/css/theme/footer.css" />
         <!--[if IE]>
             <script src="js/theme/html5shiv.js"></script>
         <![endif]-->
@@ -60,9 +61,9 @@
                                         <a href="/ikhelpmee">Help mee</a>
                                     </li>
 
-                                    {{-- <li>
-                                        <a href="javascript:void(0);">Contact</a>
-                                    </li> --}}
+                                    <li>
+                                        <a href="javascript:void(0);">Inloggen</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
