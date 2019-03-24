@@ -63,10 +63,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('/instagram', 'Backend\\InstagramController@askAuthorization')->name('admin/instagram');
     Route::get('/instagram/callback', 'Backend\\InstagramController@callback')->name('admin/instagram/callback');
 
-    Route::get('/contacts', 'Backend\\ContactController@index')->name('admin/contacts');
-    Route::get('/contacts/{contact}', 'Backend\\ContactController@show')->name('admin/contact')->where('contact', '[0-9]+');
-    Route::get('/contacts/{contact}/destroy', 'Backend\\ContactController@destroy')->name('admin/contacts/destroy')->where('contact', '[0-9]+');
-    Route::post('/contacts/{contact}/destroy', 'Backend\\ContactController@delete')->name('admin/contacts/destroy')->where('contact', '[0-9]+');
+    Route::resource('/team_member', 'Backend\\TeamMemberController');
 });
 Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->name('event/add-visitor')->where('event', '[0-9]+');
 
