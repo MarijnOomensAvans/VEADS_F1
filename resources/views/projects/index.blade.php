@@ -39,7 +39,7 @@
                             <tbody>
                             @if($projects->total() < 1)
                                 <tr class="table-info">
-                                    <td class="text-center" colspan="5">Geen projecten gevonden.</td>
+                                    <td class="text-center" colspan="2">Geen projecten gevonden.</td>
                                 </tr>
                             @endif
                             @foreach($projects as $project)
