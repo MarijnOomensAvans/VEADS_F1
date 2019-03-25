@@ -8,7 +8,13 @@ use App\Event;
 
 class WinWinController extends Controller
 {
-    public function index(){
+    public function index() {
         return view('front/winwin');
     }
+
+    public function enrollVolunteer() {
+        $events = Event::get();
+        return view('front/enrollVolunteer', compact('events'));
+    }
+
 }

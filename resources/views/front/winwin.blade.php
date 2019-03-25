@@ -20,7 +20,7 @@
                         <figcaption>
                             <div class="display-table width-100 height-100 md-margin-30px-bottom">
                                 <div class="display-table-cell vertical-align-middle text-center">
-                                    <div><h3 class="text-royal-blue font-weight-800">VEADS zoekt...</h3></div>
+                                    <div><h3 class="text-royal-blue font-weight-800 text-background-greytrans">VEADS zoekt...</h3></div>
                                     <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">Vaak zoekt VEADS spullen voor de evenementen die wij organiseren</p>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                 </a>
                 <!-- end logo item -->
                 <!-- start logo item -->
-                <a href="#">
+                <a href="/inschrijvenvrijwilliger">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 banner-style1 md-margin-30px-bottom wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp; height: 500px;">
                     <figure class="bg-extra-dark-gray">
                         <div class="banner-image height-500px cover-background" style="background-image:url('images/winwin2.jpg');">
@@ -38,7 +38,7 @@
                         <figcaption>
                             <div class="display-table width-100 height-100">
                                 <div class="display-table-cell vertical-align-middle text-center">
-                                    <div><h3 class="text-royal-blue font-weight-800">Ik help mee als vrijwilliger.</h3></div>
+                                    <div><h3 class="text-royal-blue font-weight-800 text-background-greytrans">Ik help mee als vrijwilliger.</h3></div>
                                     <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">Help mee als vrijwilliger bij een evenement van VEADS.</p>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                         <figcaption>
                             <div class="display-table width-100 height-100">
                                 <div class="display-table-cell vertical-align-middle text-center">
-                                    <div><h3 class="text-royal-blue font-weight-800">Ik heb producten te leen/weg te geven</h3></div>
+                                    <div><h3 class="text-royal-blue font-weight-800 text-background-greytrans">Ik heb producten te leen/weg te geven</h3></div>
                                     <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">Als u producten over heeft die u graag voor één van de evenementen of projecten van VEADS te leen zou willen stellen kan u ze hier opgeven.</p>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                         <figcaption>
                             <div class="display-table width-100 height-100">
                                 <div class="display-table-cell vertical-align-middle text-center">
-                                    <div><h3 class="text-royal-blue font-weight-800">Ik wil graag geld doneren.</h3></div>
+                                    <div><h3 class="text-royal-blue font-weight-800 text-background-greytrans">Ik wil graag geld doneren.</h3></div>
                                     <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">VEADS is altijd blij met uw bijdrage en garandeert dat het geld op een goede plek terecht komt.</p>
                                 </div>
                             </div>
