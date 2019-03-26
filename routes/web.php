@@ -83,4 +83,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('/partners/{partner}/destroy', 'Backend\\PartnerController@destroy')->name('admin/partners/destroy')->where('partner', '[0-9]+');
     Route::post('/partners/{partner}/destroy', 'Backend\\PartnerController@delete')->name('admin/partners/destroy')->where('partner', '[0-9]+');
 });
-

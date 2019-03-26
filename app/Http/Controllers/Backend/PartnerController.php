@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Partner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StorePartner;
+use App\Picture;
 
 class PartnerController extends Controller
 {
@@ -55,8 +58,6 @@ class PartnerController extends Controller
         $validated = $request->validated();
 
                 $partner = new Partner($validated);
-                $partner->name = $request['name'];
-                $partner->link = $request['link'];
                 $partner->save();
 
                 $this->saveImages($partner, $request->file('image'));
@@ -96,7 +97,7 @@ class PartnerController extends Controller
     public function update(StorePartner $request, Partner $partner)
     {
         $validated = $request->validated();
-        $partners->fill($validated);
+        $partner->fill($validated);
         $partner->save();
 
         $this->saveImages($partner, $request->file('image'));
@@ -117,14 +118,13 @@ class PartnerController extends Controller
 
     public function delete(Request $request, Partner $partner) {
       if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-          $pictures = $partner->pictures;
+          $picture = $partner->picture;
 
-            $partner->pictures()->detach();
-
-            foreach($pictures as $picture) {
+                $partner->picture_id=null;
+                $partner->save();
                 Storage::delete("images/" . $picture->path);
                 $picture->delete();
-            }
+
 
             $partner->delete();
       }
@@ -146,8 +146,7 @@ class PartnerController extends Controller
         return redirect('admin/partners/' . $partners->id);
     }
 
-    private function saveImages(Event $partner, $images) {
-        foreach($images as $image) {
+    private function saveImages(Partner $partner, $image) {
             $name = $image->getClientOriginalName();
             $filename = $image->hashName();
             $image->storeAs('images', $filename);
@@ -158,7 +157,7 @@ class PartnerController extends Controller
             $picture->date = \DateTime::createFromFormat('U', $image->getCTime());
             $picture->save();
 
-            $partner->pictures()->attach($picture->id);
-        }
+            $partner->picture_id=$picture->id;
+            $partner->save();
     }
 }

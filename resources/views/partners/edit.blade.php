@@ -1,1 +1,1 @@
-@include('projects.create')
+@include('partners.create')
