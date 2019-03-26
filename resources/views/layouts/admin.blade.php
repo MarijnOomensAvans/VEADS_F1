@@ -73,6 +73,12 @@
                         <span class="nav-main-link-name">Vrijwilligers</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/contact_form') !== false ? ' active' : '' }}" href="{{ action('Backend\ContactFormController@index') }}">
+                        <i class="nav-main-link-icon fas fa-envelope-open-text"></i>
+                        <span class="nav-main-link-name">Contact aanvragen</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link{{ strpos(Request::path(), 'admin/instagram') !== false ? ' active' : '' }}" href="{{ route('admin/instagram') }}">--}}
                         {{--<i class="nav-main-link-icon fab fa-instagram"></i>--}}
