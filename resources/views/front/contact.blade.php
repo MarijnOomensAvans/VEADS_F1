@@ -36,21 +36,20 @@
 
 
     <div class="row">
-        <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
+        <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center xs-margin-40px-bottom">
             <div class="position-relative overflow-hidden width-100">
                 <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Ons Team</span>
             </div>
 
-            <section class="hover-option4 blog-post-style3 inner-match-height" style="visibility: visible; animation-name: fadeIn;">
+            <section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
                 <div class="container">
                     <div class="row equalize xs-equalize-auto">
                         @foreach ($team as $team_member)
                             <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center"
                                  style="visibility: visible; animation-name: fadeInUp;">
-                                <div class="blog-post bg-light-gray inner-match-height">
+                                <div class="blog-post bg-light-gray">
                                     <div class="post-details padding-40px-all sm-padding-20px-all">
-                                        <a href="/contact/{{$team_member->id}}"
-                                           class="alt-font post-title text-medium text-extra-dark-gray width-100 display-block md-width-100 margin-15px-bottom">{{$team_member->first_name}} {{$team_member->last_name}}</a>
+                                        <div class="alt-font post-title text-medium text-extra-dark-gray width-100 display-block md-width-100 margin-15px-bottom">{{$team_member->first_name}} {{$team_member->last_name}}</div>
                                         <p>
                                             {!!$team_member->description!!}
                                         </p>
@@ -73,6 +72,12 @@
             <div class="block-content">
                 <div class="row">
                     <div class="col-12">
+                        @if(session()->has('contact_send'))
+                            <div class="alert alert-success">
+                                {{ session()->get('contact_send') }}
+                            </div>
+                        @endif
+
                         <form method="post" action="{{ action('Frontend\ContactController@store') }}"  enctype="multipart/form-data">
                         @csrf
                             <div class="form-group row"><label for="name" class="col-sm-4 col-lg-3 col-form-label">Naam</label>
