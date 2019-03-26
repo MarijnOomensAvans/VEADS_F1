@@ -42,6 +42,12 @@
                         <span class="nav-main-link-name">Projecten</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/partners') !== false ? ' active' : '' }}" href="{{ route('admin/partners') }}">
+                        <i class="nav-main-link-icon far fa-accessible-icon"></i>
+                        <span class="nav-main-link-name">Partners</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
                         {{--<i class="nav-main-link-icon far fa-images"></i>--}}

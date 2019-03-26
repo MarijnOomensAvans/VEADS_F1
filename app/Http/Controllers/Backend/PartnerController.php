@@ -13,9 +13,21 @@ class PartnerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $q = $request->query('q');
+
+        if (!empty($q)) {
+            $partners = $partners->where(function($query) use ($q) {
+                  $query->where('name', 'like', '%' . $q . '%');
+              });
+          }
+
+          if ($request->query('json')) {
+              return response()->json(compact('partners', 'q'));
+            }
+
+            return view('partners/index', compact('partners', 'q'));
     }
 
     /**
@@ -25,7 +37,7 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('partners/create');
     }
 
     /**
@@ -34,9 +46,18 @@ class PartnerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePartner $request)
     {
-        //
+        $validated = $request->validated();
+
+                $partner = new Partner($validated);
+                $partner->name = $request['name'];
+                $partner->link = $request['link'];
+                $partner->save();
+
+                $this->saveImages($partner, $request->file('image'));
+
+                   return redirect('admin/partners/' . $partner->id);
     }
 
     /**
@@ -47,7 +68,7 @@ class PartnerController extends Controller
      */
     public function show(Partner $partner)
     {
-        //
+        return view('partners/show', compact('partner'));
     }
 
     /**
@@ -58,7 +79,7 @@ class PartnerController extends Controller
      */
     public function edit(Partner $partner)
     {
-        //
+        return view('partners/edit', compact('partner'));
     }
 
     /**
@@ -68,9 +89,15 @@ class PartnerController extends Controller
      * @param  \App\Partner  $partner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Partner $partner)
+    public function update(StorePartner $request, Partner $partner)
     {
-        //
+        $validated = $request->validated();
+        $partners->fill($validated);
+        $partner->save();
+
+        $this->saveImages($partner, $request->file('image'));
+
+        return redirect('admin/partners/' . $partner->id);
     }
 
     /**
@@ -81,6 +108,53 @@ class PartnerController extends Controller
      */
     public function destroy(Partner $partner)
     {
-        //
+        return view('partners/destroy', compact('partner'));
+    }
+
+    public function delete(Request $request, Partner $partner) {
+      if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+          $pictures = $partner->pictures;
+
+            $partner->pictures()->detach();
+
+            foreach($pictures as $picture) {
+                Storage::delete("images/" . $picture->path);
+                $picture->delete();
+            }
+
+            $partner->delete();
+      }
+
+      return redirect('admin/partners');
+    }
+
+    public function destroyImage(Partner $partner, Picture $picture) {
+        return view('partners/image', compact('partner', 'picture'));
+    }
+
+    public function deleteImage(Request $request, Partner $partner, Picture $picture) {
+        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            Storage::delete("images/" . $picture->path);
+            $picture->partners()->detach();
+            $picture->delete();
+        }
+
+        return redirect('admin/partners/' . $partners->id);
+    }
+
+    private function saveImages(Event $partner, $images) {
+        foreach($images as $image) {
+            $name = $image->getClientOriginalName();
+            $filename = $image->hashName();
+            $image->storeAs('images', $filename);
+
+            $picture = new Picture();
+            $picture->name = $name;
+            $picture->path = $filename;
+            $picture->date = \DateTime::createFromFormat('U', $image->getCTime());
+            $picture->save();
+
+            $partner->pictures()->attach($picture->id);
+        }
     }
 }
