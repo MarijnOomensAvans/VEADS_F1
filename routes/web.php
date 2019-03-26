@@ -18,6 +18,7 @@ Route::get('/project', 'Frontend\\ProjectController@frontIndex');
 Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 Route::get('/contact', 'Frontend\\ContactController@index');
+Route::post('/contact', 'Frontend\\ContactController@store');
 
 Auth::routes(['verify' => false, 'register' => false]);
 

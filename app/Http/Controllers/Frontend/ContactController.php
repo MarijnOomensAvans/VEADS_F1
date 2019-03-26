@@ -13,4 +13,8 @@ class ContactController extends Controller
         $team = TeamMember::get();
         return view('front/contact', compact('team'));
     }
+
+    public function store(Request $request) {
+        // TODO: Save contact form
+    }
 }

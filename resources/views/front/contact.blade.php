@@ -73,7 +73,7 @@
             <div class="block-content">
                 <div class="row">
                     <div class="col-12">
-                        <form method="post" action="{{}}"  enctype="multipart/form-data">
+                        <form method="post" action="{{ action('Frontend\ContactController@store') }}"  enctype="multipart/form-data">
                         @csrf
                             <div class="form-group row"><label for="name" class="col-sm-4 col-lg-3 col-form-label">Naam</label>
                                 <div class="col-sm-8 col-lg-9"><input type="text" name="name"
@@ -82,18 +82,21 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row"><label for="name" class="col-sm-4 col-lg-3 col-form-label">E-mail
+                            <div class="form-group row"><label for="email" class="col-sm-4 col-lg-3 col-form-label">E-mail
                                     adres</label>
                                 <div class="col-sm-8 col-lg-9"><input type="text" name="email"
+                                                                      id="email"
                                                                       placeholder="example@gmail.com"
                                                                       class="form-control">
                                 </div>
                             </div>
 
-                            <div class="form-group row"><label for="name" class="col-sm-4 col-lg-3 col-form-label">Vraag</label>
-                                <div class="col-sm-8 col-lg-9"><input type="text" name="beschrijving"
-                                                                      placeholder="beschrijving"
-                                                                      class="form-control">
+                            <div class="form-group row"><label for="question" class="col-sm-4 col-lg-3 col-form-label">Vraag</label>
+                                <div class="col-sm-8 col-lg-9"><textarea name="question"
+                                                                      id="question"
+                                                                      placeholder="Vraag"
+                                                                         rows="5"
+                                                                         class="form-control"></textarea>
                                 </div>
                             </div>
 
