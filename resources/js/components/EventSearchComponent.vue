@@ -20,6 +20,7 @@
 <script>
     const _ = require('underscore');
     const VueBootstrapTypeahead = require('vue-bootstrap-typeahead').default;
+    const axios = require('axios').default;
 
     export default {
         props:[
@@ -50,16 +51,15 @@
                     url += "&published=" + this.published;
                 }
 
-                const response = await fetch(url);
-                const suggestions = await response.json();
-                this.events = suggestions.events.data;
+                axios.get(url).then(response => {
+                    this.events = response.data.events.data;
+                });
             },
 
-            async getEvent(id) {
-                const response = await fetch('/admin/events/' + id + '?json=true');
-                const suggestions = await response.json();
-                this.selectedevent = suggestions.event;
-                this.$refs.eventAutocomplete.inputValue = suggestions.event.name;
+            getEvent(id) {
+                axios.get('/admin/events/' + id + '?json=true').then(response => {
+                    this.selectedEvent = response.data;
+                });
             },
 
             removeEvent() {
