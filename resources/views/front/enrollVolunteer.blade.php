@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-md-4">
-            <button id="project-contact-us-button" type="submit" class="btn btn-royal-blue btn-medium">Inloggen</button>
+                <a href="/login"><button id="project-contact-us-button" type="submit" class="btn btn-royal-blue btn-medium">Inloggen</button></a>
             </div>
 
             <hr />
