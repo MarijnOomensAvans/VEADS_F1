@@ -1,3 +1,9 @@
+@push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', () => $(document).tooltip({ selector: '[data-toggle="tooltip"]' }));
+        </script>
+@endpush
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -46,6 +52,12 @@
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/partners') !== false ? ' active' : '' }}" href="{{ route('admin/partners') }}">
                         <i class="nav-main-link-icon far fa-accessible-icon"></i>
                         <span class="nav-main-link-name">Partners</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link{{ strpos(Request::path(), 'admin/team_member') !== false ? ' active' : '' }}" href="{{ action('Backend\TeamMemberController@index') }}">
+                         <i class="nav-main-link-icon fa fa-users"></i>
+                         <span class="nav-main-link-name">Teamleden</span>
                     </a>
                 </li>
                 {{--<li class="nav-main-item">--}}
@@ -141,5 +153,6 @@
 <script src="{{ asset('js/dashmix.app.min-1.5.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 @yield('scripts')
+@stack('scripts')
 </body>
 </html>
