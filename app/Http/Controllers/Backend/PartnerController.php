@@ -17,11 +17,15 @@ class PartnerController extends Controller
     {
         $q = $request->query('q');
 
+        $partners = Partner::query();
+
         if (!empty($q)) {
             $partners = $partners->where(function($query) use ($q) {
                   $query->where('name', 'like', '%' . $q . '%');
               });
           }
+
+          $partners = $partners->paginate(15);
 
           if ($request->query('json')) {
               return response()->json(compact('partners', 'q'));

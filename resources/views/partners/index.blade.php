@@ -37,7 +37,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if($projects->total() < 1)
+                            @if($partners->total() < 1)
                                 <tr class="table-info">
                                     <td class="text-center" colspan="5">Geen partners gevonden.</td>
                                 </tr>
