@@ -49,9 +49,15 @@
                     </a>
                 </li>
                 <li class="nav-main-item">
-                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/team_member') !== false ? ' active' : '' }}" href="{{ action('Backend\TeamMemberController@index') }}">
-                        <i class="nav-main-link-icon fa fa-users"></i>
-                        <span class="nav-main-link-name">Teamleden</span>
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/partners') !== false ? ' active' : '' }}" href="{{ route('admin/partners') }}">
+                        <i class="nav-main-link-icon fa fa-hands-helping"></i>
+                        <span class="nav-main-link-name">Partners</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link{{ strpos(Request::path(), 'admin/team_member') !== false ? ' active' : '' }}" href="{{ action('Backend\TeamMemberController@index') }}">
+                         <i class="nav-main-link-icon fa fa-users"></i>
+                         <span class="nav-main-link-name">Teamleden</span>
                     </a>
                 </li>
                 {{--<li class="nav-main-item">--}}
