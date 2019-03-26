@@ -62,5 +62,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 
     Route::get('/instagram', 'Backend\\InstagramController@askAuthorization')->name('admin/instagram');
     Route::get('/instagram/callback', 'Backend\\InstagramController@callback')->name('admin/instagram/callback');
+
+    Route::resource('/team_member', 'Backend\\TeamMemberController');
+
+    Route::resource('/contact_form', 'Backend\\ContactFormController')->only([
+        'index', 'show', 'destroy'
+    ]);
 });
+Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->name('event/add-visitor')->where('event', '[0-9]+');
 

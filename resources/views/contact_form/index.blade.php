@@ -2,21 +2,18 @@
 
 @section('content')
     <div class="content">
-        <h1>Projecten</h1>
+        <h1>Contact aanvragen</h1>
     </div>
 
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-content">
                 <div class="row">
-                    <div class="col-12 col-md-7">
-                        <a href="{{ route('admin/projects/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Project toevoegen</a>
-                    </div>
                     <div class="col-12 col-md-5">
                         <form method="get">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="q" placeholder="Project zoeken" value="{{ $q }}">
+                                    <input type="text" class="form-control" name="q" placeholder="Aanvraag zoeken" value="{{ $q }}">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-primary">
                                             <i class="fa fa-search mr-1"></i> Zoeken
@@ -32,25 +29,30 @@
                         <table class="table table-striped table-vcenter">
                             <thead>
                             <tr>
-                                <th>Project naam</th>
+                                <th>Naam</th>
+                                <th>Email</th>
                                 <th class="text-center" style="width: 150px;">Acties</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @if($projects->total() < 1)
+                            @if($contact_forms->total() < 1)
                                 <tr class="table-info">
-                                    <td class="text-center" colspan="2">Geen projecten gevonden.</td>
+                                    <td class="text-center" colspan="3">Geen contact aanvragen gevonden.</td>
                                 </tr>
                             @endif
-                            @foreach($projects as $project)
+                            @foreach($contact_forms as $contact_form)
                                 <tr>
-                                    <td>{{ $project->name }}</td>
+                                    <td>{{ $contact_form->name }}</td>
+                                    <td>{{ $contact_form->email }}</td>
                                     <td class="text-center">
-                                        <div class="btn-group">
-                                            <a href="{{ route('admin/project', ['project' => $project]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
-                                            <a href="{{ route('admin/projects/edit', ['project' => $project]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                                            <a href="{{ route('admin/projects/destroy', ['project' => $project]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
-                                        </div>
+                                        <form method="post" action="{{ action('Backend\ContactFormController@destroy', compact('contact_form')) }}" onsubmit="return confirm('Weet u zeker dat u de contact aanvraag van \'{{ $contact_form->name }}\' wilt verwijderen?');">
+                                            @csrf
+                                            @method("DELETE")
+                                            <div class="btn-group">
+                                                <a href="{{ action('Backend\ContactFormController@show', compact('contact_form')) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
+                                                <button type="submit" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></button>
+                                            </div>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -61,10 +63,10 @@
 
                 <div class="row">
                     <div class="col-sm-12 col-md-7">
-                        {{ $projects->links() }}
+                        {{ $contact_forms->links() }}
                     </div>
                     <div class="col-sm-12 col-md-5 text-right">
-                        <p>Pagina <strong>{{ $projects->currentPage() }}</strong> van {{ $projects->lastPage() }}</p>
+                        <p>Pagina <strong>{{ $contact_forms->currentPage() }}</strong> van {{ $contact_forms->lastPage() }}</p>
                     </div>
                 </div>
             </div>
