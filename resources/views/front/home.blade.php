@@ -22,61 +22,34 @@
 </section>
 
 <!-- This section is the cards -->
+@if (count($partners) > 0)
 <section>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-
-                <!-- start card 1 -->
-                <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4">
-                    <div class="position-relative overflow-hidden border-radius-25">
-                        <figure>
-                            <img src="images/case-study-01.jpg">
-                            <div class="opacity-medium bg-extra-dark-gray"></div>
-                            <figcaption>
-                                <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Veads</span>
-                            </figcaption>
-                        </figure>
+    <div class="container">
+        <div class="row equalize xs-equalize-auto">
+            @foreach ($partners as $partner)
+            <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
+                <div class="blog-post bg-light-gray inner-match-height border-radius-10">
+                    <div class="blog-post-images overflow-hidden position-relative border-radius-10 height-100">
+                        <a href="{{$partner->link}}">
+                          <div class="opacity-medium bg-dark-gray"></div>
+                          <img class="img-fluid width-100 height-100" src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}">
+                        </a>
+                    </div>
+                    <div class="carousel-caption margin-fifteen-bottom">
+                        <a href="{{$partner->link}}" class="alt-font post-title text-large text-white width-100 display-block md-width-100 margin-15px-bottom">{{$partner->name}}</a>
                     </div>
                 </div>
-                <!-- end card 1 -->
-
-                <!-- start card  2 -->
-                <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.2s">
-                    <div class="position-relative overflow-hidden border-radius-25">
-                        <figure>
-                            <img src="images/case-study-02.jpg">
-                            <div class="opacity-medium bg-extra-dark-gray"></div>
-                            <figcaption>
-                                <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Modoll</span>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end card 2 -->
-
-                <!-- start card 3 -->
-                <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4" data-wow-delay="0.4s">
-                    <div class="position-relative overflow-hidden border-radius-25">
-                        <figure>
-                            <img src="images/case-study-03.jpg">
-                            <div class="opacity-medium bg-extra-dark-gray"></div>
-                            <figcaption>
-                                <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-60 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Dollcare</span>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- end card 3 -->
             </div>
+            @endforeach
         </div>
     </div>
 </section>
+@endif
 
 <!-- Start video -->
 <section>
   <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=qpDNXX1Gm-Y" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qpDNXX1Gm-Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 </section>
 
