@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
+use Illuminate\Support\Facades\Auth;
 
 class WinWinController extends Controller
 {
@@ -14,7 +15,8 @@ class WinWinController extends Controller
 
     public function enrollVolunteer() {
         $events = Event::get();
-        return view('front/enrollVolunteer', compact('events'));
+        $user = Auth::user();
+        return view('front/enrollVolunteer', compact('events','user'));
     }
 
 }

@@ -41,7 +41,7 @@
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-transparent-dark-gray btn-large margin-20px-top">inloggen</button>
+                    <button type="submit" class="btn btn-royal-blue btn-large margin-20px-top">inloggen</button>
                 </div>
             </div>
         </form>
