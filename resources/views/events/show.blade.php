@@ -14,7 +14,7 @@
             <div class="block-content">
                 @if(!empty($event->description))
                     <div class="row mb-3">
-                        <div class="col-12 col-sm-4"><label>Evenement omschrijving</label></div>
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Evenement omschrijving</label></div>
                         <div class="col-12 col-sm-8">{!! $event->description !!}</div>
                     </div>
                     <hr/>
@@ -22,7 +22,7 @@
 
                 @if(!empty($event->project))
                     <div class="row mb-3">
-                        <div class="col-12 col-sm-4"><label>Project</label></div>
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Project</label></div>
                         <div class="col-12 col-sm-8">
                             <a href="{{ route('admin/project', ['project' => $event->project]) }}">{{ $event->project->name }}</a>
                         </div>
@@ -32,7 +32,7 @@
 
                 @if($event->price > 0)
                     <div class="row mb-3">
-                        <div class="col-12 col-sm-4"><label>Entreeprijs</label></div>
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Entreeprijs</label></div>
                         <div class="col-12 col-sm-8">&euro;{{ number_format($event->price, 2, ',', '.') }}</div>
                     </div>
                     <hr/>
@@ -41,14 +41,14 @@
                 @if(!empty($event->datetime))
                     @if(!empty($event->datetime->start))
                         <div class="row">
-                            <div class="col-12 col-sm-4"><label>Evenement begindatum/-tijd</label></div>
+                            <div class="col-12 col-sm-4 text-sm-right"><label>Evenement begindatum/-tijd</label></div>
                             <div class="col-12 col-sm-8">{{ $event->datetime->start->format('d-m-Y \o\m H:i') }}</div>
                         </div>
                     @endif
 
                     @if(!empty($event->datetime->end))
                         <div class="row mb-3">
-                            <div class="col-12 col-sm-4"><label>Evenement einddatum/-tijd</label></div>
+                            <div class="col-12 col-sm-4 text-sm-right"><label>Evenement einddatum/-tijd</label></div>
                             <div class="col-12 col-sm-8">{{ $event->datetime->end->format('d-m-Y \o\m H:i') }}</div>
                         </div>
                     @endif
@@ -57,7 +57,7 @@
 
                 @if(!empty($event->address))
                     <div class="row mb-3">
-                        <div class="col-12 col-sm-4"><label>Adres</label></div>
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Adres</label></div>
                         <div class="col-12 col-sm-8">
                             {{ $event->address->street . ' ' . $event->address->number . $event->address->number_modifier }}<br/>
                             {{ $event->address->zipcode . ' ' . $event->address->city }}<br/>
@@ -68,7 +68,7 @@
                 @endif
 
                 <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Gepubliceerd</label></div>
+                    <div class="col-12 col-sm-4 text-sm-right"><label>Gepubliceerd</label></div>
                     <div class="col-12 col-sm-8">
                         @if($event->published)
                             <span class="fa fa-check"></span>
@@ -94,7 +94,7 @@
 
                 @if(count($event->volunteers))
                         <div class="row">
-                            <div class="col-12 col-sm-4"><label>Vrijwilligers</label></div>
+                            <div class="col-12 col-sm-4 text-sm-right"><label>Vrijwilligers</label></div>
                             <div class="col-12 col-sm-8">
                                 <ul class="list-group mb-3">
                                     @foreach($event->volunteers as $volunteer)
