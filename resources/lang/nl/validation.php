@@ -183,6 +183,7 @@ return [
         'start_time'            => 'start tijd',
         'end_time'              => 'eind tijd',
         'start_date'            => 'start datum',
-        'end_date'              => 'eind datum'
+        'end_date'              => 'eind datum',
+        'question'              => 'vraag'
     ],
 ];

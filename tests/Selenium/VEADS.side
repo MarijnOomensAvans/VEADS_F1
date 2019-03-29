@@ -1926,6 +1926,220 @@
       ],
       "value": "Contact aanvragen"
     }]
+  }, {
+    "id": "b5f10759-33b6-4823-80b1-ab57158d03be",
+    "name": "Contact formulier invullen - happy flow",
+    "commands": [{
+      "id": "7aeef000-2512-4c36-9045-1b9a139a153f",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa35d54b-92f2-454b-a30d-f813e6fe75d2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1bdbf179-a30b-40dd-aa40-685dbe0c55b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(4) > a",
+      "targets": [
+        ["css=li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Contact')]", "xpath:link"],
+        ["xpath=//ul[@id='accordion']/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/contact')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "261a7d61-dc8e-455f-a29f-a9ff1166b82a",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.form-group:nth-child(2) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "656eb0ad-2e20-49af-afa7-439fffd31fd2",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.form-group:nth-child(2) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Pietje Puk"
+    }, {
+      "id": "9a6bf1c9-d40f-4f55-9f2d-a8014e6d2ef3",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "pietjepuk@gmail.com"
+    }, {
+      "id": "ffba7df6-c2c4-421c-b1d1-b3f4b00d940c",
+      "comment": "",
+      "command": "type",
+      "target": "id=question",
+      "targets": [
+        ["id=question", "id"],
+        ["name=question", "name"],
+        ["css=#question", "css:finder"],
+        ["xpath=//textarea[@id='question']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Hoi ik ben Pietje en ik wil graag een vraag stellen."
+    }, {
+      "id": "4b76b6f1-3c8d-4025-876c-062188476429",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fae96228-d1c1-4785-8812-e46d2929957a",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.alert.alert-success",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfc7eff9-0b34-4772-8688-1991db7fe0e8",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/contact_form",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "191a162e-a179-4d16-9d06-f852763deeaf",
+      "comment": "",
+      "command": "type",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "pietje"
+    }, {
+      "id": "3fb82aa9-64fb-431b-9e70-e202ee15105f",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "7547940e-3a1e-4d56-ba82-53b6cd38d071",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "92fde119-cbcc-46d9-bc75-7a842143a5d7",
+    "name": "Contact formulier invullen - lege velden",
+    "commands": [{
+      "id": "5f6a3604-7d83-4a8f-b274-29f274fde5bd",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b88e772-faca-4b12-894f-2208f0e80c3f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3deea02b-ca46-4bf8-aa26-62b0aa26a086",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(4) > a",
+      "targets": [
+        ["css=li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Contact')]", "xpath:link"],
+        ["xpath=//ul[@id='accordion']/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/contact')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "47b882a0-3c29-4de7-a6a4-3e48b6c9e23c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8c408ed-a226-416c-b981-bc4506096e39",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(2) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(2) .invalid-feedback", "css:finder"],
+        ["xpath=//form/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6953ad68-a71b-4f3a-992f-46e1d54d4277",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(3) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(3) .invalid-feedback", "css:finder"],
+        ["xpath=//form/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "82dce872-f98d-47b8-99db-303f74538b4a",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(4) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(4) .invalid-feedback", "css:finder"],
+        ["xpath=//div[3]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "2d710faf-ff9f-43fa-99c9-16dfa8f4b5c9",
