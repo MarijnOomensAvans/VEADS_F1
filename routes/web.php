@@ -72,6 +72,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 
     // Backend team members
     Route::resource('/team_member', 'Backend\\TeamMemberController');
+    
+    // Backend contact forms
+    Route::resource('/contact_form', 'Backend\\ContactFormController')->only([
+        'index', 'show', 'destroy'
+    ]);
 
     // Backend partners
     Route::get('/partners', 'Backend\\PartnerController@index')->name('admin/partners');
