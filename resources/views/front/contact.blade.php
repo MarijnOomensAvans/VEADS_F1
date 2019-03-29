@@ -42,7 +42,7 @@
             </div>
 
             <section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row equalize xs-equalize-auto">
                         @foreach ($team as $team_member)
                             <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center"
