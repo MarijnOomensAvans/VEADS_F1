@@ -46,13 +46,14 @@
 </section>
 @endif
 
-<!-- Start video -->
+<!--
+Start video
 <section>
   <div>
 <iframe width="50%" height="315" src="https://www.youtube.com/embed/qpDNXX1Gm-Y" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 </section>
-
+-->
 
 {{--<section class="bg-light-gray">--}}
     {{--<div class="container">--}}
