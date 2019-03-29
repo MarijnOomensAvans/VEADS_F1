@@ -17,11 +17,16 @@ Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
 Route::get('/project', 'Frontend\\ProjectController@frontIndex');
 Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
+Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->name('event/add-visitor')->where('event', '[0-9]+');
 
 Auth::routes(['verify' => false, 'register' => false]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
+    // Backend homepage
+    Route::get('/', 'Backend\\AdminController@index')->name('admin');
+
+    // Backend projects
     Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
     Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
     Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');
@@ -31,6 +36,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
     Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
 
+    // Backend volunteers
     Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
     Route::get('/volunteers/{volunteer}', 'Backend\\VolunteerController@show')->name('admin/volunteer')->where('volunteer', '[0-9]+');
     Route::get('/volunteers/create', 'Backend\\VolunteerController@create')->name('admin/volunteers/create');
@@ -46,7 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('/volunteers/{volunteer}/event/{event}/add', 'Backend\\VolunteerController@addEvent')->where('volunteer', '[0-9]+')->where('event', '[0-9]+');
     Route::get('/volunteers/{volunteer}/event/{event}/remove', 'Backend\\VolunteerController@removeEvent')->where('volunteer', '[0-9]+')->where('event', '[0-9]+');
 
-    Route::get('/', 'Backend\\AdminController@index')->name('admin');
+    // Backend events
     Route::get('/events', 'Backend\\EventController@index')->name('admin/events');
     Route::get('/events/{event}', 'Backend\\EventController@show')->name('admin/event')->where('event', '[0-9]+');
     Route::get('/events/create', 'Backend\\EventController@create')->name('admin/events/create');
@@ -60,14 +66,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::get('/events/featured', 'Backend\\EventController@showFeatured')->name('admin/events/featured');
     Route::post('/events/featured', 'Backend\\EventController@storeFeatured')->name('admin/events/featured');
 
+    // Backend Instagram (abandoned)
     Route::get('/instagram', 'Backend\\InstagramController@askAuthorization')->name('admin/instagram');
     Route::get('/instagram/callback', 'Backend\\InstagramController@callback')->name('admin/instagram/callback');
 
+    // Backend team members
     Route::resource('/team_member', 'Backend\\TeamMemberController');
-
+    
+    // Backend contact forms
     Route::resource('/contact_form', 'Backend\\ContactFormController')->only([
         'index', 'show', 'destroy'
     ]);
-});
-Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->name('event/add-visitor')->where('event', '[0-9]+');
 
+    // Backend partners
+    Route::get('/partners', 'Backend\\PartnerController@index')->name('admin/partners');
+    Route::get('/partners/{partner}', 'Backend\\PartnerController@show')->name('admin/partner')->where('partner', '[0-9]+');
+    Route::get('/partners/create', 'Backend\\PartnerController@create')->name('admin/partners/create');
+    Route::post('/partners/create', 'Backend\\PartnerController@store')->name('admin/partners/create');
+    Route::get('/partners/{partner}/edit', 'Backend\\PartnerController@edit')->name('admin/partners/edit')->where('partner', '[0-9]+');
+    Route::post('/partners/{partner}/edit', 'Backend\\PartnerController@update')->name('admin/partners/edit')->where('partner', '[0-9]+');
+    Route::get('/partners/{partner}/destroy', 'Backend\\PartnerController@destroy')->name('admin/partners/destroy')->where('partner', '[0-9]+');
+    Route::post('/partners/{partner}/destroy', 'Backend\\PartnerController@delete')->name('admin/partners/destroy')->where('partner', '[0-9]+');
+});
