@@ -125,6 +125,8 @@ class VolunteerController extends Controller
 
     public function delete(Request $request, Volunteer $volunteer) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            $volunteer->events()->sync([]);
+            $volunteer->projects()->sync([]);
             $volunteer->delete();
             $volunteer->address()->delete();
         }
