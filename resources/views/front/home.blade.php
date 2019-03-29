@@ -1,4 +1,4 @@
-@extends('front.master') 
+@extends('front.master')
 @section('content')
 
 <!-- This section is the header -->
@@ -72,6 +72,14 @@
         </div>
     </div>
 </section>
+
+<!-- Start video -->
+<section>
+  <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=qpDNXX1Gm-Y" allowfullscreen></iframe>
+</div>
+</section>
+
 
 {{--<section class="bg-light-gray">--}}
     {{--<div class="container">--}}
