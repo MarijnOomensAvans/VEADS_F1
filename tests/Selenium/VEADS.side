@@ -1878,6 +1878,54 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "6df59800-f975-4e02-8dba-58c812c35692",
+    "name": "Contact aanvraag verwijderen",
+    "commands": [{
+      "id": "f8ce5d4a-5aeb-4cf5-829a-b6f38545ef0a",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/contact_form",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28a13b81-3eab-424c-a11d-5c50f856f3e2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1330d48f-b24e-48e5-bf07-849339d66f51",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "987937ac-f54b-4a50-8185-4306ed0ea144",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .fa-trash",
+      "targets": [
+        ["css=tr:nth-child(1) .fa-trash", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr/td[3]/form/div/button/span", "xpath:idRelative"],
+        ["xpath=//form/div/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2569c040-f883-47b6-b047-c971b88c07df",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Contact aanvragen')]", "xpath:innerText"]
+      ],
+      "value": "Contact aanvragen"
+    }]
   }],
   "suites": [{
     "id": "2d710faf-ff9f-43fa-99c9-16dfa8f4b5c9",
