@@ -26,6 +26,7 @@
         <!--[if IE]>
             <script src="js/theme/html5shiv.js"></script>
         <![endif]-->
+        @stack('styles')
     </head>
     <body>
         <header class="header">

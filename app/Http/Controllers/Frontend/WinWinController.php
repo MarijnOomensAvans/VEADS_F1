@@ -16,7 +16,7 @@ class WinWinController extends Controller
     public function enrollVolunteer() {
         $events = Event::get();
         $user = Auth::user();
-        return view('front/enrollVolunteer', compact('events','user'));
+        return view('front.win-win.enrollVolunteer', compact('events','user'));
     }
 
 }
