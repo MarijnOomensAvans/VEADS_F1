@@ -80,28 +80,25 @@
 
                         <form method="post" action="{{ action('Frontend\ContactController@store') }}"  enctype="multipart/form-data">
                         @csrf
-                            <div class="form-group row"><label for="name" class="col-sm-4 col-lg-3 col-form-label">Naam</label>
-                                <div class="col-sm-8 col-lg-9"><input type="text" name="name"
-                                                                      placeholder="naam"
-                                                                      class="form-control">
-                                </div>
-                            </div>
+                            @component('includes.forms.formgroup', [
+                                'name' => 'name',
+                                'title' => 'Naam'
+                            ])@endcomponent
 
-                            <div class="form-group row"><label for="email" class="col-sm-4 col-lg-3 col-form-label">E-mail
-                                    adres</label>
-                                <div class="col-sm-8 col-lg-9"><input type="text" name="email"
-                                                                      id="email"
-                                                                      placeholder="example@gmail.com"
-                                                                      class="form-control">
-                                </div>
-                            </div>
+                            @component('includes.forms.formgroup', [
+                                'name' => 'email',
+                                'title' => 'E-mailadres',
+                                'placeholder' => 'example@gmail.com'
+                            ])@endcomponent
 
                             <div class="form-group row"><label for="question" class="col-sm-4 col-lg-3 col-form-label">Vraag</label>
-                                <div class="col-sm-8 col-lg-9"><textarea name="question"
-                                                                      id="question"
-                                                                      placeholder="Vraag"
-                                                                         rows="5"
-                                                                         class="form-control"></textarea>
+                                <div class="col-sm-8 col-lg-9">
+                                    <textarea name="question" id="question" placeholder="Vraag" rows="5" class="form-control{{ ($errors->has('question') ? ' is-invalid' : '') }}"></textarea>
+                                    @if($errors->has('question'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('question') }}
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
 
@@ -117,3 +114,13 @@
             </div>
         </div>
     </div>
+
+    <style>
+        .is-invalid {
+            margin-bottom: 0;
+        }
+
+        .invalid-feedback {
+            color: #a7000e;
+        }
+    </style>
