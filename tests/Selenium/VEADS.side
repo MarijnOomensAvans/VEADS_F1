@@ -2,10 +2,10 @@
   "id": "62638e69-372a-4843-844e-b80bafac9234",
   "version": "2.0",
   "name": "VEADS",
-  "url": "http://localhost:8000/",
+  "url": "http://veads_f1.test/",
   "tests": [{
     "id": "42889889-6089-4939-ada3-c4fd7483e739",
-    "name": "Evenement toevoegen",
+    "name": "Evenement toevoegen - happy flow",
     "commands": [{
       "id": "9b9ca315-fea9-467a-9f1b-9d9a93cea7ba",
       "comment": "",
@@ -48,13 +48,6 @@
       "target": "11:00",
       "targets": [],
       "value": "eventEndTime"
-    }, {
-      "id": "b5715730-c400-4cbc-9e86-4c3b01b97630",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1680x1027",
-      "targets": [],
-      "value": ""
     }, {
       "id": "de405019-0e41-4f34-a067-593f714a163e",
       "comment": "",
@@ -258,13 +251,6 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "0b05bcb5-b37f-4a65-afbb-eb96710e3e01",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1680x1027",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "11538abb-ca75-42b7-95c7-0e516a513c57",
       "comment": "",
       "command": "click",
@@ -298,7 +284,7 @@
     }]
   }, {
     "id": "e43619b5-c185-49d9-912d-a4cd5f364933",
-    "name": "Project toevoegen",
+    "name": "Project toevoegen - happy flow",
     "commands": [{
       "id": "20d58300-1206-4a35-9c75-abe506f5e008",
       "comment": "",
@@ -313,13 +299,6 @@
       "target": "Dit is een test project",
       "targets": [],
       "value": "projectName"
-    }, {
-      "id": "216fab3c-f6d7-447b-950e-98bb6d1d4140",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1680x1027",
-      "targets": [],
-      "value": ""
     }, {
       "id": "dcc5aa0b-283d-494a-9d57-9e17440b5f5d",
       "comment": "",
@@ -467,13 +446,6 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "fa36c5fb-c460-4898-a1b3-a082e5a2b98c",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1680x1027",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "10665982-8118-4628-9d4d-7c4c8eda2d99",
       "comment": "",
       "command": "click",
@@ -507,7 +479,7 @@
     }]
   }, {
     "id": "4c7c5750-8ca9-4afd-be01-51322c1e435a",
-    "name": "Vrijwilliger toevoegen",
+    "name": "Vrijwilliger toevoegen - happy flow",
     "commands": [{
       "id": "b803fc2b-9c82-4b15-b9b3-1e9d22627c1a",
       "comment": "",
@@ -686,13 +658,6 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "d23d6eec-e799-432f-9092-8508cb3a599d",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1680x1027",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "99992898-6580-4e49-ae4f-f2d128b908a4",
       "comment": "",
       "command": "click",
@@ -724,14 +689,1272 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "d8cac244-4d28-4015-b617-707ab3d48554",
+    "name": "Evenement toevoegen - lege velden",
+    "commands": [{
+      "id": "fa4b6b96-ea43-49b2-8738-f7df636bdaab",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/events",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff5baa0c-23f3-4a1b-91d6-facc071abb1b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Evenement toevoegen",
+      "targets": [
+        ["linkText=Evenement toevoegen", "linkText"],
+        ["css=.col-12 > .btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenement toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/events/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Evenement toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "93b35277-9b55-471d-a3a5-74b8a0db1848",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[12]/div/button", "xpath:idRelative"],
+        ["xpath=//div[12]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "048e22e5-48cc-4676-be45-8479b044f8da",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Naamloos evenement')]", "xpath:innerText"]
+      ],
+      "value": "Naamloos evenement"
+    }, {
+      "id": "02d32288-2605-48ad-a0c1-4aa0be62d591",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.fa-times",
+      "targets": [
+        ["css=.fa-times", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div[2]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "74bbd76d-9bb1-45e8-8ecc-a438661a2470",
+    "name": "Project toevoegen - lege velden",
+    "commands": [{
+      "id": "57bd5159-b0ca-4624-a0cf-ee29c6ee7125",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/projects",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51dbf55e-2d64-4529-a74a-c2d2ac213339",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Project toevoegen",
+      "targets": [
+        ["linkText=Project toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Project toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/projects/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Project toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "00022e19-8746-4451-80ee-12f936d60c51",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div/button", "xpath:idRelative"],
+        ["xpath=//div[6]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0f7132b-de62-4857-9475-5639cc23668c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.invalid-feedback",
+      "targets": [
+        ["css=.invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "08e8b906-dffb-417c-811e-e63837e20429",
+    "name": "Project toevoegen - adres - alleen straat",
+    "commands": [{
+      "id": "c4791267-256e-44de-978d-878bf50dc67c",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/projects",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "64a8f6ca-277f-46d1-b228-8b1c63f17d1c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Project toevoegen",
+      "targets": [
+        ["linkText=Project toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Project toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/projects/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Project toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "759dacb5-c077-42c3-a7ca-87d99087314b",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05cd3baf-b84f-41a6-bd1e-4911de8ddaeb",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.note-btn-bold",
+      "targets": [
+        ["css=.note-btn-bold", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64b6c37d-71d6-4c5a-b221-305755c7e11b",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.note-btn-bold",
+      "targets": [
+        ["css=.note-btn-bold", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e626c530-08ea-4a26-843d-a96093ceb4c6",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Voorbeeld"
+    }, {
+      "id": "0896cc85-0426-4b3e-b25b-225a8d52b48b",
+      "comment": "",
+      "command": "type",
+      "target": "id=street",
+      "targets": [
+        ["id=street", "id"],
+        ["name=street", "name"],
+        ["css=#street", "css:finder"],
+        ["xpath=//input[@id='street']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "Damrak"
+    }, {
+      "id": "3fb74eae-f9f8-4f25-8cad-24dfd8aa91af",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div/button", "xpath:idRelative"],
+        ["xpath=//div[6]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5453f75-d9cb-46ef-ba8c-a1fcbd12a734",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-sm-2 > .invalid-feedback",
+      "targets": [
+        ["css=.col-sm-2 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a527057-5ebd-4ee5-b5e0-5f5c1aa1c6e1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-lg-4 > .invalid-feedback",
+      "targets": [
+        ["css=.col-lg-4 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[4]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2318cb6-e4c3-4a4e-8e7a-2c6af1962e45",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-lg-5 > .invalid-feedback",
+      "targets": [
+        ["css=.col-lg-5 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6c22f886-540c-4066-95b2-e89e3481e39c",
+    "name": "Project toevoegen - adres - alleen nummer",
+    "commands": [{
+      "id": "d4fe0cf1-15f4-4251-83d5-a7f4b1735e2d",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/projects",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca34f9b5-5356-45da-b8cf-2127ada7da80",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Project toevoegen",
+      "targets": [
+        ["linkText=Project toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Project toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/projects/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Project toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f22c24ee-fda7-4258-94fb-52bf01736999",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0df6b4f-1699-48f7-82a9-259c7c87a8ca",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.note-btn-italic",
+      "targets": [
+        ["css=.note-btn-italic", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[2]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c169421d-0b6d-42a5-a065-28a409abbe67",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.note-btn-italic",
+      "targets": [
+        ["css=.note-btn-italic", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[2]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "95d45f04-0caa-447d-a1ea-00c53e746ff6",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Voorbeeld"
+    }, {
+      "id": "cb6de30f-97f0-40a3-96cf-c200f635be66",
+      "comment": "",
+      "command": "type",
+      "target": "id=number",
+      "targets": [
+        ["id=number", "id"],
+        ["name=number", "name"],
+        ["css=#number", "css:finder"],
+        ["xpath=//input[@id='number']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "d182ef37-a871-4b56-bb6e-db777bc80300",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div/button", "xpath:idRelative"],
+        ["xpath=//div[6]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f060be26-8c23-4b10-920b-d73cc923fefd",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-lg-5:nth-child(2) > .invalid-feedback",
+      "targets": [
+        ["css=.col-lg-5:nth-child(2) > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50ce1df2-fc2a-4a90-a616-4cbe5ff06b6e",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-lg-4 > .invalid-feedback",
+      "targets": [
+        ["css=.col-lg-4 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[4]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f37873b-2395-4556-bdf5-af3af870021f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-sm-4:nth-child(3) > .invalid-feedback",
+      "targets": [
+        ["css=.col-sm-4:nth-child(3) > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d2fe932f-1e96-4ddd-9e0f-50eeb5192646",
+    "name": "Project toevoegen - adres - alleen postcode",
+    "commands": [{
+      "id": "3c936997-517a-49af-a816-83ac77df7982",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/projects",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e3b38989-60a1-402c-8578-690c46fd8459",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Project toevoegen",
+      "targets": [
+        ["linkText=Project toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Project toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/projects/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Project toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eca12b06-5bb3-44c0-84fd-dcfb10ab60b1",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "786c3427-d3a8-4fbf-80e1-ee4eb704e5c8",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.note-icon-underline",
+      "targets": [
+        ["css=.note-icon-underline", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[2]/div/button[3]/i", "xpath:idRelative"],
+        ["xpath=//button[3]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9f8b491-dec5-4e91-ba12-fa15d223e223",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.note-icon-underline",
+      "targets": [
+        ["css=.note-icon-underline", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[2]/div/button[3]/i", "xpath:idRelative"],
+        ["xpath=//button[3]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5dc94da3-63a4-438d-915b-ef7c8fbb87a3",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Voorbeeld"
+    }, {
+      "id": "b86c15d0-0f1e-4108-9b57-176ed8eb213f",
+      "comment": "",
+      "command": "type",
+      "target": "id=zipcode",
+      "targets": [
+        ["id=zipcode", "id"],
+        ["name=zipcode", "name"],
+        ["css=#zipcode", "css:finder"],
+        ["xpath=//input[@id='zipcode']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "1234AA"
+    }, {
+      "id": "59c1558f-9423-4c64-96f1-fa9bfb7322cc",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=zipcode",
+      "targets": [
+        ["id=zipcode", "id"],
+        ["name=zipcode", "name"],
+        ["css=#zipcode", "css:finder"],
+        ["xpath=//input[@id='zipcode']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "a6981270-3986-466a-b427-28e5408bc9e3",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-sm-4:nth-child(2) > .invalid-feedback",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d6bf594-1f37-4bc7-a59c-5fb9b30c5c29",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-sm-2 > .invalid-feedback",
+      "targets": [
+        ["css=.col-sm-2 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "47f57f0a-02b7-4016-9150-499a3aea824d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-sm-4:nth-child(3) > .invalid-feedback",
+      "targets": [
+        ["css=.col-sm-4:nth-child(3) > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "13bcd9ae-157e-4fef-ae69-76a7d7f7d938",
+    "name": "Project toevoegen - adres - alleen plaats",
+    "commands": [{
+      "id": "cb002ddd-a39d-4221-9e2e-5ee3ce8ab1ea",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/projects",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1d3eb1a0-3cf9-4758-979c-16dbd08be3a3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Project toevoegen",
+      "targets": [
+        ["linkText=Project toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Project toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/projects/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Project toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "408cc694-5905-42e1-8962-90b24a402992",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e00f56ec-bba7-4095-a67a-2e138c389d00",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.note-btn-bold",
+      "targets": [
+        ["css=.note-btn-bold", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "01bac7a0-b32d-4425-8b98-07f8c4027ef2",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.note-btn-bold",
+      "targets": [
+        ["css=.note-btn-bold", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd45d0de-dc89-4921-ac50-48793dca78f6",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Voorbeeld"
+    }, {
+      "id": "870390e7-9100-4da8-a01d-a281b643bbc8",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["name=city", "name"],
+        ["css=#city", "css:finder"],
+        ["xpath=//input[@id='city']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "728ba0a3-b460-434a-9e78-8f0e84172519",
+      "comment": "",
+      "command": "type",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["name=city", "name"],
+        ["css=#city", "css:finder"],
+        ["xpath=//input[@id='city']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": "Amsterdam"
+    }, {
+      "id": "8cc05b5c-88e1-44d4-bb9b-ba381d07433e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div/button", "xpath:idRelative"],
+        ["xpath=//div[6]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee2a7b64-b0bd-491e-8d0f-2c217c2354ce",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-lg-5 > .invalid-feedback",
+      "targets": [
+        ["css=.col-lg-5 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f5f38ff-b401-4021-8145-2186fd9a68a1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-sm-2 > .invalid-feedback",
+      "targets": [
+        ["css=.col-sm-2 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4593a8e7-b09a-4067-9f95-d8da3bc5a328",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-lg-4 > .invalid-feedback",
+      "targets": [
+        ["css=.col-lg-4 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[4]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "ddd3c37f-ef8c-4bd1-81a0-5bded30a6ad0",
+    "name": "Teamleden toevoegen - happy flow",
+    "commands": [{
+      "id": "4b154665-4d7d-4eaf-893c-351c863800ff",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/team_member",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0aafc093-00d4-47a5-b32e-b74db567fed3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Teamlid toevoegen",
+      "targets": [
+        ["linkText=Teamlid toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Teamlid toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/team_member/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Teamlid toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "624f3ec2-ca82-461c-863f-7dbd864e1d46",
+      "comment": "",
+      "command": "type",
+      "target": "id=first_name",
+      "targets": [
+        ["id=first_name", "id"],
+        ["name=first_name", "name"],
+        ["css=#first_name", "css:finder"],
+        ["xpath=//input[@id='first_name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Pietje"
+    }, {
+      "id": "a26fa121-ead0-4337-b02c-4d122f8f5e1a",
+      "comment": "",
+      "command": "type",
+      "target": "id=last_name",
+      "targets": [
+        ["id=last_name", "id"],
+        ["name=last_name", "name"],
+        ["css=#last_name", "css:finder"],
+        ["xpath=//input[@id='last_name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Puk"
+    }, {
+      "id": "9192bf67-196c-450a-b347-0d4e8604bd00",
+      "comment": "",
+      "command": "type",
+      "target": "id=function",
+      "targets": [
+        ["id=function", "id"],
+        ["name=function", "name"],
+        ["css=#function", "css:finder"],
+        ["xpath=//input[@id='function']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "Directeur"
+    }, {
+      "id": "79eab9dc-969d-4464-8223-f7a50d7520e1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.note-placeholder",
+      "targets": [
+        ["css=.note-placeholder", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/div/div[3]/div", "xpath:idRelative"],
+        ["xpath=//div/div[3]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5257cd30-4a75-446f-aa09-43f8e09aa5ea",
+      "comment": "",
+      "command": "editContent",
+      "target": "css=.note-editable",
+      "targets": [
+        ["css=.note-editable", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/div/div[3]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]", "xpath:position"]
+      ],
+      "value": "<p>Ik ben sinds 2019 de directeur van dit bedrijf</p>"
+    }, {
+      "id": "3e6a74e2-0518-4f56-b243-6070e1185689",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div/button", "xpath:idRelative"],
+        ["xpath=//div[5]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "be214770-d993-4fc3-a3db-5d3e8754cebf",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje')]",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Pietje')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "062136e2-57ed-4c08-b845-2dad959808b4",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//table/tbody/tr[contains(td[2], 'Puk')]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7de26e54-61a0-4b45-95cc-c10a60ff5510",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//table/tbody/tr[contains(td[3], 'Directeur')]",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "62ed8273-e665-42ae-82ce-4a7ddcac50f6",
+    "name": "Teamleden toevoegen - lege velden",
+    "commands": [{
+      "id": "8a81599e-33aa-4631-b18b-23cf45b6fd91",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/team_member",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bef0d3cb-ec4c-4da4-a2ad-a83de5b6b2dc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Teamlid toevoegen",
+      "targets": [
+        ["linkText=Teamlid toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Teamlid toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/team_member/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Teamlid toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffd32b43-6d9f-4d24-9970-13af9f1c17d7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div/button", "xpath:idRelative"],
+        ["xpath=//div[5]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "55ce9c73-f4ae-4432-b6a0-8231fd7f33fb",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(2) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(2) .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ccc9d7c1-9f87-4b23-85aa-9702cefd5acf",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(3) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(3) .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "93982051-c28c-4648-bb98-f76ca9f0c8c0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(4) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(4) .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c3dee807-2b61-4ec2-8112-29132505939e",
+    "name": "Teamleden verwijderen",
+    "commands": [{
+      "id": "39f1ef37-50ab-4197-855c-d6c3bd6f8d65",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/team_member",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29680288-4d67-4d27-9cc3-e2443da1aa60",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d72380cf-501a-482f-be8e-2bf7136efd71",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje')]/td[4]/form/div/button",
+      "targets": [
+        ["css=tr:nth-child(3) .fa-trash", "css:finder"],
+        ["xpath=//main[@id='main-container']/div[2]/div/div/div[2]/div/table/tbody/tr[3]/td[5]/div/a[3]/span", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[5]/div/a[3]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f374cdff-b371-4947-8d47-467d28501d40",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje')]/td[4]/form/div/button",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "36d33fe8-ef04-47ec-81f7-1acbef6e733d",
+    "name": "Vrijwilliger toevoegen - lege velden",
+    "commands": [{
+      "id": "3a46371c-27de-4b31-b74f-cb70479a7262",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/volunteers",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ea715a7-8313-4906-93a0-8027f01b9ca7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Vrijwilliger toevoegen",
+      "targets": [
+        ["linkText=Vrijwilliger toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Vrijwilliger toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/volunteers/create']", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Vrijwilliger toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba63f61b-edb2-407c-8b95-350106c9059a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[8]/div/button", "xpath:idRelative"],
+        ["xpath=//div[8]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d3a104a-918f-4834-824e-27bf000a5d52",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(2) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(2) .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3196b0c0-98c6-4c8a-aa15-6beebaea9b89",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(3) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(3) .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60d20f62-f6ae-438c-bdd1-0eb9bccff213",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(4) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(4) .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e86fb3e-0088-4899-a3a3-9c38972ae728",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(5) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(5) .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/div", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "41a1638b-6bae-485a-afab-19ce4b95981f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-lg-5:nth-child(2) > .invalid-feedback",
+      "targets": [
+        ["css=.col-lg-5:nth-child(2) > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div/div", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4382d3db-4e85-4d6d-a86f-9fe8f1a5e435",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-sm-2 > .invalid-feedback",
+      "targets": [
+        ["css=.col-sm-2 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[5]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6fd96624-228c-428f-930b-028fb3185452",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-lg-4 > .invalid-feedback",
+      "targets": [
+        ["css=.col-lg-4 > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "774e4aa1-9bf5-4b50-86ef-fa41d505103d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col-sm-4:nth-child(3) > .invalid-feedback",
+      "targets": [
+        ["css=.col-sm-4:nth-child(3) > .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7b032a0a-013a-4ace-82d6-5f49ff2853eb",
+    "name": "Vrijwilliger koppelen aan evenement",
+    "commands": [{
+      "id": "0f9b5fbc-2a96-4a76-a814-1ffe71440e2c",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/volunteers",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0db5ed8a-5ec3-4509-8c04-8a14d5b8960f",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]/td[3]/div/a[1]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e007f6e0-2346-42e3-b8af-9f68cd611213",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) .form-control",
+      "targets": [
+        ["css=.row:nth-child(3) .form-control", "css:finder"],
+        ["xpath=(//input[@type='search'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[3]/div/div[2]/div[2]/div[2]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d58c2a3f-8b78-42c7-9586-d05e2aa11fa6",
+      "comment": "",
+      "command": "type",
+      "target": "css=.row:nth-child(3) .form-control",
+      "targets": [
+        ["css=.row:nth-child(3) .form-control", "css:finder"],
+        ["xpath=(//input[@type='search'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[3]/div/div[2]/div[2]/div[2]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "missie"
+    }, {
+      "id": "f4f65915-d09d-4467-a09e-41cc32f45806",
+      "comment": "",
+      "command": "click",
+      "target": "css=.vbst-item > span",
+      "targets": [
+        ["css=.vbst-item > span", "css:finder"],
+        ["xpath=//div[@id='app']/div[3]/div/div[2]/div[2]/div[2]/div/div/div[2]/a/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Missie X-Mas Benefietconcert 2016')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b401033b-b05d-4c2d-918c-ea41b3146c9e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) .btn",
+      "targets": [
+        ["css=.row:nth-child(3) .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[3]/div/div[2]/div[2]/div[2]/div/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a98d5fc2-fe8f-4dc3-847f-f7bcd61d4e1d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.list-group-item",
+      "targets": [
+        ["css=.list-group-item", "css:finder"],
+        ["xpath=//div[@id='app']/div[3]/div/div[2]/div[2]/div[2]/ul/li", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Missie X-Mas Benefietconcert 2016 ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e806030-448e-4ae5-ad7f-90a913765f5e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.list-group-item > a",
+      "targets": [
+        ["css=.list-group-item", "css:finder"],
+        ["xpath=//div[@id='app']/div[3]/div/div[2]/div[2]/div[2]/ul/li", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Missie X-Mas Benefietconcert 2016 ')]", "xpath:innerText"]
+      ],
+      "value": "Missie X-Mas Benefietconcert 2016"
+    }, {
+      "id": "167bfa38-2c20-4bc3-bec4-d57fa76a8c0f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item > a",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8c23ffd2-1268-47f1-8a21-27bdfc1d69d4",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.list-group-item > a",
+      "targets": [
+        ["linkText=Pietje Puk", "linkText"],
+        ["css=.list-group-item > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Pietje Puk')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[9]/div[2]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://veads_f1.test/admin/volunteers/3']", "xpath:href"],
+        ["xpath=//div[9]/div[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Pietje Puk')]", "xpath:innerText"]
+      ],
+      "value": "Pietje Puk"
+    }]
+  }, {
+    "id": "c81dc408-f3a0-45af-9e91-c9a1079ad1ac",
+    "name": "Vrijwilliger ontkoppelen van evenement",
+    "commands": [{
+      "id": "147e6d5f-35ad-4206-9895-a627c2e56fc9",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/volunteers",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1be27470-636c-468a-aea6-b15c4a753d7e",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]/td[3]/div/a[1]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "69ea0a9e-5fc8-4e8b-9067-4b463ff863a2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.js-tooltip-enabled",
+      "targets": [
+        ["css=.js-tooltip-enabled", "css:finder"],
+        ["xpath=//div[@id='app']/div[3]/div/div[2]/div[2]/div[2]/ul/li/a[2]/span", "xpath:idRelative"],
+        ["xpath=//li/a[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "44c84f94-949b-4c7c-a088-e6c487c75cee",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "css=.list-group-item",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "6df59800-f975-4e02-8dba-58c812c35692",
+    "name": "Contact aanvraag verwijderen",
+    "commands": [{
+      "id": "f8ce5d4a-5aeb-4cf5-829a-b6f38545ef0a",
+      "comment": "",
+      "command": "open",
+      "target": "http://veads_f1.test/admin/contact_form",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28a13b81-3eab-424c-a11d-5c50f856f3e2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1330d48f-b24e-48e5-bf07-849339d66f51",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "987937ac-f54b-4a50-8185-4306ed0ea144",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .fa-trash",
+      "targets": [
+        ["css=tr:nth-child(1) .fa-trash", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr/td[3]/form/div/button/span", "xpath:idRelative"],
+        ["xpath=//form/div/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2569c040-f883-47b6-b047-c971b88c07df",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//div[@id='app']/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Contact aanvragen')]", "xpath:innerText"]
+      ],
+      "value": "Contact aanvragen"
+    }]
   }],
   "suites": [{
     "id": "2d710faf-ff9f-43fa-99c9-16dfa8f4b5c9",
-    "name": "Default Suite",
+    "name": "Evenementen",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["42889889-6089-4939-ada3-c4fd7483e739", "d8cac244-4d28-4015-b617-707ab3d48554", "20ecafd6-88ca-4794-a5ab-6200a5117714"]
+  }, {
+    "id": "328b8d58-62af-4090-a6d7-08a04bfa8a98",
+    "name": "Projecten",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["6c22f886-540c-4066-95b2-e89e3481e39c", "13bcd9ae-157e-4fef-ae69-76a7d7f7d938", "d2fe932f-1e96-4ddd-9e0f-50eeb5192646", "08e8b906-dffb-417c-811e-e63837e20429", "e43619b5-c185-49d9-912d-a4cd5f364933", "74bbd76d-9bb1-45e8-8ecc-a438661a2470", "44bff17f-d0a9-48dc-b86f-d3e6570a3af9"]
+  }, {
+    "id": "1557f83e-1c98-438d-8b44-289ebdeb22ef",
+    "name": "Teamleden",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ddd3c37f-ef8c-4bd1-81a0-5bded30a6ad0", "62ed8273-e665-42ae-82ce-4a7ddcac50f6", "c3dee807-2b61-4ec2-8112-29132505939e"]
+  }, {
+    "id": "f80d74b8-6dae-4c38-baee-18943c77bacb",
+    "name": "Vrijwilligers",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5dc66ce1-1e09-4d6f-9881-57468699df27", "4c7c5750-8ca9-4afd-be01-51322c1e435a", "36d33fe8-ef04-47ec-81f7-1acbef6e733d", "c81dc408-f3a0-45af-9e91-c9a1079ad1ac", "7b032a0a-013a-4ace-82d6-5f49ff2853eb"]
   }],
   "urls": ["https://veads-dev.ontwikkel.it/", "http://veads_f1.test/", "https://localhost:8000/", "http://localhost:8000/"],
   "plugins": []
