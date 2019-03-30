@@ -81,22 +81,25 @@
                         @csrf
                             @component('includes.forms.formgroup', [
                                 'name' => 'name',
-                                'title' => 'Naam'
+                                'title' => 'Naam',
+                                'bs3' => true
                             ])@endcomponent
 
                             @component('includes.forms.formgroup', [
                                 'name' => 'email',
                                 'title' => 'E-mailadres',
-                                'placeholder' => 'example@gmail.com'
+                                'placeholder' => 'example@gmail.com',
+                                'bs3' => true
                             ])@endcomponent
 
-                            <div class="form-group row"><label for="question" class="col-sm-4 col-lg-3 col-form-label">Vraag</label>
+                            <div class="form-group row{{ ($errors->has('question') ? ' has-error' : '') }}">
+                                <label for="question" class="col-sm-4 col-lg-3 control-label">Vraag</label>
                                 <div class="col-sm-8 col-lg-9">
-                                    <textarea name="question" id="question" placeholder="Vraag" rows="5" class="form-control{{ ($errors->has('question') ? ' is-invalid' : '') }}"></textarea>
+                                    <textarea name="question" id="question" placeholder="Vraag" rows="5" class="form-control"></textarea>
                                     @if($errors->has('question'))
-                                        <div class="invalid-feedback">
+                                        <span class="help-block">
                                             {{ $errors->first('question') }}
-                                        </div>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -113,14 +116,4 @@
             </div>
         </div>
     </div>
-
-    <style>
-        .is-invalid {
-            margin-bottom: 0;
-        }
-
-        .invalid-feedback {
-            color: #a7000e;
-        }
-    </style>
 @endsection
