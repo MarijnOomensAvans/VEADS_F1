@@ -1,7 +1,6 @@
 @extends('front.master')
+
 @section('content')
-
-
     <section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event"
              style="background-image: url(&quot;/images/homepage-9-parallax-img5.jpg&quot;); margin-top: 74px; visibility: visible; animation-name: fadeIn;">
         <div class="opacity-medium bg-light-blue"></div>
@@ -124,3 +123,4 @@
             color: #a7000e;
         }
     </style>
+@endsection
