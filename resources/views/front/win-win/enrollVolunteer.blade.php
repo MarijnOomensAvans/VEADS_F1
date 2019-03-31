@@ -30,7 +30,7 @@
                         <form id="contact-form" action="javascript:void(0)" method="post">
                             <div>
                                 
-                                {{-- Start Register Fields --}}
+                                {{-- Start Register Fields (need to split to blade file) --}}
                                 <input type="text" name="first_name" placeholder="Voornaam *" class="border-radius-4 bg-white medium-input" value="{{ old('first_name') ?? Auth::user()->volunteer->first_name ?? '' }}">
                                 <input type="text" name="last_name" placeholder="Achternaam *" class="border-radius-4 bg-white medium-input" value="{{ old('last_name') ?? Auth::user()->volunteer->last_name ?? '' }}">
                                 <input type="text" name="email" placeholder="E-mailadres *" class="border-radius-4 bg-white medium-input" value="{{ old('email') ?? Auth::user()->email ?? '' }}">
@@ -47,6 +47,7 @@
 
                                 <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px;">
                                     @foreach($events as $event)
+                                        <option selected disabled> Selecteer een evenement </option>
                                         <option value="{{$event->id}}">{{$event->name}}</option>
                                     @endforeach
                                 </select>
