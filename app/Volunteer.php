@@ -19,6 +19,10 @@ class Volunteer extends Model
         'address_id'
     ];
 
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+
     public function address() {
         return $this->belongsTo('App\Address');
     }

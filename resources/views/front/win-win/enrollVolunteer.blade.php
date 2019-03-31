@@ -1,71 +1,78 @@
-@extends('front.master')
+@extends('front.master') 
 @section('content')
 
-    <section class="wow">
-        <div class="container-fluid padding-five-lr">
-            <div class="row">
-                <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
-                    <div class="position-relative overflow-hidden width-100">
-                        <span class="text-extra-large text-outside-line-full alt-font font-weight-800">Ik help mee als vrijwilliger</span>
-                    </div>
+<section>
+    <div class="container-fluid padding-five-lr">
+        <div class="row">
+            <div class="col-md-12 center-col text-center margin-40px-top margin-80px-bottom xs-margin-40px-bottom">
+                <div class="position-relative overflow-hidden width-100">
+                    <span class="text-extra-large text-outside-line-full alt-font font-weight-800">Ik help mee als vrijwilliger</span>
                 </div>
             </div>
+        </div>
 
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
-                            <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
+        <div class="container">
+            <div class="row">
 
+                {{-- Form --}}
+                <div class="col-12 col-lg-6 md-margin-30px-bottom">
+                    <div class="padding-fifteen-all bg-light-gray border-radius-6 lg-padding-seven-all sm-padding-30px-all h-100">
+
+                        @guest
+                            <div class="alert alert-warning alert-dismissable">
+                                Heeft u al een account? Klik dan <a href='/login'>hier</a> om in te loggen.
+                            </div>
+                        @endguest
+                        
+                        <span class="text-extra-dark-gray alt-font text-large font-weight-600 margin-25px-bottom" style="display: block;">
+                            Vul uw gegevens hieronder in.
+                        </span>
+                        <form id="contact-form" action="javascript:void(0)" method="post">
+                            <div>
+                                <input type="text" name="first_name" placeholder="Voornaam *" class="border-radius-4 bg-white medium-input" value="{{ old('first_name') ?? Auth::user()->volunteer->first_name ?? '' }}">
+                                <input type="text" name="last_name" placeholder="Achternaam *" class="border-radius-4 bg-white medium-input" value="{{ old('last_name') ?? Auth::user()->volunteer->last_name ?? '' }}">
+                                <input type="text" name="email" placeholder="E-mailadres *" class="border-radius-4 bg-white medium-input" value="{{ old('email') ?? Auth::user()->email ?? '' }}">
+                                
                                 @guest
-                                    <p style="padding-top: 5px">Inloggen
-                                    <a href="/login"><button id="project-contact-us-button" type="submit" class="btn btn-royal-blue btn-medium" style="margin-left: 200px">Inloggen</button></a></p>
+                                    <input type="password" name="password" placeholder="Wachtwoord *" class="border-radius-4 bg-white medium-input">
+                                    <input type="password" name="repeat_password" placeholder="Herhaal Wachtwoord *" class="border-radius-4 bg-white medium-input">
                                 @endguest
 
-                                <p>Selecteer evenement
-                                    <select style="width: 400px; margin-left: 123px">
-                                        @if (count($events) > 0)
-                                            @foreach ($events as $event)
-                                                <option value="{{$event->name}}">{{$event->name}}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </p>
+                                <input type="number" name="phone_number" placeholder="Telefoonnummer *" class="border-radius-4 bg-white medium-input" value="{{ old('phone_number') ?? Auth::user()->volunteer->phone_number ?? '' }}">
 
-                                <div class="row lightbox-gallery">
-                                    <div class="col-md-12 no-padding xs-padding-15px-lr">
-                                        <ul class="portfolio-grid work-3col hover-option4 gutter-medium" style="position: relative; height: 0px;">
-                                            <li class="grid-sizer"></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">
+                                    Aanmelden
+                                </button>
                             </div>
-
-                        </main>
-                        <aside class="col-md-3 col-sm-12 col-xs-12 pull-right">
-                            <div class="margin-45px-bottom xs-margin-25px-bottom">
-                                <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Account informatie</span></div>
-                                
-                                
-                                <ul class="list-style-6 margin-50px-bottom text-small">
-
-                                    @auth
-                                        <li><a>Naam: </a><span>{{$user->name}}</span></li>
-                                    @endauth
-                                    
-                                    @guest
-                                        <li><a>U bent nog niet ingelogd</a></li>
-                                    @endguest
-
-                                </ul>
-                            </div>
-                        </aside>
-
+                        </form>
                     </div>
                 </div>
-            </section>
 
+                {{-- Message --}}
+                <div class="col-12 col-lg-6 last-paragraph-no-margin">
+                    <div class="padding-ten-all bg-light-gray border-radius-6 lg-padding-seven-all sm-padding-30px-all h-100 text-center text-lg-left">
+                        <img src="images/about-img1.jpg" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
+                        <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom d-block">Veads bedankt je!</span>
+                        <p>
+                            Top dat je wilt meehelpen bla bla bla bla...
+                        </p>
+                    </div>
+                </div>
 
+            </div>
         </div>
-    </section>
+
+
+    </div>
+</section>
 @endsection
+
+@push('styles')
+    <style>
+        .alert a{
+            text-decoration: underline;
+            color: hsla(50, 71%, 24%, 1);
+            font-weight: 700;
+        }
+    </style>
+@endpush

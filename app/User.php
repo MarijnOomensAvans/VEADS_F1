@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * User can be a volenteer
+     *
+     * @return App\Volunteer or NULL
+     */
+    public function volunteer() {
+        return $this->hasOne('App\Volunteer');
+    }
 }
