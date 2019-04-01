@@ -14,10 +14,14 @@ class CreateEditableContentsTable extends Migration
     public function up()
     {
         Schema::create('editable_contents', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 50);
-            $table->longText('text');
+            $table->string('key')->primary();
+            $table->string('category');
+            $table->enum('type', ['text', 'textarea', 'image', 'checkbox'])->default('text');
+            $table->string('title', 50);
+            $table->longText('content');
             $table->timestamps();
+
+            $table->foreign('category')->references('category')->on('editable_content_categories');
         });
     }
 
