@@ -23,13 +23,27 @@ class WinWinController extends Controller
 
     public function saveEnrollVolunteer(Request $request) {
 
-        // TODO: Split register logic to other controller
+        $this->handleUserFields($request);
 
+        // TODO: add user to event
+
+        // thankyou page
+        return redirect('/thanks');
+    }
+
+
+    /**
+     * Function that handles the users field
+     * Create new user if doesn't exists or update existing one
+     *
+     * @param Request $request
+     */
+    private function handleUserFields(Request $request){
+        
         // add firstname as name
-        $firstName = $request->input('first_name');
-        $request['name'] = $firstName;
+        $request['name'] = $request->input('first_name');
 
-        // create the user if person is guest
+        // create the user if person is guest and login
         if(Auth::guest())
         {
             // validate user settig
@@ -54,28 +68,17 @@ class WinWinController extends Controller
         $requestVolunteer = app('App\Http\Requests\StoreVolunteer');
 
         // update or insert the address
-        if (empty(Auth::user()->volunteer) || empty(Auth::user()->volunteer->address)){
-            $address = new Address;
-        }else{
-            $address = Auth::user()->volunteer->address;
-        }
+        $address = empty(Auth::user()->volunteer->address) ? new Address : Auth::user()->volunteer->address;
         $address->fill($requestVolunteer->all());
         $address->save();
 
-        // create the volenteer
+        // add address id to request
         $request['address_id'] = $address->id;
 
         // update or insert the address
-        if (empty(Auth::user()->volunteer) || empty(Auth::user()->volunteer->address)){
-            $volunteer = new Volunteer;
-        }else{
-            $volunteer = Auth::user()->volunteer;
-        }
+        $volunteer = empty(Auth::user()->volunteer) ? new Volunteer : Auth::user()->volunteer;
         $volunteer->fill($request->all());
         $volunteer->save();
-
-        // thankyou page
-        return redirect('/thanks');
     }
 
 }
