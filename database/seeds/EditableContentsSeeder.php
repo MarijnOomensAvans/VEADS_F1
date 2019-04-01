@@ -31,6 +31,18 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'contact_about_us', 'title' => 'Over ons', 'type' => 'textarea', 'content' => '', 'category' => 'contact']))->save();
         }
 
+        if (empty(\App\EditContent::find('contact_show_team'))) {
+            (new \App\EditContent(['key' => 'contact_show_team', 'title' => 'Ons team weergeven', 'type' => 'checkbox', 'content' => '', 'category' => 'contact']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('contact_show_form'))) {
+            (new \App\EditContent(['key' => 'contact_show_form', 'title' => 'Contactformulier weergeven', 'type' => 'checkbox', 'content' => '', 'category' => 'contact']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('contact_header'))) {
+            (new \App\EditContent(['key' => 'contact_header', 'title' => 'Header afbeelding', 'type' => 'image', 'content' => '', 'category' => 'contact']))->save();
+        }
+        
         // DO NOT TOUCH THIS LINE
     }
 }
