@@ -18,7 +18,7 @@ class CreateEditableContentsTable extends Migration
             $table->string('category');
             $table->enum('type', ['text', 'textarea', 'image', 'checkbox'])->default('text');
             $table->string('title', 50);
-            $table->longText('content');
+            $table->longText('content')->nullable();
             $table->timestamps();
 
             $table->foreign('category')->references('category')->on('editable_content_categories');

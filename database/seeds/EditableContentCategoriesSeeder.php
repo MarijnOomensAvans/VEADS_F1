@@ -21,7 +21,8 @@ class EditableContentCategoriesSeeder extends Seeder
             'homepagina',
             'evenementen',
             'projecten',
-            'contact'
+            'contact',
+            'footer'
         ];
 
         foreach($categories as $category) {
