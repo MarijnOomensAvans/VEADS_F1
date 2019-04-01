@@ -25,9 +25,9 @@ class StoreVolunteer extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'required',
             'first_name' => 'required|max:50',
             'last_name' => 'required|max:50',
-            'email' => 'required|email',
             'phone_number' => 
               array(
                 'required',

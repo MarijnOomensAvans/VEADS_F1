@@ -36,4 +36,13 @@ class User extends Authenticatable
     public function volunteer() {
         return $this->hasOne('App\Volunteer');
     }
+
+
+    /**
+     * Add a mutator to ensure hashed passwords
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 }

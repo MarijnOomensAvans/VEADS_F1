@@ -27,9 +27,20 @@
                         <span class="text-extra-dark-gray alt-font text-large font-weight-600 margin-25px-bottom" style="display: block;">
                             Vul uw gegevens hieronder in.
                         </span>
-                        <form id="contact-form" action="javascript:void(0)" method="post">
+                        <form action="/inschrijvenvrijwilliger" method="post">
+                            @csrf
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div>
-                                
                                 {{-- Start Register Fields (need to split to blade file) --}}
                                 <input type="text" name="first_name" placeholder="Voornaam *" class="border-radius-4 bg-white medium-input" value="{{ old('first_name') ?? Auth::user()->volunteer->first_name ?? '' }}">
                                 <input type="text" name="last_name" placeholder="Achternaam *" class="border-radius-4 bg-white medium-input" value="{{ old('last_name') ?? Auth::user()->volunteer->last_name ?? '' }}">
