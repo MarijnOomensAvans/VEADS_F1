@@ -26,5 +26,11 @@ class EditableContentsSeeder extends Seeder
         if (empty(\App\EditContent::find('projects_title'))) {
             (new \App\EditContent(['key' => 'projects_title', 'title' => 'Pagina titel', 'type' => 'text', 'content' => 'Projecten', 'category' => 'projecten']))->save();
         }
+
+        if (empty(\App\EditContent::find('contact_about_us'))) {
+            (new \App\EditContent(['key' => 'contact_about_us', 'title' => 'Over ons', 'type' => 'textarea', 'content' => '', 'category' => 'contact']))->save();
+        }
+
+        // DO NOT TOUCH THIS LINE
     }
 }
