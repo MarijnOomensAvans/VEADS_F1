@@ -43,6 +43,22 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'contact_header', 'title' => 'Header afbeelding', 'type' => 'image', 'content' => '', 'category' => 'contact']))->save();
         }
         
+        if (empty(\App\EditContent::find('event_title'))) {
+            (new \App\EditContent(['key' => 'event_title', 'title' => 'Pagina titel', 'type' => 'text', 'content' => '', 'category' => 'evenementen']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('contact_title'))) {
+            (new \App\EditContent(['key' => 'contact_title', 'title' => 'Pagina titel', 'type' => 'text', 'content' => '', 'category' => 'contact']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('event_header'))) {
+            (new \App\EditContent(['key' => 'event_header', 'title' => 'Header afbeelding', 'type' => 'image', 'content' => '', 'category' => 'evenementen']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('event_show_breadcrumb'))) {
+            (new \App\EditContent(['key' => 'event_show_breadcrumb', 'title' => 'Breadcrumb weergeven', 'type' => 'checkbox', 'content' => '', 'category' => 'evenementen']))->save();
+        }
+        
         // DO NOT TOUCH THIS LINE
     }
 }
