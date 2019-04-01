@@ -62,6 +62,10 @@
                                         <a href="/ikhelpmee">Help mee</a>
                                     </li>
 
+                                    <li>
+                                        <a href="/contact">Contact</a>
+                                    </li>
+
                                     @guest
                                         <li>
                                             <a href="/login">Inloggen</a>
@@ -73,7 +77,6 @@
                                             <a href="/logout">Uitloggen</a>
                                         </li>                                      
                                     @endauth
-
                                 </ul>
                             </div>
                         </div>

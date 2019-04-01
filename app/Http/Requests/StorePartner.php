@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreProject extends FormRequest
+class StorePartner extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,13 +26,8 @@ class StoreProject extends FormRequest
     {
         return [
             'name' => 'required|max:50',
-            'description' => 'nullable',
-            'street' => 'max:50|required_with:number,zipcode,city',
-            'number' => 'required_with:street,zipcode,city',
-            'number_modifier' => 'max:5',
-            'zipcode' => 'required_with:street,number,city',
-            'city' => 'required_with:street,number,zipcode',
-            'country' => 'required_with:street,number,zipcode,city'
+            'link' => 'required|URL',
+            'image' => 'required|image|max:4096',
         ];
     }
 }
