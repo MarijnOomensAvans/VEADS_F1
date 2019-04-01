@@ -15,11 +15,6 @@ class AlterVolunteersTable extends Migration
     {
         Schema::table('volunteers', function (Blueprint $table) {
             $table->dropColumn('email');
-            $table->unsignedBigInteger('user_id')->nullable()->after('id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
         });
     }
 

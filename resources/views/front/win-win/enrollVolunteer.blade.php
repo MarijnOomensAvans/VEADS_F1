@@ -41,17 +41,21 @@
                                 @endguest
 
                                 <input type="number" name="phone_number" placeholder="Telefoonnummer *" class="border-radius-4 bg-white medium-input" value="{{ old('phone_number') ?? Auth::user()->volunteer->phone_number ?? '' }}">
+                                
+                                <input type="text" name="street" placeholder="Straatnaam *" class="border-radius-4 bg-white medium-input" value="{{ old('street') ?? Auth::user()->volunteer->address->street ?? '' }}">
+                                <input type="text" name="number" placeholder="Nummer *" class="border-radius-4 bg-white medium-input" value="{{ old('number') ?? Auth::user()->volunteer->address->number ?? '' }}">
+                                <input type="text" name="city" placeholder="Plaats *" class="border-radius-4 bg-white medium-input" value="{{ old('city') ?? Auth::user()->volunteer->address->city ?? '' }}">
+                                <input type="text" name="zipcode" placeholder="Postcode *" class="border-radius-4 bg-white medium-input" value="{{ old('zipcode') ?? Auth::user()->volunteer->address->zipcode ?? '' }}">
+                                <input type="text" name="country" placeholder="Land *" class="border-radius-4 bg-white medium-input" value="{{ old('country') ?? Auth::user()->volunteer->address->country ?? '' }}">
                                 {{-- End Register Fields --}}
 
                                 {{-- Start Specific Fields --}}
-
                                 <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px;">
+                                    <option selected disabled>Selecteer een evenement </option>
                                     @foreach($events as $event)
-                                        <option selected disabled> Selecteer een evenement </option>
                                         <option value="{{$event->id}}">{{$event->name}}</option>
                                     @endforeach
                                 </select>
-
                                 {{-- End Specific Fields --}}
 
                                 <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">
