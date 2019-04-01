@@ -23,6 +23,7 @@ if (isset($event->pictures[0])) {
     </div>
 </section>
 
+@if((bool) getContent('event_show_breadcrumb')->content)
 <!-- Breadcrumbs -->
 <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
     <div class="container">
@@ -41,6 +42,7 @@ if (isset($event->pictures[0])) {
         </div>
     </div>
 </section>
+@endif
 
 <section>
     <div class="container">

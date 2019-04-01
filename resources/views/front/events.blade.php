@@ -14,6 +14,7 @@
     </div>
 </section>
 
+@if((bool) getContent('event_show_breadcrumb')->content)
 <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
     <div class="container">
         <div class="row">
@@ -30,7 +31,19 @@
         </div>
     </div>
 </section>
+@endif
 
+@if(!empty(strip_tags($intro = getContent('event_intro')->content)))
+    <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {!! $intro !!}
+                </div>
+            </div>
+        </div>
+    </section>
+@endif
 
 <section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">

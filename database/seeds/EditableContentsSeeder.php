@@ -59,6 +59,30 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'event_show_breadcrumb', 'title' => 'Breadcrumb weergeven', 'type' => 'checkbox', 'content' => '', 'category' => 'evenementen']))->save();
         }
         
+        if (empty(\App\EditContent::find('home_header'))) {
+            (new \App\EditContent(['key' => 'home_header', 'title' => 'Header afbeelding', 'type' => 'image', 'content' => '', 'category' => 'homepagina']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('home_title'))) {
+            (new \App\EditContent(['key' => 'home_title', 'title' => 'Pagina titel', 'type' => 'text', 'content' => '', 'category' => 'homepagina']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('home_show_partners'))) {
+            (new \App\EditContent(['key' => 'home_show_partners', 'title' => 'Partners weergeven', 'type' => 'checkbox', 'content' => '', 'category' => 'homepagina']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('home_video_url'))) {
+            (new \App\EditContent(['key' => 'home_video_url', 'title' => 'Youtube video url', 'type' => 'text', 'content' => '', 'category' => 'homepagina']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('home_show_events'))) {
+            (new \App\EditContent(['key' => 'home_show_events', 'title' => 'Evenementen weergeven', 'type' => 'checkbox', 'content' => '', 'category' => 'homepagina']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('event_intro'))) {
+            (new \App\EditContent(['key' => 'event_intro', 'title' => 'Intro tekst', 'type' => 'textarea', 'content' => '', 'category' => 'evenementen']))->save();
+        }
+        
         // DO NOT TOUCH THIS LINE
     }
 }

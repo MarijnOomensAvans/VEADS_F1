@@ -33,12 +33,12 @@
 </section>
 @endif
 
-@if(!empty($intro = getContent('projects_intro')))
+@if(!empty(strip_tags($intro = getContent('projects_intro')->content)))
     <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    {!! $intro->content !!}
+                    {!! $intro !!}
                 </div>
             </div>
         </div>

@@ -4,12 +4,12 @@
 <!-- This section is the header -->
 <section class="no-padding main-slider mobile-height top-space">
     <div class="swiper-full-screen swiper-container width-80 white-move border-radius-165px">
-        <div class="cover-background height-400px" style="background-image:url('images/homepageheaderimage.jpg');">
+        <div class="cover-background height-400px" style="background-image:url('{{ !empty(($header = getContent('event_header'))) ? '/image/' . $header->path . '/' . $header->name : '/images/homepageheaderimage.jpg' }}');">
             <div class="opacity-extra-medium bg-light-blue"></div>
             <div class="slider-typography text-center">
                 <div class="slider-text-middle-main">
                     <div class="slider-text-middle">
-                        <h1 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-95 center-col margin-35px-bottom xs-margin-15px-bottom">VEADS</h1>
+                        <h1 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-95 center-col margin-35px-bottom xs-margin-15px-bottom">{{ getContent('home_title')->content }}</h1>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
 </section>
 
 <!-- This section is the cards -->
-@if (count($partners) > 0)
+@if (count($partners) > 0 && ((bool) getContent('home_show_partners')->content))
 <section>
     <div class="container">
         <div class="row equalize xs-equalize-auto">
@@ -115,13 +115,13 @@ Start video
     {{--</div>--}}
 {{--</section>--}}
 
-@if (count($events) > 0)
+@if (count($events) > 0 && ((bool) getContent('home_show_events')->content))
 <section>
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
                 <div class="position-relative overflow-hidden width-100">
-                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Evenementen</span>
+                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">{{ getContent('event_title')->content }}</span>
                 </div>
             </div>
         </div>
