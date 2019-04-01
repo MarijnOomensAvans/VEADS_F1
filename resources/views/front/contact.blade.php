@@ -15,6 +15,7 @@
         </div>
     </section>
 
+    @if(!empty(getContent('contact_about_us')->content))
     <div class="row">
         <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
             <div class="position-relative overflow-hidden width-100">
@@ -25,6 +26,7 @@
             </p>
         </div>
     </div>
+    @endif
 
     @if((bool) getContent('contact_show_team')->content)
     <div class="row">
