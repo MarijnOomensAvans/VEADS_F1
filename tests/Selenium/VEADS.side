@@ -2140,6 +2140,337 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "26e91337-4a3a-4b05-ac7a-e910077c5fff",
+    "name": "Edit content - evenementen",
+    "commands": [{
+      "id": "c152e572-aa2e-4932-a3f3-b4d88d0f7f00",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/edit_content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a50d18fe-d916-4df6-b00f-d5905f29f22e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item:nth-child(2) > .nav-link",
+      "targets": [
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/form/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#evenementen')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7699faff-71fb-400a-9ac7-b22d005ec132",
+      "comment": "",
+      "command": "click",
+      "target": "id=event_title",
+      "targets": [
+        ["id=event_title", "id"],
+        ["name=event_title", "name"],
+        ["css=#event_title", "css:finder"],
+        ["xpath=//input[@id='event_title']", "xpath:attributes"],
+        ["xpath=//div[@id='evenementen']/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "926010c1-2ff2-4cba-8dfd-28183488dbac",
+      "comment": "",
+      "command": "type",
+      "target": "id=event_title",
+      "targets": [
+        ["id=event_title", "id"],
+        ["name=event_title", "name"],
+        ["css=#event_title", "css:finder"],
+        ["xpath=//input[@id='event_title']", "xpath:attributes"],
+        ["xpath=//div[@id='evenementen']/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "Evenementen test"
+    }, {
+      "id": "6e5cf3bb-40ee-42bb-9fb1-3ce05a6d88f3",
+      "comment": "",
+      "command": "click",
+      "target": "css=#evenementen > .text-right > .btn",
+      "targets": [
+        ["css=#evenementen > .text-right > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='evenementen']/div[5]/button", "xpath:idRelative"],
+        ["xpath=//div[5]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50fbd97a-2ba9-45ea-87bc-21b33c4c2bd6",
+      "comment": "",
+      "command": "open",
+      "target": "/event",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c960e67-a918-42d0-8484-257978a8d470",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.font-weight-600",
+      "targets": [
+        ["css=.font-weight-600", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Evenementen test')]", "xpath:innerText"]
+      ],
+      "value": "Evenementen test"
+    }]
+  }, {
+    "id": "3d0aa011-c850-419a-acb5-5296d96abf48",
+    "name": "Edit content - homepagina",
+    "commands": [{
+      "id": "925577b7-0a70-4a3e-b6f7-c9649e7c5eb1",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/edit_content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7acc43ef-53d9-4adb-a7ad-198dc2bfea91",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Homepagina",
+      "targets": [
+        ["linkText=Homepagina", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Homepagina')]", "xpath:link"],
+        ["xpath=//div[@id='app']/form/div/div/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#homepagina')]", "xpath:href"],
+        ["xpath=//form/div/div/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Homepagina')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "048e0fbb-680f-4b07-ac82-8747158d1560",
+      "comment": "",
+      "command": "click",
+      "target": "id=home_title",
+      "targets": [
+        ["id=home_title", "id"],
+        ["name=home_title", "name"],
+        ["css=#home_title", "css:finder"],
+        ["xpath=//input[@id='home_title']", "xpath:attributes"],
+        ["xpath=//div[@id='homepagina']/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[5]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "965bd27c-c698-4115-9dc8-e684d1fc7f61",
+      "comment": "",
+      "command": "type",
+      "target": "id=home_title",
+      "targets": [
+        ["id=home_title", "id"],
+        ["name=home_title", "name"],
+        ["css=#home_title", "css:finder"],
+        ["xpath=//input[@id='home_title']", "xpath:attributes"],
+        ["xpath=//div[@id='homepagina']/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div[5]/div/input", "xpath:position"]
+      ],
+      "value": "VEADS test"
+    }, {
+      "id": "3f748561-5c98-473b-9b5f-91299da97aa7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right:nth-child(8) > .btn",
+      "targets": [
+        ["css=.text-right:nth-child(8) > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='homepagina']/div[7]/button", "xpath:idRelative"],
+        ["xpath=//div[7]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5fe17f2d-3405-4827-8a3f-3a2eaa51b735",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ecb04775-4517-452f-940f-35ff664dd76a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.font-weight-700",
+      "targets": [
+        ["css=.font-weight-700", "css:finder"],
+        ["xpath=//h1", "xpath:position"]
+      ],
+      "value": "VEADS TEST"
+    }]
+  }, {
+    "id": "4f7a8441-7924-412b-bd20-0e8c72b1b598",
+    "name": "Edit content - projecten",
+    "commands": [{
+      "id": "1394d65f-48a3-4dff-8a32-41d8f1a0901a",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/edit_content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6cdf8f11-36f6-4b76-8ae4-1bc7277c5cf5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item:nth-child(5) > .nav-link",
+      "targets": [
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Projecten')]", "xpath:link"],
+        ["xpath=//div[@id='app']/form/div/div/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#projecten')]", "xpath:href"],
+        ["xpath=//form/div/div/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc617f22-001f-406a-a9af-53748a814e1f",
+      "comment": "",
+      "command": "click",
+      "target": "id=projects_title",
+      "targets": [
+        ["id=projects_title", "id"],
+        ["name=projects_title", "name"],
+        ["css=#projects_title", "css:finder"],
+        ["xpath=//input[@id='projects_title']", "xpath:attributes"],
+        ["xpath=//div[@id='projecten']/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "691b8482-2469-46a6-886b-b25d1a814874",
+      "comment": "",
+      "command": "type",
+      "target": "id=projects_title",
+      "targets": [
+        ["id=projects_title", "id"],
+        ["name=projects_title", "name"],
+        ["css=#projects_title", "css:finder"],
+        ["xpath=//input[@id='projects_title']", "xpath:attributes"],
+        ["xpath=//div[@id='projecten']/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div[4]/div/input", "xpath:position"]
+      ],
+      "value": "Projecten test"
+    }, {
+      "id": "3ba582ff-ca06-4765-9517-c258f864f262",
+      "comment": "",
+      "command": "click",
+      "target": "css=#projecten > .text-right > .btn",
+      "targets": [
+        ["css=#projecten > .text-right > .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//div[@id='projecten']/div[5]/button", "xpath:idRelative"],
+        ["xpath=//div[5]/div[5]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4907e814-a1fc-4c1a-a07b-b7c1453d6e01",
+      "comment": "",
+      "command": "open",
+      "target": "/project",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51d2444b-df59-4e43-9f8a-ba154d1fb36a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.font-weight-600",
+      "targets": [
+        ["css=.font-weight-600", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Projecten test')]", "xpath:innerText"]
+      ],
+      "value": "Projecten test"
+    }]
+  }, {
+    "id": "8a1a868e-14c6-43af-b0c9-f77e4e153a80",
+    "name": "Edit content - contact",
+    "commands": [{
+      "id": "faf60541-57d3-4232-ab5b-548c6ead911d",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/edit_content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "468067a3-5391-4650-aad0-0c2f6b2a7449",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Contact",
+      "targets": [
+        ["linkText=Contact", "linkText"],
+        ["css=.nav-item > .active", "css:finder"],
+        ["xpath=//a[contains(text(),'Contact')]", "xpath:link"],
+        ["xpath=//div[@id='app']/form/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#contact')]", "xpath:href"],
+        ["xpath=//form/div/div/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f8c27c75-d213-4a5f-85f2-64ed32f8ff96",
+      "comment": "",
+      "command": "click",
+      "target": "id=contact_title",
+      "targets": [
+        ["id=contact_title", "id"],
+        ["name=contact_title", "name"],
+        ["css=#contact_title", "css:finder"],
+        ["xpath=//input[@id='contact_title']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "73cf6bbf-910d-4bff-bc75-100ca16959d1",
+      "comment": "",
+      "command": "type",
+      "target": "id=contact_title",
+      "targets": [
+        ["id=contact_title", "id"],
+        ["name=contact_title", "name"],
+        ["css=#contact_title", "css:finder"],
+        ["xpath=//input[@id='contact_title']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "Contact test"
+    }, {
+      "id": "aa5f7695-94f7-4be5-8104-aa12f39b83e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right:nth-child(7) > .btn",
+      "targets": [
+        ["css=.text-right:nth-child(7) > .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/div[6]/button", "xpath:idRelative"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "35a5842a-54e3-4e92-a191-ffb75ce9ef67",
+      "comment": "",
+      "command": "open",
+      "target": "/contact",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8bdeb61b-95d2-4f1d-90cd-717da756a74d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.display-table-cell > .alt-font",
+      "targets": [
+        ["css=.display-table-cell > .alt-font", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Contact test')]", "xpath:innerText"]
+      ],
+      "value": "Contact test"
+    }]
   }],
   "suites": [{
     "id": "2d710faf-ff9f-43fa-99c9-16dfa8f4b5c9",

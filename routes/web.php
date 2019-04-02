@@ -89,4 +89,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::post('/partners/{partner}/edit', 'Backend\\PartnerController@update')->name('admin/partners/edit')->where('partner', '[0-9]+');
     Route::get('/partners/{partner}/destroy', 'Backend\\PartnerController@destroy')->name('admin/partners/destroy')->where('partner', '[0-9]+');
     Route::post('/partners/{partner}/destroy', 'Backend\\PartnerController@delete')->name('admin/partners/destroy')->where('partner', '[0-9]+');
+
+    // Backend edit content
+    Route::get('/edit_content', 'Backend\\EditContentController@index');
+    Route::put('/edit_content', 'Backend\\EditContentController@update');
 });
