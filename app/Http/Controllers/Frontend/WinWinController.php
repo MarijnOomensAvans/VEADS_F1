@@ -25,6 +25,13 @@ class WinWinController extends Controller
 
         $this->handleUserFields($request);
 
+        // validate event
+        $validated = $request->validate([
+            'event_id' => 'required'
+        ], [], [
+            'event_id' => 'event'
+        ]);
+
         // TODO: add user to event
 
         // thankyou page
