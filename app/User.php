@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -25,7 +27,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -33,16 +36,8 @@ class User extends Authenticatable
      *
      * @return App\Volunteer or NULL
      */
-    public function volunteer() {
+    public function volunteer()
+    {
         return $this->hasOne('App\Volunteer');
     }
-
-
-    /**
-     * Add a mutator to ensure hashed passwords
-     */
-//    public function setPasswordAttribute($password)
-//    {
-//        $this->attributes['password'] = bcrypt($password);
-//    }
 }
