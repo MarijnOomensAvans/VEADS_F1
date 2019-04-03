@@ -1,7 +1,6 @@
 <?php
 namespace App\Services;
 
-use App\Helpers\FbPersistentDataHelper;
 use Facebook\Facebook;
 
 class FacebookService {
