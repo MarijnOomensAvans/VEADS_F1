@@ -75,6 +75,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 
     // Facebook
     Route::get('/facebook', "Backend\\FacebookController@index")->name('admin/facebook');
+    Route::get('/fb/callback', "Backend\\FacebookController@callback")->name('admin/facebook/callback');
 });
-
-?>
