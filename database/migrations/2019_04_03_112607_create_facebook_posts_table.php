@@ -15,7 +15,7 @@ class CreateFacebookPostsTable extends Migration
     {
         Schema::create('facebook_posts', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->unsignedBigInteger('post_id');
+            $table->string('post_id');
             $table->foreign('post_id')->references('id')->on('facebook_pages');
             $table->string('image_url')->nullable();
             $table->text('message')->nullable();
