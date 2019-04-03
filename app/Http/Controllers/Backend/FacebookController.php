@@ -16,9 +16,11 @@ class FacebookController extends Controller
 
         $urlHelper = $fb->getRedirectLoginHelper();
         $permissions = ['manage_pages'];
-        $fbLoginUrl = $urlHelper->getLoginUrl(config('app.url') . '/fb/callback', $permissions);
+        $fbLoginUrl = $urlHelper->getLoginUrl(config('app.url') . '/admin/fb/callback', $permissions);
 
-        return view('back.facebook.index', ['fb_login_url' => $fbLoginUrl]);
+        $pages = FacebookPage::get();
+
+        return view('back.facebook.index', ['fb_login_url' => $fbLoginUrl, 'fb_pages' => $pages]);
     }
 
     public function callback(FacebookService $facebookService) {
@@ -78,7 +80,13 @@ class FacebookController extends Controller
         foreach($response->getGraphEdge() as $page) {
             $data = $page->asArray();
 
-            $p = new FacebookPage([
+            $p = FacebookPage::find($data['id']);
+
+            if (empty($p)) {
+                $p = new FacebookPage();
+            }
+
+            $p->fill([
                 'id' => $data['id'],
                 'name' => $data['name'],
                 'access_token' => $data['access_token'],
