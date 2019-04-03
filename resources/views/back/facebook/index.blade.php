@@ -7,10 +7,10 @@
 
     <div class="content">
         <div class="block block-rounded block-bordered">
-            <div class="block-content">
+            <div class="block-content mb-4">
                 <div class="row">
                     <div class="col-12 col-md-7">
-                        <a href="{{$fb_login_url}}" class="btn btn-primary"><span class="fas fa-facebook"></span>Verbinden met Facebook</a>
+                        <a href="{{$fb_login_url}}" class="btn btn-primary">Verbinden met Facebook</a>
                     </div>
                 </div>
             </div>
