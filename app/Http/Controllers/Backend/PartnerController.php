@@ -94,14 +94,16 @@ class PartnerController extends Controller
      * @param  \App\Partner  $partner
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePartner $request, Partner $partner)
+    public function update(UpdatePartner $request, Partner $partner)
     {
         $validated = $request->validated();
         $partner->fill($validated);
         $partner->save();
 
-        $this->saveImages($partner, $request->file('image'));
-
+        if ($request->hasFile('image'))
+        {
+          $this->saveImages($partner, $request->file('image'));
+        }
         return redirect('admin/partners/' . $partner->id);
     }
 
