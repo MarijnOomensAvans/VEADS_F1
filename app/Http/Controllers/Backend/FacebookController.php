@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Facebook\Exceptions\FacebookResponseException;
 use Facebook\Exceptions\FacebookSDKException;
+use Illuminate\Support\Facades\Artisan;
 
 class FacebookController extends Controller
 {
@@ -94,6 +95,12 @@ class FacebookController extends Controller
             ]);
             $p->save();
         }
+
+        return redirect(action('Backend\FacebookController@index'));
+    }
+
+    public function update() {
+        Artisan::call('social:update');
 
         return redirect(action('Backend\FacebookController@index'));
     }
