@@ -10,7 +10,7 @@
             <div class="block-content">
                 <div class="row">
                     <div class="col-12 col-md-7">
-                        <a href="https://facebook.com" class="btn btn-primary"><span class="fas fa-plus"></span> Evenement toevoegen</a>
+                        <a href="{{$fb_login_url}}" class="btn btn-primary"><span class="fas fa-facebook"></span>Login met Facebook</a>
                     </div>
                 </div>
             </div>
