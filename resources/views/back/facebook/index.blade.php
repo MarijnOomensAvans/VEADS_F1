@@ -6,10 +6,14 @@
     </div>
 
     <div class="content">
-        <div class="block block-rounded block-bordered">
-            <div class="block-content">
-                <div class="row mb-3">
-                    <div class="col-12 col-md-12">
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="block">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Login Facebook</h3>
+                    </div>
+                    <div class="block-content pb-4">
                         <a href="{{$fb_login_url}}" class="btn btn-primary">Verbinden met Facebook</a>
                     </div>
                 </div>
@@ -17,25 +21,28 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-md-12">
-                <h5>Verbonden Pages</h5>
-            </div>
-        </div>
+            <div class="col-12 col-md-6">
+                <div class="block">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Verbonden Pages</h3>
+                    </div>
+                    <div class="block-content pb-1">
 
-        <div class="row">
-            @foreach($fb_pages as $page)
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="block">
-                        <div class="block-header block-header-default">
-                            <h3 class="block-title">{{ $page->name }}</h3>
-                        </div>
-                        <div class="block-content">
-                            <strong>Laatste post</strong>
-                            <p>{{ !empty($page->last_post) ? $page->last_post->message : '' }}</p>
-                        </div>
+                        {{-- Show If Empty --}}
+                        @if(count($fb_pages) == 0)
+                            <div class="alert alert-warning" role="alert">
+                                <p class="mb-0">Leeg</p>
+                            </div>
+                        @else
+                            <ul>
+                                @foreach($fb_pages as $page)
+                                    <li>{{ $page->name }}</li>
+                                @endforeach 
+                            </ul>
+                        @endif
                     </div>
                 </div>
-            @endforeach
+            </div>
         </div>
     </div>
 @endsection

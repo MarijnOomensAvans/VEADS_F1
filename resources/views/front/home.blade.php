@@ -1,6 +1,8 @@
 @extends('front.master')
 @section('content')
 
+
+
 <!-- This section is the header -->
 <section class="no-padding main-slider mobile-height top-space">
     <div class="swiper-full-screen swiper-container width-80 white-move border-radius-165px">
@@ -71,42 +73,33 @@ Start video
                 <div class="swiper-container swiper-pagination-bottom black-move blog-slider swiper-three-slides">
                     <div class="swiper-wrapper">
 
-                        @foreach([1, 2, 3, 4, 5] as $i)
 
-                            <div class="swiper-slide col-md-4 col-sm-4 col-xs-12 blog-post-style5 last-paragraph-no-margin">
-                                <div class="blog-post bg-white box-shadow-light"  style="border-radius: 20px">
-                                    <div class="blog-post-images overflow-hidden">
-                                        <a href="#">
-                                            @if($i == 3)
-                                                <img src="images/placeholder/facebook-placeholder.png">
-                                            @elseif($i == 5)
-                                                <img src="images/placeholder/instagram-placeholder.png">
-                                            @else
-                                                <img src="images/blog-img6.jpg">
-                                            @endif
-                                        </a>
-                                            
-                                        <div class="blog-categories bg-white text-uppercase text-extra-small alt-font">
-                                            @if($i == 3)
+                        @foreach($pages as $page)
+                            @foreach($page->posts as $post)
+                                <div class="swiper-slide col-md-4 col-sm-4 col-xs-12 blog-post-style5 last-paragraph-no-margin" style="height: 100%">
+                                    <div class="blog-post bg-white box-shadow-light" style="border-radius: 20px;">
+                                        <div class="blog-post-images overflow-hidden">
+                                            <a href="{{$post->url}}">
+                                                <img src="{{$post->image_url}}">
+                                            </a>
+                                                
+                                            <div class="blog-categories bg-white text-uppercase text-extra-small alt-font">
                                                 <a href="#">Facebook</a>
-                                            @else
-                                                <a href="#">Instagram</a>
-                                            @endif
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                        <div class="blog-hover-color"></div>
-                                        <a href="#" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom">OMG, dit heb je heel mooi gemaakt 🤗😍</a>
-                                        <div class="author">
-                                            <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">door <a href="#" class="text-medium-gray">MODAL</a>&nbsp;&nbsp;|&nbsp;&nbsp;20 April 2019</span>
+                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
+                                            <div class="blog-hover-color"></div>
+                                            @if ($post->message)
+                                                <a href="{{$post->url}}" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom cut-text">{{$post->message}}</a>
+                                            @endif
+                                            <div class="author">
+                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">{{$page->name}}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            @endforeach
                         @endforeach
-                        
-
                     </div>                        
                     <div class="swiper-pagination swiper-pagination-three-slides height-auto"></div>
                 </div>
@@ -150,3 +143,15 @@ Start video
 </section>
 @endif
 @endsection
+
+@push('styles')
+    <style>
+        .cut-text{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            height: 1.2em;
+            white-space: nowrap;
+        }
+    </style>
+@endpush

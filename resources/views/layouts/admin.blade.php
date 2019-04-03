@@ -94,7 +94,7 @@
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/facebook') !== false ? ' active' : '' }}" href="{{ route('admin/facebook') }}">
                         <i class="nav-main-link-icon fab fa-facebook"></i>
-                        <span class="nav-main-link-name">FaceBook</span>
+                        <span class="nav-main-link-name">Facebook</span>
                     </a>
                 </li>
                 {{--<li class="nav-main-item">--}}

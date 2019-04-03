@@ -58,7 +58,7 @@ class SocialUpdateCommand extends Command
 
         foreach($pages as $page) {
 
-            $response = $fb->get('/' . $page->id . '/feed?fields=full_picture,message,link,created_time&limit=1', $page->access_token);
+            $response = $fb->get('/' . $page->id . '/feed?fields=full_picture,message,link,created_time&limit=5', $page->access_token);
 
             $posts = $response->getGraphEdge()->asArray();
 
