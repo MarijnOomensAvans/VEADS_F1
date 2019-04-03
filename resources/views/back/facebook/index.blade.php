@@ -31,7 +31,7 @@
                         </div>
                         <div class="block-content">
                             <strong>Laatste post</strong>
-                            <p>{{ $page->last_post->message }}</p>
+                            <p>{{ !empty($page->last_post) ? $page->last_post->message : '' }}</p>
                         </div>
                     </div>
                 </div>
