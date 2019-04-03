@@ -9,6 +9,7 @@ use App\User;
 use App\Address;
 use App\Volunteer;
 use Illuminate\Support\Facades\Auth;
+use Hash;
 
 class WinWinController extends Controller
 {
@@ -60,6 +61,8 @@ class WinWinController extends Controller
                 'password' => 'required',
                 'repeat_password' => 'required|same:password'
             ]);
+
+            $validated["password"] = Hash::make($validated["password"]);
 
             // create user
             $user = User::create($validated);
