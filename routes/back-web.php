@@ -6,7 +6,7 @@ Route::group(['prefix' => 'admin'], function(){
 });
 
 // backend admin
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function()
 {
     // Backend homepage
     Route::get('/', 'Backend\\AdminController@index')->name('admin');
