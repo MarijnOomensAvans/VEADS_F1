@@ -22,9 +22,11 @@
         <link rel="stylesheet" href="/css/theme/bootsnav.css">
         <link rel="stylesheet" href="/css/theme/style.css" />
         <link rel="stylesheet" href="/css/theme/responsive.css" />
+        <link rel="stylesheet" href="/css/theme/footer.css" />
         <!--[if IE]>
             <script src="js/theme/html5shiv.js"></script>
         <![endif]-->
+        @stack('styles')
     </head>
     <body>
         <header class="header">
@@ -57,8 +59,24 @@
                                     </li>
 
                                     <li>
+                                        <a href="/ikhelpmee">Help mee</a>
+                                    </li>
+
+                                    <li>
                                         <a href="/contact">Contact</a>
                                     </li>
+
+                                    @guest
+                                        <li>
+                                            <a href="/login">Inloggen</a>
+                                        </li>                                      
+                                    @endguest
+
+                                    @auth
+                                        <li>
+                                            <a href="/logout">Uitloggen</a>
+                                        </li>                                      
+                                    @endauth
                                 </ul>
                             </div>
                         </div>
@@ -67,7 +85,9 @@
             </nav>
         </header>
 
-        @yield('content')
+        <div id='content-wrapper'>
+            @yield('content')
+        </div>
 
         <footer class="footer-modern-dark bg-royal-blue padding-two-tb xs-padding-30px-tb">
             <div class="footer-widget-area">
