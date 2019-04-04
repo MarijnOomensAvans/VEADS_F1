@@ -40,7 +40,7 @@
         <div class="row equalize xs-equalize-auto">
             @foreach ($partners as $partner)
             <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
-                <div class="blog-post bg-light-gray inner-match-height border-radius-10">
+                <div class="blog-post bg-light-gray border-radius-10">
                     <div class="blog-post-images overflow-hidden position-relative border-radius-10 height-100">
                         <a href="{{$partner->link}}">
                           <div class="opacity-medium bg-dark-gray"></div>
