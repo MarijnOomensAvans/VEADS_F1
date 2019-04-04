@@ -33,7 +33,23 @@ class WinWinController extends Controller
             'event_id' => 'event'
         ]);
 
-        // TODO: add user to event
+        $event = Event::find($request->input("event_id"));
+
+        $volunteer = Auth::user()->volunteer;
+
+        if(!($volunteer->events->contains($request->input("event_id")))) {
+            $volunteer->events()->attach($event);
+        }
+        else {
+            $error = \Illuminate\Validation\ValidationException::withMessages([
+                'event_id' => ['Je hebt je al ingeschreven voor dit evenement!']
+            ]);
+            throw $error;
+        }
+
+
+
+
 
         // thankyou page
         return redirect('/thanks');
@@ -89,6 +105,7 @@ class WinWinController extends Controller
         $volunteer = empty(Auth::user()->volunteer) ? new Volunteer : Auth::user()->volunteer;
         $volunteer->fill($request->all());
         $volunteer->save();
+
     }
 
 }
