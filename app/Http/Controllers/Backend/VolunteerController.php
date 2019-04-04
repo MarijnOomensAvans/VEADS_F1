@@ -45,6 +45,8 @@ class VolunteerController extends Controller
      */
     public function create()
     {
+        return abort(404);
+
         return view('volunteers.create');
     }
 
@@ -56,6 +58,8 @@ class VolunteerController extends Controller
      */
     public function store(StoreVolunteer $request)
     {
+        return abort(404);
+
         $validated = $request->validated();
 
         $address = new Address($validated);

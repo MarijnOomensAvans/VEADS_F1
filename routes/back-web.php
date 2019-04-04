@@ -24,8 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     // Backend volunteers
     Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
     Route::get('/volunteers/{volunteer}', 'Backend\\VolunteerController@show')->name('admin/volunteer')->where('volunteer', '[0-9]+');
-    Route::get('/volunteers/create', 'Backend\\VolunteerController@create')->name('admin/volunteers/create');
-    Route::post('/volunteers/create', 'Backend\\VolunteerController@store')->name('admin/volunteers/create');
+//    Route::get('/volunteers/create', 'Backend\\VolunteerController@create')->name('admin/volunteers/create');
+//    Route::post('/volunteers/create', 'Backend\\VolunteerController@store')->name('admin/volunteers/create');
     Route::get('/volunteers/{volunteer}/edit', 'Backend\\VolunteerController@edit')->name('admin/volunteers/edit')->where('volunteer', '[0-9]+');
     Route::post('/volunteers/{volunteer}/edit', 'Backend\\VolunteerController@update')->name('admin/volunteers/edit')->where('volunteer', '[0-9]+');
     Route::get('/volunteers/{volunteer}/destroy', 'Backend\\VolunteerController@destroy')->name('admin/volunteers/destroy')->where('volunteer', '[0-9]+');

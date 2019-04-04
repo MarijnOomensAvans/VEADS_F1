@@ -9,9 +9,9 @@
         <div class="block block-rounded block-bordered">
             <div class="block-content">
                 <div class="row">
-                    <div class="col-12 col-md-7">
-                        <a href="{{ route('admin/volunteers/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Vrijwilliger toevoegen</a>
-                    </div>
+{{--                    <div class="col-12 col-md-7">--}}
+{{--                        <a href="{{ route('admin/volunteers/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Vrijwilliger toevoegen</a>--}}
+{{--                    </div>--}}
                     <div class="col-12 col-md-5">
                         <form method="get">
                             <div class="form-group">
