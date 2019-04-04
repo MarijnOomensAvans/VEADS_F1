@@ -24,6 +24,10 @@ class FacebookPage extends Model
     }
 
     public function getLastPostAttribute() {
-        return $this->posts()->orderBy('created_at', 'desc')->first();
+        return $this->lastPosts(1)[0];
+    }
+
+    public function lastPosts(int $limit = 1) {
+        return $this->posts()->orderBy('created_at', 'desc')->limit($limit)->get();
     }
 }
