@@ -5,27 +5,39 @@
 
 <!-- This section is the header -->
 <section class="no-padding main-slider mobile-height top-space">
-    <div class="swiper-full-screen swiper-container width-80 white-move border-radius-165px">
-        <div class="cover-background height-400px" style="background-image:url('images/homepageheaderimage.jpg');">
-            <div class="opacity-extra-medium bg-light-blue"></div>
-            <div class="slider-typography text-center">
-                <div class="slider-text-middle-main">
-                    <div class="slider-text-middle">
-                        <h1 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-95 center-col margin-35px-bottom xs-margin-15px-bottom">VEADS</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="swiper-container white-move border-radius-165px">
+                    <div class="cover-background height-400px" style="background-image:url('{{ !empty(($header = getContent('home_header'))) ? '/image/' . $header->path . '/' . $header->name : '/images/homepageheaderimage.jpg' }}');">
+                        <div class="opacity-extra-medium bg-light-blue"></div>
+                        <div class="slider-typography text-center">
+                            <div class="slider-text-middle-main">
+                                <div class="slider-text-middle">
+                                    <h1 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-95 center-col margin-35px-bottom xs-margin-15px-bottom">{{ getContent('home_title')->content }}</h1>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination swiper-pagination-white swiper-full-screen-pagination"></div>
-        <div class="swiper-button-next swiper-button-black-highlight display-none"></div>
-        <div class="swiper-button-prev swiper-button-black-highlight display-none"></div>
     </div>
 </section>
 
+@if (!empty(strip_tags($intro = getContent('home_intro')->content)))
+    <section class="no-padding margin-70px-top">
+        <div class="container">
+            <div class="row">
+                {!! $intro !!}
+            </div>
+        </div>
+    </section>
+@endif
+
 <!-- This section is the cards -->
-@if (count($partners) > 0)
-<section>
+@if (count($partners) > 0 && ((bool) getContent('home_show_partners')->content))
+<section class="no-padding margin-70px-top">
     <div class="container">
         <div class="row equalize xs-equalize-auto">
             @foreach ($partners as $partner)
@@ -48,14 +60,17 @@
 </section>
 @endif
 
-<!--
-Start video
-<section>
-  <div>
-<iframe width="50%" height="315" src="https://www.youtube.com/embed/qpDNXX1Gm-Y" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+@if(!empty($url = getContent('home_video_url')->content))
+<section class="no-padding margin-70px-top">
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+              <iframe width="100%" height="500" src="{{ $url }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+      </div>
+    </div>
 </section>
--->
+@endif
 
  <section class="bg-light-gray">
     <div class="container">
@@ -108,13 +123,13 @@ Start video
     </div>
 </section> 
 
-@if (count($events) > 0)
-<section>
+@if (count($events) > 0 && ((bool) getContent('home_show_events')->content))
+<section class="no-padding margin-70px-top">
     <div class="container">
         <div class="row">
-            <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
+            <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-50px-bottom xs-margin-40px-bottom">
                 <div class="position-relative overflow-hidden width-100">
-                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Evenementen</span>
+                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">{{ getContent('event_title')->content }}</span>
                 </div>
             </div>
         </div>
