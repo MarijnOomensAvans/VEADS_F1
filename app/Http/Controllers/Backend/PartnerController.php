@@ -7,6 +7,7 @@ use App\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePartner;
+use App\Http\Requests\UpdatePartner;
 use App\Picture;
 
 class PartnerController extends Controller
