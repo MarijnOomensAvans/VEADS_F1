@@ -41,10 +41,10 @@
             @foreach ($partners as $partner)
             <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
                 <div class="blog-post bg-light-gray border-radius-10">
-                    <div class="blog-post-images overflow-hidden position-relative border-radius-10 height-100">
+                    <div class="blog-post-images overflow-hidden position-relative border-radius-10">
                         <a href="{{$partner->link}}">
                           <div class="opacity-medium bg-dark-gray"></div>
-                          <img class="img-fluid width-100 height-100" src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}">
+                          <img class="img-fluid width-350px height-350px" src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}">
                         </a>
                     </div>
                     <div class="carousel-caption margin-fifteen-bottom">
