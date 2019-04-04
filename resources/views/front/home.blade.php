@@ -75,7 +75,7 @@ Start video
 
 
                         @foreach($pages as $page)
-                            @foreach($page->posts as $post)
+                            @foreach($page->posts()->orderBy('created_at', 'desc')->limit(2)->get() as $post)
                                 <div class="swiper-slide col-md-4 col-sm-4 col-xs-12 blog-post-style5 last-paragraph-no-margin" style="height: 100%">
                                     <div class="blog-post bg-white box-shadow-light" style="border-radius: 20px;">
                                         <div class="blog-post-images overflow-hidden">
