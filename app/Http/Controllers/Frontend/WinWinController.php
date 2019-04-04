@@ -23,7 +23,7 @@ class WinWinController extends Controller
 
     public function saveEnrollVolunteer(Request $request) {
 
-        $this->handleUserFields($request);
+        $volunteer = $this->handleUserFields($request);
 
         // validate event
         $validated = $request->validate([
@@ -32,7 +32,16 @@ class WinWinController extends Controller
             'event_id' => 'event'
         ]);
 
-        $this->newCoupleTableRecord($request);
+        // get event
+        $event = Event::find($request->input("event_id"));
+
+        // return error if already init
+        if ($volunteer->events->contains($event)){
+            return back()->withErrors('Je hebt je al ingeschreven voor dit evenement!');
+        }
+
+        // attack to the event
+        $volunteer->events()->attach($event);
 
         // thankyou page
         return redirect('/thanks');
@@ -87,27 +96,7 @@ class WinWinController extends Controller
         $volunteer->fill($request->all());
         $volunteer->save();
 
-    }
-
-    private function newCoupleTableRecord($request) {
-        $event = Event::find($request->input("event_id"));
-
-        $volunteer = Auth::user()->volunteer;
-
-        if(!is_object($volunteer)) {
-            $volunteer = Volunteer::max('id');
-        }
-
-        if(!($volunteer->events->contains($request->input("event_id")))) {
-            $volunteer->events()->attach($event);
-        }
-
-        else {
-            $error = \Illuminate\Validation\ValidationException::withMessages([
-                'event_id' => ['Je hebt je al ingeschreven voor dit evenement!']
-            ]);
-            throw $error;
-        }
+        return $volunteer;
     }
 
 
