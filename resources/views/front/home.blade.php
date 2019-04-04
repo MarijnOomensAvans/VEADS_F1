@@ -44,7 +44,7 @@
                     <div class="blog-post-images overflow-hidden position-relative border-radius-10">
                         <a href="{{$partner->link}}">
                           <div class="opacity-medium bg-dark-gray"></div>
-                          <img class="img-fluid width-350px height-350px" src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}">
+                          <img class="img-fluid width-360px height-350px" src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}">
                         </a>
                     </div>
                     <div class="carousel-caption margin-fifteen-bottom">
