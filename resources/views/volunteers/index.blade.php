@@ -50,7 +50,7 @@
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('admin/volunteer', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
-                                            <a href="{{ route('admin/volunteers/edit', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
+{{--                                            <a href="{{ route('admin/volunteers/edit', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>--}}
                                             <a href="{{ route('admin/volunteers/destroy', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
                                         </div>
                                     </td>

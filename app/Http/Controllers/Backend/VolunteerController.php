@@ -91,6 +91,8 @@ class VolunteerController extends Controller
      */
     public function edit(Volunteer $volunteer)
     {
+        return abort(404);
+
         return view('volunteers.edit', compact('volunteer'));
     }
 
@@ -103,6 +105,8 @@ class VolunteerController extends Controller
      */
     public function update(StoreVolunteer $request, Volunteer $volunteer)
     {
+        return abort(404);
+
         $validated = $request->validated();
 
         $address = $volunteer->address()->first();
@@ -112,6 +116,11 @@ class VolunteerController extends Controller
         $volunteer->fill($validated);
         $volunteer->address_id = $address->id;
         $volunteer->save();
+
+        if (isset($validated['email'])) {
+            $volunteer->user->email = $validated['email'];
+            $volunteer->user->save();
+        }
 
         return redirect('admin/volunteers/' . $volunteer->id);
     }
