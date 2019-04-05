@@ -15,7 +15,7 @@
                 <hr/>
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4"><label>E-mailadres</label></div>
-                    <div class="col-12 col-sm-8"><a href="mailto:{{ $volunteer->email }}" target="_blank">{{ $volunteer->email }} <span class="fa fa-external-link-alt"></span></a></div>
+                    <div class="col-12 col-sm-8"><a href="mailto:{{ $volunteer->user->email }}" target="_blank">{{ $volunteer->user->email }} <span class="fa fa-external-link-alt"></span></a></div>
                 </div>
                 <hr/>
                 <div class="row mb-3">
