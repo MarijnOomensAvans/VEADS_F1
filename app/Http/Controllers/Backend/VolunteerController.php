@@ -180,7 +180,7 @@ class VolunteerController extends Controller
             $query->where('id', '=', $event->id);
         })->first();
 
-        if (empty($p)) {
+        if (!empty($p) && !$volunteer->events->contains($event->id)) {
             $volunteer->events()->attach($event->id);
         }
 
