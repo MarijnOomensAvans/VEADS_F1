@@ -44,7 +44,7 @@
             <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
                 <div class="blog-post bg-light-gray inner-match-height border-radius-10">
                     <div class="blog-post-images overflow-hidden position-relative border-radius-10 height-100">
-                        <a href="{{$partner->link}}">
+                        <a href="{{$partner->link}}" target="_blank">
                           <div class="opacity-medium bg-dark-gray"></div>
                           <img class="img-fluid width-100 height-100" src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}">
                         </a>
@@ -98,7 +98,7 @@
                                                 <a href="{{$post->url}}">
                                                     <img src="{{$post->image_url}}">
                                                 </a>
-                                                    
+
                                                 <div class="blog-categories bg-white text-uppercase text-extra-small alt-font">
                                                     <a href="#">Facebook</a>
                                                 </div>
@@ -106,7 +106,7 @@
                                             <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
                                                 <div class="blog-hover-color"></div>
                                                 @if ($post->message)
-                                                    <a href="{{$post->url}}" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom cut-text">{{$post->message}}</a>
+                                                    <a href="{{$post->url}}" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom cut-text">{{$post->message}}</a>
                                                 @endif
                                                 <div class="author">
                                                     <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">{{$page->name}}</span>
@@ -116,13 +116,13 @@
                                     </div>
                                 @endforeach
                             @endforeach
-                        </div>                        
+                        </div>
                         <div class="swiper-pagination swiper-pagination-three-slides height-auto"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
 @endif
 
 
