@@ -60,6 +60,10 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
+        if (!isset($validated['description'])) {
+            $validated['description'] = '';
+        }
+
         $project = new Project($validated);
 
         if (isset($validated['street']) && !empty($validated['street'])) {

@@ -35,7 +35,7 @@ class WinWinController extends Controller
 
         $event = Event::find($request->input("event_id"));
 
-        $volunteer = Auth::user()->volunteer;
+        $volunteer = Volunteer::where('user_id', Auth::user()->id)->first();
 
         if(!($volunteer->events->contains($request->input("event_id")))) {
             $volunteer->events()->attach($event);
@@ -46,10 +46,6 @@ class WinWinController extends Controller
             ]);
             throw $error;
         }
-
-
-
-
 
         // thankyou page
         return redirect('/thanks');

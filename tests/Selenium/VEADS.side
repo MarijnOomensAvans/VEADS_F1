@@ -478,176 +478,6 @@
       "value": ""
     }]
   }, {
-    "id": "4c7c5750-8ca9-4afd-be01-51322c1e435a",
-    "name": "Vrijwilliger toevoegen - happy flow",
-    "commands": [{
-      "id": "b803fc2b-9c82-4b15-b9b3-1e9d22627c1a",
-      "comment": "",
-      "command": "open",
-      "target": "/admin/volunteers",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "16b1454a-e9e6-4b7f-8a5f-28ab4451fe38",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Vrijwilliger toevoegen",
-      "targets": [
-        ["linkText=Vrijwilliger toevoegen", "linkText"],
-        ["css=.col-12 > .btn", "css:finder"],
-        ["xpath=//a[contains(text(),'Vrijwilliger toevoegen')]", "xpath:link"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
-        ["xpath=//a[@href='http://veads_f1.test/admin/volunteers/create']", "xpath:href"],
-        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
-        ["xpath=//a[contains(.,' Vrijwilliger toevoegen')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "4b45d50a-1bee-496f-b273-a133482ad7b5",
-      "comment": "",
-      "command": "type",
-      "target": "id=first_name",
-      "targets": [
-        ["id=first_name", "id"],
-        ["name=first_name", "name"],
-        ["css=#first_name", "css:finder"],
-        ["xpath=//input[@id='first_name']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/input", "xpath:idRelative"],
-        ["xpath=//div/input", "xpath:position"]
-      ],
-      "value": "Pietje"
-    }, {
-      "id": "2ac807bd-6041-4959-8b30-abfb58e691f9",
-      "comment": "",
-      "command": "type",
-      "target": "id=last_name",
-      "targets": [
-        ["id=last_name", "id"],
-        ["name=last_name", "name"],
-        ["css=#last_name", "css:finder"],
-        ["xpath=//input[@id='last_name']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div/input", "xpath:position"]
-      ],
-      "value": "Puk"
-    }, {
-      "id": "3809454b-e78b-4fa9-af77-bce03d0e5a4f",
-      "comment": "",
-      "command": "type",
-      "target": "id=email",
-      "targets": [],
-      "value": "pietjepuk@live.nl"
-    }, {
-      "id": "8925b6e8-521f-44f4-b00f-6396462d56bb",
-      "comment": "",
-      "command": "type",
-      "target": "id=phone_number",
-      "targets": [
-        ["id=phone_number", "id"],
-        ["name=phone_number", "name"],
-        ["css=#phone_number", "css:finder"],
-        ["xpath=//input[@id='phone_number']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "0612345678"
-    }, {
-      "id": "cadb55bb-1a8e-4932-b37a-8d803d27e40f",
-      "comment": "",
-      "command": "type",
-      "target": "id=street",
-      "targets": [
-        ["id=street", "id"],
-        ["name=street", "name"],
-        ["css=#street", "css:finder"],
-        ["xpath=//input[@id='street']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/input", "xpath:idRelative"],
-        ["xpath=//div[4]/div/input", "xpath:position"]
-      ],
-      "value": "Damrak"
-    }, {
-      "id": "3967b7ea-28a0-4020-9f20-9b5e923fe2d3",
-      "comment": "",
-      "command": "type",
-      "target": "id=number",
-      "targets": [
-        ["id=number", "id"],
-        ["name=number", "name"],
-        ["css=#number", "css:finder"],
-        ["xpath=//input[@id='number']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": "1"
-    }, {
-      "id": "0bd21d4f-82e3-4b00-bc5b-c61bf41b509f",
-      "comment": "",
-      "command": "type",
-      "target": "id=zipcode",
-      "targets": [
-        ["id=zipcode", "id"],
-        ["name=zipcode", "name"],
-        ["css=#zipcode", "css:finder"],
-        ["xpath=//input[@id='zipcode']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div/input", "xpath:idRelative"],
-        ["xpath=//div[5]/div/input", "xpath:position"]
-      ],
-      "value": "1012LG"
-    }, {
-      "id": "0db58f4d-a906-4658-a6a8-03c8634df31d",
-      "comment": "",
-      "command": "type",
-      "target": "id=city",
-      "targets": [
-        ["id=city", "id"],
-        ["name=city", "name"],
-        ["css=#city", "css:finder"],
-        ["xpath=//input[@id='city']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[5]/div[2]/input", "xpath:position"]
-      ],
-      "value": "Amsterdam"
-    }, {
-      "id": "d7ee76ec-5a94-4404-9d66-80d2453f6d5b",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn-primary",
-      "targets": [
-        ["css=.btn-primary", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[7]/div/button", "xpath:idRelative"],
-        ["xpath=//div[7]/div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "69995ef2-b16f-49ef-bd88-6a48c1f76003",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=h1",
-      "targets": [
-        ["css=h1", "css:finder"],
-        ["xpath=//div[@id='app']/div/h1", "xpath:idRelative"],
-        ["xpath=//h1", "xpath:position"],
-        ["xpath=//h1[contains(.,'Pietje Puk')]", "xpath:innerText"]
-      ],
-      "value": "Pietje Puk"
-    }, {
-      "id": "1e5521fa-feeb-4afb-b69e-c66b2229ca29",
-      "comment": "",
-      "command": "open",
-      "target": "/admin/volunteers",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "c6bdfc30-78db-443a-ba51-9e71dadaeb69",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]",
-      "targets": [],
-      "value": ""
-    }]
-  }, {
     "id": "5dc66ce1-1e09-4d6f-9881-57468699df27",
     "name": "Vrijwilliger verwijderen",
     "commands": [{
@@ -661,7 +491,7 @@
       "id": "99992898-6580-4e49-ae4f-f2d128b908a4",
       "comment": "",
       "command": "click",
-      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]/td[3]/div/a[3]",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]/td[3]/div/a[2]",
       "targets": [
         ["css=tr:nth-child(3) .fa-trash", "css:finder"],
         ["xpath=//main[@id='main-container']/div[2]/div/div/div[2]/div/table/tbody/tr[3]/td[5]/div/a[3]/span", "xpath:idRelative"],
@@ -685,7 +515,7 @@
       "id": "c978a2d1-976c-4ffc-9be7-7ad51ff0a576",
       "comment": "",
       "command": "assertElementNotPresent",
-      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]/td[3]/div/a[3]",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]/td[3]/div/a[2]",
       "targets": [],
       "value": ""
     }]
@@ -1604,133 +1434,6 @@
       "value": ""
     }]
   }, {
-    "id": "36d33fe8-ef04-47ec-81f7-1acbef6e733d",
-    "name": "Vrijwilliger toevoegen - lege velden",
-    "commands": [{
-      "id": "3a46371c-27de-4b31-b74f-cb70479a7262",
-      "comment": "",
-      "command": "open",
-      "target": "http://veads_f1.test/admin/volunteers",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "9ea715a7-8313-4906-93a0-8027f01b9ca7",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Vrijwilliger toevoegen",
-      "targets": [
-        ["linkText=Vrijwilliger toevoegen", "linkText"],
-        ["css=.col-12 > .btn", "css:finder"],
-        ["xpath=//a[contains(text(),'Vrijwilliger toevoegen')]", "xpath:link"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
-        ["xpath=//a[@href='http://veads_f1.test/admin/volunteers/create']", "xpath:href"],
-        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
-        ["xpath=//a[contains(.,' Vrijwilliger toevoegen')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "ba63f61b-edb2-407c-8b95-350106c9059a",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn-primary",
-      "targets": [
-        ["css=.btn-primary", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[8]/div/button", "xpath:idRelative"],
-        ["xpath=//div[8]/div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "3d3a104a-918f-4834-824e-27bf000a5d52",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.form-group:nth-child(2) .invalid-feedback",
-      "targets": [
-        ["css=.form-group:nth-child(2) .invalid-feedback", "css:finder"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/div", "xpath:idRelative"],
-        ["xpath=//form/div/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "3196b0c0-98c6-4c8a-aa15-6beebaea9b89",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.form-group:nth-child(3) .invalid-feedback",
-      "targets": [
-        ["css=.form-group:nth-child(3) .invalid-feedback", "css:finder"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[2]/div/div", "xpath:idRelative"],
-        ["xpath=//form/div[2]/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "60d20f62-f6ae-438c-bdd1-0eb9bccff213",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.form-group:nth-child(4) .invalid-feedback",
-      "targets": [
-        ["css=.form-group:nth-child(4) .invalid-feedback", "css:finder"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/div", "xpath:idRelative"],
-        ["xpath=//form/div[3]/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "4e86fb3e-0088-4899-a3a3-9c38972ae728",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.form-group:nth-child(5) .invalid-feedback",
-      "targets": [
-        ["css=.form-group:nth-child(5) .invalid-feedback", "css:finder"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[4]/div/div", "xpath:idRelative"],
-        ["xpath=//div[4]/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "41a1638b-6bae-485a-afab-19ce4b95981f",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.col-lg-5:nth-child(2) > .invalid-feedback",
-      "targets": [
-        ["css=.col-lg-5:nth-child(2) > .invalid-feedback", "css:finder"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div/div", "xpath:idRelative"],
-        ["xpath=//div[5]/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "4382d3db-4e85-4d6d-a86f-9fe8f1a5e435",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.col-sm-2 > .invalid-feedback",
-      "targets": [
-        ["css=.col-sm-2 > .invalid-feedback", "css:finder"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div[2]/div", "xpath:idRelative"],
-        ["xpath=//div[5]/div[2]/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "6fd96624-228c-428f-930b-028fb3185452",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.col-lg-4 > .invalid-feedback",
-      "targets": [
-        ["css=.col-lg-4 > .invalid-feedback", "css:finder"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div/div", "xpath:idRelative"],
-        ["xpath=//div[6]/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "774e4aa1-9bf5-4b50-86ef-fa41d505103d",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.col-sm-4:nth-child(3) > .invalid-feedback",
-      "targets": [
-        ["css=.col-sm-4:nth-child(3) > .invalid-feedback", "css:finder"],
-        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[6]/div[2]/div", "xpath:idRelative"],
-        ["xpath=//div[6]/div[2]/div", "xpath:position"]
-      ],
-      "value": ""
-    }]
-  }, {
     "id": "7b032a0a-013a-4ace-82d6-5f49ff2853eb",
     "name": "Vrijwilliger koppelen aan evenement",
     "commands": [{
@@ -1744,7 +1447,7 @@
       "id": "0db5ed8a-5ec3-4509-8c04-8a14d5b8960f",
       "comment": "",
       "command": "click",
-      "target": "xpath=//table/tbody/tr[contains(td[1], 'Pietje Puk')]/td[3]/div/a[1]",
+      "target": "xpath=//table/tbody/tr[1]/td[3]/div/a[1]",
       "targets": [],
       "value": ""
     }, {
@@ -2499,7 +2202,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["5dc66ce1-1e09-4d6f-9881-57468699df27", "4c7c5750-8ca9-4afd-be01-51322c1e435a", "36d33fe8-ef04-47ec-81f7-1acbef6e733d", "c81dc408-f3a0-45af-9e91-c9a1079ad1ac", "7b032a0a-013a-4ace-82d6-5f49ff2853eb"]
+    "tests": ["5dc66ce1-1e09-4d6f-9881-57468699df27", "c81dc408-f3a0-45af-9e91-c9a1079ad1ac", "7b032a0a-013a-4ace-82d6-5f49ff2853eb"]
   }],
   "urls": ["https://veads-dev.ontwikkel.it/", "http://veads_f1.test/", "https://localhost:8000/", "http://localhost:8000/"],
   "plugins": []

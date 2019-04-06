@@ -32,7 +32,7 @@
                             <div class="form-group row mb-5">
                                 <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="email">E-mailadres</label>
                                 <div class="col-sm-8 col-lg-9">
-                                    <input type="email" name="email" id="email" class="form-control{{ ($errors->has('email') ? ' is-invalid' : '') }}" value="{{ old('email', $volunteer->email ?? '') }}" placeholder="E-mailadres" />
+                                    <input type="email" name="email" id="email" class="form-control{{ ($errors->has('email') ? ' is-invalid' : '') }}" value="{{ old('email', $volunteer->user->email ?? '') }}" placeholder="E-mailadres" />
                                     @if($errors->has('email'))
                                         <div class="invalid-feedback">
                                             {{ $errors->first('email') }}
