@@ -11,7 +11,7 @@
             <div class="slider-typography text-center">
                 <div class="slider-text-middle-main">
                     <div class="slider-text-middle">
-                        <h1 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-95 center-col margin-35px-bottom xs-margin-15px-bottom">VEADS</h1>
+                        <h1 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-95 center-col margin-35px-bottom xs-margin-15px-bottom">{{ getContent('home_title')->content }}</h1>
                     </div>
                 </div>
             </div>
