@@ -16,7 +16,7 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->volunteer) {
+        if (!Auth::user()->admin) {
             return redirect('/');
         }
 
