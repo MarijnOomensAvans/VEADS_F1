@@ -83,7 +83,7 @@
                         <img src="images/about-img1.jpg" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
                         <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom d-block">Veads bedankt je!</span>
                         <p>
-                            Top dat je wilt meehelpen bla bla bla bla...
+                            Top dat je wilt meehelpen.
                         </p>
                     </div>
                 </div>
