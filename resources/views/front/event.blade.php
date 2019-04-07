@@ -111,9 +111,14 @@ if (isset($event->pictures[0])) {
                 <div class="margin-45px-bottom xs-margin-25px-bottom">
                     <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Informatie</span></div>
                     <ul class="list-style-6 margin-50px-bottom text-small">
-                       <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
+                        @if(!empty($event->datetime))
+                        <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
                         <li><a>Datum Eind: </a><span>{{$event->datetime->end}}</span></li>
+                        @endif
+                        @if(!empty($event->price))
                         <li><a>Prijs: </a><span>€{{$event->price}}</span></li>
+                        @endif
+                        @if(!empty($event->address))
                         <li>
                             <a>Locatie: </a>
                             <span>
@@ -122,6 +127,7 @@ if (isset($event->pictures[0])) {
                                 {{$event->address->zipcode}} {{$event->address->city}} 
                             </span>
                         </li>
+                        @endif
                     </ul>
                 </div>
                 {{-- <div class="margin-45px-bottom xs-margin-25px-bottom">
