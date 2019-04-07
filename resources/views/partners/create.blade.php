@@ -17,6 +17,14 @@ $inputLgWidth = 12 - $labelLgWidth;
         @endif
     </div>
 
+    @if($errors->has('image'))
+        <div class="content">
+            <div class="alert alert-danger">
+                {{ $errors->first('image') }}
+            </div>
+        </div>
+    @endif
+
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-content">
@@ -49,14 +57,9 @@ $inputLgWidth = 12 - $labelLgWidth;
                             </div>
 
                             <div class="form-group row mb-5">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="image">Foto's</label>
+                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="image">Foto</label>
                                 <div class="col-sm-{{ $inputSmWidth / 2 }} col-lg-{{ $inputLgWidth }}">
-                                    <input type="file" name="image" class="image" id="{{ ($errors->has('image') ? ' is-invalid' : '') }}" accept="image/jpeg,image/jpg,image/png,image/png,image/svg"/>
-                                    @if($errors->has('image'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('image') }}
-                                        </div>
-                                    @endif
+                                    <input type="file" name="image" class="{{ ($errors->has('image') ? ' is-invalid' : '') }}" id="image" accept="image/jpeg,image/jpg,image/png,image/png,image/svg"/>
                                 </div>
                             </div>
 

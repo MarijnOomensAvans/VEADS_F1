@@ -184,6 +184,7 @@ return [
         'end_time'              => 'eind tijd',
         'start_date'            => 'start datum',
         'end_date'              => 'eind datum',
-        'question'              => 'vraag'
+        'question'              => 'vraag',
+        'image'                 => 'foto'
     ],
 ];
