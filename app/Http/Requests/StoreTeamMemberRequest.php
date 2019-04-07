@@ -28,7 +28,8 @@ class StoreTeamMemberRequest extends FormRequest
             'first_name' => 'required|max:50',
             'last_name' => 'required|max:50',
             'function' => 'required|max:100',
-            'description' => 'nullable'
+            'description' => 'nullable',
+            'image' => 'required|image|max:4096'
         ];
     }
 }

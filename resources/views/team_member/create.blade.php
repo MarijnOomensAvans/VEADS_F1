@@ -14,7 +14,7 @@
             <div class="block-content">
                 <div class="row">
                     <div class="col-12">
-                        <form method="post" action="{{ (isset($team_member) ? action('Backend\TeamMemberController@update', ['team_member' => $team_member]) : action('Backend\TeamMemberController@index')) }}">
+                        <form method="post" action="{{ (isset($team_member) ? action('Backend\TeamMemberController@update', ['team_member' => $team_member]) : action('Backend\TeamMemberController@index')) }}" enctype="multipart/form-data">
                             @csrf
 
                             @if(isset($team_member))
@@ -44,6 +44,12 @@
                                 'title' => 'Omschrijving',
                                 'prefill' => $team_member->description ?? ''
                             ])@endcomponent
+
+                            @component('includes.forms.image', [
+                               'name' => 'image',
+                               'title' => 'Foto\'s',
+                               'prefill' => $team_member->picture->path ?? '' 
+                           ])@endcomponent
 
                             <div class="form-group row">
                                 <div class="col-12 text-right">
