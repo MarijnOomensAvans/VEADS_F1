@@ -24,7 +24,7 @@ class WinWinController extends Controller
 
     public function saveEnrollVolunteer(Request $request) {
 
-        $this->handleUserFields($request);
+        $volunteer = $this->handleUserFields($request);
 
         // validate event
         $validated = $request->validate([
@@ -33,19 +33,16 @@ class WinWinController extends Controller
             'event_id' => 'event'
         ]);
 
+        // get event
         $event = Event::find($request->input("event_id"));
 
-        $volunteer = Volunteer::where('user_id', Auth::user()->id)->first();
+        // return error if already init
+        if ($volunteer->events->contains($event)){
+            return back()->withErrors('Je hebt je al ingeschreven voor dit evenement!');
+        }
 
-        if(!($volunteer->events->contains($request->input("event_id")))) {
-            $volunteer->events()->attach($event);
-        }
-        else {
-            $error = \Illuminate\Validation\ValidationException::withMessages([
-                'event_id' => ['Je hebt je al ingeschreven voor dit evenement!']
-            ]);
-            throw $error;
-        }
+        // attack to the event
+        $volunteer->events()->attach($event);
 
         // thankyou page
         return redirect('/thanks');
@@ -102,6 +99,8 @@ class WinWinController extends Controller
         $volunteer->fill($request->all());
         $volunteer->save();
 
+        return $volunteer;
     }
+
 
 }
