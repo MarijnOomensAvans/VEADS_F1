@@ -50,7 +50,7 @@
                         </a>
                     </div>
                     <div class="carousel-caption margin-fifteen-bottom">
-                        <a href="{{$partner->link}}" class="alt-font post-title text-large text-white width-100 display-block md-width-100 margin-15px-bottom">{{$partner->name}}</a>
+                        <a href="{{$partner->link}}"  target="_blank" class="alt-font post-title text-large text-white width-100 display-block md-width-100 margin-15px-bottom">{{$partner->name}}</a>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                                     <div class="swiper-slide col-md-4 col-sm-4 col-xs-12 blog-post-style5 last-paragraph-no-margin" style="height: 100%">
                                         <div class="blog-post bg-white box-shadow-light" style="border-radius: 20px;">
                                             <div class="blog-post-images overflow-hidden">
-                                                <a href="{{$post->url}}">
+                                                <a href="{{$post->url}}" target="_blank">
                                                     <img src="{{$post->image_url}}">
                                                 </a>
 
