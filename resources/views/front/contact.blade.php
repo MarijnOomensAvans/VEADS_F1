@@ -2,38 +2,33 @@
 
 @section('content')
     <section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event"
-             style="background-image: url(&quot;/images/homepage-9-parallax-img5.jpg&quot;); margin-top: 74px; visibility: visible; animation-name: fadeIn;">
+             style="background-image: url('{{ !empty(($header = getContent('contact_header'))) ? '/image/' . $header->path . '/' . $header->name : '/images/homepage-9-parallax-img5.jpg' }}'); margin-top: 74px; visibility: visible; animation-name: fadeIn;">
         <div class="opacity-medium bg-light-blue"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
                     <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
-                        <h1 class="alt-font text-white font-weight-600 no-margin-bottom">Contact</h1>
+                        <h1 class="alt-font text-white font-weight-600 no-margin-bottom">{{ getContent('contact_title')->content }}</h1>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    @if(!empty(getContent('contact_about_us')->content))
     <div class="row">
         <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
             <div class="position-relative overflow-hidden width-100">
                 <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Over ons</span>
             </div>
             <p class="text-justify xs-text-center text-medium line-height-28 xs-line-height-26">
-                Stichting Veads vindt het belangrijk dat mensen mee tellen en mee kunnen doen ongeacht de omstandigheden
-                en financiële positie. Het mag niet zo zijn dat iemand door wat voor omstandigheden dan ook in een
-                sociaal isolement raakt. Veads gelooft als je vroegtijdig signaleert dat mensen in een sociaal isolement
-                dreigen te raken je meer mensen kan bereiken, dan als je een groep meteen een stempel op drukt in wat
-                voor situatie ze verkeren. Niemand wil minderbedeeld of kans arm zijn. Kansrijk is een betere benaming
-                die bij iedereen past.
+                {!! getContent('contact_about_us')->content !!}
             </p>
         </div>
     </div>
+    @endif
 
-
-
-
+    @if((bool) getContent('contact_show_team')->content)
     <div class="row">
         <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center xs-margin-40px-bottom">
             <div class="position-relative overflow-hidden width-100">
@@ -61,7 +56,9 @@
             </section>
         </div>
     </div>
+    @endif
 
+    @if((bool) getContent('contact_show_form')->content)
     <div class="row">
         <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
             <div class="position-relative overflow-hidden width-100">
@@ -116,4 +113,5 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection

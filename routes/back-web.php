@@ -24,8 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     // Backend volunteers
     Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
     Route::get('/volunteers/{volunteer}', 'Backend\\VolunteerController@show')->name('admin/volunteer')->where('volunteer', '[0-9]+');
-    Route::get('/volunteers/create', 'Backend\\VolunteerController@create')->name('admin/volunteers/create');
-    Route::post('/volunteers/create', 'Backend\\VolunteerController@store')->name('admin/volunteers/create');
+//    Route::get('/volunteers/create', 'Backend\\VolunteerController@create')->name('admin/volunteers/create');
+//    Route::post('/volunteers/create', 'Backend\\VolunteerController@store')->name('admin/volunteers/create');
     Route::get('/volunteers/{volunteer}/edit', 'Backend\\VolunteerController@edit')->name('admin/volunteers/edit')->where('volunteer', '[0-9]+');
     Route::post('/volunteers/{volunteer}/edit', 'Backend\\VolunteerController@update')->name('admin/volunteers/edit')->where('volunteer', '[0-9]+');
     Route::get('/volunteers/{volunteer}/destroy', 'Backend\\VolunteerController@destroy')->name('admin/volunteers/destroy')->where('volunteer', '[0-9]+');
@@ -72,6 +72,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::post('/partners/{partner}/edit', 'Backend\\PartnerController@update')->name('admin/partners/edit')->where('partner', '[0-9]+');
     Route::get('/partners/{partner}/destroy', 'Backend\\PartnerController@destroy')->name('admin/partners/destroy')->where('partner', '[0-9]+');
     Route::post('/partners/{partner}/destroy', 'Backend\\PartnerController@delete')->name('admin/partners/destroy')->where('partner', '[0-9]+');
-});
 
-?>
+    // Backend edit content
+    Route::get('/edit_content', 'Backend\\EditContentController@index');
+    Route::put('/edit_content', 'Backend\\EditContentController@update');
+
+    // Facebook
+    Route::get('/facebook', "Backend\\FacebookController@index")->name('admin/facebook');
+    Route::get('/fb/callback', "Backend\\FacebookController@callback")->name('admin/facebook/callback');
+    Route::get('/facebook/update', "Backend\\FacebookController@update")->name('admin/facebook/update');
+});

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use App\EditableContentCategory;
 use App\EditContent;
+use App\Http\Controllers\Controller;
+use App\Picture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\StorePartner;
-use App\Picture;
 
 class EditContentController extends Controller
 {
@@ -18,50 +18,8 @@ class EditContentController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\EditContent  $editContent
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EditContent $editContent)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\EditContent  $editContent
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(EditContent $editContent)
-    {
-        //
+        $categories = EditableContentCategory::orderBy('category')->get();
+        return view('back.edit_content.index', compact('categories'));
     }
 
     /**
@@ -71,19 +29,58 @@ class EditContentController extends Controller
      * @param  \App\EditContent  $editContent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EditContent $editContent)
+    public function update(Request $request)
     {
-        //
-    }
+        foreach(EditContent::get() as $content) {
+            if (!$request->has($content->key)) {
+                if ($content->type != 'image') {
+                    // Remove content if no content is submitted
+                    $content->content = '';
+                    $content->save();
+                }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\EditContent  $editContent
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(EditContent $editContent)
-    {
-        //
+                continue;
+            }
+
+            switch($content->type) {
+                case 'text':
+                case 'textarea':
+                    $content->content = $request->post($content->key);
+                    $content->save();
+                    break;
+
+                case 'image':
+                    if (!empty($content->content)) {
+                        $picture = Picture::find($content->content);
+
+                        if (!empty($picture)) {
+                            Storage::delete('images/' . $picture->path);
+                            $picture->delete();
+                        }
+                    }
+
+                    $image = $request->file($content->key);
+                    $name = $image->getClientOriginalName();
+                    $filename = $image->hashName();
+                    $image->storeAs('images', $filename);
+
+                    $picture = new Picture();
+                    $picture->name = $name;
+                    $picture->path = $filename;
+                    $picture->date = \DateTime::createFromFormat('U', $image->getCTime());
+                    $picture->save();
+
+                    $content->content = $picture->id;
+                    $content->save();
+                    break;
+
+                case 'checkbox':
+                    $content->content = (bool) $request->post($content->key);
+                    $content->save();
+                    break;
+            }
+        }
+
+        return redirect(action('Backend\EditContentController@index'));
     }
 }

@@ -23,6 +23,7 @@ if (isset($event->pictures[0])) {
     </div>
 </section>
 
+@if((bool) getContent('event_show_breadcrumb')->content)
 <!-- Breadcrumbs -->
 <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
     <div class="container">
@@ -32,7 +33,7 @@ if (isset($event->pictures[0])) {
                     <div class="breadcrumb alt-font text-small no-margin-bottom">
                         <ul>
                             <li><a href="/" class="text-medium-gray">Home</a></li>
-                            <li><a href="/event" class="text-medium-gray">Evenementen</a></li>
+                            <li><a href="/event" class="text-medium-gray">{{ getContent('event_title')->content }}</a></li>
                             <li class="text-medium-gray">{{$event->name}}</li>
                         </ul>
                     </div>
@@ -41,6 +42,7 @@ if (isset($event->pictures[0])) {
         </div>
     </div>
 </section>
+@endif
 
 <section>
     <div class="container">

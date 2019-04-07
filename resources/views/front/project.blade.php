@@ -1,7 +1,7 @@
 @extends('front.master')
 @section('content')
 
-<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url('/images/homepage-3-slider-img-3.jpg'); margin-top: 72px; visibility: visible;">
+<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url('{{ !empty(($header = getContent('projects_header'))) ? '/image/' . $header->path . '/' . $header->name : '/images/homepage-9-parallax-img5.jpg' }}'); margin-top: 72px; visibility: visible;">
     <div class="opacity-medium bg-light-blue"></div>
     <div class="container">
         <div class="row">
@@ -14,6 +14,7 @@
     </div>
 </section>
 
+@if((bool) getContent('projects_show_breadcrumb')->content)
 <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
     <div class="container">
         <div class="row">
@@ -31,6 +32,7 @@
         </div>
     </div>
 </section>
+@endif
 
 <section>
     <div class="container">

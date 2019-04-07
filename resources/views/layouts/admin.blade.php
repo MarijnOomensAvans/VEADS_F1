@@ -60,6 +60,12 @@
                          <span class="nav-main-link-name">Teamleden</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/edit_content') !== false ? ' active' : '' }}" href="{{ action('Backend\EditContentController@index') }}">
+                        <i class="nav-main-link-icon fa fa-file"></i>
+                        <span class="nav-main-link-name">Pagina's</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
                         {{--<i class="nav-main-link-icon far fa-images"></i>--}}
@@ -91,6 +97,12 @@
                         {{--<span class="nav-main-link-name">Instagram</span>--}}
                     {{--</a>--}}
                 {{--</li>--}}
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/facebook') !== false ? ' active' : '' }}" href="{{ route('admin/facebook') }}">
+                        <i class="nav-main-link-icon fab fa-facebook"></i>
+                        <span class="nav-main-link-name">Facebook</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
                         {{--<i class="nav-main-link-icon far fa-id-card"></i>--}}
