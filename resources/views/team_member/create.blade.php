@@ -47,8 +47,8 @@
 
                             @component('includes.forms.image', [
                                'name' => 'image',
-                               'title' => 'Foto\'s',
-                               'prefill' => $team_member->picture->path ?? '' 
+                               'title' => 'Foto',
+                               'prefill' => $team_member->picture->path ?? ''
                            ])@endcomponent
 
                             <div class="form-group row">

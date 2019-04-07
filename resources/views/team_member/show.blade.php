@@ -29,7 +29,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <label>Foto's</label>
+                            <label>Foto</label>
                         </div>
                     </div>
 
