@@ -1,13 +1,5 @@
 @extends('layouts.admin')
 
-@php
-$labelSmWidth = 4;
-$labelLgWidth = 3;
-
-$inputSmWidth = 12 - $labelSmWidth;
-$inputLgWidth = 12 - $labelLgWidth;
-@endphp
-
 @section('content')
     <div class="content">
         @if(isset($project))
@@ -24,34 +16,23 @@ $inputLgWidth = 12 - $labelLgWidth;
                     <div class="col-12">
                         <form method="post" action="{{ (isset($volunteer) ? route('admin/volunteers/edit', ['volunteer' => $volunteer]) : route('admin/volunteers/create')) }}">
                             @csrf
-                            <div class="form-group row">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="first_name">Voornaam</label>
-                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
-                                    <input type="text" name="first_name" id="first_name" class="form-control{{ ($errors->has('first_name') ? ' is-invalid' : '') }}" value="{{ old('first_name', $volunteer->first_name ?? '') }}" placeholder="Voornaam" />
-                                    @if($errors->has('first_name'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('first_name') }}
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
+
+                            @component('includes.forms.formgroup', [
+                                'name' => 'first_name',
+                                'title' => 'Voornaam',
+                                'prefill' => $volunteer->first_name ?? ''
+                            ])@endcomponent
+
+                            @component('includes.forms.formgroup', [
+                                'name' => 'last_name',
+                                'title' => 'Achternaam',
+                                'prefill' => $volunteer->last_name ?? ''
+                            ])@endcomponent
 
                             <div class="form-group row mb-5">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="last_name">Achternaam</label>
-                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
-                                    <input type="text" name="last_name" id="last_name" class="form-control{{ ($errors->has('last_name') ? ' is-invalid' : '') }}" value="{{ old('last_name', $volunteer->last_name ?? '') }}" placeholder="Achternaam" />
-                                    @if($errors->has('last_name'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('last_name') }}
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-5">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="email">E-mailadres</label>
-                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
-                                    <input type="email" name="email" id="email" class="form-control{{ ($errors->has('email') ? ' is-invalid' : '') }}" value="{{ old('email', $volunteer->email ?? '') }}" placeholder="E-mailadres" />
+                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="email">E-mailadres</label>
+                                <div class="col-sm-8 col-lg-9">
+                                    <input type="email" name="email" id="email" class="form-control{{ ($errors->has('email') ? ' is-invalid' : '') }}" value="{{ old('email', $volunteer->user->email ?? '') }}" placeholder="E-mailadres" />
                                     @if($errors->has('email'))
                                         <div class="invalid-feedback">
                                             {{ $errors->first('email') }}
@@ -61,8 +42,8 @@ $inputLgWidth = 12 - $labelLgWidth;
                             </div>
 
                             <div class="form-group row mb-5">
-                                <label class="col-sm-{{ $labelSmWidth }} col-lg-{{ $labelLgWidth }} col-form-label" for="phone_number">Telefoonnummer</label>
-                                <div class="col-sm-{{ $inputSmWidth }} col-lg-{{ $inputLgWidth }}">
+                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="phone_number">Telefoonnummer</label>
+                                <div class="col-sm-8 col-lg-9">
                                     <input type="tel" name="phone_number" id="phone_number" class="form-control{{ ($errors->has('phone_number') ? ' is-invalid' : '') }}" value="{{ old('phone_number', $volunteer->phone_number ?? '') }}" placeholder="Telefoonnummer" />
                                     @if($errors->has('phone_number'))
                                         <div class="invalid-feedback">

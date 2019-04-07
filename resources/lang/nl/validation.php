@@ -93,7 +93,7 @@ return [
     'numeric'              => ':attribute moet een nummer zijn.',
     'present'              => ':attribute moet bestaan.',
     'regex'                => ':attribute formaat is ongeldig.',
-    'required'             => ':attribute is verplicht.',
+    'required'             => ':Attribute is verplicht.',
     'required_if'          => ':attribute is verplicht indien :other gelijk is aan :value.',
     'required_unless'      => ':attribute is verplicht tenzij :other gelijk is aan :values.',
     'required_with'        => ':attribute is verplicht i.c.m. :values',
@@ -112,8 +112,8 @@ return [
     'timezone'             => ':attribute moet een geldige tijdzone zijn.',
     'unique'               => ':attribute is al in gebruik.',
     'uploaded'             => 'Het uploaden van :attribute is mislukt.',
-    'url'                  => ':attribute moet een geen geldig URL zijn.',
-    'uuid'                 => ':attribute moet een geldig UUID zijn.',
+    'u_r_l'                  => ':Attribute moet een geen geldig URL zijn. Een link begint met http:// of https://',
+    'uuid'                 => ':Attribute moet een geldig UUID zijn.',
 
     /*
     |--------------------------------------------------------------------------
@@ -183,6 +183,8 @@ return [
         'start_time'            => 'start tijd',
         'end_time'              => 'eind tijd',
         'start_date'            => 'start datum',
-        'end_date'              => 'eind datum'
+        'end_date'              => 'eind datum',
+        'question'              => 'vraag',
+        'image'                 => 'foto'
     ],
 ];

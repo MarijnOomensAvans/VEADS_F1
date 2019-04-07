@@ -60,11 +60,18 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
-        $address = new Address($validated);
-        $address->save();
+        if (!isset($validated['description'])) {
+            $validated['description'] = '';
+        }
 
         $project = new Project($validated);
-        $project->address_id = $address->id;
+
+        if (isset($validated['street']) && !empty($validated['street'])) {
+            $address = new Address($validated);
+            $address->save();
+            $project->address_id = $address->id;
+        }
+
         $project->save();
 
         return redirect('admin/projects/' . $project->id);
@@ -107,9 +114,23 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
-        $address = $project->address;
-        $address->fill($validated);
-        $address->save();
+        if (isset($validated['street']) && !empty($validated['street'])) {
+            if (empty($project->address)) {
+                $address = $project->address;
+            } else {
+                $address = new Address();
+            }
+
+            $address->fill($validated);
+            $address->save();
+
+            $project->address_id = $address->id;
+        } else if (!empty($project->address)) {
+            $address = $project->address;
+            $project->address_id = null;
+            $project->save();
+            $address->delete();
+        }
 
         $project->fill($validated);
         $project->save();

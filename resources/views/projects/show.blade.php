@@ -8,14 +8,17 @@
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-content">
+                @if(!empty($project->description))
                 <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Project omschrijving</label></div>
+                    <div class="col-12 col-sm-4 text-sm-right"><label>Project omschrijving</label></div>
                     <div class="col-12 col-sm-8">{!! $project->description !!}</div>
                 </div>
                 <hr/>
-                
+                @endif
+
+                @if(!empty($project->address) && !empty($project->address->street))
                 <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Adres</label></div>
+                    <div class="col-12 col-sm-4 text-sm-right"><label>Adres</label></div>
                     <div class="col-12 col-sm-8">
                         {{ $project->address->street . ' ' . $project->address->number . $project->address->number_modifier }}<br/>
                         {{ $project->address->zipcode . ' ' . $project->address->city }}<br/>
@@ -23,10 +26,11 @@
                     </div>
                 </div>
                 <hr/>
-                
-                @if(!empty($project->events))
+                @endif
+
+                @if(is_array($project->events) && count($project->events))
                 <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Evenementen</label></div>
+                    <div class="col-12 col-sm-4 text-sm-right"><label>Evenementen</label></div>
                     <div class="col-12 col-sm-8">
                         <div class="list-group">
                             @foreach($project->events as $event)
@@ -38,9 +42,9 @@
                 <hr/>
                 @endif
 
-                @if(count($project->volunteers))
+                @if(is_array($project->volunteers) && count($project->volunteers))
                     <div class="row">
-                        <div class="col-12 col-sm-4"><label>Vrijwilligers</label></div>
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Vrijwilligers</label></div>
                         <div class="col-12 col-sm-8">
                             <ul class="list-group mb-3">
                                 @foreach($project->volunteers as $volunteer)

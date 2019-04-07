@@ -1,7 +1,7 @@
 @extends('front.master')
 @section('content')
 
-<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url(&quot;/images/homepage-3-slider-img-3.jpg&quot;); margin-top: 72px; visibility: visible;">
+<section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event" style="background-image: url('{{ !empty(($header = getContent('projects_header'))) ? '/image/' . $header->path . '/' . $header->name : '/images/homepage-9-parallax-img5.jpg' }}'); margin-top: 72px; visibility: visible;">
     <div class="opacity-medium bg-light-blue"></div>
     <div class="container">
         <div class="row">
@@ -14,6 +14,7 @@
     </div>
 </section>
 
+@if((bool) getContent('projects_show_breadcrumb')->content)
 <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
     <div class="container">
         <div class="row">
@@ -31,6 +32,7 @@
         </div>
     </div>
 </section>
+@endif
 
 <section>
     <div class="container">
@@ -38,19 +40,24 @@
             <main class="col-md-9 col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom no-padding-left sm-no-padding-right">
                 <div class="col-md-12 col-sm-12 col-xs-12 blog-details-text last-paragraph-no-margin">
                     
-                    @if(count($project->pictures) > 0)
+                    @if(is_array($project->pictures) && count($project->pictures) > 0)
                         <img src="/image/{{ $project->pictures[0]->path }}/{{ $project->pictures[0]->name }}" class=" border-radius-100 width-100 margin-45px-bottom" data-no-retina="">
                     @endif
+
+                    @if(!empty($project->description))
                     <p>
                         {!!$project->description!!}
                     </p>
+                    @endif
+
+                    @if($project->events()->where('published', 1)->count() > 0)
                     <div class="row equalize xs-equalize-auto">
-                        @foreach ($project->events as $event)
+                        @foreach ($project->events()->where('published', 1)->get() as $event)
                             <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
                                 <div class="blog-post bg-light-gray inner-match-height">
                                     <div class="blog-post-images overflow-hidden position-relative">
                                         <a href="/event/{{$event->id}}">
-                                            @if(count($event->pictures) > 0)
+                                            @if(is_array($event->pictures) && count($event->pictures) > 0)
                                                 <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" data-no-retina="">
                                             @endif
                                         </a>
@@ -65,6 +72,8 @@
                             </div>
                         @endforeach
                     </div>
+                    @endif
+
                 </div>
                 {{-- <div class="col-md-12 col-sm-12 col-xs-12 margin-seven-bottom margin-eight-top">
                     <div class="divider-full bg-medium-light-gray"></div>
@@ -89,6 +98,8 @@
                     </div>
                 </div> --}}
             </main>
+
+            @if(!empty($project->address))
             <aside class="col-md-3 col-sm-12 col-xs-12 pull-right">
                 <div class="margin-45px-bottom xs-margin-25px-bottom">
                     <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Informatie</span></div>
@@ -116,6 +127,7 @@
                     </div>
                 </div> --}}
             </aside>
+            @endif
         </div>
     </div>
 </section>

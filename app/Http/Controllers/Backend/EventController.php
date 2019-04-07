@@ -127,8 +127,12 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show(Request $request, Event $event)
     {
+        if ($request->get('json', false)) {
+            return $event;
+        }
+
         return view('events/show', compact('event'));
     }
 
@@ -247,6 +251,7 @@ class EventController extends Controller
                 $picture->delete();
             }
 
+            $event->volunteers()->detach();
             $event->datetime()->delete();
             $event->delete();
 		    $event->address()->delete();

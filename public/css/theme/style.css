@@ -430,6 +430,8 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .btn.btn-light-gray:hover, .btn.btn-light-gray:focus {background: transparent; border-color: #dbdbdb; color: #dbdbdb}
 .btn.btn-deep-pink {background: #ff214f; border-color: #ff214f; color: #ffffff}
 .btn.btn-deep-pink:hover, .btn.btn-deep-pink:focus {background: transparent; border-color: #ff214f; color: #ff214f}
+.btn.btn-royal-blue {background: #0665d0; border-color: #606772; color: #ffffff}
+.btn.btn-royal-blue:hover, .btn.btn-royal-blue:focus {background: transparent; border-color: #606772; color: #0665d0}
 
 /* button transparent */
 .btn.btn-transparent-white {background: transparent; border-color: #ffffff; color: #ffffff}
@@ -578,7 +580,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 
 .video-wrapper {height: 100%; overflow: hidden; position: absolute; width: 100%; }
 .html-video {background-color: #000; height: auto; left: 50%; min-height: 100%; min-width: 100%; position: absolute; top: 50%; -ms-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%);  width: auto; z-index: -3; }
-.video-wrapper iframe {height: 100%; left: 0; position: absolute; top: -5px !important; width: 100%;}
+.video-wrapper iframe {height: 100%; left: 0; position: relative; top: -5px !important; width: 100%;}
 .video-background{position: absolute; height: 100%; width: 100%; z-index: 1; top:0; background: rgba(67,67,67,0.5) }
 
 /* ===================================
@@ -1796,6 +1798,7 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
 .width-250px {width:250px;}
 .width-300px {width:300px;}
 .width-350px {width:350px;}
+.width-360px {width:360px;}
 .width-400px {width:400px;}
 .width-450px {width:450px;}
 .width-500px {width:500px;}
@@ -3205,7 +3208,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 .image-hover-style-3:hover .cover-background {filter: contrast(130%); -webkit-filter:contrast(130%); -moz-filter: contrast(130%); -ms-filter: contrast(130%); -o-filter: contrast(130%); filter: grayscale(1); -webkit-filter: grayscale(1); -moz-filter: grayscale(1); -ms-filter: grayscale(1); -o-filter: grayscale(1);}
 
 /* info banner style 1 */
-.banner-style1 figure {position: relative; overflow: hidden; transition-timing-function: ease-in-out; -moz-transition-timing-function: ease-in-out; -webkit-transition-timing-function: ease-in-out; -o-transition-timing-function: ease-in-out; transition-duration: .2s; -moz-transition-duration: .2s; -webkit-transition-duration: .2s; -o-transition-duration: .2s; -ms-transition-duration: .2s;}
+.banner-style1 figure {border-radius: 15px; position: relative; overflow: hidden; transition-timing-function: ease-in-out; -moz-transition-timing-function: ease-in-out; -webkit-transition-timing-function: ease-in-out; -o-transition-timing-function: ease-in-out; transition-duration: .2s; -moz-transition-duration: .2s; -webkit-transition-duration: .2s; -o-transition-duration: .2s; -ms-transition-duration: .2s;}
 .banner-style1 figure figcaption{position: absolute; left: 0; top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); height: 100%; width: 100%;}
 .banner-style1 figure:hover .banner-image img, .banner-style1 figure:hover .banner-image {opacity:0.3; filter: contrast(130%); -webkit-filter:contrast(130%); -moz-filter: grayscale(1); -ms-filter: grayscale(1); -o-filter: grayscale(1); filter: grayscale(1); -webkit-filter: grayscale(1); -moz-filter: grayscale(1); -ms-filter: grayscale(1); -o-filter: grayscale(1);}
 .banner-style1 figure figcaption p{opacity: 0; margin-bottom: 0; height: 0}
@@ -3835,3 +3838,5 @@ aside .latest-post li figure {width: 75px;}
   font-size: 20px;
 }
 .carouselcard {height: 300px;max-height: 220px;}
+.text-background-greytrans {background-color: rgba(28,28,28,0.8)}
+.text-shadow {text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;}

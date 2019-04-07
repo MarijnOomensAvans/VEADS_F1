@@ -26,6 +26,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('social:update')->daily();
+        $schedule->command('social:tokens')->weekly();
     }
 
     /**

@@ -45,6 +45,8 @@ class VolunteerController extends Controller
      */
     public function create()
     {
+        return abort(404);
+
         return view('volunteers.create');
     }
 
@@ -56,6 +58,8 @@ class VolunteerController extends Controller
      */
     public function store(StoreVolunteer $request)
     {
+        return abort(404);
+
         $validated = $request->validated();
 
         $address = new Address($validated);
@@ -87,6 +91,8 @@ class VolunteerController extends Controller
      */
     public function edit(Volunteer $volunteer)
     {
+        return abort(404);
+
         return view('volunteers.edit', compact('volunteer'));
     }
 
@@ -99,6 +105,8 @@ class VolunteerController extends Controller
      */
     public function update(StoreVolunteer $request, Volunteer $volunteer)
     {
+        return abort(404);
+
         $validated = $request->validated();
 
         $address = $volunteer->address()->first();
@@ -108,6 +116,11 @@ class VolunteerController extends Controller
         $volunteer->fill($validated);
         $volunteer->address_id = $address->id;
         $volunteer->save();
+
+        if (isset($validated['email'])) {
+            $volunteer->user->email = $validated['email'];
+            $volunteer->user->save();
+        }
 
         return redirect('admin/volunteers/' . $volunteer->id);
     }
@@ -125,6 +138,8 @@ class VolunteerController extends Controller
 
     public function delete(Request $request, Volunteer $volunteer) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            $volunteer->events()->sync([]);
+            $volunteer->projects()->sync([]);
             $volunteer->delete();
             $volunteer->address()->delete();
         }

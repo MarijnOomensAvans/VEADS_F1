@@ -15,7 +15,7 @@
                 <hr/>
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4"><label>E-mailadres</label></div>
-                    <div class="col-12 col-sm-8"><a href="mailto:{{ $volunteer->email }}" target="_blank">{{ $volunteer->email }} <span class="fa fa-external-link-alt"></span></a></div>
+                    <div class="col-12 col-sm-8"><a href="mailto:{{ $volunteer->user->email }}" target="_blank">{{ $volunteer->user->email }} <span class="fa fa-external-link-alt"></span></a></div>
                 </div>
                 <hr/>
                 <div class="row mb-3">
@@ -36,7 +36,7 @@
                     <div class="col-12 text-right">
                         <div class="btn-group">
                             <a href="{{ route('admin/volunteers') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
-                            <a href="{{ route('admin/volunteers/edit', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
+{{--                            <a href="{{ route('admin/volunteers/edit', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>--}}
                             <a href="{{ route('admin/volunteers/destroy', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
                         </div>
                     </div>

@@ -13,5 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(EventsTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(ContactFormsTableSeeder::class);
+        $this->call(EditableContentCategoriesSeeder::class);
+        $this->call(EditableContentsSeeder::class);
     }
 }

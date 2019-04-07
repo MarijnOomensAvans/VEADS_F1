@@ -20,6 +20,12 @@ class EventController extends Controller
     }
 
     public function frontShow(Request $request, $id){
-        return view('front.event', ['event' => Event::find($id)]);
+        $event = Event::find($id);
+
+        if (!$event->published) {
+            return abort(403);
+        }
+
+        return view('front.event', ['event' => $event]);
     }
 }

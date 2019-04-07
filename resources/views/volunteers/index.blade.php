@@ -9,9 +9,9 @@
         <div class="block block-rounded block-bordered">
             <div class="block-content">
                 <div class="row">
-                    <div class="col-12 col-md-7">
-                        <a href="{{ route('admin/volunteers/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Vrijwilliger toevoegen</a>
-                    </div>
+{{--                    <div class="col-12 col-md-7">--}}
+{{--                        <a href="{{ route('admin/volunteers/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Vrijwilliger toevoegen</a>--}}
+{{--                    </div>--}}
                     <div class="col-12 col-md-5">
                         <form method="get">
                             <div class="form-group">
@@ -50,7 +50,7 @@
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('admin/volunteer', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
-                                            <a href="{{ route('admin/volunteers/edit', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
+{{--                                            <a href="{{ route('admin/volunteers/edit', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>--}}
                                             <a href="{{ route('admin/volunteers/destroy', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
                                         </div>
                                     </td>

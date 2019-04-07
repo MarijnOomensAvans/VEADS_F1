@@ -12,12 +12,16 @@ class Volunteer extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'first_name',
         'last_name',
-        'email',
         'phone_number',
         'address_id'
     ];
+
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 
     public function address() {
         return $this->belongsTo('App\Address');
@@ -40,4 +44,5 @@ class Volunteer extends Model
     public function getNameAttribute() {
         return $this->first_name . " " . $this->last_name;
     }
+
 }

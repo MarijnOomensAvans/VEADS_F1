@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -25,6 +27,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
+
+    /**
+     * User can be a volenteer
+     *
+     * @return App\Volunteer or NULL
+     */
+    public function volunteer()
+    {
+        return $this->hasOne('App\Volunteer');
+    }
 }

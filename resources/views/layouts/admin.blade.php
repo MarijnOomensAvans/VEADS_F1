@@ -1,3 +1,9 @@
+@push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', () => $(document).tooltip({ selector: '[data-toggle="tooltip"]' }));
+        </script>
+@endpush
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -42,6 +48,24 @@
                         <span class="nav-main-link-name">Projecten</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/partners') !== false ? ' active' : '' }}" href="{{ route('admin/partners') }}">
+                        <i class="nav-main-link-icon fa fa-hands-helping"></i>
+                        <span class="nav-main-link-name">Partners</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                  <a class="nav-main-link{{ strpos(Request::path(), 'admin/team_member') !== false ? ' active' : '' }}" href="{{ action('Backend\TeamMemberController@index') }}">
+                         <i class="nav-main-link-icon fa fa-users"></i>
+                         <span class="nav-main-link-name">Teamleden</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/edit_content') !== false ? ' active' : '' }}" href="{{ action('Backend\EditContentController@index') }}">
+                        <i class="nav-main-link-icon fa fa-file"></i>
+                        <span class="nav-main-link-name">Pagina's</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
                         {{--<i class="nav-main-link-icon far fa-images"></i>--}}
@@ -61,12 +85,24 @@
                         <span class="nav-main-link-name">Vrijwilligers</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/contact_form') !== false ? ' active' : '' }}" href="{{ action('Backend\ContactFormController@index') }}">
+                        <i class="nav-main-link-icon fas fa-envelope-open-text"></i>
+                        <span class="nav-main-link-name">Contact aanvragen</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link{{ strpos(Request::path(), 'admin/instagram') !== false ? ' active' : '' }}" href="{{ route('admin/instagram') }}">--}}
                         {{--<i class="nav-main-link-icon fab fa-instagram"></i>--}}
                         {{--<span class="nav-main-link-name">Instagram</span>--}}
                     {{--</a>--}}
                 {{--</li>--}}
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/facebook') !== false ? ' active' : '' }}" href="{{ route('admin/facebook') }}">
+                        <i class="nav-main-link-icon fab fa-facebook"></i>
+                        <span class="nav-main-link-name">Facebook</span>
+                    </a>
+                </li>
                 {{--<li class="nav-main-item">--}}
                     {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
                         {{--<i class="nav-main-link-icon far fa-id-card"></i>--}}
@@ -135,5 +171,6 @@
 <script src="{{ asset('js/dashmix.app.min-1.5.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 @yield('scripts')
+@stack('scripts')
 </body>
 </html>
