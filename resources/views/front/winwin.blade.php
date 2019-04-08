@@ -47,7 +47,7 @@
                             <figcaption>
                                 <div class="display-table width-100 height-100">
                                     <div class="display-table-cell vertical-align-middle text-center">
-                                        <div><h3 class="text-royal-blue font-weight-800 text-shadow">Ik help mee als vrijwilliger.</h3></div>
+                                        <div><h3 class="text-royal-blue font-weight-800 text-border-white">Ik help mee als vrijwilliger.</h3></div>
                                         <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">
                                             Help mee als vrijwilliger bij een evenement van VEADS.
                                         </p>
@@ -126,6 +126,10 @@
                 opacity: 1;
                 transform: translateY(0px);
             }
+        }
+
+        .text-border-white{
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
         }
     </style>
 @endpush

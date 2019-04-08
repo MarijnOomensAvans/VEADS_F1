@@ -17,4 +17,8 @@ class TeamMember extends Model
     public function getFullNameAttribute() {
         return $this->first_name . " " . $this->last_name;
     }
+
+    public function picture() {
+        return $this->belongsTo("App\Picture");
+    }
 }
