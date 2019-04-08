@@ -23,6 +23,7 @@ class UserTableSeeder extends Seeder
             'email' => "info@veads.nl",
             'password' => Hash::make('veads2019')
         ]);
+        $user->admin = true;
         $user->save();
     }
 }
