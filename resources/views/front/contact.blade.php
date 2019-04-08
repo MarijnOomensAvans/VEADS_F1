@@ -17,7 +17,7 @@
 
     @if(!empty(getContent('contact_about_us')->content))
         <div class="row">
-            <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
+            <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom margin-100px-top">
                 <div class="position-relative overflow-hidden width-100">
                     <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Over ons</span>
                 </div>
@@ -79,7 +79,7 @@
                     <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Contactformulier</span>
                 </div>
 
-                <div class="block-content">
+                <div class="block-content margin-100px-top">
                     <div class="row">
                         <div class="col-12">
                             @if(session()->has('contact_send'))
