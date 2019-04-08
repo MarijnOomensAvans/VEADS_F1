@@ -42,10 +42,15 @@
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center"
                                      style="visibility: visible; animation-name: fadeInUp;">
 
-                                    <div class="blog-post-images overflow-hidden position-relative border-radius-10">
-                                        <img class="img-fluid width-360px height-350px"
-                                             src="/image/{{ $team_member->picture->path }}/{{ $team_member->picture->name }}">
-                                    </div>
+                                    @if(!empty($team_member->picture))
+                                        <div class="blog-post-images overflow-hidden position-relative border-radius-10">
+                                            <img class="img-fluid width-360px height-350px"
+                                                 src="/image/{{ $team_member->picture->path }}/{{ $team_member->picture->name }}">
+                                        </div>
+                                    @else
+                                        <div class="width-360px height-350px">
+                                        </div>
+                                    @endif
 
                                     <div class="blog-post bg-light-gray">
                                         <div class="post-details padding-40px-all sm-padding-20px-all">

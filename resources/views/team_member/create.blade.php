@@ -14,7 +14,9 @@
             <div class="block-content">
                 <div class="row">
                     <div class="col-12">
-                        <form method="post" action="{{ (isset($team_member) ? action('Backend\TeamMemberController@update', ['team_member' => $team_member]) : action('Backend\TeamMemberController@index')) }}" enctype="multipart/form-data">
+                        <form method="post"
+                              action="{{ (isset($team_member) ? action('Backend\TeamMemberController@update', ['team_member' => $team_member]) : action('Backend\TeamMemberController@index')) }}"
+                              enctype="multipart/form-data">
                             @csrf
 
                             @if(isset($team_member))
@@ -48,15 +50,16 @@
                             @component('includes.forms.image', [
                                'name' => 'image',
                                'title' => 'Foto',
-                               'prefill' => $team_member->picture->path ?? ''
                            ])@endcomponent
 
                             <div class="form-group row">
                                 <div class="col-12 text-right">
                                     @if(isset($team_member))
-                                        <a href="{{ action('Backend\TeamMemberController@show', compact('team_member')) }}" class="btn btn-secondary">Annuleren</a>
+                                        <a href="{{ action('Backend\TeamMemberController@show', compact('team_member')) }}"
+                                           class="btn btn-secondary">Annuleren</a>
                                     @else
-                                        <a href="{{ action('Backend\TeamMemberController@index') }}" class="btn btn-secondary">Annuleren</a>
+                                        <a href="{{ action('Backend\TeamMemberController@index') }}"
+                                           class="btn btn-secondary">Annuleren</a>
                                     @endif
                                     <button type="submit" class="btn btn-primary">Opslaan</button>
                                 </div>
