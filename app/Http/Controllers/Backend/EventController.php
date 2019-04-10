@@ -49,7 +49,7 @@ class EventController extends Controller
     	    return response()->json(compact('events', 'q'));
         }
 
-        return view('events/index', compact('events', 'q'));
+        return view('back.events.index', compact('events', 'q'));
     }
 
     /**
@@ -59,7 +59,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events/create');
+        return view('back.events.create');
     }
 
     /**
@@ -133,7 +133,7 @@ class EventController extends Controller
             return $event;
         }
 
-        return view('events/show', compact('event'));
+        return view('back.events.show', compact('event'));
     }
 
     /**
@@ -144,7 +144,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('events/edit', compact('event'));
+        return view('back.events.edit', compact('event'));
     }
 
     /**
@@ -230,7 +230,7 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        return view('events/destroy', compact('event'));
+        return view('back.events.destroy', compact('event'));
     }
 
 	/**
@@ -277,7 +277,7 @@ class EventController extends Controller
     public function showFeatured() {
         $events = Event::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
 
-        return view('events/featured', compact('events'));
+        return view('back.events.featured', compact('events'));
     }
 
     public function storeFeatured(Request $request) {

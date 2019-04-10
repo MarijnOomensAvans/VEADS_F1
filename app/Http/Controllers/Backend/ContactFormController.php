@@ -24,7 +24,7 @@ class ContactFormController extends Controller
 
         $contact_forms = $contact_forms->paginate(15);
 
-        return view('contact_form.index', compact('contact_forms', 'q'));
+        return view('back.contact_form.index', compact('contact_forms', 'q'));
     }
 
     /**
@@ -35,7 +35,7 @@ class ContactFormController extends Controller
      */
     public function show(ContactForm $contact_form)
     {
-        return view('contact_form.show', compact('contact_form'));
+        return view('back.contact_form.show', compact('contact_form'));
     }
 
     /**

@@ -87,7 +87,7 @@
                     </div>
 
                     <div class="row mb-3 items-push img-fluid-100">
-                        @each('events.partials.picture', $event->pictures, 'picture')
+                        @each('back.events.partials.picture', $event->pictures, 'picture')
                     </div>
                     <hr/>
                 @endif

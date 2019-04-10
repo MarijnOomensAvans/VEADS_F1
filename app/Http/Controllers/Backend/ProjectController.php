@@ -37,7 +37,7 @@ class ProjectController extends Controller
             return response()->json(compact('projects', 'q'));
         }
 
-        return view('projects/index', compact('projects', 'q'));
+        return view('back.projects.index', compact('projects', 'q'));
     }
 
     /**
@@ -47,7 +47,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects/create');
+        return view('back.projects.create');
     }
 
     /**
@@ -89,7 +89,7 @@ class ProjectController extends Controller
             return response()->json(compact('project'));
         }
 
-        return view('projects/show', compact('project'));
+        return view('back.projects.show', compact('project'));
     }
 
     /**
@@ -100,7 +100,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects/edit', compact('project'));
+        return view('back.projects.edit', compact('project'));
     }
 
     /**
@@ -146,7 +146,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        return view('projects/destroy', compact('project'));
+        return view('back.projects.destroy', compact('project'));
     }
 
     public function delete(Request $request, Project $project) {
