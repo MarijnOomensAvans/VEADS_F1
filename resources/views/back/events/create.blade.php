@@ -104,7 +104,7 @@
 
                                     @if(isset($event) && count($event->pictures))
                                         <div class="row mt-3 items-push img-fluid-100">
-                                            @each('events.partials.picture', $event->pictures, 'picture')
+                                            @each('back.events.partials.picture', $event->pictures, 'picture')
                                         </div>
                                     @endif
                                 </div>

@@ -51,10 +51,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/events/featured', 'Backend\\EventController@showFeatured')->name('admin/events/featured');
     Route::post('/events/featured', 'Backend\\EventController@storeFeatured')->name('admin/events/featured');
 
-    // Backend Instagram (abandoned)
-    Route::get('/instagram', 'Backend\\InstagramController@askAuthorization')->name('admin/instagram');
-    Route::get('/instagram/callback', 'Backend\\InstagramController@callback')->name('admin/instagram/callback');
-
     // Backend team members
     Route::resource('/team_member', 'Backend\\TeamMemberController');
     

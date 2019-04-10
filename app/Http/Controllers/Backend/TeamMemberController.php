@@ -29,7 +29,7 @@ class TeamMemberController extends Controller
 
         $team_members = $team_members->paginate(15);
 
-        return view('team_member.index', compact('team_members', 'q'));
+        return view('back.team_member.index', compact('team_members', 'q'));
     }
 
     /**
@@ -39,7 +39,7 @@ class TeamMemberController extends Controller
      */
     public function create()
     {
-        return view('team_member.create');
+        return view('back.team_member.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class TeamMemberController extends Controller
      */
     public function show(TeamMember $team_member)
     {
-        return view('team_member.show', compact('team_member'));
+        return view('back.team_member.show', compact('team_member'));
     }
 
     /**
@@ -77,7 +77,7 @@ class TeamMemberController extends Controller
      */
     public function edit(TeamMember $team_member)
     {
-        return view('team_member.edit', compact('team_member'));
+        return view('back.team_member.edit', compact('team_member'));
     }
 
     /**
@@ -112,7 +112,7 @@ class TeamMemberController extends Controller
 
     public function destroyImage(TeamMember $team_member, Picture $picture)
     {
-        return view('team_member/image', compact('team_member', 'picture'));
+        return view('back.team_member.image', compact('team_member', 'picture'));
     }
 
     public function delete(Request $request, TeamMember $team_member)

@@ -35,7 +35,7 @@ class VolunteerController extends Controller
 
         $volunteers = $volunteers->paginate(15);
 
-        return view('volunteers.index', compact('volunteers', 'q'));
+        return view('back.volunteers.index', compact('volunteers', 'q'));
     }
 
     /**
@@ -47,7 +47,7 @@ class VolunteerController extends Controller
     {
         return abort(404);
 
-        return view('volunteers.create');
+        return view('back.volunteers.create');
     }
 
     /**
@@ -80,7 +80,7 @@ class VolunteerController extends Controller
      */
     public function show(Volunteer $volunteer)
     {
-        return view('volunteers.show', compact('volunteer'));
+        return view('back.volunteers.show', compact('volunteer'));
     }
 
     /**
@@ -93,7 +93,7 @@ class VolunteerController extends Controller
     {
         return abort(404);
 
-        return view('volunteers.edit', compact('volunteer'));
+        return view('back.volunteers.edit', compact('volunteer'));
     }
 
     /**
