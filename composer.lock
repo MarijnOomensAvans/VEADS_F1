@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8cb1369c59bc47fb97b2f8b4540c668a",
+    "content-hash": "81aaa67d82e524b81b576ded8f528634",
     "packages": [
         {
             "name": "caouecs/laravel-lang",
@@ -3806,6 +3806,43 @@
                 "laravel-dump-server"
             ],
             "time": "2018-10-04T07:22:24+00:00"
+        },
+        {
+            "name": "daanvanberkel/ifu",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/daanvanberkel/ArtisanIFU.git",
+                "reference": "934d47e8208ccbac39db56014a21ee702edba600"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/daanvanberkel/ArtisanIFU/zipball/934d47e8208ccbac39db56014a21ee702edba600",
+                "reference": "934d47e8208ccbac39db56014a21ee702edba600",
+                "shasum": ""
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Daanvanberkel\\Ifu\\IfuServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Daanvanberkel\\Ifu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Daan van Berkel",
+                    "email": "info@daanvanberkel.nl"
+                }
+            ],
+            "description": "I Fucked Up Command For Artisan",
+            "time": "2019-04-10T09:16:20+00:00"
         },
         {
             "name": "doctrine/instantiator",
