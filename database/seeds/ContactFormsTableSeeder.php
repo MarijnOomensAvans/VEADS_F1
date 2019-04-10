@@ -16,6 +16,6 @@ class ContactFormsTableSeeder extends Seeder
             return;
         }
 
-        factory(\App\ContactForm::class, 50);
+        factory(\App\ContactForm::class, 50)->create();
     }
 }
