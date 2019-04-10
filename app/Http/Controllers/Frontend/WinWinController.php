@@ -22,6 +22,11 @@ class WinWinController extends Controller
         return view('front.win-win.enrollVolunteer', ['events' => $events ]);
     }
 
+    public function giveProducts() {
+        return view('front.win-win.giveProducts');
+    }
+
+
     public function saveEnrollVolunteer(Request $request) {
 
         $volunteer = $this->handleUserFields($request);
