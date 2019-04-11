@@ -36,7 +36,7 @@
                                 <th>Event naam</th>
                                 <th class="d-none d-md-table-cell">Event start</th>
                                 <th class="d-none d-lg-table-cell">Event locatie</th>
-                                <th class="text-center d-none d-lg-table-cell" style="width: 150px;">Aanmeldingen</th>
+                                <th class="text-center d-none d-lg-table-cell" style="width: 150px;">Donaties</th>
                                 <th class="text-center d-none d-md-table-cell" style="width: 100px">Gepubliceerd</th>
                                 <th class="text-center" style="width: 150px;">Acties</th>
                             </tr>
@@ -64,7 +64,7 @@
                                             N/A
                                         @endif
                                     </td>
-                                    <td class="text-center d-none d-lg-table-cell">{{ $event->visitors->count() }}</td>
+                                    <td class="text-center d-none d-lg-table-cell">&euro;{{ number_format($event->donations->sum('amount'), 2, ',', '.') }}</td>
                                     <td class="text-center d-none d-md-table-cell">
                                         @if($event->published)
                                             <span class="fa fa-check"></span>
