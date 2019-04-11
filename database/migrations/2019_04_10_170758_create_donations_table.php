@@ -14,7 +14,7 @@ class CreateDonationsTable extends Migration
     public function up()
     {
         Schema::create('donations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->primary();
             $table->float('amount');
             $table->string('first_name')->nullable()->default(null);
             $table->string('last_name')->nullable()->default(null);
@@ -23,6 +23,7 @@ class CreateDonationsTable extends Migration
             $table->string('payment_id')->nullable()->default(null); // Mollie payment id
             $table->dateTime('paid_at')->nullable()->default(null);
             $table->dateTime('refunded_at')->nullable()->default(null);
+            $table->dateTime('failed_at')->nullable()->default(null);
             $table->timestamps();
 
             $table->foreign('event_id')->references('id')->on('events');

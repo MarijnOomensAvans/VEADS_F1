@@ -8,6 +8,16 @@
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-content">
+                @if(!$donation->payment->canBeRefunded())
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-danger">
+                            Het is niet mogelijk om deze donatie terug te betalen.<br/>
+                            <a href="{{ action('Backend\DonationController@show', compact('donation')) }}" class="btn btn-primary">Terug</a>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div class="row">
                     <div class="col-12">
                         <form method="post" action="{{ action('Backend\DonationController@refund', compact('donation')) }}">
@@ -22,6 +32,7 @@
                         </form>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

@@ -46,7 +46,9 @@
                     <div class="col-12 text-right">
                         <div class="btn-group">
                             <a href="{{ action('Backend\DonationController@index') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
-                            <a href="{{ action('Backend\DonationController@refund', ['donation' => $donation]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terugbetalen"><span class="fas fa-hand-holding-usd"></span></a>
+                            @if(empty($donation->refunded_at))
+                                <a href="{{ action('Backend\DonationController@refund', ['donation' => $donation]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terugbetalen"><span class="fas fa-hand-holding-usd"></span></a>
+                            @endif
                         </div>
                     </div>
                 </div>

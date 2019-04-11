@@ -92,15 +92,15 @@ class EditableContentsSeeder extends Seeder
         }
         
         if (empty(\App\EditContent::find('footer_quote'))) {
-            (new \App\EditContent(['key' => 'footer_quote', 'title' => 'Quote', 'type' => 'text', 'content' => '', 'category' => 'footer']))->save();
+            (new \App\EditContent(['key' => 'footer_quote', 'title' => 'Quote', 'type' => 'text', 'content' => 'Wat gaat u dit jaar nog doen?', 'category' => 'footer']))->save();
         }
         
         if (empty(\App\EditContent::find('footer_facebook_link'))) {
-            (new \App\EditContent(['key' => 'footer_facebook_link', 'title' => 'Facebook link', 'type' => 'text', 'content' => '', 'category' => 'footer']))->save();
+            (new \App\EditContent(['key' => 'footer_facebook_link', 'title' => 'Facebook link', 'type' => 'text', 'content' => 'https://www.facebook.com/socialreturnworks/', 'category' => 'footer']))->save();
         }
         
         if (empty(\App\EditContent::find('footer_instagram_link'))) {
-            (new \App\EditContent(['key' => 'footer_instagram_link', 'title' => 'Instagram link', 'type' => 'text', 'content' => '', 'category' => 'footer']))->save();
+            (new \App\EditContent(['key' => 'footer_instagram_link', 'title' => 'Instagram link', 'type' => 'text', 'content' => 'https://www.instagram.com/voorelkaaraandeslag/', 'category' => 'footer']))->save();
         }
         
         // DO NOT TOUCH THIS LINE

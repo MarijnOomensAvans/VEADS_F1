@@ -55,7 +55,17 @@ class DonationController extends Controller
             return view('back.donations.refund', compact('donation'));
         }
 
-        // TODO: Refund by mollie
+        if (!$donation->payment->canBeRefunded()) {
+            return redirect(action('Backend\DonationController@show', compact('donation')));
+        }
+
+        $donation->payment->refund([
+            'amount' => [
+                'currency' => 'EUR',
+                'value' => number_format($donation->amount, 2, '.', '')
+            ]
+        ]);
+
         $donation->refunded_at = Carbon::now();
         $donation->save();
 

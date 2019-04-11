@@ -2,10 +2,14 @@
 
 namespace App;
 
+use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
+use Mollie\Laravel\Facades\Mollie;
 
 class Donation extends Model
 {
+    use UsesUuid;
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -16,11 +20,24 @@ class Donation extends Model
 
     protected $casts = [
         'paid_at' => 'datetime',
-        'refunded_at' => 'datetime'
+        'refunded_at' => 'datetime',
+        'failed_at' => 'datetime'
     ];
 
     public function event() {
         return $this->belongsTo('App\Event');
+    }
+
+    /**
+     * @return \Mollie\Api\Resources\Payment|null
+     * @throws \Mollie\Api\Exceptions\ApiException
+     */
+    public function getPaymentAttribute() {
+        if (empty($this->payment_id)) {
+            return null;
+        }
+
+        return Mollie::api()->payments()->get($this->payment_id);
     }
 
     public function getFullNameAttribute() {

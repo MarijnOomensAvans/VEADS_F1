@@ -80,7 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
     // Donations
     Route::get('/donations', 'Backend\\DonationController@index');
-    Route::get('/donations/{donation}', 'Backend\\DonationController@show')->where('donation', '[0-9]+');
-    Route::get('/donations/{donation}/refund', 'Backend\\DonationController@refund')->where('donation', '[0-9]+');
-    Route::post('/donations/{donation}/refund', 'Backend\\DonationController@refund')->where('donation', '[0-9]+');
+    Route::get('/donations/{donation}', 'Backend\\DonationController@show');
+    Route::get('/donations/{donation}/refund', 'Backend\\DonationController@refund');
+    Route::post('/donations/{donation}/refund', 'Backend\\DonationController@refund');
 });
