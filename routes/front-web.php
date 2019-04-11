@@ -23,3 +23,4 @@ Route::get('/login', 'Frontend\\AuthController@login');
 Route::post('/login', 'Frontend\\AuthController@loginPost');
 Route::get('/logout', 'Frontend\\AuthController@logout');
 Route::get('/profile', 'Frontend\\AuthController@profile');
+Route::post('/profile', 'Frontend\\AuthController@saveProfile');
