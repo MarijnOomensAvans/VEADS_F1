@@ -14,6 +14,16 @@
                 </div>
                 <hr/>
 
+                @if(!empty($donation->email))
+                <div class="row mb-3">
+                    <div class="col-12 col-sm-4 text-sm-right"><label>E-mailadres</label></div>
+                    <div class="col-12 col-sm-8">
+                        <a href="mailto:{{ $donation->email }}" target="_blank">{{ $donation->email }}</a>
+                    </div>
+                </div>
+                <hr/>
+                @endif
+
                 @if(!empty($donation->event))
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4 text-sm-right"><label>Evenement</label></div>

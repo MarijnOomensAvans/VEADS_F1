@@ -18,7 +18,7 @@ class DonationController extends Controller
     {
         $q = $request->query('q');
 
-        $donations = Donation::query();
+        $donations = Donation::query()->orderBy('paid_at', 'desc');
 
         if (!empty($q)) {
             if (strtolower($q) == 'anoniem') {
