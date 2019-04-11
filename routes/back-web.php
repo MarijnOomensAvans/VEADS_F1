@@ -77,4 +77,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/facebook', "Backend\\FacebookController@index")->name('admin/facebook');
     Route::get('/fb/callback', "Backend\\FacebookController@callback")->name('admin/facebook/callback');
     Route::get('/facebook/update', "Backend\\FacebookController@update")->name('admin/facebook/update');
+
+    // Donations
+    Route::get('/donations', 'Backend\\DonationController@index');
+    Route::get('/donations/{donation}', 'Backend\\DonationController@show')->where('donation', '[0-9]+');
+    Route::get('/donations/{donation}/refund', 'Backend\\DonationController@refund')->where('donation', '[0-9]+');
+    Route::post('/donations/{donation}/refund', 'Backend\\DonationController@refund')->where('donation', '[0-9]+');
 });

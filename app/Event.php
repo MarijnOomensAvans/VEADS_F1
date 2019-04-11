@@ -56,4 +56,10 @@ class Event extends Model
     public function project() {
         return $this->belongsTo('App\Project');
     }
+
+    public function donations() {
+        return $this->hasMany('App\Donation')
+            ->whereNotNull('paid_at')
+            ->whereNull('refunded_at');
+    }
 }

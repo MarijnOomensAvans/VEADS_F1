@@ -22,7 +22,7 @@ class CreateDonationsTable extends Migration
             $table->unsignedInteger('event_id')->nullable()->default(null);
             $table->string('payment_id')->nullable()->default(null); // Mollie payment id
             $table->dateTime('paid_at')->nullable()->default(null);
-            $table->boolean('refunded')->default(false);
+            $table->dateTime('refunded_at')->nullable()->default(null);
             $table->timestamps();
 
             $table->foreign('event_id')->references('id')->on('events');
