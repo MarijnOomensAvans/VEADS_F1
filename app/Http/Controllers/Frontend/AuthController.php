@@ -26,4 +26,13 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function profile(){
+        if(Auth::check()){
+            return view('front.profile');
+        }
+        else{
+            return redirect('/login');
+        }
+    }
 }
