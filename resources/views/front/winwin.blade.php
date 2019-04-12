@@ -79,24 +79,24 @@
                 </a>
 
                 {{-- Optie 4 --}}
-{{--                <a href="#" class="fadeUpAnimation delay-600">--}}
-{{--                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 banner-style1" style="height: 500px;">--}}
-{{--                        <figure class="bg-extra-dark-gray">--}}
-{{--                            <div class="banner-image height-500px cover-background" style="background-image:url('images/winwin4.jpg');">--}}
-{{--                            </div>--}}
-{{--                            <figcaption>--}}
-{{--                                <div class="display-table width-100 height-100">--}}
-{{--                                    <div class="display-table-cell vertical-align-middle text-center">--}}
-{{--                                        <div><h3 class="text-royal-blue font-weight-800 text-background-greytrans">Ik wil graag geld doneren.</h3></div>--}}
-{{--                                        <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">--}}
-{{--                                            VEADS is altijd blij met uw bijdrage en garandeert dat het geld op een goede plek terecht komt.--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </figcaption>--}}
-{{--                        </figure>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
+                <a href="/doneren" class="fadeUpAnimation delay-200">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 banner-style1 md-margin-30px-bottom" style="height: 500px;">
+                        <figure class="bg-extra-dark-gray">
+                            <div class="banner-image height-500px cover-background" style="background-image:url('images/winwin4.jpg');">
+                            </div>
+                            <figcaption>
+                                <div class="display-table width-100 height-100">
+                                    <div class="display-table-cell vertical-align-middle text-center">
+                                        <div><h3 class="text-royal-blue font-weight-800 text-border-white">Ik wil graag geld doneren.</h3></div>
+                                        <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">
+                                            VEADS is altijd blij met uw bijdrage en garandeert dat het geld op een goede plek terecht komt.
+                                        </p>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </a>
 
             </div>
         </div>

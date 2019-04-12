@@ -93,20 +93,36 @@
                 @endif
 
                 @if(count($event->volunteers))
-                        <div class="row">
-                            <div class="col-12 col-sm-4 text-sm-right"><label>Vrijwilligers</label></div>
-                            <div class="col-12 col-sm-8">
-                                <ul class="list-group mb-3">
-                                    @foreach($event->volunteers as $volunteer)
-                                        <li class="list-group-item">
-                                            <a href="{{ route('admin/volunteer', ['volunteer' => $volunteer]) }}">{{ $volunteer->name }}</a>
-                                            <a href="/admin/volunteers/{{ $volunteer->id }}/event/{{ $event->id }}/remove"><span class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Vrijwilliger verwijderen"></span></a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Vrijwilligers</label></div>
+                        <div class="col-12 col-sm-8">
+                            <ul class="list-group mb-3">
+                                @foreach($event->volunteers as $volunteer)
+                                    <li class="list-group-item">
+                                        <a href="{{ route('admin/volunteer', ['volunteer' => $volunteer]) }}">{{ $volunteer->name }}</a>
+                                        <a href="/admin/volunteers/{{ $volunteer->id }}/event/{{ $event->id }}/remove"><span class="fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Vrijwilliger verwijderen"></span></a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
-                        <hr/>
+                    </div>
+                    <hr/>
+                @endif
+
+                @if($event->donations()->count())
+                    <div class="row">
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Donaties</label></div>
+                        <div class="col-12 col-sm-8">
+                            <ul class="list-group mb-3">
+                                @foreach($event->donations as $donation)
+                                    <li class="list-group-item">
+                                        <a href="{{ action('Backend\DonationController@show', compact('donation')) }}">&euro;{{ number_format($donation->amount, 2, ',', '.') }} - {{ $donation->full_name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <hr/>
                 @endif
 
                 <div class="row mb-3">

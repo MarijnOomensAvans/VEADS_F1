@@ -16,7 +16,9 @@
 
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4 text-sm-right"><label>E-mailadres</label></div>
-                    <div class="col-12 col-sm-8">{{ $contact_form->email }}</div>
+                    <div class="col-12 col-sm-8">
+                        <a href="mailto:{{ $contact_form->email }}" target="_blank">{{ $contact_form->email }}</a>
+                    </div>
                 </div>
                 <hr/>
 

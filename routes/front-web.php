@@ -23,3 +23,13 @@ Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->n
 Route::get('/login', 'Frontend\\AuthController@login');
 Route::post('/login', 'Frontend\\AuthController@loginPost');
 Route::get('/logout', 'Frontend\\AuthController@logout');
+
+// Profile
+Route::get('/profile', 'Frontend\\AuthController@profile');
+Route::post('/profile', 'Frontend\\AuthController@saveProfile');
+
+// Donations
+Route::get('/doneren', 'Frontend\\DonationController@index');
+Route::post('/doneren', 'Frontend\\DonationController@preparePayment');
+Route::get('/doneren/{donation}', 'Frontend\\DonationController@redirect');
+Route::post('/mollie/webhook', 'Frontend\\DonationController@webhook');

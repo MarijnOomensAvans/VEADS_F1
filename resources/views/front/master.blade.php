@@ -74,6 +74,10 @@
 
                                     @auth
                                         <li>
+                                            <a href="/profile">Mijn Account</a>
+                                        </li>
+
+                                        <li>
                                             <a href="/logout">Uitloggen</a>
                                         </li>                                      
                                     @endauth

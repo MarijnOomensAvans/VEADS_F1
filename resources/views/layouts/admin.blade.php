@@ -66,18 +66,6 @@
                         <span class="nav-main-link-name">Pagina's</span>
                     </a>
                 </li>
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon far fa-images"></i>--}}
-                        {{--<span class="nav-main-link-name">Foto's</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon far fa-file"></i>--}}
-                        {{--<span class="nav-main-link-name">Content</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
                 <li class="nav-main-item nav-main-heading">Connecties</li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/volunteer') !== false ? ' active' : '' }}" href="{{ route('admin/volunteers') }}">
@@ -91,30 +79,19 @@
                         <span class="nav-main-link-name">Contact aanvragen</span>
                     </a>
                 </li>
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link{{ strpos(Request::path(), 'admin/instagram') !== false ? ' active' : '' }}" href="{{ route('admin/instagram') }}">--}}
-                        {{--<i class="nav-main-link-icon fab fa-instagram"></i>--}}
-                        {{--<span class="nav-main-link-name">Instagram</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/facebook') !== false ? ' active' : '' }}" href="{{ route('admin/facebook') }}">
                         <i class="nav-main-link-icon fab fa-facebook"></i>
                         <span class="nav-main-link-name">Facebook</span>
                     </a>
                 </li>
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon far fa-id-card"></i>--}}
-                        {{--<span class="nav-main-link-name">Werknemers</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon far fa-handshake"></i>--}}
-                        {{--<span class="nav-main-link-name">Partners</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
+                <li class="nav-main-item nav-main-heading">Win-win</li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/donations') !== false ? ' active' : '' }}" href="{{ action('Backend\DonationController@index') }}">
+                        <i class="nav-main-link-icon fas fa-money-bill"></i>
+                        <span class="nav-main-link-name">Donaties</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
