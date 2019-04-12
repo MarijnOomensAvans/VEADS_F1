@@ -33,7 +33,7 @@
     </section>
 @endif
 
-<!-- This section is the cards -->
+<!-- This section is the partner cards -->
 @if (count($partners) > 0 && ((bool) getContent('home_show_partners')->content))
 <section class="no-padding margin-70px-top">
     <div class="container">
