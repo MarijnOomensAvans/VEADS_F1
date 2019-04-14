@@ -27,6 +27,10 @@ class WinWinController extends Controller
         return view('front.win-win.giveProducts', ['events' => $events ]);
     }
 
+    public function saveGivenProducts(Request $request) {
+        return redirect('/');
+    }
+
 
     public function saveEnrollVolunteer(Request $request) {
 

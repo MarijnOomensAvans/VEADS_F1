@@ -28,7 +28,7 @@
                                 </div>
                             @endguest
 
-                            <form action="/doneren" method="post">
+                            <form action="/giveproducts" method="post">
                                 @csrf
 
                                 @if ($errors->any())
