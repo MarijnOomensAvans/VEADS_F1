@@ -21,6 +21,6 @@ class EditContent extends Model
     protected $primaryKey = 'key';
 
     public function category() {
-        return $this->hasOne('App\EditableContetnCategory', 'category', 'category');
+        return $this->hasOne('App\EditableContentCategory', 'category', 'category');
     }
 }
