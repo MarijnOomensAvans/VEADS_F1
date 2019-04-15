@@ -44,6 +44,12 @@
                     <button type="submit" class="btn btn-royal-blue btn-large margin-20px-top">inloggen</button>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center margin-20px-top">
+                    <a href="/reset_password">Wachtwoord vergeten?</a>
+                </div>
+            </div>
         </form>
     </div>
 </section>
