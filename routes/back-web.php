@@ -78,6 +78,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/fb/callback', "Backend\\FacebookController@callback")->name('admin/facebook/callback');
     Route::get('/facebook/update', "Backend\\FacebookController@update")->name('admin/facebook/update');
 
+    // Facebook
+    Route::get('/instagram', "Backend\\InstagramController@index")->name('admin/instagram');
+    Route::get('/instagram/callback', "Backend\\InstagramController@callback")->name('admin/instagram/callback');
+    Route::get('/instagram/update', "Backend\\InstagramController@update")->name('admin/instagram/update');
+
     // Donations
     Route::get('/donations', 'Backend\\DonationController@index');
     Route::get('/donations/{donation}', 'Backend\\DonationController@show');
