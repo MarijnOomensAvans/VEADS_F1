@@ -5,7 +5,7 @@
             v-model="partnerSearch"
             :serializer="s => s.name"
             placeholder="Zoek een partner"
-            @hit="selectedPartner = $event"
+            @hit="selectedPartner = $partner"
             ref="projectAutocomplete">
 
             <template v-slot:append>
