@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Frontend\AuthController;
 use App\Event;
-use App\User;
+use App\DonatedProduct;
 use App\Address;
 use App\Volunteer;
 use Illuminate\Support\Facades\Auth;
@@ -29,12 +29,27 @@ class WinWinController extends Controller
 
     public function saveGivenProducts(Request $request) {
 
-        //Validate
         $validated = $request->validate([
-           'first_name' => 'required'
-            ], [], [
-                'event_id' => 'event'
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'product_name' => 'required',
+            'product_description' => 'required'
         ]);
+
+        $product = new DonatedProduct();
+
+        $product->name = $request['product_name'];
+        $product->description = $request['product_description'];
+        $product->name = $request['product_name'];
+        $product->quantity = $request['quantity'];
+        $product->lend = $request['donationchoice'];
+        $product->first_name = $request['first_name'];
+        $product->last_name = $request['last_name'];
+        $product->email = $request['email'];
+
+        $product->save();
+
 
         //Thank you page
         return redirect('/thanks');

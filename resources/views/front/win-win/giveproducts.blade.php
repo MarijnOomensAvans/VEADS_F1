@@ -47,8 +47,8 @@
                                     <input type="text" name="email" placeholder="E-mailadres" class="border-radius-4 bg-white medium-input" value="{{ old('email') ?? Auth::user()->email ?? '' }}">
 
                                     <select name="donationchoice" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px;">
-                                        <option selected value="">Uitlenen</option>
-                                            <option>Doneren</option>
+                                        <option selected value="0">Uitlenen</option>
+                                            <option value="1">Doneren</option>
                                     </select>
                                 </div>
                         </div>
@@ -64,13 +64,13 @@
 
                             <input type="text" name="product_name" placeholder="Product(en) naam" class="border-radius-4 bg-white medium-input">
 
-                            <textarea name="product_name" placeholder="Opmerkingen/omschrijving" class="border-radius-4 bg-white medium-input"></textarea>
+                            <textarea name="product_description" placeholder="Opmerkingen/omschrijving" class="border-radius-4 bg-white medium-input"></textarea>
 
-                            <input type="number" min="1" value="1">
+                            <input name="quantity" type="number" min="1" value="1">
 
                             <small>U kunt producten doneren of uitlenen aan één specifiek evenement of aan VEADS.</small>
                             <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px;">
-                                <option selected value="">VEADS</option>
+                                <option selected value="0">VEADS</option>
                                 @foreach($events as $event)
                                     <option value="{{$event->id}}">{{$event->name}}</option>
                                 @endforeach
