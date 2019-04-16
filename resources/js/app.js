@@ -23,6 +23,7 @@ Vue.use(require('vue-the-mask'));
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('project-search-component', require('./components/ProjectSearchComponent.vue').default);
 Vue.component('event-search-component', require('./components/EventSearchComponent.vue').default);
+Vue.component('partner-search-component', require('./components/PartnerSearchComponent.vue').default);
 Vue.component('volunteer-add-project-component', require('./components/VolunteerAddProjectComponent.vue').default);
 Vue.component('volunteer-add-event-component', require('./components/VolunteerAddEventComponent.vue').default);
 

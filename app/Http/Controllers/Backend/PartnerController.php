@@ -137,7 +137,7 @@ class PartnerController extends Controller
     public function showFeatured() {
         $partners = Partner::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
 
-        return view('back.events.featured', compact('partners'));
+        return view('back.partners.featured', compact('partners'));
     }
 
     public function storeFeatured(Request $request) {

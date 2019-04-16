@@ -24,7 +24,7 @@
 
     export default {
         props:[
-            'event',
+            'partner',
             'position',
         ],
         components: {
@@ -32,7 +32,7 @@
         },
         data() {
             return {
-                events: [],
+                partners: [],
                 partnerSearch: '',
                 selectedPartner: {id: 0}
             }

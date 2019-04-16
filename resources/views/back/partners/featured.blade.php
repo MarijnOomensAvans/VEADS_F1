@@ -21,7 +21,7 @@
                                 @endif
 
                                 <div class="mb-3">
-                                    <partner-search-component position="{{ $i + 1 }}" {!! isset($partners[$i]) ? ' partner="' . $partners[$i]->id . '"' : '' !!}></partner-search-component>
+                                    <partner-search-component position="{{ $i + 1 }}"{!! isset($partners[$i]) ? ' partner="' . $partners[$i]->id . '"' : '' !!}></partner-search-component>
                                 </div>
                             </div>
                         </div>
