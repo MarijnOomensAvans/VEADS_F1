@@ -51,7 +51,6 @@
                                             <option>Doneren</option>
                                     </select>
                                 </div>
-                            </form>
                         </div>
                     </div>
 
@@ -80,6 +79,7 @@
                             <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">
                                 Bevestigen
                             </button>
+                            </form>
                         </div>
                     </div>
 

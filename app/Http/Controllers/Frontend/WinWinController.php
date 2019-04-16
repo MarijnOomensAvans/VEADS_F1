@@ -28,7 +28,16 @@ class WinWinController extends Controller
     }
 
     public function saveGivenProducts(Request $request) {
-        return redirect('/');
+
+        //Validate
+        $validated = $request->validate([
+           'first_name' => 'required'
+            ], [], [
+                'event_id' => 'event'
+        ]);
+
+        //Thank you page
+        return redirect('/thanks');
     }
 
 
