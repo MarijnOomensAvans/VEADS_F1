@@ -13,7 +13,6 @@ class WinWinProduct extends Model
         'product_name',
         'amount',
         'description',
-        'description',
         'event_id',
         'project_id',
         'lend_donate'
