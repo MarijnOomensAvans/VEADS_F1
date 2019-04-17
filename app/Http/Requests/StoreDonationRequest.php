@@ -28,7 +28,8 @@ class StoreDonationRequest extends FormRequest
             'first_name' => 'nullable|string|max:50|',
             'last_name' => 'nullable|string|max:75',
             'email' => 'nullable|email',
-            'event_id' => 'nullable|numeric|exists:events,id'
+            'event_id' => 'nullable|numeric|exists:events,id',
+            'anonymous' => 'boolean'
         ];
     }
 }
