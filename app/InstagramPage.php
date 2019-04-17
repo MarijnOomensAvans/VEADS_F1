@@ -19,4 +19,9 @@ class InstagramPage extends Model
     protected $casts = [
         'last_refresh' => 'datetime'
     ];
+
+
+    public function posts() {
+        return $this->hasMany('App\InstagramPost', 'page_name');
+    }
 }
