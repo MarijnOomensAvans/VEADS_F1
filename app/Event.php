@@ -62,4 +62,8 @@ class Event extends Model
             ->whereNotNull('paid_at')
             ->whereNull('refunded_at');
     }
+
+    public function requests() {
+        return $this->hasMany('App\VeadsRequest');
+    }
 }

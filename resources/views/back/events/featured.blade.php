@@ -21,7 +21,7 @@
                                 @endif
 
                                 <div class="mb-3">
-                                    <event-search-component position="{{ $i + 1 }}" published="1"{!! isset($events[$i]) ? ' event="' . $events[$i]->id . '"' : '' !!}></event-search-component>
+                                    <event-search-component name="position[{{ $i + 1 }}]" position="{{ $i + 1 }}" published="1"{!! isset($events[$i]) ? ' event="' . $events[$i]->id . '"' : '' !!}></event-search-component>
                                 </div>
                             </div>
                         </div>
