@@ -6,14 +6,14 @@ use App\FacebookPage;
 use App\Services\FacebookService;
 use Illuminate\Console\Command;
 
-class SocialTokensCommand extends Command
+class FacebookTokensCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'social:tokens';
+    protected $signature = 'facebook:tokens';
 
     /**
      * The console command description.
