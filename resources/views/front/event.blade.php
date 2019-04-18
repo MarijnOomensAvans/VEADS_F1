@@ -64,7 +64,7 @@ if (isset($event->pictures[0])) {
                             <li class="grid-sizer"></li>
                             @foreach($event->pictures as $picture)
                                 <li class="grid-item web branding design fadeInUp" style="visibility: visible; animation-name: fadeInUp; position: absolute; left: 0%; top: 0px;">
-                                    <a href="/image/{{ $picture->path }}/{{ $picture->name }}" title="Lightbox gallery image title...">
+                                    <a href="/image/{{ $picture->path }}/{{ $picture->name }}" title="{{ $picture->name }}">
                                         <figure>
                                             <div class="portfolio-img bg-extra-dark-gray"><img src="/image/{{ $picture->path }}/{{ $picture->name }}" class="project-img-gallery" data-no-retina=""></div>
                                             <figcaption>
@@ -124,7 +124,7 @@ if (isset($event->pictures[0])) {
                             <span>
                                 {{$event->address->street}} {{$event->address->number}} {{$event->address->number_modifier}}
                                 <br/>
-                                {{$event->address->zipcode}} {{$event->address->city}} 
+                                {{$event->address->zipcode}} {{$event->address->city}}
                             </span>
                         </li>
                         @endif
