@@ -35,9 +35,9 @@
                             @endif
 
                             <div>
-                                <input type="text" name="first_name" placeholder="Voornaam" class="border-radius-4 bg-white medium-input" value="{{ old('first_name') }}">
-                                <input type="text" name="last_name" placeholder="Achternaam" class="border-radius-4 bg-white medium-input" value="{{ old('last_name') }}">
-                                <input type="text" name="email" placeholder="E-mailadres" class="border-radius-4 bg-white medium-input" value="{{ old('email') }}">
+                                <input type="text" name="first_name" placeholder="Voornaam" class="border-radius-4 bg-white medium-input" value="{{ old('first_name', $volunteer->first_name ?? '') }}">
+                                <input type="text" name="last_name" placeholder="Achternaam" class="border-radius-4 bg-white medium-input" value="{{ old('last_name', $volunteer->last_name ?? '') }}">
+                                <input type="text" name="email" placeholder="E-mailadres" class="border-radius-4 bg-white medium-input" value="{{ old('email', $volunteer->user->email ?? '') }}">
 
                                 <small>U kunt geld doneren aan één specifiek evenement of aan VEADS.</small>
                                 <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px;">
@@ -48,6 +48,12 @@
                                 </select>
 
                                 <input type="number" step="0.01" min="0" name="amount" placeholder="Bedrag" class="border-radius-4 bg-white medium-input" value="{{ old('amount') }}">
+
+                                <div class="checkbox margin-20px-bottom">
+                                    <label>
+                                        <input type="checkbox" name="anonymous" value="1" /> Ik wil graag anoniem doneren
+                                    </label>
+                                </div>
 
                                 <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">
                                     Doneren
