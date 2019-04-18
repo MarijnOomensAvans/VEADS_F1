@@ -152,7 +152,7 @@ class PartnerController extends Controller
                 continue;
             }
 
-            DB::table('partners')->where('featured_position', '=', $index)->update(['featured_position' => null]);
+            \DB::table('partners')->where('featured_position', '=', $index)->update(['featured_position' => null]);
 
             $partners = Partner::find($position);
 

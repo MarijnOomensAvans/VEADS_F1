@@ -1930,14 +1930,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 //
 //
 //
@@ -1983,36 +1975,14 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js").de
     }
   },
   methods: {
-    getPartners: function () {
-      var _getPartners = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(query) {
-        var _this = this;
+    getPartners: function getPartners(query) {
+      var _this = this;
 
-        var url;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                url = '/admin/partners?json=true&q=' + query;
-                axios.get(url).then(function (response) {
-                  _this.partners = response.data.partners.data;
-                });
-
-              case 2:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function getPartners(_x) {
-        return _getPartners.apply(this, arguments);
-      }
-
-      return getPartners;
-    }(),
+      var url = '/admin/partners?json=true&q=' + query;
+      axios.get(url).then(function (response) {
+        _this.partners = response.data.partners.data;
+      });
+    },
     getPartner: function getPartner(id) {
       var _this2 = this;
 
@@ -7964,7 +7934,7 @@ var render = function() {
         },
         on: {
           hit: function($event) {
-            _vm.selectedPartner = _vm.$partner
+            _vm.selectedPartner = $event
           }
         },
         scopedSlots: _vm._u([

@@ -5,7 +5,7 @@
             v-model="partnerSearch"
             :serializer="s => s.name"
             placeholder="Zoek een partner"
-            @hit="selectedPartner = $partner"
+            @hit="selectedPartner = $event"
             ref="partnerAutoComplete">
 
             <template v-slot:append>
@@ -43,7 +43,7 @@
             }
         },
         methods: {
-            async getPartners(query) {
+             getPartners(query) {
                 let url = '/admin/partners?json=true&q=' + query;
 
                 axios.get(url).then(response => {
