@@ -97,6 +97,8 @@
 
                             @include('includes.forms.address', ['address' => (isset($event) ? $event->address: null)])
 
+
+
                             <div class="form-group row mb-5">
                                 <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="image">Foto's</label>
                                 <div class="col-sm-8 col-lg-9">
