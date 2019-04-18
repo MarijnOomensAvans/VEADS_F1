@@ -134,6 +134,35 @@ class PartnerController extends Controller
         return redirect('admin/partners');
     }
 
+    public function showFeatured() {
+        $partners = Partner::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
+
+        return view('back.partners.featured', compact('partners'));
+    }
+
+    public function storeFeatured(Request $request) {
+        $positions = $request->post('position');
+
+        if (!is_array($positions)) {
+            return redirect('admin/partners/featured');
+        }
+
+        foreach($positions as $index => $position) {
+            if (empty($position)) {
+                continue;
+            }
+
+            \DB::table('partners')->where('featured_position', '=', $index)->update(['featured_position' => null]);
+
+            $partners = Partner::find($position);
+
+            $partners->featured_position = $index;
+            $partners->save();
+        }
+
+        return redirect('admin/partners/featured');
+    }
+
     public function destroyImage(Partner $partner, Picture $picture) {
         return view('back.partners.image', compact('partner', 'picture'));
     }
