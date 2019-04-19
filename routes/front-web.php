@@ -1,5 +1,7 @@
 <?php
-                                                           
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', 'Frontend\\HomeController@index')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
@@ -26,6 +28,9 @@ Route::get('/logout', 'Frontend\\AuthController@logout');
 // Profile
 Route::get('/profile', 'Frontend\\AuthController@profile');
 Route::post('/profile', 'Frontend\\AuthController@saveProfile');
+
+// Reset password
+Route::get('/reset_password', 'Frontend\\ResetPasswordController@showLinkRequestForm');
 
 // Donations
 Route::get('/doneren', 'Frontend\\DonationController@index');

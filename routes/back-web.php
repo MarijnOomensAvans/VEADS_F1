@@ -1,6 +1,9 @@
 <?php
 
 // backend login
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::group(['prefix' => 'admin'], function(){
     Auth::routes(['verify' => false, 'register' => false]);
 });
@@ -53,7 +56,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
     // Backend team members
     Route::resource('/team_member', 'Backend\\TeamMemberController');
-    
+
     // Backend contact forms
     Route::resource('/contact_form', 'Backend\\ContactFormController')->only([
         'index', 'show', 'destroy'
@@ -68,6 +71,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::post('/partners/{partner}/edit', 'Backend\\PartnerController@update')->name('admin/partners/edit')->where('partner', '[0-9]+');
     Route::get('/partners/{partner}/destroy', 'Backend\\PartnerController@destroy')->name('admin/partners/destroy')->where('partner', '[0-9]+');
     Route::post('/partners/{partner}/destroy', 'Backend\\PartnerController@delete')->name('admin/partners/destroy')->where('partner', '[0-9]+');
+    Route::get('/partners/featured', 'Backend\\PartnerController@showFeatured')->name('admin/partners/featured');
+    Route::post('/partners/featured', 'Backend\\PartnerController@storeFeatured')->name('admin/partners/featured');
 
     // Backend edit content
     Route::get('/edit_content', 'Backend\\EditContentController@index');

@@ -64,7 +64,7 @@ if (isset($event->pictures[0])) {
                             <li class="grid-sizer"></li>
                             @foreach($event->pictures as $picture)
                                 <li class="grid-item web branding design fadeInUp" style="visibility: visible; animation-name: fadeInUp; position: absolute; left: 0%; top: 0px;">
-                                    <a href="/image/{{ $picture->path }}/{{ $picture->name }}" title="Lightbox gallery image title...">
+                                    <a href="/image/{{ $picture->path }}/{{ $picture->name }}" title="{{ $picture->name }}">
                                         <figure>
                                             <div class="portfolio-img bg-extra-dark-gray"><img src="/image/{{ $picture->path }}/{{ $picture->name }}" class="project-img-gallery" data-no-retina=""></div>
                                             <figcaption>
@@ -124,24 +124,23 @@ if (isset($event->pictures[0])) {
                             <span>
                                 {{$event->address->street}} {{$event->address->number}} {{$event->address->number_modifier}}
                                 <br/>
-                                {{$event->address->zipcode}} {{$event->address->city}} 
+                                {{$event->address->zipcode}} {{$event->address->city}}
                             </span>
                         </li>
                         @endif
                     </ul>
                 </div>
-                {{-- <div class="margin-45px-bottom xs-margin-25px-bottom">
-                    <div class="text-extra-dark-gray margin-25px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Inschrijven</span></div>
-                    <div class="display-inline-block width-100">
-                        <form>
-                            <div class="position-relative">
-                                <input type="text" class="bg-transparent text-small border-color-extra-light-gray medium-input pull-left" placeholder="naam">
-                                <input type="text" class="bg-transparent text-small border-color-extra-light-gray medium-input pull-left" placeholder="e-mail">
-                                <button class="btn btn-light-blue btn-small" type="submit">Inschrijven</button>
-                            </div>
-                        </form>
+
+                @if(count($event->donations) > 0)
+                    <div class="margin-45px-bottom xs-margin-25px-bottom">
+                        <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Sponsoren</span></div>
+                        <ul class="list-style-6 margin-50px-bottom text-small" style="max-height: 300px; overflow-y: scroll;">
+                            @foreach($event->donations as $donation)
+                                <li><img src="https://www.gravatar.com/avatar/{{ md5($donation->email) }}?d=mp&s=60" alt="Sponsor" style="max-width: 30px;" /> {{ $donation->full_name }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                </div> --}}
+                    @endif
             </aside>
         </div>
     </div>

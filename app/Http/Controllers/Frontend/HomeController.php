@@ -27,7 +27,7 @@ class HomeController extends Controller
         }
 
         $events = Event::whereNotNull('featured_position')->where('published', true)->orderBy('featured_position', 'asc')->limit(3)->get();
-        $partners = Partner::get();
+        $partners = Partner::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
         return view('front/home', compact('events','partners', 'socialPosts'));
     }
 }
