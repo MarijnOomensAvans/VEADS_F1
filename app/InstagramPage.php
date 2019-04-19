@@ -20,8 +20,11 @@ class InstagramPage extends Model
         'last_refresh' => 'datetime'
     ];
 
-
     public function posts() {
         return $this->hasMany('App\InstagramPost', 'page_name');
+    }
+
+    public function lastPosts(int $limit = 1) {
+        return $this->posts()->orderBy('created_at', 'desc')->limit($limit)->get();
     }
 }
