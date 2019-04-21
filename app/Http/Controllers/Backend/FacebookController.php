@@ -100,7 +100,7 @@ class FacebookController extends Controller
     }
 
     public function update() {
-        Artisan::call('social:update');
+        Artisan::call('facebook:update');
 
         return redirect(action('Backend\FacebookController@index'));
     }

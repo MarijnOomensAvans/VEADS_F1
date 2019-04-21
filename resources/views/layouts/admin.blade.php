@@ -85,6 +85,12 @@
                         <span class="nav-main-link-name">Facebook</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/instagram') !== false ? ' active' : '' }}" href="{{ route('admin/instagram') }}">
+                        <i class="nav-main-link-icon fab fa-instagram"></i>
+                        <span class="nav-main-link-name">Instagram</span>
+                    </a>
+                </li>
                 <li class="nav-main-item nav-main-heading">Win-win</li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/donations') !== false ? ' active' : '' }}" href="{{ action('Backend\DonationController@index') }}">
