@@ -8,14 +8,14 @@ use App\Services\FacebookService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
-class SocialUpdateCommand extends Command
+class FacebookUpdateCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'social:update';
+    protected $signature = 'facebook:update';
 
     /**
      * The console command description.
