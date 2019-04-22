@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Frontend\\HomeController@index')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
+Route::post('/searchevents', 'Frontend\\EventController@searchShow');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
 Route::get('/project', 'Frontend\\ProjectController@frontIndex');
 Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
