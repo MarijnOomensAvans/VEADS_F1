@@ -75,8 +75,11 @@
 
     @if(count($request->responses) > 0)
         <div class="content">
+            <h3>Reacties</h3>
+        </div>
+
+        <div class="content">
             <div class="block block-rounded block-bordered">
-                <div class="block-title">Reacties</div>
                 <div class="block-content">
                     <table class="table table-striped table-hover">
                         <thead>

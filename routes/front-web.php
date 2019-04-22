@@ -37,3 +37,9 @@ Route::get('/doneren', 'Frontend\\DonationController@index');
 Route::post('/doneren', 'Frontend\\DonationController@preparePayment');
 Route::get('/doneren/{donation}', 'Frontend\\DonationController@redirect');
 Route::post('/mollie/webhook', 'Frontend\\DonationController@webhook');
+
+// VEADS requests
+Route::get('/veads-zoekt', 'Frontend\\VeadsRequestController@index');
+Route::get('/veads-zoekt/bedankt', 'Frontend\\VeadsRequestController@thanks');
+Route::get('/veads-zoekt/{request}', 'Frontend\\VeadsRequestController@show');
+Route::post('/veads-zoekt/{vrequest}', 'Frontend\\VeadsRequestController@store');
