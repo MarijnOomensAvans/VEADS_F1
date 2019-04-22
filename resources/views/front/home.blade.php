@@ -33,7 +33,7 @@
     </section>
 @endif
 
-<!-- This section is the cards -->
+<!-- This section is the partner cards -->
 @if (count($partners) > 0 && ((bool) getContent('home_show_partners')->content))
 <section class="no-padding margin-70px-top">
     <div class="container">
@@ -58,19 +58,7 @@
 </section>
 @endif
 
-@if(!empty($url = getContent('home_video_url')->content))
-<section class="no-padding margin-70px-top">
-  <div class="container">
-      <div class="row">
-          <div class="col-xs-12">
-              <iframe width="100%" height="500" src="{{ $url }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-      </div>
-    </div>
-</section>
-@endif
-
-@if (count($pages) > 0)
+@if (count($socialPosts) > 0)
     <section class="bg-light-gray">
         <div class="container">
 
@@ -86,33 +74,37 @@
                 <div class="row position-relative">
                     <div class="swiper-container swiper-pagination-bottom black-move blog-slider swiper-three-slides">
                         <div class="swiper-wrapper">
+                            @foreach($socialPosts as $post)
+                                <div class="swiper-slide col-md-4 col-sm-4 col-xs-12 blog-post-style5 last-paragraph-no-margin" style="height: 100%">
+                                    <div class="blog-post bg-white box-shadow-light" style="border-radius: 20px;">
+                                        <div class="blog-post-images overflow-hidden">
+                                            <a href="{{$post->url}}" target="_blank">
+                                                <img src="{{$post->image_url}}">
+                                            </a>
 
+                                            <div class="blog-categories bg-white text-uppercase text-extra-small alt-font">
 
-                            @foreach($pages as $page)
-                                @foreach($page->lastPosts(2) as $post)
-                                    <div class="swiper-slide col-md-4 col-sm-4 col-xs-12 blog-post-style5 last-paragraph-no-margin" style="height: 100%">
-                                        <div class="blog-post bg-white box-shadow-light" style="border-radius: 20px;">
-                                            <div class="blog-post-images overflow-hidden">
-                                                <a href="{{$post->url}}" target="_blank">
-                                                    <img src="{{$post->image_url}}">
+                                                <a href="{{$post->url}}">
+                                                    @if ($post instanceof App\FacebookPost)
+                                                        Facebook
+                                                    @endif
+                                                    @if ($post instanceof App\InstagramPost)
+                                                        Instagram
+                                                    @endif
                                                 </a>
-
-                                                <div class="blog-categories bg-white text-uppercase text-extra-small alt-font">
-                                                    <a href="#">Facebook</a>
-                                                </div>
                                             </div>
-                                            <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
-                                                <div class="blog-hover-color"></div>
-                                                @if ($post->message)
-                                                    <a href="{{$post->url}}" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom cut-text">{{$post->message}}</a>
-                                                @endif
-                                                <div class="author">
-                                                    <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">{{$page->name}}</span>
-                                                </div>
+                                        </div>
+                                        <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
+                                            <div class="blog-hover-color"></div>
+                                            @if ($post->message)
+                                                <a href="{{$post->url}}" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom cut-text">{{$post->message}}</a>
+                                            @endif
+                                            <div class="author">
+                                                <span class="text-medium-gray text-uppercase text-extra-small display-inline-block">{{$post->page->name}}</span>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                </div>
                             @endforeach
                         </div>
                         <div class="swiper-pagination swiper-pagination-three-slides height-auto"></div>
@@ -155,6 +147,18 @@
             </div>
             @endforeach
         </div>
+    </div>
+</section>
+@endif
+
+@if(!empty($url = getContent('home_video_url')->content))
+<section class="no-padding margin-70px-top">
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+              <iframe width="100%" height="500" src="{{ $url }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+      </div>
     </div>
 </section>
 @endif

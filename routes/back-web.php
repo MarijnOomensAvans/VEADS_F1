@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
     // Backend team members
     Route::resource('/team_member', 'Backend\\TeamMemberController');
-    
+
     // Backend contact forms
     Route::resource('/contact_form', 'Backend\\ContactFormController')->only([
         'index', 'show', 'destroy'
@@ -71,6 +71,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::post('/partners/{partner}/edit', 'Backend\\PartnerController@update')->name('admin/partners/edit')->where('partner', '[0-9]+');
     Route::get('/partners/{partner}/destroy', 'Backend\\PartnerController@destroy')->name('admin/partners/destroy')->where('partner', '[0-9]+');
     Route::post('/partners/{partner}/destroy', 'Backend\\PartnerController@delete')->name('admin/partners/destroy')->where('partner', '[0-9]+');
+    Route::get('/partners/featured', 'Backend\\PartnerController@showFeatured')->name('admin/partners/featured');
+    Route::post('/partners/featured', 'Backend\\PartnerController@storeFeatured')->name('admin/partners/featured');
 
     // Backend edit content
     Route::get('/edit_content', 'Backend\\EditContentController@index');
@@ -80,6 +82,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/facebook', "Backend\\FacebookController@index")->name('admin/facebook');
     Route::get('/fb/callback', "Backend\\FacebookController@callback")->name('admin/facebook/callback');
     Route::get('/facebook/update', "Backend\\FacebookController@update")->name('admin/facebook/update');
+
+    // Facebook
+    Route::get('/instagram', "Backend\\InstagramController@index")->name('admin/instagram');
+    Route::get('/instagram/callback', "Backend\\InstagramController@callback")->name('admin/instagram/callback');
+    Route::get('/instagram/update', "Backend\\InstagramController@update")->name('admin/instagram/update');
 
     // Donations
     Route::get('/donations', 'Backend\\DonationController@index');

@@ -11,6 +11,7 @@
                 <div class="row">
                     <div class="col-12 col-md-7">
                         <a href="{{ route('admin/partners/create') }}" class="btn btn-primary"><span class="fas fa-plus"></span> Partner toevoegen</a>
+                        <a href="{{ route('admin/partners/featured') }}" class="btn btn-primary"><span class="fas fa-star"></span> Uitgelichte partners</a>
                     </div>
                     <div class="col-12 col-md-5">
                         <form method="get">
