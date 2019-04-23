@@ -65,7 +65,7 @@
                                 <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px;">
                                     <option selected disabled>Selecteer een evenement </option>
                                     @foreach($events as $event)
-                                        <option value="{{$event->id}}">{{$event->name}}</option>
+                                        <option value="{{$event->id}}"{{ request('event_id') == $event->id ? ' selected' : '' }}>{{$event->name}}</option>
                                     @endforeach
                                 </select>
                                 {{-- End Specific Fields --}}
@@ -81,7 +81,7 @@
                 {{-- Message --}}
                 <div class="col-12 col-lg-6 last-paragraph-no-margin">
                     <div class="padding-ten-all bg-light-gray border-radius-6 lg-padding-seven-all sm-padding-30px-all h-100 text-center text-lg-left">
-                        <img src="images/about-img1.jpg" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
+                        <img src="/images/about-img1.jpg" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
                         <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom d-block">Veads bedankt je!</span>
                         <p>
                             Top dat je wilt meehelpen.
