@@ -49,7 +49,7 @@
     {{ csrf_field() }}
     <div class="input-group" style="width: 50%; margin-left: 25%; border: 1px solid grey;">
         <input type="text" class="form-control" name="q"
-               placeholder="Zoek projecten"> <span class="input-group-btn">
+               placeholder="Zoek projecten" max="255"> <span class="input-group-btn">
             <button type="submit" class="btn btn-default">
                 <span class="glyphicon glyphicon-search"></span>
             </button>
