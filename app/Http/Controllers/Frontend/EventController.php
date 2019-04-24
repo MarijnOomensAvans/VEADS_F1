@@ -30,10 +30,13 @@ class EventController extends Controller
     }
 
     public function searchShow(Request $request) {
+        $name = $request->q;
+
         $events = Event::leftJoin('addresses', 'events.address_id', '=', 'addresses.id')
             ->leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
             ->where('events.published', '=', '1')
-            ->where('name','LIKE','%',$request->q,'%')
+            ->where('name','LIKE','%' . $name . '%')
+            //TODO or where tags are matchin search
             ->orderBy('event_date_times.start', 'desc')
             ->select('events.*');
 
