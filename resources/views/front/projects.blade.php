@@ -45,6 +45,18 @@
     </section>
 @endif
 
+<form action="/searchprojects" method="POST" role="search">
+    {{ csrf_field() }}
+    <div class="input-group" style="width: 50%; margin-left: 25%; border: 1px solid grey;">
+        <input type="text" class="form-control" name="q"
+               placeholder="Zoek projecten"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+    </div>
+</form>
+
 <section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
         <div class="row equalize xs-equalize-auto">
