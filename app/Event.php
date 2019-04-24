@@ -62,4 +62,9 @@ class Event extends Model
             ->whereNotNull('paid_at')
             ->whereNull('refunded_at');
     }
+
+    public function tags() {
+        return $this->hasMany('App\Tag');
+    }
+
 }
