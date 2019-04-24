@@ -8,6 +8,7 @@ Route::post('/searchevents', 'Frontend\\EventController@searchShow');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
 Route::get('/project', 'Frontend\\ProjectController@frontIndex');
 Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
+Route::post('/searchprojects', 'Frontend\\ProjectController@searchShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 Route::get('/contact', 'Frontend\\ContactController@index');
 Route::post('/contact', 'Frontend\\ContactController@store');

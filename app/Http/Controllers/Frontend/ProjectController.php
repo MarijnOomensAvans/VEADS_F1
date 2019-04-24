@@ -16,4 +16,12 @@ class ProjectController extends Controller
     public function frontShow(Request $request, $id){
         return view('front.project', ['project' => Project::find($id)]);
     }
+
+    public function searchShow(Request $request) {
+        $name = $request->q;
+        $projects = Project::where('name','LIKE','%' . $name . '%');
+        $projects = $projects->paginate(9);
+        return view('front.searchprojects', ['projects' => $projects]);
+    }
+
 }
