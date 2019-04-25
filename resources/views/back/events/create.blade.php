@@ -139,3 +139,12 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script differ>
+        let tags = document.querySelector('#tags'),
+            tagify = new Tagify(tags);
+
+        //tags.parentElement.removeChild(tags);
+    </script>
+@endpush

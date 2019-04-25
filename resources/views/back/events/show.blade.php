@@ -23,10 +23,7 @@
                 @if(!empty($event->hasMany('App\Tag')))
                         <div class="row mb-3">
                             <div class="col-12 col-sm-4 text-sm-right"><label>Evenement Tags</label></div>
-                            @foreach($event->tags() as $tag) {
-                                <div class="col-12 col-sm-8">{!! $tag->name !!}</div>
-                            }
-                            @endforeach
+                                <div class="col-12 col-sm-8">{{$event->tags()->get()->implode('name',", ")}}</div>
                         </div>
                         <hr/>
                     @endif
