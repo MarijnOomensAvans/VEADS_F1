@@ -60,7 +60,7 @@ class InstagramController extends Controller
     }
 
     public function update(){
-        Artisan::call('instagram:update');
+        \Artisan::call('instagram:update');
         return redirect(action('Backend\InstagramController@index'));
     }
 }
