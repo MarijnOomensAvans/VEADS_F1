@@ -26,14 +26,19 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row margin-10px-bottom">
                 @if(count($requests) < 1)
                     <div class="alert alert-info">
                         Momenteel is VEADS niet opzoek. Bedankt voor je interesse!
                     </div>
                 @endif
 
-                @foreach($requests as $request)
+                @foreach($requests as $index => $request)
+                @if ($index % 4 == 0)
+                    </div>
+                    <div class="row margin-10px-bottom">
+                @endif
+
                 <div class="col-xs-12 col-md-3">
                     <div class="blog-post inner-match-height border-radius-10" style="background-color: #d8f3ff">
                         <div class="post-details padding-40px-all sm-padding-20px-all">
