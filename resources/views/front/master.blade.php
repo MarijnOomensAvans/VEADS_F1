@@ -16,7 +16,7 @@
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', "{{config('google.tracking_id')}}");
+            gtag('config', "{{config('google.tracking_id')}}", { 'anonymize_ip': true });
         </script>
 
         <link rel="stylesheet" href="/css/theme/animate.css" />
