@@ -61,7 +61,7 @@ class InstagramUpdateCommand extends Command
                     'id' => $post->id,
                     'page_name' => $page->name,
                     'image_url' => $post->images->standard_resolution->url,
-                    'message' => $post->caption ?? '',
+                    'message' => $post->caption->text ?? '',
                     'url' => $post->link,
                     'created_at' => $post->created_time
                 ]);
