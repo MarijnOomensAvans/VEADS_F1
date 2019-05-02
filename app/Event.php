@@ -78,4 +78,5 @@ class Event extends Model
     public function requests() {
         return $this->hasMany('App\VeadsRequest');
     }
+
 }

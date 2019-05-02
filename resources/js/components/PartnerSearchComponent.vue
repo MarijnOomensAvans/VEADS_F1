@@ -13,7 +13,7 @@
             </template>
         </vue-bootstrap-typeahead>
 
-        <input type="hidden" :name="'position[' + position + ']'" v-model="selectedPartner.id" />
+        <input type="hidden" :name="name" v-model="selectedPartner.id" />
     </div>
 </template>
 
@@ -25,7 +25,7 @@
     export default {
         props:[
             'partner',
-            'position',
+            'name',
         ],
         components: {
             VueBootstrapTypeahead

@@ -13,7 +13,7 @@ class CreatePartnerEventTable extends Migration
      */
     public function up()
     {
-        Schema::create('partner_event', function (Blueprint $table) {
+        Schema::create('event_partner', function (Blueprint $table) {
             $table->unsignedInteger('partner_id');
             $table->unsignedInteger('event_id');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreatePartnerEventTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('partner_event');
+        Schema::dropIfExists('event_partner');
     }
 }
