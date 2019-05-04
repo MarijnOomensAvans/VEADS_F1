@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-        <h1>Evenementfoto verwijderen</h1>
+        <h1>Projectfoto verwijderen</h1>
     </div>
 
     <div class="content">
@@ -10,14 +10,14 @@
             <div class="block-content">
                 <div class="row">
                     <div class="col-12">
-                        <form method="post" action="{{ route('admin/events/image', ['event' => $event, 'image' => $picture]) }}">
+                        <form method="post" action="{{ route('admin/projects/image', ['project' => $project, 'image' => $picture]) }}">
                             @csrf
                             <input type="hidden" name="confirm" value="1" />
 
                             <div class="alert alert-danger">
-                                Weet u zeker dat u de evenementfoto wilt verwijderen?<br/>
+                                Weet u zeker dat u de projectfoto wilt verwijderen?<br/>
                                 <button type="submit" class="btn btn-danger">Ja</button>
-                                <a href="{{ route('admin/event', ['event' => $event]) }}" class="btn btn-secondary">Nee</a>
+                                <a href="{{ route('admin/project', ['project' => $project]) }}" class="btn btn-secondary">Nee</a>
                             </div>
                         </form>
                     </div>

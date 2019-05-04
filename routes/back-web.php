@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::post('/projects/{project}/edit', 'Backend\\ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
     Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
     Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    Route::get('/projects/{project}/image/{picture}', 'Backend\\ProjectController@destroyImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
+    Route::post('/projects/{project}/image/{picture}', 'Backend\\ProjectController@deleteImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
 
     // Backend volunteers
     Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
