@@ -3853,6 +3853,42 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "ff950e10-5c37-4cde-bb4c-d2c0f8b99de2",
+    "name": "Partners - verwijderen",
+    "commands": [{
+      "id": "53df86cb-6efb-482c-84e2-198a1b437a45",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/partners",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3b6ff95e-e5c6-4f10-b76d-d02e3bfaf5cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn:nth-child(3)",
+      "targets": [
+        ["css=tr:nth-child(3) .btn:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr[3]/td[2]/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://veads_f1.test/admin/partners/3/destroy')]", "xpath:href"],
+        ["xpath=//tr[3]/td[2]/div/a[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5288aee-cb3b-413f-a4a8-86e244207fc3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ja')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "2d710faf-ff9f-43fa-99c9-16dfa8f4b5c9",
