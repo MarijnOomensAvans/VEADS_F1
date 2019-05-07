@@ -141,6 +141,17 @@ if (isset($event->pictures[0])) {
                         </ul>
                     </div>
                     @endif
+
+                    @if(count($event->partners) > 0)
+                        <div class="margin-45px-bottom xs-margin-25px-bottom">
+                            <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Partners</span></div>
+                            <ul class="list-style-6 margin-50px-bottom text-small" style="max-height: 300px; overflow-y: scroll;">
+                                @foreach($event->partners as $partner)
+                                    <li><img src="https://www.gravatar.com/avatar/{{ md5($partner->name) }}?d=mp&s=60" alt="Sponsor" style="max-width: 30px;" /> {{ $partner->name }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
             </aside>
         </div>
     </div>

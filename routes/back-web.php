@@ -55,6 +55,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::post('/events/{event}/image/{picture}', 'Backend\\EventController@deleteImage')->name('admin/events/image')->where('event', '[0-9]+')->where('picture', '[0-9]+');
     Route::get('/events/featured', 'Backend\\EventController@showFeatured')->name('admin/events/featured');
     Route::post('/events/featured', 'Backend\\EventController@storeFeatured')->name('admin/events/featured');
+    Route::get('/events/{event}/partners', 'Backend\\EventController@showPartners')->name('admin/events/partners')->where('event', '[0-9]+');
+    Route::post('/events/{event}/partners', 'Backend\\EventController@storePartners')->name('admin/events/partners')->where('event', '[0-9]+');
 
     // Backend team members
     Route::resource('/team_member', 'Backend\\TeamMemberController');
