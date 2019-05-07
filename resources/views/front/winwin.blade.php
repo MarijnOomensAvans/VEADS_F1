@@ -59,24 +59,24 @@
                 </a>
 
                 {{-- Optie 3 --}}
-{{--                <a href="#" class="fadeUpAnimation delay-400">--}}
-{{--                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 banner-style1 sm-margin-30px-bottom" style="height: 500px;">--}}
-{{--                        <figure class="bg-extra-dark-gray">--}}
-{{--                            <div class="banner-image height-500px cover-background" style="background-image:url('images/winwin3.jpg');">--}}
-{{--                            </div>--}}
-{{--                            <figcaption>--}}
-{{--                                <div class="display-table width-100 height-100">--}}
-{{--                                    <div class="display-table-cell vertical-align-middle text-center">--}}
-{{--                                        <div><h3 class="text-royal-blue font-weight-800 text-background-greytrans">Ik heb producten te leen/weg te geven</h3></div>--}}
-{{--                                        <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">--}}
-{{--                                            Als u producten over heeft die u graag voor één van de evenementen of projecten van VEADS te leen zou willen stellen kan u ze hier opgeven.--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </figcaption>--}}
-{{--                        </figure>--}}
-{{--                    </div>--}}
-{{--                </a>--}}
+                <a href="giveproducts" class="fadeUpAnimation delay-400">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 banner-style1 sm-margin-30px-bottom" style="height: 500px;">
+                        <figure class="bg-extra-dark-gray">
+                            <div class="banner-image height-500px cover-background" style="background-image:url('images/winwin3.jpg');">
+                            </div>
+                            <figcaption>
+                                <div class="display-table width-100 height-100">
+                                    <div class="display-table-cell vertical-align-middle text-center">
+                                        <div><h3 class="text-royal-blue font-weight-800 text-border-white">Producten uitlenen/doneren</h3></div>
+                                        <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">
+                                            Als u producten over heeft die u graag voor één van de evenementen of projecten van VEADS te leen zou willen stellen kan u ze hier opgeven.
+                                        </p>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </a>
 
                 {{-- Optie 4 --}}
                 <a href="/doneren" class="fadeUpAnimation delay-200">
