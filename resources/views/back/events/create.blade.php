@@ -142,9 +142,8 @@
 
 @push('scripts')
     <script differ>
-        let tags = document.querySelector('#tags'),
-            tagify = new Tagify(tags);
-
-        //tags.parentElement.removeChild(tags);
+        let input = document.querySelector('input[name=tags]'),
+            // init Tagify script on the above inputs
+            tagify = new Tagify(input);
     </script>
 @endpush
