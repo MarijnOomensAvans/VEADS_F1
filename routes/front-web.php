@@ -1,5 +1,7 @@
 <?php
-                                                           
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', 'Frontend\\HomeController@index')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
@@ -29,8 +31,17 @@ Route::get('/logout', 'Frontend\\AuthController@logout');
 Route::get('/profile', 'Frontend\\AuthController@profile');
 Route::post('/profile', 'Frontend\\AuthController@saveProfile');
 
+// Reset password
+Route::get('/reset_password', 'Frontend\\ResetPasswordController@showLinkRequestForm');
+
 // Donations
 Route::get('/doneren', 'Frontend\\DonationController@index');
 Route::post('/doneren', 'Frontend\\DonationController@preparePayment');
 Route::get('/doneren/{donation}', 'Frontend\\DonationController@redirect');
 Route::post('/mollie/webhook', 'Frontend\\DonationController@webhook');
+
+// VEADS requests
+Route::get('/veads-zoekt', 'Frontend\\VeadsRequestController@index');
+Route::get('/veads-zoekt/bedankt', 'Frontend\\VeadsRequestController@thanks');
+Route::get('/veads-zoekt/{request}', 'Frontend\\VeadsRequestController@show');
+Route::post('/veads-zoekt/{vrequest}', 'Frontend\\VeadsRequestController@store');

@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Partner;
+use App\Http\Requests\StoreEventPartner;
 
 class EventController extends Controller
 {
@@ -316,6 +318,23 @@ class EventController extends Controller
             $picture->save();
 
             $event->pictures()->attach($picture->id);
+        }
+    }
+
+    public function showPartners(Event $event) {
+          $partners = Partner::get();
+          return view("back.events.indexPartners", ["partners" => $partners, "event" => $event]);
+    }
+
+    public function storePartners(Event $event, StoreEventPartner $request) {
+       $validated = $request->validated();
+       $event->partners()->sync($validated["partners"] ??[]);
+       return redirect("admin/events");
+    }
+
+    private function connectPartner(Event $event, $partners) {
+        foreach($partners as $partner) {
+            $event->partners()->attach($partner->id);
         }
     }
 }

@@ -13,7 +13,9 @@
             </template>
         </vue-bootstrap-typeahead>
 
-        <input type="hidden" :name="'position[' + position + ']'" v-model="selectedEvent.id" />
+        <p>Geselecteerd event: {{ selectedEvent.name }}</p>
+
+        <input type="hidden" :name="name" v-model="selectedEvent.id" />
     </div>
 </template>
 
@@ -26,7 +28,8 @@
         props:[
             'event',
             'position',
-            'published'
+            'published',
+            'name'
         ],
         components: {
             VueBootstrapTypeahead
@@ -59,6 +62,7 @@
             getEvent(id) {
                 axios.get('/admin/events/' + id + '?json=true').then(response => {
                     this.selectedEvent = response.data;
+                    this.eventSearch = response.data.name;
                 });
             },
 

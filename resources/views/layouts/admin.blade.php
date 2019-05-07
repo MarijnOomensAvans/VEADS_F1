@@ -38,13 +38,13 @@
                 <li class="nav-main-item nav-main-heading">Content</li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/event') !== false ? ' active' : '' }}" href="{{ route('admin/events') }}">
-                        <i class="nav-main-link-icon far fa-calendar"></i>
+                        <i class="nav-main-link-icon fas fa-calendar"></i>
                         <span class="nav-main-link-name">Evenementen</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/project') !== false ? ' active' : '' }}" href="{{ route('admin/projects') }}">
-                        <i class="nav-main-link-icon si si-grid"></i>
+                        <i class="nav-main-link-icon fas fa-th-large"></i>
                         <span class="nav-main-link-name">Projecten</span>
                     </a>
                 </li>
@@ -85,6 +85,12 @@
                         <span class="nav-main-link-name">Facebook</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/instagram') !== false ? ' active' : '' }}" href="{{ route('admin/instagram') }}">
+                        <i class="nav-main-link-icon fab fa-instagram"></i>
+                        <span class="nav-main-link-name">Instagram</span>
+                    </a>
+                </li>
                 <li class="nav-main-item nav-main-heading">Win-win</li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/donations') !== false ? ' active' : '' }}" href="{{ action('Backend\DonationController@index') }}">
@@ -96,6 +102,12 @@
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/donatedproducts') !== false ? ' active' : '' }}" href="{{ action('Backend\DonationController@index') }}">
                         <i class="nav-main-link-icon fas fa-cube"></i>
                         <span class="nav-main-link-name">Gedoneerde producten</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/veads_request') !== false ? ' active' : '' }}" href="{{ action('Backend\VeadsRequestController@index') }}">
+                        <i class="nav-main-link-icon fas fa-search"></i>
+                        <span class="nav-main-link-name">{{ config('app.name') }} zoekt...</span>
                     </a>
                 </li>
             </ul>

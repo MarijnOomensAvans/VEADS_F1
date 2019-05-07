@@ -7,17 +7,30 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDonationRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Mollie\Api\Resources\Payment;
 use Mollie\Laravel\Facades\Mollie;
 
 class DonationController extends Controller {
     public function index() {
         $events = Event::where('published', 1)->get();
-        return view('front.win-win.donate', compact('events'));
+        $volunteer = null;
+
+        if (!Auth::guest() && !empty(Auth::user()->volunteer)) {
+            $volunteer = Auth::user()->volunteer;
+        }
+
+        return view('front.win-win.donate', compact('events', 'volunteer'));
     }
 
     public function preparePayment(StoreDonationRequest $request) {
         $validated = $request->validated();
+
+        if (isset($validated['anonymous'])) {
+            unset($validated['first_name']);
+            unset($validated['last_name']);
+            unset($validated['email']);
+        }
 
         $donation = new Donation($validated);
         $donation->save();

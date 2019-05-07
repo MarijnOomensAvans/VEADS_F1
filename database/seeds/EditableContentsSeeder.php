@@ -103,6 +103,50 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'footer_instagram_link', 'title' => 'Instagram link', 'type' => 'text', 'content' => 'https://www.instagram.com/voorelkaaraandeslag/', 'category' => 'footer']))->save();
         }
         
+        if (empty(\App\EditContent::find('veads_request_title'))) {
+            (new \App\EditContent(['key' => 'veads_request_title', 'title' => 'VEADS zoekt pagina titel', 'type' => 'text', 'content' => 'VEADS zoekt...', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_request_description'))) {
+            (new \App\EditContent(['key' => 'veads_request_description', 'title' => 'VEADS zoekt omschrijving', 'type' => 'textarea', 'content' => 'Vaak zoekt VEADS spullen voor de evenementen die wij organiseren', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_volunteer_title'))) {
+            (new \App\EditContent(['key' => 'veads_volunteer_title', 'title' => 'Help mee als vrijwilliger titel', 'type' => 'text', 'content' => 'Ik help mee als vrijwilliger.', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_volunteer_description'))) {
+            (new \App\EditContent(['key' => 'veads_volunteer_description', 'title' => 'Help mee als vrijwilliger omschrijving', 'type' => 'textarea', 'content' => 'Help mee als vrijwilliger bij een evenement van VEADS.', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_donate_title'))) {
+            (new \App\EditContent(['key' => 'veads_donate_title', 'title' => 'Geld doneren titel', 'type' => 'text', 'content' => 'Ik wil graag geld doneren.', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_donate_description'))) {
+            (new \App\EditContent(['key' => 'veads_donate_description', 'title' => 'Geld doneren omschrijving', 'type' => 'textarea', 'content' => 'VEADS is altijd blij met uw bijdrage en garandeert dat het geld op een goede plek terecht komt.', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_request_image'))) {
+            (new \App\EditContent(['key' => 'veads_request_image', 'title' => 'VEADS zoekt afbeelding', 'type' => 'image', 'content' => '', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_volunteer_image'))) {
+            (new \App\EditContent(['key' => 'veads_volunteer_image', 'title' => 'Help mee als vrijwilliger afbeelding', 'type' => 'image', 'content' => '', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_donate_image'))) {
+            (new \App\EditContent(['key' => 'veads_donate_image', 'title' => 'Geld doneren afbeelding', 'type' => 'image', 'content' => '', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_request_thanks_image'))) {
+            (new \App\EditContent(['key' => 'veads_request_thanks_image', 'title' => 'VEADS zoekt bedankt afbeelding', 'type' => 'image', 'content' => '', 'category' => 'win-win']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_request_thanks_message'))) {
+            (new \App\EditContent(['key' => 'veads_request_thanks_message', 'title' => 'VEADS zoekt bedankt tekst', 'type' => 'textarea', 'content' => 'Top dat je wilt meehelpen.', 'category' => 'win-win']))->save();
+        }
+        
         // DO NOT TOUCH THIS LINE
     }
 }

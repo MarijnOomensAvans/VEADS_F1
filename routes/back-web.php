@@ -1,6 +1,9 @@
 <?php
 
 // backend login
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::group(['prefix' => 'admin'], function(){
     Auth::routes(['verify' => false, 'register' => false]);
 });
@@ -20,6 +23,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::post('/projects/{project}/edit', 'Backend\\ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
     Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
     Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    Route::get('/projects/{project}/image/{picture}', 'Backend\\ProjectController@destroyImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
+    Route::post('/projects/{project}/image/{picture}', 'Backend\\ProjectController@deleteImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
 
     // Backend volunteers
     Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
@@ -50,10 +55,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::post('/events/{event}/image/{picture}', 'Backend\\EventController@deleteImage')->name('admin/events/image')->where('event', '[0-9]+')->where('picture', '[0-9]+');
     Route::get('/events/featured', 'Backend\\EventController@showFeatured')->name('admin/events/featured');
     Route::post('/events/featured', 'Backend\\EventController@storeFeatured')->name('admin/events/featured');
+    Route::get('/events/{event}/partners', 'Backend\\EventController@showPartners')->name('admin/events/partners')->where('event', '[0-9]+');
+    Route::post('/events/{event}/partners', 'Backend\\EventController@storePartners')->name('admin/events/partners')->where('event', '[0-9]+');
 
     // Backend team members
     Route::resource('/team_member', 'Backend\\TeamMemberController');
-    
+
     // Backend contact forms
     Route::resource('/contact_form', 'Backend\\ContactFormController')->only([
         'index', 'show', 'destroy'
@@ -68,6 +75,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::post('/partners/{partner}/edit', 'Backend\\PartnerController@update')->name('admin/partners/edit')->where('partner', '[0-9]+');
     Route::get('/partners/{partner}/destroy', 'Backend\\PartnerController@destroy')->name('admin/partners/destroy')->where('partner', '[0-9]+');
     Route::post('/partners/{partner}/destroy', 'Backend\\PartnerController@delete')->name('admin/partners/destroy')->where('partner', '[0-9]+');
+    Route::get('/partners/featured', 'Backend\\PartnerController@showFeatured')->name('admin/partners/featured');
+    Route::post('/partners/featured', 'Backend\\PartnerController@storeFeatured')->name('admin/partners/featured');
 
     // Backend edit content
     Route::get('/edit_content', 'Backend\\EditContentController@index');
@@ -78,9 +87,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/fb/callback', "Backend\\FacebookController@callback")->name('admin/facebook/callback');
     Route::get('/facebook/update', "Backend\\FacebookController@update")->name('admin/facebook/update');
 
+    // Facebook
+    Route::get('/instagram', "Backend\\InstagramController@index")->name('admin/instagram');
+    Route::get('/instagram/callback', "Backend\\InstagramController@callback")->name('admin/instagram/callback');
+    Route::get('/instagram/update', "Backend\\InstagramController@update")->name('admin/instagram/update');
+
     // Donations
     Route::get('/donations', 'Backend\\DonationController@index');
     Route::get('/donations/{donation}', 'Backend\\DonationController@show');
     Route::get('/donations/{donation}/refund', 'Backend\\DonationController@refund');
     Route::post('/donations/{donation}/refund', 'Backend\\DonationController@refund');
+
+    // VEADS requests
+    Route::resource('/veads_request', 'Backend\\VeadsRequestController');
+    Route::get('/veads_response/{veadsResponse}', 'Backend\\VeadsRequestController@response');
 });

@@ -6,24 +6,26 @@
             :serializer="s => s.name"
             placeholder="Zoek een partner"
             @hit="selectedPartner = $event"
-            ref="projectAutocomplete">
+            ref="partnerAutoComplete">
 
             <template v-slot:append>
                 <button class="btn btn-outline-secondary" type="button" @click="removePartner"><i class="fa fa-times"></i></button>
             </template>
         </vue-bootstrap-typeahead>
 
-        <input type="hidden" name="id" v-model="selectedPartner.id" />
+        <input type="hidden" :name="name" v-model="selectedPartner.id" />
     </div>
 </template>
 
 <script>
     const _ = require('underscore');
     const VueBootstrapTypeahead = require('vue-bootstrap-typeahead').default;
+    const axios = require('axios').default;
 
     export default {
         props:[
-            'partner'
+            'partner',
+            'name',
         ],
         components: {
             VueBootstrapTypeahead
@@ -41,28 +43,29 @@
             }
         },
         methods: {
-            async getPartner(query) {
-                const response = await fetch('/admin/partners?json=true&q=' + query);
-                const suggestions = await response.json();
-                this.projects = suggestions.projects.data;
+             getPartners(query) {
+                let url = '/admin/partners?json=true&q=' + query;
+
+                axios.get(url).then(response => {
+                    this.partners = response.data.partners.data;
+                });
             },
 
-            async getPartner(id) {
-                const response = await fetch('/admin/partners/' + id + '?json=true');
-                const suggestions = await response.json();
-                this.selectedProject = suggestions.project;
-                this.$refs.projectAutocomplete.inputValue = suggestions.project.name;
+            getPartner(id) {
+                axios.get('/admin/partners/' + id + '?json=true').then(response => {
+                    this.selectedPartner = response.data;
+                });
             },
 
-            removeProject() {
+            removePartner() {
                 this.selectedPartner = {id: 0};
                 this.partners = [];
                 this.partnerSearch = '';
-                this.$refs.projectAutocomplete.inputValue = '';
+                this.$refs.partnerAutoComplete.inputValue = '';
             }
         },
         watch: {
-            partnerSearch: _.debounce(function(project) { this.getPartner(partner) }, 500)
+            partnerSearch: _.debounce(function(partner) { this.getPartners(partner) }, 500)
         }
     }
 </script>

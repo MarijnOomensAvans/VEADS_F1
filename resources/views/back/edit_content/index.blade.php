@@ -9,6 +9,8 @@
         @csrf
         @method('PUT')
 
+        <input type="hidden" name="redirect_url" value="{{ action('Backend\EditContentController@index') }}" />
+
         <div class="content">
             <div class="block block-rounded block-bordered">
                 <ul class="nav nav-tabs nav-tabs-block">
@@ -60,6 +62,7 @@
                             @endforeach
 
                             <div class="text-right">
+                                <a href="{{ action('Backend\EditContentController@index') }}" class="btn btn-secondary mb-4 cancel-btn">Annuleren</a>
                                 <button type="submit" class="btn btn-primary mb-4">Opslaan</button>
                             </div>
                         </div>
@@ -69,3 +72,34 @@
         </div>
     </form>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            (function($) {
+                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                    const hash = $(e.target).attr('href');
+                    if (history.pushState) {
+                        history.pushState(null, null, hash);
+                    } else {
+                        location.hash = hash;
+                    }
+
+                    $('input[name="redirect_url"]').val(window.location.toString());
+                    $('.cancel-btn').attr('href', window.location.toString());
+                });
+
+                const hash = window.location.hash;
+                if (hash) {
+                    $('.nav-link[href="' + hash + '"]').tab('show');
+                }
+
+                $('.cancel-btn').click(e => {
+                    e.preventDefault();
+
+                    window.location.reload();
+                });
+            })(jQuery)
+        });
+    </script>
+@endpush
