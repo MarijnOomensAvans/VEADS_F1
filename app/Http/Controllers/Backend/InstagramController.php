@@ -56,12 +56,11 @@ class InstagramController extends Controller
         
         $instagram_page->save();
 
-        // $recent_posts = file_get_contents("https://api.instagram.com/v1/users/self/media/recent/?access_token=$access_token");
-
         return redirect(action('Backend\InstagramController@index'));
     }
 
     public function update(){
-        // TODO: HANDLE UPDATE
+        \Artisan::call('instagram:update');
+        return redirect(action('Backend\InstagramController@index'));
     }
 }

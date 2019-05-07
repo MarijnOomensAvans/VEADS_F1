@@ -81,6 +81,10 @@ class EditContentController extends Controller
             }
         }
 
+        if (!empty($request->get('redirect_url'))) {
+            return redirect($request->get('redirect_url'));
+        }
+
         return redirect(action('Backend\EditContentController@index'));
     }
 }

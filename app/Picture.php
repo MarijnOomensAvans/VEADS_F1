@@ -26,4 +26,10 @@ class Picture extends Model
             ->belongsToMany('App\Event')
             ->withTimestamps();
     }
+
+    public function tags() {
+        return $this
+            ->belongsToMany('App\Tag')
+            ->withTimestamps();
+    }
 }

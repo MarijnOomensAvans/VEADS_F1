@@ -53,6 +53,18 @@ class Event extends Model
             ->withTimestamps();
     }
 
+    public function partners() {
+        return $this
+            ->belongsToMany('App\Partner')
+            ->withTimestamps();
+    }
+
+    public function tags() {
+        return $this
+            ->belongsToMany('App\Tag')
+            ->withTimestamps();
+    }
+
     public function project() {
         return $this->belongsTo('App\Project');
     }

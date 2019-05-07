@@ -93,4 +93,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/donations/{donation}', 'Backend\\DonationController@show');
     Route::get('/donations/{donation}/refund', 'Backend\\DonationController@refund');
     Route::post('/donations/{donation}/refund', 'Backend\\DonationController@refund');
+
+    // VEADS requests
+    Route::resource('/veads_request', 'Backend\\VeadsRequestController');
+    Route::get('/veads_response/{veadsResponse}', 'Backend\\VeadsRequestController@response');
 });

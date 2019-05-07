@@ -98,6 +98,12 @@
                         <span class="nav-main-link-name">Donaties</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/veads_request') !== false ? ' active' : '' }}" href="{{ action('Backend\VeadsRequestController@index') }}">
+                        <i class="nav-main-link-icon fas fa-search"></i>
+                        <span class="nav-main-link-name">{{ config('app.name') }} zoekt...</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

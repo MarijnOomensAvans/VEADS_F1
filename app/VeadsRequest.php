@@ -2,12 +2,16 @@
 
 namespace App;
 
+use App\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
 
-class VeadsLookingForProductService extends Model
+class VeadsRequest extends Model
 {
+    use UsesUuid;
+
     protected $fillable = [
-        'product_service_name',
+        'type',
+        'title',
         'amount',
         'description',
         'event_id',
@@ -20,5 +24,9 @@ class VeadsLookingForProductService extends Model
 
     public function event() {
         return $this->belongsTo('App\Event');
+    }
+
+    public function responses() {
+        return $this->hasMany('App\VeadsResponse', 'request_id');
     }
 }
