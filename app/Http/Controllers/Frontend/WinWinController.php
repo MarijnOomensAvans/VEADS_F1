@@ -27,34 +27,6 @@ class WinWinController extends Controller
         return view('front.win-win.giveProducts', ['events' => $events ]);
     }
 
-    public function saveGivenProducts(Request $request) {
-
-        $validated = $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required',
-            'product_name' => 'required',
-            'product_description' => 'required'
-        ]);
-
-        $product = new DonatedProduct();
-
-        $product->name = $request['product_name'];
-        $product->description = $request['product_description'];
-        $product->name = $request['product_name'];
-        $product->quantity = $request['quantity'];
-        $product->lend = $request['donationchoice'];
-        $product->first_name = $request['first_name'];
-        $product->last_name = $request['last_name'];
-        $product->email = $request['email'];
-
-        $product->save();
-
-
-        //Thank you page
-        return redirect('/thanks');
-    }
-
 
     public function saveEnrollVolunteer(Request $request) {
 
