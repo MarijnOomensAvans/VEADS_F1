@@ -75,8 +75,4 @@ class Event extends Model
             ->whereNull('refunded_at');
     }
 
-    public function tags() {
-        return $this->belongsToMany('App\Tag', 'tag_event');
-    }
-
 }

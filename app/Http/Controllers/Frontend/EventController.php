@@ -36,7 +36,7 @@ class EventController extends Controller
             ->leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
             ->where('events.published', '=', '1')
             ->where('name','LIKE','%' . $name . '%')
-            //TODO or where tags are matchin search
+            ->orWhere()
             ->orderBy('event_date_times.start', 'desc')
             ->select('events.*');
 
