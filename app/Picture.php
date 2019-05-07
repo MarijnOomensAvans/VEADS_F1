@@ -27,6 +27,12 @@ class Picture extends Model
             ->withTimestamps();
     }
 
+    public function projects() {
+        return $this
+            ->belongsToMany('App\Project')
+            ->withTimestamps();
+    }
+
     public function tags() {
         return $this
             ->belongsToMany('App\Tag')

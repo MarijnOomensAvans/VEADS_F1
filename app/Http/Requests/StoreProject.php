@@ -32,7 +32,8 @@ class StoreProject extends FormRequest
             'number_modifier' => 'max:5',
             'zipcode' => 'required_with:street,number,city',
             'city' => 'required_with:street,number,zipcode',
-            'country' => 'required_with:street,number,zipcode,city'
+            'country' => 'required_with:street,number,zipcode,city',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096'
         ];
     }
 }
