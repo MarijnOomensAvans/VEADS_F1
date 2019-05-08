@@ -98,6 +98,8 @@ class EventController extends Controller
             $event->project_id = null;
         }
 
+        $event->save();
+
         if (isset($validated['start_datetime']) || isset($validated['end_datetime'])) {
             $date = new EventDateTime();
             $date->event_id = $event->id;
@@ -113,21 +115,24 @@ class EventController extends Controller
             $date->save();
         }
 
+        $newEvent = Event::where('name', $request['name'])->first();
+
         if(isset($request['tags'])) {
             $tags = $request['tags'];
-            $tagsArray = array();
-            $tagsArray = explode(', ', $tags);
+            $tagsArrayString = explode(', ', $tags);
+            $tagsArrayObject = array();
 
-            foreach ($tagsArray as $tag) {
+
+            foreach ($tagsArrayString as $tag) {
                 $newTag = new Tag();
                 $newTag->name = $tag;
+                $tagsArrayObject[] = $newTag;
 
-                $event->tags()->create($tag);
                 //$newTag->save();
             }
+            //dd($tagsArrayObject);
+            $newEvent->tags()->createMany(array($tagsArrayObject));
         }
-
-        $event->save();
 
 
         if ($request->hasFile('image')) {
