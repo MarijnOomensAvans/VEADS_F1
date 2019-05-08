@@ -117,21 +117,15 @@ class EventController extends Controller
 
         $newEvent = Event::where('name', $request['name'])->first();
 
+        // add tags to event
         if(isset($request['tags'])) {
             $tags = $request['tags'];
             $tagsArrayString = explode(', ', $tags);
-            $tagsArrayObject = array();
-
-
+            
+            $event->tags()->detach();
             foreach ($tagsArrayString as $tag) {
-                $newTag = new Tag();
-                $newTag->name = $tag;
-                $tagsArrayObject[] = $newTag;
-
-                //$newTag->save();
+                $event->tags()->create([ 'name' => $tag ]);
             }
-            //dd($tagsArrayObject);
-            $newEvent->tags()->createMany(array($tagsArrayObject));
         }
 
 
@@ -234,6 +228,17 @@ class EventController extends Controller
             $date->save();
         } elseif (!empty($date)) {
             $date->delete();
+        }
+
+       // add tags to event
+        if(isset($request['tags'])) {
+            $tags = $request['tags'];
+            $tagsArrayString = explode(', ', $tags);
+            
+            $event->tags()->detach();
+            foreach ($tagsArrayString as $tag) {
+                $event->tags()->create([ 'name' => $tag ]);
+            }
         }
 
         if ($request->hasFile('image')) {

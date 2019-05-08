@@ -65,6 +65,11 @@ class Event extends Model
             ->withTimestamps();
     }
 
+    public function tagsText(){
+        $values = array_map(function ($tag) { return $tag['name']; }, $this->tags()->get()->toArray());
+        return implode(', ', $values);
+    }
+
     public function project() {
         return $this->belongsTo('App\Project');
     }
