@@ -7,6 +7,7 @@ use App\Event;
 use App\EventDateTime;
 use App\Http\Requests\StoreEvent;
 use App\Picture;
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -97,8 +98,6 @@ class EventController extends Controller
             $event->project_id = null;
         }
 
-        $event->save();
-
         if (isset($validated['start_datetime']) || isset($validated['end_datetime'])) {
             $date = new EventDateTime();
             $date->event_id = $event->id;
@@ -113,6 +112,23 @@ class EventController extends Controller
 
             $date->save();
         }
+
+        if(isset($request['tags'])) {
+            $tags = $request['tags'];
+            $tagsArray = array();
+            $tagsArray = explode(', ', $tags);
+
+            foreach ($tagsArray as $tag) {
+                $newTag = new Tag();
+                $newTag->name = $tag;
+
+                $event->tags()->create($tag);
+                //$newTag->save();
+            }
+        }
+
+        $event->save();
+
 
         if ($request->hasFile('image')) {
             $this->saveImages($event, $request->file('image'));

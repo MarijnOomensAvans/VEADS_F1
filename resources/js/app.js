@@ -5,8 +5,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Tagify = require('@yaireo/tagify');
-
 window.Vue = require('vue');
 
 Vue.use(require('vue-the-mask'));

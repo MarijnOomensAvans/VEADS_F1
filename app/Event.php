@@ -61,7 +61,7 @@ class Event extends Model
 
     public function tags() {
         return $this
-            ->belongsToMany('App\Tag')
+            ->belongsToMany('App\Tag', 'tag_event')
             ->withTimestamps();
     }
 
