@@ -74,6 +74,17 @@ class ProjectController extends Controller
 
         $project->save();
 
+        // add tags to project
+        if(isset($request['tags'])) {
+            $tags = $request['tags'];
+            $tagsArrayString = explode(', ', $tags);
+
+            $project->tags()->detach();
+            foreach ($tagsArrayString as $tag) {
+                $project->tags()->create([ 'name' => $tag ]);
+            }
+        }
+
         return redirect('admin/projects/' . $project->id);
     }
 

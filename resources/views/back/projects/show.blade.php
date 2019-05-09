@@ -16,6 +16,14 @@
                 <hr/>
                 @endif
 
+                    @if(!empty($project->hasMany('App\Tag')))
+                        <div class="row mb-3">
+                            <div class="col-12 col-sm-4 text-sm-right"><label>Project tags</label></div>
+                            <div class="col-12 col-sm-8">{{$project->tags()->get()->implode('name',", ")}}</div>
+                        </div>
+                        <hr/>
+                    @endif
+
                 @if(!empty($project->address) && !empty($project->address->street))
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4 text-sm-right"><label>Adres</label></div>

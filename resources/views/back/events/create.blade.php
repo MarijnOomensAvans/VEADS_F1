@@ -32,7 +32,7 @@
                             @component('includes.forms.formgroup', [
                                 'name' => 'tags',
                                 'title' => 'Evenement tags',
-                                'prefill' => $event->tagsText()
+                                'prefill' => $event->tagsText ?? ''
                             ])@endcomponent
 
                             <div class="form-group row mb-5">

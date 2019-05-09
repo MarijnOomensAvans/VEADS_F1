@@ -115,8 +115,6 @@ class EventController extends Controller
             $date->save();
         }
 
-        $newEvent = Event::where('name', $request['name'])->first();
-
         // add tags to event
         if(isset($request['tags'])) {
             $tags = $request['tags'];

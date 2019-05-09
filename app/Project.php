@@ -33,8 +33,13 @@ class Project extends Model
 
     public function tags() {
         return $this
-            ->belongsToMany('App\Tag')
+            ->belongsToMany('App\Tag', 'tag_project')
             ->withTimestamps();
+    }
+
+    public function tagsText(){
+        $values = array_map(function ($tag) { return $tag['name']; }, $this->tags()->get()->toArray());
+        return implode(', ', $values);
     }
 
     public function requests() {
