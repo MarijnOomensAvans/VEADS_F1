@@ -44,7 +44,8 @@ class EventController extends Controller
                 ->select('events.*');
         }
         else {
-            $events = $tag->events->get();
+            $events = $tag->events()->get();
+            //dd($events);
         }
 
         $events = $events->paginate(9);
