@@ -23,8 +23,7 @@ class WinWinController extends Controller
     }
 
     public function giveProducts() {
-        $events = Event::get();
-        return view('front.win-win.giveproducts', ['events' => $events ]);
+        return view('front.win-win.giveproducts');
     }
 
 
