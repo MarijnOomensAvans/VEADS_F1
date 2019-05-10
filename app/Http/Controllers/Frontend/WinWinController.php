@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Frontend\AuthController;
 use App\Event;
-use App\User;
+use App\DonatedProduct;
 use App\Address;
 use App\Volunteer;
 use Illuminate\Support\Facades\Auth;
-use Hash;
 
 class WinWinController extends Controller
 {
@@ -22,9 +22,14 @@ class WinWinController extends Controller
         return view('front.win-win.enrollVolunteer', ['events' => $events ]);
     }
 
+    public function giveProducts() {
+        return view('front.win-win.giveproducts');
+    }
+
+
     public function saveEnrollVolunteer(Request $request) {
 
-        $volunteer = $this->handleUserFields($request);
+        $volunteer = AuthController::handleUserFields($request);
 
         // validate event
         $validated = $request->validate([
@@ -47,60 +52,5 @@ class WinWinController extends Controller
         // thankyou page
         return redirect('/thanks');
     }
-
-
-    /**
-     * Function that handles the users field
-     * Create new user if doesn't exists or update existing one
-     *
-     * @param Request $request
-     */
-    private function handleUserFields(Request $request){
-        
-        // add firstname as name
-        $request['name'] = $request->input('first_name');
-
-        // create the user if person is guest and login
-        if(Auth::guest())
-        {
-            // validate user settig
-            $validated = $request->validate([
-                'name' => 'required',
-                'email' => 'required|email|unique:users',
-                'password' => 'required',
-                'repeat_password' => 'required|same:password'
-            ]);
-
-            $validated["password"] = Hash::make($validated["password"]);
-
-            // create user
-            $user = User::create($validated);
-
-            // login as user
-            auth()->login($user);
-        }
-
-        // add userid to request
-        $request['user_id'] = Auth::user()->id;
-
-        // validate volunteer request
-        $requestVolunteer = app('App\Http\Requests\StoreVolunteer');
-
-        // update or insert the address
-        $address = empty(Auth::user()->volunteer->address) ? new Address : Auth::user()->volunteer->address;
-        $address->fill($requestVolunteer->all());
-        $address->save();
-
-        // add address id to request
-        $request['address_id'] = $address->id;
-
-        // update or insert the address
-        $volunteer = empty(Auth::user()->volunteer) ? new Volunteer : Auth::user()->volunteer;
-        $volunteer->fill($request->all());
-        $volunteer->save();
-
-        return $volunteer;
-    }
-
 
 }

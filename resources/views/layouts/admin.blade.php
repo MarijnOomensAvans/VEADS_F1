@@ -38,13 +38,13 @@
                 <li class="nav-main-item nav-main-heading">Content</li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/event') !== false ? ' active' : '' }}" href="{{ route('admin/events') }}">
-                        <i class="nav-main-link-icon far fa-calendar"></i>
+                        <i class="nav-main-link-icon fas fa-calendar"></i>
                         <span class="nav-main-link-name">Evenementen</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/project') !== false ? ' active' : '' }}" href="{{ route('admin/projects') }}">
-                        <i class="nav-main-link-icon si si-grid"></i>
+                        <i class="nav-main-link-icon fas fa-th-large"></i>
                         <span class="nav-main-link-name">Projecten</span>
                     </a>
                 </li>
@@ -66,18 +66,6 @@
                         <span class="nav-main-link-name">Pagina's</span>
                     </a>
                 </li>
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon far fa-images"></i>--}}
-                        {{--<span class="nav-main-link-name">Foto's</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon far fa-file"></i>--}}
-                        {{--<span class="nav-main-link-name">Content</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
                 <li class="nav-main-item nav-main-heading">Connecties</li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/volunteer') !== false ? ' active' : '' }}" href="{{ route('admin/volunteers') }}">
@@ -91,30 +79,31 @@
                         <span class="nav-main-link-name">Contact aanvragen</span>
                     </a>
                 </li>
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link{{ strpos(Request::path(), 'admin/instagram') !== false ? ' active' : '' }}" href="{{ route('admin/instagram') }}">--}}
-                        {{--<i class="nav-main-link-icon fab fa-instagram"></i>--}}
-                        {{--<span class="nav-main-link-name">Instagram</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/facebook') !== false ? ' active' : '' }}" href="{{ route('admin/facebook') }}">
                         <i class="nav-main-link-icon fab fa-facebook"></i>
                         <span class="nav-main-link-name">Facebook</span>
                     </a>
                 </li>
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon far fa-id-card"></i>--}}
-                        {{--<span class="nav-main-link-name">Werknemers</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-main-item">--}}
-                    {{--<a class="nav-main-link" href="javascript:alert('Deze pagina is nog niet beschikbaar.');">--}}
-                        {{--<i class="nav-main-link-icon far fa-handshake"></i>--}}
-                        {{--<span class="nav-main-link-name">Partners</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/instagram') !== false ? ' active' : '' }}" href="{{ route('admin/instagram') }}">
+                        <i class="nav-main-link-icon fab fa-instagram"></i>
+                        <span class="nav-main-link-name">Instagram</span>
+                    </a>
+                </li>
+                <li class="nav-main-item nav-main-heading">Win-win</li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/donations') !== false ? ' active' : '' }}" href="{{ action('Backend\DonationController@index') }}">
+                        <i class="nav-main-link-icon fas fa-money-bill"></i>
+                        <span class="nav-main-link-name">Donaties</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/veads_request') !== false ? ' active' : '' }}" href="{{ action('Backend\VeadsRequestController@index') }}">
+                        <i class="nav-main-link-icon fas fa-search"></i>
+                        <span class="nav-main-link-name">{{ config('app.name') }} zoekt...</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

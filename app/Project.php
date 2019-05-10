@@ -30,4 +30,20 @@ class Project extends Model
             ->belongsToMany('App\Volunteer')
             ->withTimestamps();
     }
+
+    public function pictures() {
+        return $this
+            ->belongsToMany('App\Picture')
+            ->withTimestamps();
+    }
+
+    public function tags() {
+        return $this
+            ->belongsToMany('App\Tag')
+            ->withTimestamps();
+    }
+
+    public function requests() {
+        return $this->hasMany('App\VeadsRequest');
+    }
 }

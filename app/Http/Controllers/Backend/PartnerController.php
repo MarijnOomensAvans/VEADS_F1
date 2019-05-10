@@ -35,7 +35,7 @@ class PartnerController extends Controller
               return response()->json(compact('partners', 'q'));
             }
 
-            return view('partners/index', compact('partners', 'q'));
+            return view('back.partners.index', compact('partners', 'q'));
     }
 
     /**
@@ -45,7 +45,7 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        return view('partners/create');
+        return view('back.partners.create');
     }
 
     /**
@@ -58,12 +58,12 @@ class PartnerController extends Controller
     {
         $validated = $request->validated();
 
-                $partner = new Partner($validated);
-                $partner->save();
+        $partner = new Partner($validated);
+        $partner->save();
 
-                $this->saveImages($partner, $request->file('image'));
+        $this->saveImage($partner, $request->file('image'));
 
-                   return redirect('admin/partners/' . $partner->id);
+        return redirect('admin/partners/' . $partner->id);
     }
 
     /**
@@ -74,7 +74,7 @@ class PartnerController extends Controller
      */
     public function show(Partner $partner)
     {
-        return view('partners/show', compact('partner'));
+        return view('back.partners.show', compact('partner'));
     }
 
     /**
@@ -85,7 +85,7 @@ class PartnerController extends Controller
      */
     public function edit(Partner $partner)
     {
-        return view('partners/edit', compact('partner'));
+        return view('back.partners.edit', compact('partner'));
     }
 
     /**
@@ -103,7 +103,7 @@ class PartnerController extends Controller
 
         if ($request->hasFile('image'))
         {
-          $this->saveImages($partner, $request->file('image'));
+          $this->saveImage($partner, $request->file('image'));
         }
         return redirect('admin/partners/' . $partner->id);
     }
@@ -116,27 +116,55 @@ class PartnerController extends Controller
      */
     public function destroy(Partner $partner)
     {
-        return view('partners/destroy', compact('partner'));
+        return view('back.partners.destroy', compact('partner'));
     }
 
     public function delete(Request $request, Partner $partner) {
-      if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-          $picture = $partner->picture;
+        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            $picture = $partner->picture;
 
-                $partner->picture_id=null;
-                $partner->save();
-                Storage::delete("images/" . $picture->path);
-                $picture->delete();
-
+            $partner->picture_id=null;
+            $partner->save();
+            Storage::delete("images/" . $picture->path);
+            $picture->delete();
 
             $partner->delete();
-      }
+        }
 
-      return redirect('admin/partners');
+        return redirect('admin/partners');
+    }
+
+    public function showFeatured() {
+        $partners = Partner::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
+
+        return view('back.partners.featured', compact('partners'));
+    }
+
+    public function storeFeatured(Request $request) {
+        $positions = $request->post('position');
+
+        if (!is_array($positions)) {
+            return redirect('admin/partners/featured');
+        }
+
+        foreach($positions as $index => $position) {
+            if (empty($position)) {
+                continue;
+            }
+
+            \DB::table('partners')->where('featured_position', '=', $index)->update(['featured_position' => null]);
+
+            $partners = Partner::find($position);
+
+            $partners->featured_position = $index;
+            $partners->save();
+        }
+
+        return redirect('admin/partners/featured');
     }
 
     public function destroyImage(Partner $partner, Picture $picture) {
-        return view('partners/image', compact('partner', 'picture'));
+        return view('back.partners.image', compact('partner', 'picture'));
     }
 
     public function deleteImage(Request $request, Partner $partner, Picture $picture) {
@@ -146,21 +174,21 @@ class PartnerController extends Controller
             $picture->delete();
         }
 
-        return redirect('admin/partners/' . $partners->id);
+        return redirect('admin/partners/' . $partner->id);
     }
 
-    private function saveImages(Partner $partner, $image) {
-            $name = $image->getClientOriginalName();
-            $filename = $image->hashName();
-            $image->storeAs('images', $filename);
+    private function saveImage(Partner $partner, $image) {
+        $name = $image->getClientOriginalName();
+        $filename = $image->hashName();
+        $image->storeAs('images', $filename);
 
-            $picture = new Picture();
-            $picture->name = $name;
-            $picture->path = $filename;
-            $picture->date = \DateTime::createFromFormat('U', $image->getCTime());
-            $picture->save();
+        $picture = new Picture();
+        $picture->name = $name;
+        $picture->path = $filename;
+        $picture->date = \DateTime::createFromFormat('U', $image->getCTime());
+        $picture->save();
 
-            $partner->picture_id=$picture->id;
-            $partner->save();
+        $partner->picture_id=$picture->id;
+        $partner->save();
     }
 }

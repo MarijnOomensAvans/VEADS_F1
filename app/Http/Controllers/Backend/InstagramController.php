@@ -2,63 +2,65 @@
 
 namespace App\Http\Controllers\Backend;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+use App\InstagramPage;
+use Carbon\Carbon;
 
 class InstagramController extends Controller
 {
-    public function askAuthorization() {
-        $instagram_user = getInstagramUser();
-        $media = getInstagramMedia(4);
-
-        return view('instagram.ask', ['instagram_user' => $instagram_user, 'media' => $media]);
+    public function index(){
+        
+        $instagram_client_id = config('instagram.client_id');
+        $redirect_url = config('app.url') . '/admin/instagram/callback';
+        $instagram_auth_url = "https://api.instagram.com/oauth/authorize/?client_id=$instagram_client_id&redirect_uri=$redirect_url&response_type=code";
+        $instagram_pages = InstagramPage::all();
+        return view('back.instagram.index', ['instagram_auth_url' => $instagram_auth_url, 'instagram_pages' => $instagram_pages]);
     }
 
-    public function callback(Request $request) {
-        if(!$request->has('code') && !$request->has('error')) {
-            return abort(400, 'Instagram authorization code is missing');
+    public function callback(Request $request){
+
+        $post = [
+            'client_id' => config('instagram.client_id'),
+            'client_secret' => config('instagram.client_secret'),
+            'grant_type' => 'authorization_code',
+            'redirect_uri' => config('app.url') . '/admin/instagram/callback',
+            'code' => $request->input('code')
+        ];
+
+        $ch = curl_init('https://api.instagram.com/oauth/access_token');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+        // execute!
+        $response = curl_exec($ch);
+
+        // close the connection, release resources used
+        curl_close($ch);
+
+        // get user with token
+        $access_token = json_decode($response)->access_token;
+        $username = json_decode($response)->user->username;
+
+        $instagram_page = InstagramPage::find($username);
+
+        if (empty($instagram_page)) {
+            $instagram_page = new InstagramPage();
         }
 
-        if ($request->has('error')) {
-            session()->flash('instagram_error', $request->get('error_description'));
+        $instagram_page->fill([
+            'name' => $username,
+            'access_token' => $access_token,
+            'last_refresh' => Carbon::now()
+        ]);
+        
+        $instagram_page->save();
 
-            return redirect(route('admin/instagram'));
-        }
+        return redirect(action('Backend\InstagramController@index'));
+    }
 
-        $code = $request->get('code');
-
-        $client = new Client();
-
-        try {
-            $response = $client->request('POST', 'https://api.instagram.com/oauth/access_token', [
-                'form_params' => [
-                    'client_id' => config('instagram.client_id'),
-                    'client_secret' => config('instagram.client_secret'),
-                    'grant_type' => 'authorization_code',
-                    'redirect_uri' => config('instagram.redirect_uri'),
-                    'code' => $code
-                ]
-            ]);
-        } catch (GuzzleException $e) {
-            session()->flash('instagram_error', $e->getMessage());
-
-            return redirect(route('admin/instagram'));
-        }
-
-        $body = (string) $response->getBody();
-        $body = json_decode($body);
-
-        if (empty($body)) {
-            session()->flash('instagram_error', 'We hebben geen access token terug gekregen van Instragram. Probeer het later nog een keer.');
-
-            return redirect(route('admin/instagram'));
-        }
-
-        Storage::put('instagram_access_token.txt', $body->access_token);
-
-        return redirect(route('admin/instagram'));
+    public function update(){
+        \Artisan::call('instagram:update');
+        return redirect(action('Backend\InstagramController@index'));
     }
 }

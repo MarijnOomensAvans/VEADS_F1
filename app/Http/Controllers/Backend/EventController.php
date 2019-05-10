@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Partner;
+use App\Http\Requests\StoreEventPartner;
 
 class EventController extends Controller
 {
@@ -49,7 +51,7 @@ class EventController extends Controller
     	    return response()->json(compact('events', 'q'));
         }
 
-        return view('events/index', compact('events', 'q'));
+        return view('back.events.index', compact('events', 'q'));
     }
 
     /**
@@ -59,7 +61,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events/create');
+        return view('back.events.create');
     }
 
     /**
@@ -133,7 +135,7 @@ class EventController extends Controller
             return $event;
         }
 
-        return view('events/show', compact('event'));
+        return view('back.events.show', compact('event'));
     }
 
     /**
@@ -144,7 +146,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('events/edit', compact('event'));
+        return view('back.events.edit', compact('event'));
     }
 
     /**
@@ -230,7 +232,7 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        return view('events/destroy', compact('event'));
+        return view('back.events.destroy', compact('event'));
     }
 
 	/**
@@ -277,7 +279,7 @@ class EventController extends Controller
     public function showFeatured() {
         $events = Event::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
 
-        return view('events/featured', compact('events'));
+        return view('back.events.featured', compact('events'));
     }
 
     public function storeFeatured(Request $request) {
@@ -316,6 +318,23 @@ class EventController extends Controller
             $picture->save();
 
             $event->pictures()->attach($picture->id);
+        }
+    }
+
+    public function showPartners(Event $event) {
+          $partners = Partner::get();
+          return view("back.events.indexPartners", ["partners" => $partners, "event" => $event]);
+    }
+
+    public function storePartners(Event $event, StoreEventPartner $request) {
+       $validated = $request->validated();
+       $event->partners()->sync($validated["partners"] ??[]);
+       return redirect("admin/events");
+    }
+
+    private function connectPartner(Event $event, $partners) {
+        foreach($partners as $partner) {
+            $event->partners()->attach($partner->id);
         }
     }
 }

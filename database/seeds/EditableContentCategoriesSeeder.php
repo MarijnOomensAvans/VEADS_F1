@@ -12,20 +12,21 @@ class EditableContentCategoriesSeeder extends Seeder
      */
     public function run()
     {
-        if (EditableContentCategory::count() > 0) {
-            print("Skipping EditableContentCategory, because table is already seeded\n");
-            return;
-        }
-
         $categories = [
             'homepagina',
             'evenementen',
             'projecten',
             'contact',
-            'footer'
+            'footer',
+            'win-win'
         ];
 
         foreach($categories as $category) {
+            if (!empty(EditableContentCategory::where('category', $category)->first())) {
+                print("Skipping EditContentCategory " . $category . ", because this category is already seeded\n");
+                continue;
+            }
+
             $cat = new EditableContentCategory([
                 'category' => $category
             ]);

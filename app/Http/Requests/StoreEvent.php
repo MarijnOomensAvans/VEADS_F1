@@ -39,7 +39,7 @@ class StoreEvent extends FormRequest
             'end_datetime' => 'date|after_or_equal:start_datetime',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'project_id' => 'numeric|min:0',
-            'published' => 'boolean'
+            'published' => 'boolean',
         ];
     }
 

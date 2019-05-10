@@ -14,12 +14,15 @@
         "doctrine/dbal": "^2.9",
         "facebook/graph-sdk": "^5.7",
         "fideloper/proxy": "^4.0",
+        "google/apiclient": "^2.0",
         "laravel/framework": "5.7.*",
         "laravel/telescope": "^1.0",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "mollie/laravel-mollie": "^2.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
+        "daanvanberkel/ifu": "^1.1",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
