@@ -181,7 +181,7 @@ class ProjectController extends Controller
     }
 
     public function destroyImage(Project $project, Picture $picture) {
-        return view('project/image', compact('project', 'picture'));
+        return view('back.projects.image', compact('project', 'picture'));
     }
 
     public function deleteImage(Request $request, Project $project, Picture $picture) {
