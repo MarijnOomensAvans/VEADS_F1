@@ -263,7 +263,7 @@ class EventController extends Controller
     }
 
     public function destroyImage(Event $event, Picture $picture) {
-        return view('events/image', compact('event', 'picture'));
+        return view('back.events.image', compact('event', 'picture'));
     }
 
     public function deleteImage(Request $request, Event $event, Picture $picture) {
