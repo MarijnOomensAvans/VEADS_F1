@@ -20,13 +20,13 @@ class Tag extends Model
     public function events() {
         // See https://laraveldaily.com/pivot-tables-and-many-to-many-relationships/ for information about the pivot table
         return $this
-            ->hasMany('App\Event', 'tag_event')
+            ->belongsToMany('App\Event', 'tag_event')
             ->withTimestamps();
     }
 
     public function pictures() {
         return $this
-            ->hasMany('App\Picture', 'tag_project')
+            ->belongsToMany('App\Picture', 'tag_project')
             ->withTimestamps();
     }
 }
