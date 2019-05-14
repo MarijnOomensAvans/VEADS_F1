@@ -42,12 +42,10 @@ class EventController extends Controller
                 ->where('name','LIKE','%' . $name . '%')
                 ->orderBy('event_date_times.start', 'desc')
                 ->select('events.*');
-            dd($events);
             $events = $events->paginate(9);
         }
         else {
-            $events = $tag->events()->get();
-            dd($events);
+            $events = $tag->events()->paginate(9);
         }
 
 
