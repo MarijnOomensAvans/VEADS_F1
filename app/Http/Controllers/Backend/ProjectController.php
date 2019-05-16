@@ -7,6 +7,7 @@ use App\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProject;
 use App\Project;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -74,14 +75,33 @@ class ProjectController extends Controller
 
         $project->save();
 
-        // add tags to project
-        if(isset($request['tags'])) {
-            $tags = $request['tags'];
+        if(isset($validated['tags'])) {
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
             $tagsArrayString = explode(', ', $tags);
 
+            // remove all tags from event
             $project->tags()->detach();
-            foreach ($tagsArrayString as $tag) {
-                $project->tags()->create([ 'name' => $tag ]);
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $project->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $project->tags()->attach($existingTag->id);
+                }
+
             }
         }
 
@@ -145,6 +165,36 @@ class ProjectController extends Controller
 
         $project->fill($validated);
         $project->save();
+
+        if(isset($validated['tags'])) {
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $project->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $project->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $project->tags()->attach($existingTag->id);
+                }
+
+            }
+        }
 
         return redirect('admin/projects/' . $project->id);
     }

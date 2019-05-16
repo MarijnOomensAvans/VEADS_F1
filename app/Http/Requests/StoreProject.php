@@ -27,6 +27,10 @@ class StoreProject extends FormRequest
         return [
             'name' => 'required|max:50',
             'description' => 'nullable',
+            'tags' => array(
+                'nullable',
+                'regex:/^(\w+)(,\s*\w+)*$/'
+            ),
             'street' => 'max:50|required_with:number,zipcode,city',
             'number' => 'required_with:street,zipcode,city',
             'number_modifier' => 'max:5',
