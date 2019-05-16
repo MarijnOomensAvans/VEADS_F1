@@ -59,7 +59,7 @@
                 </a>
 
                 {{-- Optie 3 --}}
-                <a href="giveproducts" class="fadeUpAnimation delay-400">
+                <a href="/giveproducts" class="fadeUpAnimation delay-400">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 banner-style1 sm-margin-30px-bottom" style="height: 500px;">
                         <figure class="bg-extra-dark-gray">
                             <div class="banner-image height-500px cover-background" style="background-image:url('images/winwin3.jpg');">
