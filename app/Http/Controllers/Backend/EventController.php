@@ -116,8 +116,8 @@ class EventController extends Controller
         }
 
         // add tags to event
-        if(isset($request['tags'])) {
-            $tags = $request['tags'];
+        if(isset($validated['tags'])) {
+            $tags = $validated['tags'];
             $tagsArrayString = explode(', ', $tags);
             
             $event->tags()->detach();
