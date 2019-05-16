@@ -28,7 +28,6 @@ class ProjectController extends Controller
             $projects = $projects->paginate(9);
         }
         else {
-            dd($tag->name);
             $projects = $tag->projects()->paginate(9);
         }
 
