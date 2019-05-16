@@ -240,22 +240,32 @@ class EventController extends Controller
 
         // add tags to event
         if(isset($validated['tags'])) {
+
+            // get the input from form
             $tags = $validated['tags'];
+
+            // split by comma
             $tagsArrayString = explode(', ', $tags);
 
+            // remove all tags from event
             $event->tags()->detach();
 
-            foreach ($tagsArrayString as $tag) {
-                $existingTag = Tag::where('name', '=', $tag)->first();
-                if($existingTag != null) {
-                    if (($key = array_search($existingTag->name, $tagsArrayString)) !== false) {
-                        unset($tagsArrayString[$key]);
-                    }
-                    $existingTag->attach($event);
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+                
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $event->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $event->tags()->attach($existingTag->id);
                 }
-            }
-            foreach ($tagsArrayString as $tag) {
-                $event->tags()->create([ 'name' => $tag ]);
+                
             }
         }
 
