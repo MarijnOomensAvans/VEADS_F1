@@ -187,6 +187,7 @@ return [
         'question'              => 'vraag',
         'image'                 => 'foto',
         'amount'                => 'bedrag',
-        'event_id'              => 'evenement'
+        'event_id'              => 'evenement',
+        'picture'               => 'foto'
     ],
 ];

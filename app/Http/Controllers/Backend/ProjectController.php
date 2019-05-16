@@ -186,7 +186,6 @@ class ProjectController extends Controller
 
     public function deleteImage(Request $request, Project $project, Picture $picture) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            Storage::delete("images/" . $picture->path);
             $picture->projects()->detach();
             $picture->delete();
         }

@@ -17,8 +17,9 @@ class CreateAmbassadorsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('picture_id');
             $table->string('name');
-            $table->string('company');
-            $table->string('description');
+            $table->string('company')->nullable();
+            $table->string('description')->nullable();
+            $table->string('url')->nullable();
             $table->boolean('published')->default(true);
             $table->timestamps();
 
