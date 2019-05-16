@@ -28,7 +28,7 @@ class StoreEvent extends FormRequest
         return [
             'name' => 'max:50',
 	        'description' => '',
-            'tags' => 'regex:/[^,\s]+/',
+            'tags' => 'regex:/[^,]+/',
 	        'price' => 'numeric|max:9999.99',
 	        'street' => 'max:50|required_with_all:number,zipcode,city,country|nullable',
 	        'number' => 'numeric|nullable|required_with_all:street,zipcode,city,country',

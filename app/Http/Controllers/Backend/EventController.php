@@ -119,8 +119,18 @@ class EventController extends Controller
         if(isset($validated['tags'])) {
             $tags = $validated['tags'];
             $tagsArrayString = explode(', ', $tags);
-            
+
             $event->tags()->detach();
+
+            foreach ($tagsArrayString as $tag) {
+                $existingTag = Tag::where('name', '=', $tag)->first();
+                if($existingTag != null) {
+                    if (($key = array_search($existingTag->name, $tagsArrayString)) !== false) {
+                        unset($tagsArrayString[$key]);
+                    }
+                    $existingTag->attach($event);
+                }
+            }
             foreach ($tagsArrayString as $tag) {
                 $event->tags()->create([ 'name' => $tag ]);
             }
@@ -228,12 +238,22 @@ class EventController extends Controller
             $date->delete();
         }
 
-       // add tags to event
-        if(isset($request['tags'])) {
-            $tags = $request['tags'];
+        // add tags to event
+        if(isset($validated['tags'])) {
+            $tags = $validated['tags'];
             $tagsArrayString = explode(', ', $tags);
-            
+
             $event->tags()->detach();
+
+            foreach ($tagsArrayString as $tag) {
+                $existingTag = Tag::where('name', '=', $tag)->first();
+                if($existingTag != null) {
+                    if (($key = array_search($existingTag->name, $tagsArrayString)) !== false) {
+                        unset($tagsArrayString[$key]);
+                    }
+                    $existingTag->attach($event);
+                }
+            }
             foreach ($tagsArrayString as $tag) {
                 $event->tags()->create([ 'name' => $tag ]);
             }
