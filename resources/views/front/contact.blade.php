@@ -26,6 +26,18 @@
                 </p>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="ambassadors">
+                    @foreach($ambassadors as $ambassador)
+                        <div>
+                            <img src="/image/{{ $ambassador->picture->path }}/{{ $ambassador->picture->name }}" style="max-height: 150px;"/>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
     @endif
 
     @if((bool) getContent('contact_show_team')->content)
@@ -131,3 +143,20 @@
         </div>
     @endif
 @endsection
+
+@push('scripts')
+    <link rel="stylesheet" href="/js/plugins/slick/slick.css" />
+    <script src="/js/plugins/slick/slick.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            $('.ambassadors').slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                arrows: false,
+                variableWidth: false
+            });
+        });
+    </script>
+@endpush
