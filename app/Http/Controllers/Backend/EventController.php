@@ -249,7 +249,6 @@ class EventController extends Controller
             $event->pictures()->detach();
 
             foreach($pictures as $picture) {
-                Storage::delete("images/" . $picture->path);
                 $picture->delete();
             }
 
@@ -268,7 +267,6 @@ class EventController extends Controller
 
     public function deleteImage(Request $request, Event $event, Picture $picture) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            Storage::delete("images/" . $picture->path);
             $picture->events()->detach();
             $picture->delete();
         }
@@ -330,11 +328,5 @@ class EventController extends Controller
        $validated = $request->validated();
        $event->partners()->sync($validated["partners"] ??[]);
        return redirect("admin/events");
-    }
-
-    private function connectPartner(Event $event, $partners) {
-        foreach($partners as $partner) {
-            $event->partners()->attach($partner->id);
-        }
     }
 }
