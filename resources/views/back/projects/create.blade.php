@@ -32,7 +32,7 @@
                             @component('includes.forms.formgroup', [
                                 'name' => 'tags',
                                 'title' => 'Project tags',
-                                'prefill' => $project->tagsText()
+                                'prefill' => empty($project) ? "" : $project->tagsText()
                             ])@endcomponent
 
                             @include('includes.forms.address', ['address' => (isset($project) ? $project->address: null)])
