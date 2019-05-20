@@ -162,6 +162,33 @@
     </div>
 </section>
 @endif
+
+@if (count($allpartners) > 0)
+<section class="no-padding margin-70px-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-50px-bottom xs-margin-40px-bottom">
+                <div class="position-relative overflow-hidden width-100">
+                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">All Partners</span>
+                </div>
+            </div>
+        </div>
+        <div class="row equalize xs-equalize-auto bg-light-gray">
+            @foreach ($allpartners as $allpartner)
+            <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom margin-30px-top xs-text-center">
+                <div class="blog-post inner-match-height">
+                    <div class="blog-post-images overflow-hidden position-relative height-100px width-100px">
+                        <a href="{{$allpartner->link}}">
+                          <img src="/image/{{ $allpartner->picture->path }}/{{ $allpartner->picture->name }}">
+                            </a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
 @endsection
 
 @push('styles')
