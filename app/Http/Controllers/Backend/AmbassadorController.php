@@ -71,6 +71,10 @@ class AmbassadorController extends Controller
     {
         $validated = $request->validated();
 
+        if (isset($validated['url']) && substr($validated['url'], 0, 4) !== 'http') {
+            $validated['url'] = 'http://' . $validated['url'];
+        }
+
         $ambassador = new Ambassador($validated);
 
         if (!isset($validated['published'])) {
@@ -116,6 +120,10 @@ class AmbassadorController extends Controller
     public function update(UpdateAmbassadorRequest $request, Ambassador $ambassador)
     {
         $validated = $request->validated();
+
+        if (isset($validated['url']) && substr($validated['url'], 0, 4) !== 'http') {
+            $validated['url'] = 'http://' . $validated['url'];
+        }
 
         $ambassador->fill($validated);
 

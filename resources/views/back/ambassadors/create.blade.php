@@ -33,6 +33,12 @@
                                 'prefill' => $ambassador->company ?? ''
                             ])@endcomponent
 
+                            @component('includes.forms.formgroup', [
+                                'name' => 'url',
+                                'title' => 'Link naar de ambassadeur',
+                                'prefill' => $ambassador->url ?? ''
+                            ])@endcomponent
+
                             @component('includes.forms.wysiwyg', [
                                 'name' => 'description',
                                 'title' => 'Omschrijving',

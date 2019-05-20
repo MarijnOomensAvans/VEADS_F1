@@ -27,7 +27,7 @@ class StoreAmbassadorRequest extends FormRequest
         return [
             'name' => 'required|max:50',
             'company' => 'sometimes|max:50',
-            'url' => 'sometimes|url',
+            'url' => 'sometimes',
             'description' => 'sometimes',
             'picture' => 'required|image',
             'published' => 'boolean'

@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="/css/theme/style.css" />
         <link rel="stylesheet" href="/css/theme/responsive.css" />
         <link rel="stylesheet" href="/css/theme/footer.css" />
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
         <!--[if IE]>
             <script src="js/theme/html5shiv.js"></script>
         <![endif]-->

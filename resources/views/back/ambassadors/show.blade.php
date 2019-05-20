@@ -16,6 +16,16 @@
                     <hr/>
                 @endif
 
+                @if(!empty($ambassador->url))
+                    <div class="row mb-3">
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Link</label></div>
+                        <div class="col-12 col-sm-8">
+                            <a href="{{ $ambassador->url }}" target="_blank">{{ $ambassador->url }}</a>
+                        </div>
+                    </div>
+                    <hr/>
+                @endif
+
                 @if(!empty(trim(strip_tags($ambassador->description))))
                         <div class="row mb-3">
                             <div class="col-12 col-sm-4 text-sm-right"><label>Omschrijving</label></div>
