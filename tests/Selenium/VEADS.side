@@ -2,7 +2,7 @@
   "id": "62638e69-372a-4843-844e-b80bafac9234",
   "version": "2.0",
   "name": "VEADS",
-  "url": "http://veads_f1.test/",
+  "url": "http://localhost:8000/",
   "tests": [{
     "id": "42889889-6089-4939-ada3-c4fd7483e739",
     "name": "Evenement toevoegen - happy flow",
@@ -1588,7 +1588,7 @@
       "id": "f8ce5d4a-5aeb-4cf5-829a-b6f38545ef0a",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/admin/contact_form",
+      "target": "http://localhost:8000/admin/contact_form",
       "targets": [],
       "value": ""
     }, {
@@ -3888,6 +3888,709 @@
         ["xpath=//button[contains(.,'Ja')]", "xpath:innerText"]
       ],
       "value": ""
+    }]
+  }, {
+    "id": "0e7225d1-11c4-4d59-9f98-936922b8c6bb",
+    "name": "Tags good",
+    "commands": [{
+      "id": "fc0bfe93-d7dd-4cf7-b414-2b6e822c3672",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7ee1873c-7498-4212-990b-8ca91f646db4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1432x958",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1e42cc9-20fa-4a8a-981a-026b04ff548f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-main-item:nth-child(3) .nav-main-link-name",
+      "targets": [
+        ["css=.nav-main-item:nth-child(3) .nav-main-link-name", "css:finder"],
+        ["xpath=//nav[@id='sidebar']/div[3]/div/div[2]/ul/li[3]/a/span", "xpath:idRelative"],
+        ["xpath=//li[3]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Evenementen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "17067fdd-9e1c-409a-9c6e-de419a174a5a",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .fa-pencil-alt",
+      "targets": [
+        ["css=tr:nth-child(1) .fa-pencil-alt", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr/td[6]/div/a[2]/span", "xpath:idRelative"],
+        ["xpath=//td[6]/div/a[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "74a0730e-5f1f-4c19-b8c8-9daf70c906ac",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,7)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9f3b8844-8f7f-4e9d-840c-899299bcffd4",
+      "comment": "",
+      "command": "click",
+      "target": "id=tags",
+      "targets": [
+        ["id=tags", "id"],
+        ["name=tags", "name"],
+        ["css=#tags", "css:finder"],
+        ["xpath=//input[@id='tags']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ef44ca6-c2d2-45f0-a853-bdf18014ebdd",
+      "comment": "",
+      "command": "type",
+      "target": "id=tags",
+      "targets": [
+        ["id=tags", "id"],
+        ["name=tags", "name"],
+        ["css=#tags", "css:finder"],
+        ["xpath=//input[@id='tags']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "wadi"
+    }, {
+      "id": "8cd2bc4d-1ac9-4e65-96f9-d946e984e6f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=#container-description > .col-sm-4",
+      "targets": [
+        ["css=#container-description > .col-sm-4", "css:finder"],
+        ["xpath=//div[@id='container-description']/label", "xpath:idRelative"],
+        ["xpath=//div[2]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Evenement omschrijving')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "05b2a8f0-be98-4c00-8f87-b44d09e51f94",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[13]/div/button", "xpath:idRelative"],
+        ["xpath=//div[13]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ad4ebcb-3519-4ee2-ad1f-29343023adf0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-arrow-left",
+      "targets": [
+        ["css=.fa-arrow-left", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[10]/div/div/a/span", "xpath:idRelative"],
+        ["xpath=//div/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36db2831-1d2e-4602-84dc-ddb872297980",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(2) .fa-pencil-alt",
+      "targets": [
+        ["css=tr:nth-child(2) .fa-pencil-alt", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr[2]/td[6]/div/a[2]/span", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[6]/div/a[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33d468a1-dd1a-46a9-8bfe-bc921ee671dc",
+      "comment": "",
+      "command": "click",
+      "target": "id=tags",
+      "targets": [
+        ["id=tags", "id"],
+        ["name=tags", "name"],
+        ["css=#tags", "css:finder"],
+        ["xpath=//input[@id='tags']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "676d5278-6074-4b2e-b3c8-8f51bcf1c4e1",
+      "comment": "",
+      "command": "type",
+      "target": "id=tags",
+      "targets": [
+        ["id=tags", "id"],
+        ["name=tags", "name"],
+        ["css=#tags", "css:finder"],
+        ["xpath=//input[@id='tags']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "wadi"
+    }, {
+      "id": "e95f2c30-4dd0-463b-a614-34eaabe921e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=#container-description > .col-sm-4",
+      "targets": [
+        ["css=#container-description > .col-sm-4", "css:finder"],
+        ["xpath=//div[@id='container-description']/label", "xpath:idRelative"],
+        ["xpath=//div[2]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Evenement omschrijving')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7bf3337-152c-4ef4-8859-7dddc8b3e8d6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[13]/div/button", "xpath:idRelative"],
+        ["xpath=//div[13]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "00ae8db4-4c5a-42d4-9991-e36c6aeae37e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-arrow-left",
+      "targets": [
+        ["css=.fa-arrow-left", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[8]/div/div/a/span", "xpath:idRelative"],
+        ["xpath=//div/a/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb1691a0-82a0-4482-9bf8-f536cd4f4497",
+      "comment": "",
+      "command": "click",
+      "target": "css=#accordion > li:nth-child(2) > a",
+      "targets": [
+        ["css=#accordion > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen')]", "xpath:link"],
+        ["xpath=//ul[@id='accordion']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/event')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f8ce2b76-9e4b-4108-8522-5648ef3b7a05",
+      "comment": "",
+      "command": "click",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2cd99e86-7f68-4cf1-bfd1-62426411aadd",
+      "comment": "",
+      "command": "type",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "wadi"
+    }, {
+      "id": "4629cef6-329a-4ea7-a0d4-166b1ee475b1",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "1491a43b-7d9a-4581-bec6-c6cd1d3e8194",
+      "comment": "",
+      "command": "click",
+      "target": "css=.grid-item:nth-child(1)",
+      "targets": [
+        ["css=.grid-item:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//section[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b41fee17-088f-46fe-b910-5166ab9b8acf",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=Missie X-Mas Benefietconcert 2016",
+      "targets": [
+        ["linkText=Missie X-Mas Benefietconcert 2016", "linkText"],
+        ["css=.grid-item:nth-child(1) .alt-font", "css:finder"],
+        ["xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/event/1')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]", "xpath:innerText"]
+      ],
+      "value": "Missie X-Mas Benefietconcert 2016"
+    }, {
+      "id": "bfe2d214-9dfa-4779-be95-d7f3a2fdb4bf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hover-option4 .row",
+      "targets": [
+        ["css=.hover-option4 .row", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div", "xpath:idRelative"],
+        ["xpath=//section[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2824f2a-f20d-4009-87ac-02bac09b5ccc",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.grid-item:nth-child(2) .post-details",
+      "targets": [
+        ["css=.grid-item:nth-child(2) .post-details", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "286.5,221.75"
+    }, {
+      "id": "376a0e6f-5cf8-4862-b28d-821d5e2cf66a",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.grid-item:nth-child(2) .post-details",
+      "targets": [
+        ["css=.grid-item:nth-child(2) .post-details", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "286.5,221.75"
+    }, {
+      "id": "c76bd19c-de52-48d4-994f-be11e0b5819d",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.grid-item:nth-child(2) .post-details",
+      "targets": [
+        ["css=.grid-item:nth-child(2) .post-details", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": "286.5,221.75"
+    }, {
+      "id": "412dd484-8440-4652-9e28-cd8dc846a6fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.grid-item:nth-child(2) .post-details",
+      "targets": [
+        ["css=.grid-item:nth-child(2) .post-details", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57b6de76-d096-49ae-be79-a8425d6a795d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=VERBAZEN, VERNIEUWEN & VERRASSEN",
+      "targets": [
+        ["linkText=VERBAZEN, VERNIEUWEN & VERRASSEN", "linkText"],
+        ["css=.grid-item:nth-child(2) .alt-font", "css:finder"],
+        ["xpath=//a[contains(text(),'VERBAZEN, VERNIEUWEN & VERRASSEN')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div[2]/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/event/2')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'VERBAZEN, VERNIEUWEN & VERRASSEN')]", "xpath:innerText"]
+      ],
+      "value": "VERBAZEN, VERNIEUWEN & VERRASSEN"
+    }, {
+      "id": "b1dcff80-a80a-4ae2-a758-b8c0630032b2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hover-option4 .row",
+      "targets": [
+        ["css=.hover-option4 .row", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div", "xpath:idRelative"],
+        ["xpath=//section[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2cba9d72-ff68-4f85-bcce-6e9c69062453",
+    "name": "Search",
+    "commands": [{
+      "id": "b4dd1d52-c35c-4edb-9cee-0741f755b63c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e92ab77f-f34a-4298-ac68-71e59439bf2b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1432x958",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b377328f-d65d-42e8-9a00-643ed8e98db3",
+      "comment": "",
+      "command": "click",
+      "target": "css=#accordion > li:nth-child(2) > a",
+      "targets": [
+        ["css=#accordion > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen')]", "xpath:link"],
+        ["xpath=//ul[@id='accordion']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/event')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b9c43ab-f611-4bc6-b9ca-d197ce942db6",
+      "comment": "",
+      "command": "click",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dff7829-f4f1-42d5-a0ff-6ec2a388a1c9",
+      "comment": "",
+      "command": "type",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "missie"
+    }, {
+      "id": "92a62ad9-8f9d-4651-96c9-5e876d0a9dec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.glyphicon",
+      "targets": [
+        ["css=.glyphicon", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/form/div/span/button/span", "xpath:idRelative"],
+        ["xpath=//span/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76ab23a7-cf20-45b0-b46d-f629f5f4fd50",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=Missie X-Mas Benefietconcert 2016",
+      "targets": [
+        ["linkText=Missie X-Mas Benefietconcert 2016", "linkText"],
+        ["css=.post-title", "css:finder"],
+        ["xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/event/1')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]", "xpath:innerText"]
+      ],
+      "value": "Missie X-Mas Benefietconcert 2016"
+    }]
+  }, {
+    "id": "8b8bf5ca-f3ec-42ad-8fd9-75b2b4bd4b00",
+    "name": "tags bad",
+    "commands": [{
+      "id": "436dbfce-56dc-459a-adc5-e8a220d1e5bb",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e13bc97-4bff-4caf-a26f-ddd49c6f8166",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1432x958",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "738253c9-797d-4ce3-a741-b0ccac8ca71c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-main-item:nth-child(3) .nav-main-link-name",
+      "targets": [
+        ["css=.nav-main-item:nth-child(3) .nav-main-link-name", "css:finder"],
+        ["xpath=//nav[@id='sidebar']/div[3]/div/div[2]/ul/li[3]/a/span", "xpath:idRelative"],
+        ["xpath=//li[3]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Evenementen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6e0859c-06f8-4b1e-a894-ccf9a8de1cd0",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .fa-pencil-alt",
+      "targets": [
+        ["css=tr:nth-child(1) .fa-pencil-alt", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr/td[6]/div/a[2]/span", "xpath:idRelative"],
+        ["xpath=//td[6]/div/a[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea551beb-bd5b-4f2c-8666-99031668f8d2",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,4)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3278ef1e-85d6-47fe-96ca-d9b77f768599",
+      "comment": "",
+      "command": "click",
+      "target": "id=tags",
+      "targets": [
+        ["id=tags", "id"],
+        ["name=tags", "name"],
+        ["css=#tags", "css:finder"],
+        ["xpath=//input[@id='tags']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de905cc4-9343-49dc-9ffb-d4e82c26612b",
+      "comment": "",
+      "command": "type",
+      "target": "id=tags",
+      "targets": [
+        ["id=tags", "id"],
+        ["name=tags", "name"],
+        ["css=#tags", "css:finder"],
+        ["xpath=//input[@id='tags']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "wadi, test"
+    }, {
+      "id": "a03ea458-4129-445b-93bc-fa47b6845ce2",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(1)",
+      "targets": [
+        ["css=form:nth-child(1)", "css:finder"],
+        ["xpath=//form[@action='http://localhost:8000/admin/events/1/edit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d29cf9f-db7c-4134-991f-407af688f8f0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[13]/div/button", "xpath:idRelative"],
+        ["xpath=//div[13]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a42e7f36-e1e6-4a2b-ba77-595db2b1d778",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-sm:nth-child(1)",
+      "targets": [
+        ["css=.btn-sm:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[10]/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[@href='http://localhost:8000/admin/events'])[2]", "xpath:href"],
+        ["xpath=//div[10]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ce6316c-f712-4fbd-bb16-0df6ce5597a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(2) .btn:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(2) .btn:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr[2]/td[6]/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/admin/events/2/edit']", "xpath:href"],
+        ["xpath=//tr[2]/td[6]/div/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9db32bf4-a3a4-474f-886e-9de56e4078ac",
+      "comment": "",
+      "command": "click",
+      "target": "id=tags",
+      "targets": [
+        ["id=tags", "id"],
+        ["name=tags", "name"],
+        ["css=#tags", "css:finder"],
+        ["xpath=//input[@id='tags']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "068215e7-d963-4288-a855-b6b897250f8b",
+      "comment": "",
+      "command": "type",
+      "target": "id=tags",
+      "targets": [
+        ["id=tags", "id"],
+        ["name=tags", "name"],
+        ["css=#tags", "css:finder"],
+        ["xpath=//input[@id='tags']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "wadi"
+    }, {
+      "id": "10a3d73f-779e-4e0b-bf19-dcb3148a2b44",
+      "comment": "",
+      "command": "click",
+      "target": "css=#container-description > .col-sm-4",
+      "targets": [
+        ["css=#container-description > .col-sm-4", "css:finder"],
+        ["xpath=//div[@id='container-description']/label", "xpath:idRelative"],
+        ["xpath=//div[2]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Evenement omschrijving')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "855bef14-91d3-467e-a650-8eb279352db4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[13]/div/button", "xpath:idRelative"],
+        ["xpath=//div[13]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0bb95828-e4df-4326-ba96-dc9e65c3a047",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-sm:nth-child(1)",
+      "targets": [
+        ["css=.btn-sm:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[8]/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[@href='http://localhost:8000/admin/events'])[2]", "xpath:href"],
+        ["xpath=//div[8]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf040deb-2873-4431-9d41-1921923da98d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#accordion > li:nth-child(2) > a",
+      "targets": [
+        ["css=#accordion > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen')]", "xpath:link"],
+        ["xpath=//ul[@id='accordion']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/event')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f91be6ba-d6a2-4138-b055-044f197e242b",
+      "comment": "",
+      "command": "click",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "350320b6-477e-4b79-955c-c3e7c382df58",
+      "comment": "",
+      "command": "type",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "7520b8df-7785-4dab-92fb-a842e22d74dc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/span/button", "xpath:idRelative"],
+        ["xpath=//span/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6e0e731-2999-4b7b-bd92-aa75226ec9dd",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,155)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "48e089aa-9522-471d-a519-fd595f3bca1d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hover-option4 .row",
+      "targets": [
+        ["css=.hover-option4 .row", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div", "xpath:idRelative"],
+        ["xpath=//section[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cce771c6-6cb6-476d-99ac-9aa103466fb9",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=Missie X-Mas Benefietconcert 2016",
+      "targets": [
+        ["linkText=Missie X-Mas Benefietconcert 2016", "linkText"],
+        ["css=.post-title", "css:finder"],
+        ["xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/event/1')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]", "xpath:innerText"]
+      ],
+      "value": "Missie X-Mas Benefietconcert 2016"
     }]
   }],
   "suites": [{
