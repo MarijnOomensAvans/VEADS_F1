@@ -175,12 +175,12 @@
         </div>
         <div class="row equalize xs-equalize-auto bg-light-gray">
             @foreach ($allpartners as $allpartner)
-            <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom margin-30px-top xs-text-center">
+            <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-top xs-text-center">
                 <div class="blog-post inner-match-height">
-                    <div class="blog-post-images overflow-hidden position-relative height-100px width-100px">
+                    <div class="blog-post-images overflow-hidden position-relative width-100px margin-30px-bottom">
                         <a href="{{$allpartner->link}}">
                           <img src="/image/{{ $allpartner->picture->path }}/{{ $allpartner->picture->name }}">
-                            </a>
+                        </a>
                     </div>
                 </div>
             </div>
