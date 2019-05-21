@@ -1588,7 +1588,7 @@
       "id": "f8ce5d4a-5aeb-4cf5-829a-b6f38545ef0a",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/admin/contact_form",
+      "target": "http://localhost:8000/admin/contact_form",
       "targets": [],
       "value": ""
     }, {
@@ -3890,6 +3890,87 @@
       "value": ""
     }]
   }, {
+    "id": "2cba9d72-ff68-4f85-bcce-6e9c69062453",
+    "name": "Search",
+    "commands": [{
+      "id": "b4dd1d52-c35c-4edb-9cee-0741f755b63c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e92ab77f-f34a-4298-ac68-71e59439bf2b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1432x958",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b377328f-d65d-42e8-9a00-643ed8e98db3",
+      "comment": "",
+      "command": "click",
+      "target": "css=#accordion > li:nth-child(2) > a",
+      "targets": [
+        ["css=#accordion > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen')]", "xpath:link"],
+        ["xpath=//ul[@id='accordion']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/event')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b9c43ab-f611-4bc6-b9ca-d197ce942db6",
+      "comment": "",
+      "command": "click",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dff7829-f4f1-42d5-a0ff-6ec2a388a1c9",
+      "comment": "",
+      "command": "type",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "missie"
+    }, {
+      "id": "92a62ad9-8f9d-4651-96c9-5e876d0a9dec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.glyphicon",
+      "targets": [
+        ["css=.glyphicon", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/form/div/span/button/span", "xpath:idRelative"],
+        ["xpath=//span/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76ab23a7-cf20-45b0-b46d-f629f5f4fd50",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=Missie X-Mas Benefietconcert 2016",
+      "targets": [
+        ["linkText=Missie X-Mas Benefietconcert 2016", "linkText"],
+        ["css=.post-title", "css:finder"],
+        ["xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/event/1')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]", "xpath:innerText"]
+      ],
+    "value": "Missie X-Mas Benefietconcert 2016"
     "id": "cb27985f-b116-416d-8c1c-e729aff08b64",
     "name": "Ambassadeur toevoegen - lege velden",
     "commands": [{

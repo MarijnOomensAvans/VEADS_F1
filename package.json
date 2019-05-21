@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.6"
     },
     "dependencies": {
+        "@yaireo/tagify": "^2.18.0",
         "underscore": "^1.9.1",
         "vue-bootstrap-typeahead": "^0.2.6",
         "vue-the-mask": "^0.11.1"

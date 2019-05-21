@@ -7,6 +7,7 @@ use App\Event;
 use App\EventDateTime;
 use App\Http\Requests\StoreEvent;
 use App\Picture;
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -116,6 +117,39 @@ class EventController extends Controller
             $date->save();
         }
 
+        if(isset($validated['tags'])) {
+
+
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $event->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $event->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $event->tags()->attach($existingTag->id);
+                }
+
+            }
+        }
+
+
         if ($request->hasFile('image')) {
             $this->saveImages($event, $request->file('image'));
         }
@@ -215,6 +249,37 @@ class EventController extends Controller
             $date->save();
         } elseif (!empty($date)) {
             $date->delete();
+        }
+
+        // add tags to event
+        if(isset($validated['tags'])) {
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $event->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+                
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $event->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $event->tags()->attach($existingTag->id);
+                }
+                
+            }
         }
 
         if ($request->hasFile('image')) {

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProject;
 use App\Picture;
 use App\Project;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -77,6 +78,35 @@ class ProjectController extends Controller
 
         $project->save();
 
+        if(isset($validated['tags'])) {
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $project->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $project->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $project->tags()->attach($existingTag->id);
+                }
+
+            }
+
         if ($request->hasFile('image')) {
             $this->saveImages($project, $request->file('image'));
         }
@@ -141,6 +171,35 @@ class ProjectController extends Controller
 
         $project->fill($validated);
         $project->save();
+
+        if(isset($validated['tags'])) {
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $project->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $project->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $project->tags()->attach($existingTag->id);
+                }
+
+            }
 
         if ($request->hasFile('image')) {
             $this->saveImages($project, $request->file('image'));
