@@ -78,14 +78,19 @@
                     @if($project->events()->where('published', 1)->count() > 0)
                     <div class="row equalize xs-equalize-auto">
                         @foreach ($project->events()->where('published', 1)->get() as $event)
-                            <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
+                            <div class="blog-post-style5 grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
                                 <div class="blog-post bg-light-gray inner-match-height">
                                     <div class="blog-post-images overflow-hidden position-relative">
                                         <a href="/event/{{$event->id}}">
-                                            @if(is_array($event->pictures) && count($event->pictures) > 0)
+                                            @if(count($event->pictures) > 0)
                                                 <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" data-no-retina="">
                                             @endif
                                         </a>
+                                        @if(new DateTime($event->datetime->end) <  new DateTime())
+                                            <div class="blog-categories text-uppercase text-extra-small alt-font" style="background: #EA5B5B; color: white;">
+                                                Verkopen
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="post-details padding-40px-all sm-padding-20px-all">
                                         <a href="/event/{{$event->id}}" class="alt-font post-title text-medium text-extra-dark-gray width-100 display-block md-width-100 margin-15px-bottom">{{$event->name}}</a>

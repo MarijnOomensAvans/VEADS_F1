@@ -16,6 +16,7 @@ class EventController extends Controller
             ->select('events.*');
 
         $events = $events->paginate(9);
+
         return view('front.events', compact('events'));
     }
 
