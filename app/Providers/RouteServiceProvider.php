@@ -39,7 +39,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        Route::prefix('wizard')
+             ->middleware('wizard')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/wizard.php'));
     }
 
     /**
