@@ -28,6 +28,7 @@
         </div>
     @endif
 
+    @if(((bool) getContent('contact_show_ambassadors')->content) && count($ambassadors) > 0)
     <section class="bg-light-gray">
         <div class="container">
 
@@ -74,6 +75,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     @if((bool) getContent('contact_show_team')->content)
         <div class="row">
