@@ -147,6 +147,10 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'veads_request_thanks_message', 'title' => 'VEADS zoekt bedankt tekst', 'type' => 'textarea', 'content' => 'Top dat je wilt meehelpen.', 'category' => 'win-win']))->save();
         }
         
+        if (empty(\App\EditContent::find('contact_show_ambassadors'))) {
+            (new \App\EditContent(['key' => 'contact_show_ambassadors', 'title' => 'Ambassadeurs weergeven', 'type' => 'checkbox', 'content' => 'true', 'category' => 'contact']))->save();
+        }
+        
         // DO NOT TOUCH THIS LINE
     }
 }
