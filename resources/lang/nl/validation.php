@@ -112,7 +112,7 @@ return [
     'timezone'             => ':Attribute moet een geldige tijdzone zijn.',
     'unique'               => ':Attribute is al in gebruik.',
     'uploaded'             => 'Het uploaden van :attribute is mislukt.',
-    'u_r_l'                  => ':Attribute moet een geen geldig URL zijn. Een link begint met http:// of https://',
+    'url'                  => ':Attribute moet een geldig URL zijn. Een link begint met http:// of https://',
     'uuid'                 => ':Attribute moet een geldig UUID zijn.',
 
     /*
