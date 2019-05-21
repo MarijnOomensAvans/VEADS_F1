@@ -50,6 +50,19 @@
                 <hr/>
                 @endif
 
+                @if(count($project->pictures))
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Foto's</label>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 items-push img-fluid-100">
+                        @each('back.projects.partials.picture', $project->pictures, 'picture')
+                    </div>
+                    <hr/>
+                @endif
+
                 @if(is_array($project->volunteers) && count($project->volunteers))
                     <div class="row">
                         <div class="col-12 col-sm-4 text-sm-right"><label>Vrijwilligers</label></div>
@@ -66,7 +79,7 @@
                     </div>
                     <hr/>
                 @endif
-                
+
                 <div class="row mb-3">
                     <div class="col-12 text-right">
                         <div class="btn-group">

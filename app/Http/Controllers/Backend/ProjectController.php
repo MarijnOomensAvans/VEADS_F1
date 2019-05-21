@@ -6,9 +6,12 @@ use App\Address;
 use App\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProject;
+use App\Picture;
 use App\Project;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -103,6 +106,9 @@ class ProjectController extends Controller
                 }
 
             }
+
+        if ($request->hasFile('image')) {
+            $this->saveImages($project, $request->file('image'));
         }
 
         return redirect('admin/projects/' . $project->id);
@@ -194,6 +200,9 @@ class ProjectController extends Controller
                 }
 
             }
+
+        if ($request->hasFile('image')) {
+            $this->saveImages($project, $request->file('image'));
         }
 
         return redirect('admin/projects/' . $project->id);
@@ -212,6 +221,15 @@ class ProjectController extends Controller
 
     public function delete(Request $request, Project $project) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            $pictures = $project->pictures;
+
+            $project->pictures()->detach();
+
+            foreach($pictures as $picture) {
+                Storage::delete("images/" . $picture->path);
+                $picture->delete();
+            }
+
             Event::where('project_id', $project->id)->update(['project_id' => null]);
             $project->volunteers()->sync([]);
             $project->delete();
@@ -219,5 +237,34 @@ class ProjectController extends Controller
         }
 
         return redirect('admin/projects');
+    }
+
+    public function destroyImage(Project $project, Picture $picture) {
+        return view('back.projects.image', compact('project', 'picture'));
+    }
+
+    public function deleteImage(Request $request, Project $project, Picture $picture) {
+        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
+            $picture->projects()->detach();
+            $picture->delete();
+        }
+
+        return redirect('admin/projects/' . $project->id);
+    }
+
+    private function saveImages(Project $project, $images) {
+        foreach($images as $image) {
+            $name = $image->getClientOriginalName();
+            $filename = $image->hashName();
+            $image->storeAs('images', $filename);
+
+            $picture = new Picture();
+            $picture->name = $name;
+            $picture->path = $filename;
+            $picture->date = \DateTime::createFromFormat('U', $image->getCTime());
+            $picture->save();
+
+            $project->pictures()->attach($picture->id);
+        }
     }
 }

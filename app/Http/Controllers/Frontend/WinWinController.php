@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Frontend\AuthController;
 use App\Event;
-use App\User;
+use App\DonatedProduct;
 use App\Address;
 use App\Volunteer;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +21,11 @@ class WinWinController extends Controller
         $events = Event::get();
         return view('front.win-win.enrollVolunteer', ['events' => $events ]);
     }
+
+    public function giveProducts() {
+        return view('front.win-win.giveproducts');
+    }
+
 
     public function saveEnrollVolunteer(Request $request) {
 

@@ -77,6 +77,7 @@
                                             <a href="{{ route('admin/event', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
                                             <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
                                             <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
+                                            <a href="{{ route('admin/events/partners', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-hands-helping"></span></a>
                                         </div>
                                     </td>
                                 </tr>

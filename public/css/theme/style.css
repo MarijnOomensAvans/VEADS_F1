@@ -3566,7 +3566,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 .container .blog-post-style4 figure figcaption {padding: 35px;}
 
 /* blog post style 5 */
-.blog-post-style5 .blog-post .blog-post-images {height: 100%; position: relative}
+.blog-post-style5 .blog-post .blog-post-images {position: relative}
 .blog-post-style5 .blog-post .blog-categories { position: absolute; bottom:0; left: 0; z-index: 25; padding: 10px 20px 8px}
 
 /* blog post style 6 */

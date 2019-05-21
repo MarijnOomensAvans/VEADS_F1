@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Partner;
+use App\Http\Requests\StoreEventPartner;
 
 class EventController extends Controller
 {
@@ -312,7 +314,6 @@ class EventController extends Controller
             $event->pictures()->detach();
 
             foreach($pictures as $picture) {
-                Storage::delete("images/" . $picture->path);
                 $picture->delete();
             }
 
@@ -326,12 +327,11 @@ class EventController extends Controller
     }
 
     public function destroyImage(Event $event, Picture $picture) {
-        return view('events/image', compact('event', 'picture'));
+        return view('back.events.image', compact('event', 'picture'));
     }
 
     public function deleteImage(Request $request, Event $event, Picture $picture) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            Storage::delete("images/" . $picture->path);
             $picture->events()->detach();
             $picture->delete();
         }
@@ -382,5 +382,16 @@ class EventController extends Controller
 
             $event->pictures()->attach($picture->id);
         }
+    }
+
+    public function showPartners(Event $event) {
+          $partners = Partner::get();
+          return view("back.events.indexPartners", ["partners" => $partners, "event" => $event]);
+    }
+
+    public function storePartners(Event $event, StoreEventPartner $request) {
+       $validated = $request->validated();
+       $event->partners()->sync($validated["partners"] ??[]);
+       return redirect("admin/events");
     }
 }

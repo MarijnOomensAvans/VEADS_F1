@@ -80,4 +80,7 @@ class Event extends Model
             ->whereNull('refunded_at');
     }
 
+    public function requests() {
+        return $this->hasMany('App\VeadsRequest');
+    }
 }

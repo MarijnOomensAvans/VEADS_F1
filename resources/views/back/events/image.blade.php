@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-        <h1>Evenement foto verwijderen</h1>
+        <h1>Evenementfoto verwijderen</h1>
     </div>
 
     <div class="content">
@@ -15,7 +15,7 @@
                             <input type="hidden" name="confirm" value="1" />
 
                             <div class="alert alert-danger">
-                                Weet u zeker dat u de evenement foto wilt verwijderen?<br/>
+                                Weet u zeker dat u de evenementfoto wilt verwijderen?<br/>
                                 <button type="submit" class="btn btn-danger">Ja</button>
                                 <a href="{{ route('admin/event', ['event' => $event]) }}" class="btn btn-secondary">Nee</a>
                             </div>

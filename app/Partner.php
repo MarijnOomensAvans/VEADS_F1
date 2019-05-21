@@ -21,4 +21,5 @@ class Partner extends Model
             ->belongsToMany('App\Event')
             ->withTimestamps();
     }
+
 }
