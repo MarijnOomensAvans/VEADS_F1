@@ -96,16 +96,17 @@ class ProjectController extends Controller
                 $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
 
                 // check if tag exits
-                if(empty($existingTag)) {
+                if (empty($existingTag)) {
 
                     // maak een nieuw tags
-                    $project->tags()->create([ 'name' => $tag ]);
-                }else{
+                    $project->tags()->create(['name' => $tag]);
+                } else {
                     // attach bestaande tags
                     $project->tags()->attach($existingTag->id);
                 }
 
             }
+        }
 
         if ($request->hasFile('image')) {
             $this->saveImages($project, $request->file('image'));
@@ -190,16 +191,17 @@ class ProjectController extends Controller
                 $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
 
                 // check if tag exits
-                if(empty($existingTag)) {
+                if (empty($existingTag)) {
 
                     // maak een nieuw tags
-                    $project->tags()->create([ 'name' => $tag ]);
-                }else{
+                    $project->tags()->create(['name' => $tag]);
+                } else {
                     // attach bestaande tags
                     $project->tags()->attach($existingTag->id);
                 }
 
             }
+        }
 
         if ($request->hasFile('image')) {
             $this->saveImages($project, $request->file('image'));
