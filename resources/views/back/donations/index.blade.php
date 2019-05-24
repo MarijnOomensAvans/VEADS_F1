@@ -58,7 +58,7 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <a href="{{ action('Backend\DonationController@show', ['donation' => $donation]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
+                                            <a href="{{ action('Backend\DonationController@show', ['donation' => $donation]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Details weergeven"><span class="fas fa-eye"></span></a>
                                             @if(empty($donation->refunded_at))
                                                 <a href="{{ action('Backend\DonationController@refund', ['donation' => $donation]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terugbetalen"><span class="fas fa-hand-holding-usd"></span></a>
                                             @endif

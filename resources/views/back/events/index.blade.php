@@ -74,10 +74,10 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <a href="{{ route('admin/event', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
-                                            <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                                            <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
-                                            <a href="{{ route('admin/events/partners', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-hands-helping"></span></a>
+                                            <a href="{{ route('admin/event', ['event' => $event]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Details weergeven"><span class="fas fa-eye"></span></a>
+                                            <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Evenement aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                                            <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Evenement verwijderen"><span class="fas fa-trash"></span></a>
+                                            <a href="{{ route('admin/events/partners', ['event' => $event]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Gekoppelde partners beheren"><span class="fas fa-hands-helping"></span></a>
                                         </div>
                                     </td>
                                 </tr>

@@ -35,7 +35,7 @@
                         <span class="nav-main-link-name">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-main-item nav-main-heading">Content</li>
+                <li class="nav-main-item nav-main-heading flex-row align-items-center">Content <span class="fa fa-question-circle ml-2" data-toggle="tooltip" data-placement="top" title="Hieronder staan opties die te maken hebben met de inhoud van de website."></span></li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/event') !== false ? ' active' : '' }}" href="{{ route('admin/events') }}">
                         <i class="nav-main-link-icon fas fa-calendar"></i>
@@ -72,7 +72,7 @@
                         <span class="nav-main-link-name">Pagina's</span>
                     </a>
                 </li>
-                <li class="nav-main-item nav-main-heading">Connecties</li>
+                <li class="nav-main-item nav-main-heading flex-row align-items-center">Connecties <span class="fa fa-question-circle ml-2" data-toggle="tooltip" data-placement="top" title="Hieronder staan opties die te maken hebben met invoer van externe bronnen."></span></li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/volunteer') !== false ? ' active' : '' }}" href="{{ route('admin/volunteers') }}">
                         <i class="nav-main-link-icon fas fa-users"></i>
@@ -97,7 +97,7 @@
                         <span class="nav-main-link-name">Instagram</span>
                     </a>
                 </li>
-                <li class="nav-main-item nav-main-heading">Win-win</li>
+                <li class="nav-main-item nav-main-heading flex-row align-items-center">Win-win <span class="fa fa-question-circle ml-2" data-toggle="tooltip" data-placement="top" title="Hieronder staan opties die te maken hebben met de win-win pagina van de website."></span></li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/donations') !== false ? ' active' : '' }}" href="{{ action('Backend\DonationController@index') }}">
                         <i class="nav-main-link-icon fas fa-money-bill"></i>

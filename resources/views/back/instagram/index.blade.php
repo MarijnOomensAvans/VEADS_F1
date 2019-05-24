@@ -11,7 +11,7 @@
             <div class="col-12 col-md-6">
                 <div class="block">
                     <div class="block-header block-header-default">
-                        <h3 class="block-title">Login Instagram</h3>
+                        <h3 class="block-title">Login Instagram <span class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="Je kunt de website met meerdere pagina’s tegelijk verbinden. Van iedere pagina worden de laatste twee posts weergegeven op de homepagina." style="font-size: 0.75em;"></span></h3>
                     </div>
                     <div class="block-content pb-4">
                         <a href="{{$instagram_auth_url}}" class="btn btn-primary">Verbinden met Instagram</a>
