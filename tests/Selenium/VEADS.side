@@ -3956,21 +3956,46 @@
         ["xpath=//span/button/span", "xpath:position"]
       ],
       "value": ""
-    }, {
-      "id": "76ab23a7-cf20-45b0-b46d-f629f5f4fd50",
-      "comment": "",
-      "command": "verifyText",
-      "target": "linkText=Missie X-Mas Benefietconcert 2016",
-      "targets": [
-        ["linkText=Missie X-Mas Benefietconcert 2016", "linkText"],
-        ["css=.post-title", "css:finder"],
-        ["xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]", "xpath:link"],
-        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a", "xpath:idRelative"],
-        ["xpath=(//a[contains(@href, '/event/1')])[2]", "xpath:href"],
-        ["xpath=//div[2]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]", "xpath:innerText"]
-      ],
-    "value": "Missie X-Mas Benefietconcert 2016"
+    },
+      {
+        "id": "76ab23a7-cf20-45b0-b46d-f629f5f4fd50",
+        "comment": "",
+        "command": "verifyText",
+        "target": "linkText=Missie X-Mas Benefietconcert 2016",
+        "targets": [
+          [
+            "linkText=Missie X-Mas Benefietconcert 2016",
+            "linkText"
+          ],
+          [
+            "css=.post-title",
+            "css:finder"
+          ],
+          [
+            "xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]",
+            "xpath:link"
+          ],
+          [
+            "xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a",
+            "xpath:idRelative"
+          ],
+          [
+            "xpath=(//a[contains(@href, '/event/1')])[2]",
+            "xpath:href"
+          ],
+          [
+            "xpath=//div[2]/a",
+            "xpath:position"
+          ],
+          [
+            "xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]",
+            "xpath:innerText"
+          ]
+        ],
+        "value": "Missie X-Mas Benefietconcert 2016"
+      }]
+  },
+    {
     "id": "cb27985f-b116-416d-8c1c-e729aff08b64",
     "name": "Ambassadeur toevoegen - lege velden",
     "commands": [{
