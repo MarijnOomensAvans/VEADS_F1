@@ -133,7 +133,11 @@ if (isset($event->pictures[0])) {
 
                 @if(count($event->donations) > 0)
                     <div class="margin-45px-bottom xs-margin-25px-bottom">
-                        <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Sponsoren</span></div>
+                        <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title">
+                            <span>Sponsoren
+                                <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="Sponsoren zijn personen die geld gedoneerd hebben aan dit evenement."></span>
+                            </span>
+                        </div>
                         <ul class="list-style-6 margin-50px-bottom text-small" style="max-height: 300px; overflow-y: scroll;">
                             @foreach($event->donations as $donation)
                                 <li><img src="https://www.gravatar.com/avatar/{{ md5($donation->email) }}?d=mp&s=60" alt="Sponsor" style="max-width: 30px;" /> {{ $donation->full_name }}</li>
@@ -144,7 +148,11 @@ if (isset($event->pictures[0])) {
 
                     @if(count($event->partners) > 0)
                         <div class="margin-45px-bottom xs-margin-25px-bottom">
-                            <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Partners</span></div>
+                            <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title">
+                                <span>Partners
+                                    <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="Partners zijn bedrijven of personen die dit evenement steunen."></span>
+                                </span>
+                            </div>
                             <ul class="list-style-6 margin-50px-bottom text-small" style="max-height: 300px; overflow-y: scroll;">
                                 @foreach($event->partners as $partner)
                                     <li><a href="{{ $partner->link }}"><img src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}" alt="Partner" style="max-width: 30px;" /> {{ $partner->name }}</a></li>

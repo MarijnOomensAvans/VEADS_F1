@@ -62,12 +62,15 @@
                                 {{-- End Register Fields --}}
 
                                 {{-- Start Specific Fields --}}
-                                <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px;">
-                                    <option selected disabled>Selecteer een evenement </option>
-                                    @foreach($events as $event)
-                                        <option value="{{$event->id}}"{{ request('event_id') == $event->id ? ' selected' : '' }}>{{$event->name}}</option>
-                                    @endforeach
-                                </select>
+                                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                                    <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px; margin-bottom: 0;">
+                                        <option selected disabled>Selecteer een evenement </option>
+                                        @foreach($events as $event)
+                                            <option value="{{$event->id}}"{{ request('event_id') == $event->id ? ' selected' : '' }}>{{$event->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="Selecteer hier het evenement waarvoor u als vrijwilliger wilt inschrijven."></span>
+                                </div>
                                 {{-- End Specific Fields --}}
 
                                 <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">
