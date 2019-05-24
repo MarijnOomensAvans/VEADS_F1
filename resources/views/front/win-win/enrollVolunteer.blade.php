@@ -43,22 +43,34 @@
 
                             <div>
                                 {{-- Start Register Fields (need to split to blade file) --}}
-                                <input type="text" name="first_name" placeholder="Voornaam *" class="border-radius-4 bg-white medium-input" value="{{ old('first_name') ?? Auth::user()->volunteer->first_name ?? '' }}">
-                                <input type="text" name="last_name" placeholder="Achternaam *" class="border-radius-4 bg-white medium-input" value="{{ old('last_name') ?? Auth::user()->volunteer->last_name ?? '' }}">
-                                <input type="text" name="email" placeholder="E-mailadres *" class="border-radius-4 bg-white medium-input" value="{{ old('email') ?? Auth::user()->email ?? '' }}">
-                                
-                                @guest
-                                    <input type="password" name="password" placeholder="Wachtwoord *" class="border-radius-4 bg-white medium-input">
-                                    <input type="password" name="repeat_password" placeholder="Herhaal Wachtwoord *" class="border-radius-4 bg-white medium-input">
-                                @endguest
+                                @if(!empty(Auth::user()->volunteer))
+                                    <input type="hidden" name="first_name" value="{{ Auth::user()->volunteer->first_name }}">
+                                    <input type="hidden" name="last_name" value="{{ Auth::user()->volunteer->last_name }}">
+                                    <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                                    <input type="hidden" name="phone_number" value="{{ Auth::user()->volunteer->phone_number }}">
+                                    <input type="hidden" name="street" value="{{ Auth::user()->volunteer->address->street }}">
+                                    <input type="hidden" name="number" value="{{ Auth::user()->volunteer->address->number }}">
+                                    <input type="hidden" name="city" value="{{ Auth::user()->volunteer->address->city }}">
+                                    <input type="hidden" name="zipcode" value="{{ Auth::user()->volunteer->address->zipcode }}">
+                                    <input type="hidden" name="country" value="{{ Auth::user()->volunteer->address->country }}">
+                                @else
+                                    <input type="text" name="first_name" placeholder="Voornaam *" class="border-radius-4 bg-white medium-input" value="{{ old('first_name') ?? Auth::user()->volunteer->first_name ?? '' }}">
+                                    <input type="text" name="last_name" placeholder="Achternaam *" class="border-radius-4 bg-white medium-input" value="{{ old('last_name') ?? Auth::user()->volunteer->last_name ?? '' }}">
+                                    <input type="text" name="email" placeholder="E-mailadres *" class="border-radius-4 bg-white medium-input" value="{{ old('email') ?? Auth::user()->email ?? '' }}">
 
-                                <input type="tel" name="phone_number" placeholder="Telefoonnummer *" class="border-radius-4 bg-white medium-input" value="{{ old('phone_number') ?? Auth::user()->volunteer->phone_number ?? '' }}">
-                                
-                                <input type="text" name="street" placeholder="Straatnaam *" class="border-radius-4 bg-white medium-input" value="{{ old('street') ?? Auth::user()->volunteer->address->street ?? '' }}">
-                                <input type="text" name="number" placeholder="Nummer *" class="border-radius-4 bg-white medium-input" value="{{ old('number') ?? Auth::user()->volunteer->address->number ?? '' }}">
-                                <input type="text" name="city" placeholder="Plaats *" class="border-radius-4 bg-white medium-input" value="{{ old('city') ?? Auth::user()->volunteer->address->city ?? '' }}">
-                                <input type="text" name="zipcode" placeholder="Postcode *" class="border-radius-4 bg-white medium-input" value="{{ old('zipcode') ?? Auth::user()->volunteer->address->zipcode ?? '' }}">
-                                <input type="text" name="country" placeholder="Land *" class="border-radius-4 bg-white medium-input" value="{{ old('country') ?? Auth::user()->volunteer->address->country ?? '' }}">
+                                    @guest
+                                        <input type="password" name="password" placeholder="Wachtwoord *" class="border-radius-4 bg-white medium-input">
+                                        <input type="password" name="repeat_password" placeholder="Herhaal Wachtwoord *" class="border-radius-4 bg-white medium-input">
+                                    @endguest
+
+                                    <input type="tel" name="phone_number" placeholder="Telefoonnummer *" class="border-radius-4 bg-white medium-input" value="{{ old('phone_number') ?? Auth::user()->volunteer->phone_number ?? '' }}">
+
+                                    <input type="text" name="street" placeholder="Straatnaam *" class="border-radius-4 bg-white medium-input" value="{{ old('street') ?? Auth::user()->volunteer->address->street ?? '' }}">
+                                    <input type="text" name="number" placeholder="Nummer *" class="border-radius-4 bg-white medium-input" value="{{ old('number') ?? Auth::user()->volunteer->address->number ?? '' }}">
+                                    <input type="text" name="city" placeholder="Plaats *" class="border-radius-4 bg-white medium-input" value="{{ old('city') ?? Auth::user()->volunteer->address->city ?? '' }}">
+                                    <input type="text" name="zipcode" placeholder="Postcode *" class="border-radius-4 bg-white medium-input" value="{{ old('zipcode') ?? Auth::user()->volunteer->address->zipcode ?? '' }}">
+                                    <input type="text" name="country" placeholder="Land *" class="border-radius-4 bg-white medium-input" value="{{ old('country') ?? Auth::user()->volunteer->address->country ?? '' }}">
+                                @endif
                                 {{-- End Register Fields --}}
 
                                 {{-- Start Specific Fields --}}
