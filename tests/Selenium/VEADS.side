@@ -2,7 +2,7 @@
   "id": "62638e69-372a-4843-844e-b80bafac9234",
   "version": "2.0",
   "name": "VEADS",
-  "url": "https://veads-dev.ontwikkel.it/",
+  "url": "http://veads_f1.test/",
   "tests": [{
     "id": "42889889-6089-4939-ada3-c4fd7483e739",
     "name": "Evenement toevoegen - happy flow",
@@ -3956,46 +3956,23 @@
         ["xpath=//span/button/span", "xpath:position"]
       ],
       "value": ""
-    },
-      {
-        "id": "76ab23a7-cf20-45b0-b46d-f629f5f4fd50",
-        "comment": "",
-        "command": "verifyText",
-        "target": "linkText=Missie X-Mas Benefietconcert 2016",
-        "targets": [
-          [
-            "linkText=Missie X-Mas Benefietconcert 2016",
-            "linkText"
-          ],
-          [
-            "css=.post-title",
-            "css:finder"
-          ],
-          [
-            "xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]",
-            "xpath:link"
-          ],
-          [
-            "xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a",
-            "xpath:idRelative"
-          ],
-          [
-            "xpath=(//a[contains(@href, '/event/1')])[2]",
-            "xpath:href"
-          ],
-          [
-            "xpath=//div[2]/a",
-            "xpath:position"
-          ],
-          [
-            "xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]",
-            "xpath:innerText"
-          ]
-        ],
-        "value": "Missie X-Mas Benefietconcert 2016"
-      }]
-  },
-    {
+    }, {
+      "id": "76ab23a7-cf20-45b0-b46d-f629f5f4fd50",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=Missie X-Mas Benefietconcert 2016",
+      "targets": [
+        ["linkText=Missie X-Mas Benefietconcert 2016", "linkText"],
+        ["css=.post-title", "css:finder"],
+        ["xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/event/1')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]", "xpath:innerText"]
+      ],
+      "value": "Missie X-Mas Benefietconcert 2016"
+    }]
+  }, {
     "id": "cb27985f-b116-416d-8c1c-e729aff08b64",
     "name": "Ambassadeur toevoegen - lege velden",
     "commands": [{
@@ -4097,6 +4074,84 @@
       "comment": "",
       "command": "assertElementNotPresent",
       "target": "xpath=//table/tbody/tr[contains(td[1], 'Test ambassadeur')]/td[4]/div/btn[3]",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4233ff13-b04b-4bd8-8325-ebd945e18717",
+    "name": "Tooltip frontend",
+    "commands": [{
+      "id": "72ee2fe0-424f-4a66-b9a6-9af008b6ef38",
+      "comment": "",
+      "command": "open",
+      "target": "https://veads_f1.test/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8836761-d094-4f14-ab2f-ef7718daa78f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d11d6a80-8d7a-4569-836f-850970db123c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#accordion > li:nth-child(2) > a",
+      "targets": [
+        ["css=#accordion > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen')]", "xpath:link"],
+        ["xpath=//ul[@id='accordion']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/event')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23c1080d-4d8b-4a2c-b32b-fecc8ab583db",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.fa",
+      "targets": [
+        ["css=.fa", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/form/span", "xpath:idRelative"],
+        ["xpath=//form/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "903a078a-1940-4479-ae30-e2a99911093e",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.tooltip",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c573e6fe-7633-4754-a473-d8e947faea00",
+    "name": "Tooltip backend",
+    "commands": [{
+      "id": "d0effe82-3914-4af3-8b04-9b7b78e1b070",
+      "comment": "",
+      "command": "open",
+      "target": "/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "777dab8e-2093-42ae-831a-9f7b5c85f444",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.nav-main-item:nth-child(2) > .fa",
+      "targets": [
+        ["css=.nav-main-item:nth-child(2) > .fa", "css:finder"],
+        ["xpath=//nav[@id='sidebar']/div[3]/div/div[2]/ul/li[2]/span", "xpath:idRelative"],
+        ["xpath=//li[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "86a169d1-2674-4365-92fc-38028cd557f1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.tooltip",
       "targets": [],
       "value": ""
     }]
