@@ -22,6 +22,7 @@
                 toolbar: [
                     ['style', ['bold', 'italic', 'underline', 'clear']],
                     ['fontsize', ['fontsize']],
+                    ['insert', ['link']],
                     ['para', ['ol', 'ul']],
                     ['misc', ['undo', 'redo']]
                 ],
