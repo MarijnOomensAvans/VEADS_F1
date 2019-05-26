@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="/css/theme/style.css" />
         <link rel="stylesheet" href="/css/theme/responsive.css" />
         <link rel="stylesheet" href="/css/theme/footer.css" />
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
         <!--[if IE]>
             <script src="js/theme/html5shiv.js"></script>
         <![endif]-->
@@ -161,5 +162,6 @@
         <script type="text/javascript" src="/revolution/js/jquery.themepunch.tools.min.js"></script>
         <script type="text/javascript" src="/revolution/js/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="/js/theme/main.js"></script>
+        @stack('scripts')
     </body>
 </html>

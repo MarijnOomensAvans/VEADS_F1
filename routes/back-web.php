@@ -87,7 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/fb/callback', "Backend\\FacebookController@callback")->name('admin/facebook/callback');
     Route::get('/facebook/update', "Backend\\FacebookController@update")->name('admin/facebook/update');
 
-    // Facebook
+    // Instagram
     Route::get('/instagram', "Backend\\InstagramController@index")->name('admin/instagram');
     Route::get('/instagram/callback', "Backend\\InstagramController@callback")->name('admin/instagram/callback');
     Route::get('/instagram/update', "Backend\\InstagramController@update")->name('admin/instagram/update');
@@ -101,4 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     // VEADS requests
     Route::resource('/veads_request', 'Backend\\VeadsRequestController');
     Route::get('/veads_response/{veadsResponse}', 'Backend\\VeadsRequestController@response');
+
+    // Ambassadors
+    Route::resource('/ambassador', 'Backend\\AmbassadorController');
 });

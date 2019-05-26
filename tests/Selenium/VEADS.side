@@ -2,7 +2,7 @@
   "id": "62638e69-372a-4843-844e-b80bafac9234",
   "version": "2.0",
   "name": "VEADS",
-  "url": "http://veads_f1.test/",
+  "url": "https://veads-dev.ontwikkel.it/",
   "tests": [{
     "id": "42889889-6089-4939-ada3-c4fd7483e739",
     "name": "Evenement toevoegen - happy flow",
@@ -1588,7 +1588,7 @@
       "id": "f8ce5d4a-5aeb-4cf5-829a-b6f38545ef0a",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/admin/contact_form",
+      "target": "http://localhost:8000/admin/contact_form",
       "targets": [],
       "value": ""
     }, {
@@ -3887,6 +3887,192 @@
         ["xpath=//form/div/button", "xpath:position"],
         ["xpath=//button[contains(.,'Ja')]", "xpath:innerText"]
       ],
+      "value": ""
+    }]
+  }, {
+    "id": "2cba9d72-ff68-4f85-bcce-6e9c69062453",
+    "name": "Search",
+    "commands": [{
+      "id": "b4dd1d52-c35c-4edb-9cee-0741f755b63c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e92ab77f-f34a-4298-ac68-71e59439bf2b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1432x958",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b377328f-d65d-42e8-9a00-643ed8e98db3",
+      "comment": "",
+      "command": "click",
+      "target": "css=#accordion > li:nth-child(2) > a",
+      "targets": [
+        ["css=#accordion > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen')]", "xpath:link"],
+        ["xpath=//ul[@id='accordion']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/event')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b9c43ab-f611-4bc6-b9ca-d197ce942db6",
+      "comment": "",
+      "command": "click",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dff7829-f4f1-42d5-a0ff-6ec2a388a1c9",
+      "comment": "",
+      "command": "type",
+      "target": "name=q",
+      "targets": [
+        ["name=q", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='q']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrapper']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "missie"
+    }, {
+      "id": "92a62ad9-8f9d-4651-96c9-5e876d0a9dec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.glyphicon",
+      "targets": [
+        ["css=.glyphicon", "css:finder"],
+        ["xpath=//div[@id='content-wrapper']/form/div/span/button/span", "xpath:idRelative"],
+        ["xpath=//span/button/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76ab23a7-cf20-45b0-b46d-f629f5f4fd50",
+      "comment": "",
+      "command": "verifyText",
+      "target": "linkText=Missie X-Mas Benefietconcert 2016",
+      "targets": [
+        ["linkText=Missie X-Mas Benefietconcert 2016", "linkText"],
+        ["css=.post-title", "css:finder"],
+        ["xpath=//a[contains(text(),'Missie X-Mas Benefietconcert 2016')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrapper']/section[2]/div/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/event/1')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Missie X-Mas Benefietconcert 2016')]", "xpath:innerText"]
+      ],
+    "value": "Missie X-Mas Benefietconcert 2016"
+    "id": "cb27985f-b116-416d-8c1c-e729aff08b64",
+    "name": "Ambassadeur toevoegen - lege velden",
+    "commands": [{
+      "id": "1c407dc5-992a-4723-b86d-8a1832f908b8",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/ambassador",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e9f88afc-5fba-496d-b535-d97aae0d30af",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Ambassadeur toevoegen",
+      "targets": [
+        ["linkText=Ambassadeur toevoegen", "linkText"],
+        ["css=.col-12 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Ambassadeur toevoegen')]", "xpath:link"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://veads-dev.ontwikkel.it/admin/ambassador/create')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Ambassadeur toevoegen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2641e02-fe4e-4598-94a4-7ea4bb1e13b4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[7]/div/button", "xpath:idRelative"],
+        ["xpath=//div[7]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3293617-f747-4b45-a7b7-872a736031ee",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group:nth-child(2) .invalid-feedback",
+      "targets": [
+        ["css=.form-group:nth-child(2) .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5378ca93-e11e-46da-8a3c-922a66941aa3",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.mb-5 .invalid-feedback",
+      "targets": [
+        ["css=.mb-5 .invalid-feedback", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/form/div[5]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[5]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3b8281f6-4b59-4064-b8f7-08c8d91c7245",
+    "name": "Ambassadeur verwijderen",
+    "commands": [{
+      "id": "3e0f3c0a-742c-42bf-a96c-0c82f9a01366",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/ambassador",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7e1ec0cb-e69d-418d-8974-f61aafbfa393",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80803d26-08f6-4dfc-9130-4da0e9260683",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(3)",
+      "targets": [
+        ["css=.btn:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div[2]/div/table/tbody/tr/td[4]/form/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3000657-f3f2-448b-9ba7-10cc2e7b5b92",
+      "comment": "",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "75cdc275-9446-47e8-9e1a-9447458a7cef",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//table/tbody/tr[contains(td[1], 'Test ambassadeur')]/td[4]/div/btn[3]",
+      "targets": [],
       "value": ""
     }]
   }],

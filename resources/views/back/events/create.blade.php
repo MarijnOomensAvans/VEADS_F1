@@ -29,6 +29,12 @@
                                 'prefill' => $event->description ?? ''
                             ])@endcomponent
 
+                            @component('includes.forms.formgroup', [
+                                'name' => 'tags',
+                                'title' => 'Evenement tags',
+                                'prefill' => empty($event) ? "" : $event->tagsText()
+                            ])@endcomponent
+
                             <div class="form-group row mb-5">
                                 <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="name">Project</label>
                                 <div class="col-sm-8 col-lg-9">
