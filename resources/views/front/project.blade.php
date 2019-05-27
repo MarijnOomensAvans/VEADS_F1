@@ -100,6 +100,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         @endforeach
                     </div>
                     @endif
@@ -139,7 +140,7 @@
                             <span>
                                 {{$project->address->street}} {{$project->address->number}} {{$project->address->number_modifier}}
                                 <br/>
-                                {{$project->address->zipcode}} {{$project->address->city}} 
+                                {{$project->address->zipcode}} {{$project->address->city}}
                             </span>
                         </li>
                     </ul>
