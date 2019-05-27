@@ -54,9 +54,9 @@
                                             @csrf
                                             @method("DELETE")
                                             <div class="btn-group">
-                                                <a href="{{ action('Backend\TeamMemberController@show', compact('team_member')) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
-                                                <a href="{{ action('Backend\TeamMemberController@edit', compact('team_member')) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                                                <button type="submit" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></button>
+                                                <a href="{{ action('Backend\TeamMemberController@show', compact('team_member')) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Details weergeven"><span class="fas fa-eye"></span></a>
+                                                <a href="{{ action('Backend\TeamMemberController@edit', compact('team_member')) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Teamlid aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                                                <button type="submit" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Teamlis verwijderen"><span class="fas fa-trash"></span></button>
                                             </div>
                                         </form>
                                     </td>

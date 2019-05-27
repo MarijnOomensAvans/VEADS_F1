@@ -23,6 +23,7 @@
                     <div class="padding-fifteen-all bg-light-gray border-radius-6 lg-padding-seven-all sm-padding-30px-all h-100">
                        <span class="text-extra-dark-gray alt-font text-large font-weight-600 margin-25px-bottom" style="display: block;">
                            Vul uw gegevens in om te reageren op deze advertentie
+                           <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="Uw gegevens worden alleen gebruikt om contact met u op te kunnen nemen."></span>
                         </span>
                         <form action="/veads-zoekt/{{ $request->id }}" method="post">
                             @csrf

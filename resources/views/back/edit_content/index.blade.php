@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-        <h1>Pagina's beheren</h1>
+        <h1>Pagina's beheren <span class="fas fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Op deze pagina kun je de inhoud van de pagina’s op de website aanpassen. De titels van de tabjes komen overeen met de pagina’s op de website." style="font-size: 0.5em;"></span></h1>
     </div>
 
     <form method="post" action="{{ action('Backend\EditContentController@update') }}" enctype="multipart/form-data">

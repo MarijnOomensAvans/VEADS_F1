@@ -60,9 +60,9 @@
                                             @csrf
                                             @method('DELETE')
                                             <div class="btn-group">
-                                                <a href="{{ action('Backend\AmbassadorController@show', compact('ambassador')) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
-                                                <a href="{{ action('Backend\AmbassadorController@edit', compact('ambassador')) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                                                 <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('Weet u zeker dat u de ambassadeur \'{{ $ambassador->name }}\' wilt verwijderen?');"><span class="fas fa-trash"></span></button>
+                                                <a href="{{ action('Backend\AmbassadorController@show', compact('ambassador')) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Details weergeven"><span class="fas fa-eye"></span></a>
+                                                <a href="{{ action('Backend\AmbassadorController@edit', compact('ambassador')) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Ambassadeur aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                                                 <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('Weet u zeker dat u de ambassadeur \'{{ $ambassador->name }}\' wilt verwijderen?');" data-toggle="tooltip" data-placement="top" title="Ambassadeur verwijderen"><span class="fas fa-trash"></span></button>
                                             </div>
                                         </form>
                                     </td>

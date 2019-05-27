@@ -70,9 +70,9 @@
                             @csrf
                             @method('DELETE')
                             <div class="btn-group">
-                                <a href="{{ action('Backend\AmbassadorController@index') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
-                                <a href="{{ action('Backend\AmbassadorController@edit', compact('ambassador')) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                                <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('Weet u zeker dat u de ambassadeur \'{{ $ambassador->name }}\' wilt verwijderen?');"><span class="fas fa-trash"></span></button>
+                                <a href="{{ action('Backend\AmbassadorController@index') }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terug naar alle ambassadeurs"><span class="fas fa-arrow-left"></span></a>
+                                <a href="{{ action('Backend\AmbassadorController@edit', compact('ambassador')) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Ambassadeur aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                                <button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('Weet u zeker dat u de ambassadeur \'{{ $ambassador->name }}\' wilt verwijderen?');" data-toggle="tooltip" data-placement="top" title="Ambassadeur verwijderen"><span class="fas fa-trash"></span></button>
                             </div>
                         </form>
                     </div>

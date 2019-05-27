@@ -568,9 +568,9 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
     Aside style
 ====================================== */
 
-.aside-title {position: relative; overflow:hidden}
+.aside-title {/*position: relative;*/ overflow-x:hidden}
 .aside-title span {display: inline-block; vertical-align:middle; margin-right: 20px;}
-.aside-title:after {content: ""; display: inline-block; width: 100%; background: #2bd7f2; height: 1px; top: 50%; position: absolute;}
+/*.aside-title:after {content: ""; display: inline-block; width: 100%; background: #2bd7f2; height: 1px; top: 50%; position: absolute;}*/
 .right-sidebar {padding-right:45px;}
 .left-sidebar {padding-left:45px;}
 

@@ -83,9 +83,9 @@
                 <div class="row mb-3">
                     <div class="col-12 text-right">
                         <div class="btn-group">
-                            <a href="{{ route('admin/projects') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
-                            <a href="{{ route('admin/projects/edit', ['project' => $project]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                            <a href="{{ route('admin/projects/destroy', ['project' => $project]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
+                            <a href="{{ route('admin/projects') }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terug naar alle projecten"><span class="fas fa-arrow-left"></span></a>
+                            <a href="{{ route('admin/projects/edit', ['project' => $project]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Project aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                            <a href="{{ route('admin/projects/destroy', ['project' => $project]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Project verwijderen"><span class="fas fa-trash"></span></a>
                         </div>
                     </div>
                 </div>

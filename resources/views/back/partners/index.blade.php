@@ -48,9 +48,9 @@
                                     <td>{{ $partner->name }}</td>
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <a href="{{ route('admin/partner', ['partner' => $partner]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
-                                            <a href="{{ route('admin/partners/edit', ['partner' => $partner]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                                            <a href="{{ route('admin/partners/destroy', ['partner' => $partner]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
+                                            <a href="{{ route('admin/partner', ['partner' => $partner]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Details weergeven"><span class="fas fa-eye"></span></a>
+                                            <a href="{{ route('admin/partners/edit', ['partner' => $partner]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Partner aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                                            <a href="{{ route('admin/partners/destroy', ['partner' => $partner]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Partner verwijderen"><span class="fas fa-trash"></span></a>
                                         </div>
                                     </td>
                                 </tr>

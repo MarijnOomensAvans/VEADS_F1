@@ -136,9 +136,9 @@
                 <div class="row mb-3">
                     <div class="col-12 text-right">
                         <div class="btn-group">
-                            <a href="{{ route('admin/events') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
-                            <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                            <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
+                            <a href="{{ route('admin/events') }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terug naar alle evenementen"><span class="fas fa-arrow-left"></span></a>
+                            <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Evenement aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                            <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Evenement verwijderen"><span class="fas fa-trash"></span></a>
                         </div>
                     </div>
                 </div>

@@ -13,8 +13,9 @@
 
             <div class="row">
                 <div class="col-xs-12 col-md-4 margin-20px-bottom">
-                    <form method="get" action="">
-                        <input type="text" name="q" value="{{ $q }}" placeholder="Zoeken naar advertentie" />
+                    <form method="get" action="" style="display: flex; align-items: center;">
+                        <input type="text" name="q" value="{{ $q }}" placeholder="Zoeken naar advertentie" style="margin-bottom: 0;" />
+                        <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="U kunt zoeken op de naam van de advertentie."></span>
                     </form>
                 </div>
 
@@ -23,6 +24,7 @@
                     <a href="{{ $service_url }}" class="btn btn-primary{{ request('type') == 'service' ? ' active' : '' }}">Diensten</a>
                     <a href="{{ $vacancy_url }}" class="btn btn-primary{{ request('type') == 'vacancy' ? ' active' : '' }}">Vrijwilligers</a>
                     <a href="{{ $reset_url }}" class="btn btn-secondary">Reset filter</a>
+                    <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="U kunt filteren op het type advertentie. Met “reset filter” kunt u alle type advertenties weergeven."></span>
                 </div>
             </div>
 

@@ -32,7 +32,8 @@
                             @component('includes.forms.formgroup', [
                                 'name' => 'tags',
                                 'title' => 'Evenement tags',
-                                'prefill' => empty($event) ? "" : $event->tagsText()
+                                'prefill' => empty($event) ? "" : $event->tagsText(),
+                                'help' => 'Je kunt meerdere tags toevoegen door deze met een komma te scheiden.'
                             ])@endcomponent
 
                             <div class="form-group row mb-5">

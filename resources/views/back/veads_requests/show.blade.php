@@ -62,9 +62,9 @@
                             @csrf
                             @method('DELETE')
                             <div class="btn-group">
-                                <a href="{{ action('Backend\VeadsRequestController@index') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
-                                <a href="{{ action('Backend\VeadsRequestController@edit', compact('request')) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                                <button class="btn btn-sm btn-primary" onclick="return confirm('Weet u zeker dat u de advertentie \'{{ $request->title }}\' wilt verwijderen?');"><span class="fas fa-trash"></span></button>
+                                <a href="{{ action('Backend\VeadsRequestController@index') }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terug naar alle advertenties"><span class="fas fa-arrow-left"></span></a>
+                                <a href="{{ action('Backend\VeadsRequestController@edit', compact('request')) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Advertentie aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                                <button class="btn btn-sm btn-primary" onclick="return confirm('Weet u zeker dat u de advertentie \'{{ $request->title }}\' wilt verwijderen?');" data-toggle="tooltip" data-placement="top" title="Advertentie verwijderen"><span class="fas fa-trash"></span></button>
                             </div>
                         </form>
                     </div>
@@ -97,7 +97,7 @@
                                 <td>{{ $response->email }}</td>
                                 <td>{{ $response->phone ?? 'N/A' }}</td>
                                 <td>
-                                    <a href="{{ action('Backend\VeadsRequestController@response', ['veadsResponse' => $response]) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
+                                    <a href="{{ action('Backend\VeadsRequestController@response', ['veadsResponse' => $response]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Details weergeven"><span class="fas fa-eye"></span></a>
                                 </td>
                             </tr>
                         @endforeach
