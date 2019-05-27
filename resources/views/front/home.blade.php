@@ -20,10 +20,31 @@
     </div>
 </section>
 
-@include('front.home.intro')
-@include('front.home.partners')
-@include('front.home.socialmedia')
-@include('front.home.events')
-@include('front.home.youtube')
-@include('front.home.allpartners')
+@foreach($components as $component)
+    @switch($component)
+        @case('intro')
+            @include('front.home.intro')
+            @break
+
+        @case('partners')
+            @include('front.home.partners')
+            @break
+
+        @case('socialmedia')
+            @include('front.home.socialmedia')
+            @break
+
+        @case('events')
+            @include('front.home.events')
+            @break
+
+        @case('youtube')
+            @include('front.home.youtube')
+            @break
+
+        @case('allpartners')
+            @include('front.home.allpartners')
+            @break
+    @endswitch
+@endforeach
 @endsection
