@@ -30,7 +30,7 @@ class StoreEvent extends FormRequest
 	        'description' => '',
             'tags' => array(
                 'nullable',
-                'regex:/^(\w+)(,\s*\w+)*$/'
+                'regex:/^([a-zA-Z0-9-!@#&]+)(,\s*[a-zA-Z0-9-!@#&]+)*$/'
             ),
 	        'price' => 'numeric|max:9999.99',
 	        'street' => 'max:50|required_with_all:number,zipcode,city,country|nullable',
