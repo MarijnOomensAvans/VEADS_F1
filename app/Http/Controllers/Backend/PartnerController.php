@@ -128,6 +128,7 @@ class PartnerController extends Controller
             Storage::delete("images/" . $picture->path);
             $picture->delete();
 
+            $partner->events()->detach();
             $partner->delete();
         }
 

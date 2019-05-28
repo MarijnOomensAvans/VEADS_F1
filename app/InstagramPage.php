@@ -25,6 +25,6 @@ class InstagramPage extends Model
     }
 
     public function lastPosts(int $limit = 1) {
-        return $this->posts()->orderBy('created_at', 'desc')->limit($limit)->get();
+        return $this->posts()->orderBy('created_at', 'desc')->where('image_url', '!=', '')->where('message', '!=', '')->limit($limit)->get();
     }
 }

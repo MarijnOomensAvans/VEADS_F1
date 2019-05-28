@@ -98,12 +98,12 @@
                     </a>
                 </li>
                 <li class="nav-main-item nav-main-heading flex-row align-items-center">Win-win <span class="fa fa-question-circle ml-2" data-toggle="tooltip" data-placement="top" title="Hieronder staan opties die te maken hebben met de win-win pagina van de website."></span></li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/donations') !== false ? ' active' : '' }}" href="{{ action('Backend\DonationController@index') }}">
-                        <i class="nav-main-link-icon fas fa-money-bill"></i>
-                        <span class="nav-main-link-name">Donaties</span>
-                    </a>
-                </li>
+{{--                <li class="nav-main-item">--}}
+{{--                    <a class="nav-main-link{{ strpos(Request::path(), 'admin/donations') !== false ? ' active' : '' }}" href="{{ action('Backend\DonationController@index') }}">--}}
+{{--                        <i class="nav-main-link-icon fas fa-money-bill"></i>--}}
+{{--                        <span class="nav-main-link-name">Donaties</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/veads_request') !== false ? ' active' : '' }}" href="{{ action('Backend\VeadsRequestController@index') }}">
                         <i class="nav-main-link-icon fas fa-search"></i>
