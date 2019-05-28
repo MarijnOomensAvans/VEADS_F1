@@ -152,6 +152,10 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
+        if (!isset($validated['description']) || empty($validated['description'])) {
+            $validated['description'] = '';
+        }
+
         if (isset($validated['street']) && !empty($validated['street'])) {
             if (empty($project->address)) {
                 $address = $project->address;
@@ -259,6 +263,10 @@ class ProjectController extends Controller
             $name = $image->getClientOriginalName();
             $filename = $image->hashName();
             $image->storeAs('images', $filename);
+
+            if (strlen($name) > 50) {
+                $name = substr($name, -50);
+            }
 
             $picture = new Picture();
             $picture->name = $name;
