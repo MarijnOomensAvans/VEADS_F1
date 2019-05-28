@@ -25,6 +25,10 @@
                         <div class="tab-pane{{ $i == 0 ? ' active show' : '' }}" id="{{ $category->category }}" role="tabpanel">
                             <h4 class="font-w400">{{ ucfirst($category->category) }}</h4>
 
+                            @if($category->category === 'homepagina')
+                                @include('back.edit_content.homepage_order')
+                            @endif
+
                             @foreach($category->content()->orderBy('category')->get() as $content)
                                 @switch($content->type)
                                     @case('text')
