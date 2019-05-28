@@ -1,4 +1,4 @@
-@if(count($allpartners) > 0)
+@if(count($allpartners) > 0 && ((bool) getContent('home_show_allpartners')->content))
     <div class="container">
 
         <div class="row margin-10px-top">
