@@ -160,6 +160,10 @@ if (isset($event->pictures[0])) {
                             </ul>
                         </div>
                         @endif
+
+                <a href="/inschrijvenvrijwilliger"><button class="btn btn-small border-radius-4 btn-royal-blue">
+                    Meehelpen
+                    </button></a>
             </aside>
         </div>
     </div>
