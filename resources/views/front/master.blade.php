@@ -2,7 +2,7 @@
 <!doctype html>
 <html class="no-js" lang="nl">
     <head>
-        
+
         <title>{{ getContent('home_title')->content }}</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -65,11 +65,7 @@
                                     <li>
                                         <a href="/event">Evenementen</a>
                                     </li>
-
-                                    <li>
-                                        <a href="/project">Projecten</a>
-                                    </li>
-
+                                    
                                     <li>
                                         <a href="/ikhelpmee">Help mee</a>
                                     </li>
@@ -81,7 +77,7 @@
                                     @guest
                                         <li>
                                             <a href="/login">Inloggen</a>
-                                        </li>                                      
+                                        </li>
                                     @endguest
 
                                     @auth
@@ -91,7 +87,7 @@
 
                                         <li>
                                             <a href="/logout">Uitloggen</a>
-                                        </li>                                      
+                                        </li>
                                     @endauth
                                 </ul>
                             </div>
