@@ -18,7 +18,11 @@ class WinWinController extends Controller
         return view('front/winwin');
     }
 
-    public function enrollVolunteer() {
+    public function enrollFromPage(Request $request) {
+        return $this->enrollVolunteer($request['eventid']);
+    }
+
+    public function enrollVolunteer($selectedevent = null) {
         $events = Event::leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
             ->orderBy('event_date_times.start')
             ->where(function($query) {
@@ -28,7 +32,7 @@ class WinWinController extends Controller
             ->select('events.*')
             ->get();
 
-        return view('front.win-win.enrollVolunteer', ['events' => $events ]);
+        return view('front.win-win.enrollVolunteer', compact('events', 'selectedevent'));
     }
 
     public function giveProducts() {

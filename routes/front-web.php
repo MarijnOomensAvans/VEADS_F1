@@ -16,6 +16,7 @@ Route::post('/contact', 'Frontend\\ContactController@store');
 // win-win
 Route::get('/ikhelpmee', 'Frontend\\WinWinController@index');
 Route::view('/thanks', 'front.win-win.thanks');
+Route::post('/gelijkinschrijven', 'Frontend\\WinWinController@enrollFromPage');
 Route::get('/inschrijvenvrijwilliger', 'Frontend\\WinWinController@enrollVolunteer');
 Route::post('/inschrijvenvrijwilliger', 'Frontend\\WinWinController@saveEnrollVolunteer');
 Route::get('/giveproducts','Frontend\\WinWinController@giveProducts');

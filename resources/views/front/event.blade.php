@@ -161,9 +161,16 @@ if (isset($event->pictures[0])) {
                         </div>
                         @endif
 
-                <a href="/inschrijvenvrijwilliger"><button class="btn btn-small border-radius-4 btn-royal-blue">
-                    Meehelpen
-                    </button></a>
+                @if(new DateTime($event->datetime->end) >  new DateTime())
+                    <form method="post" action="/gelijkinschrijven">
+                        @csrf
+                        <input type="hidden" name="eventid" value="{{ $event->id }}">
+                        <button type="submit" class="btn btn-small border-radius-4 btn-royal-blue">
+                            Inschrijven
+                        </button></form>
+                @endif
+
+
             </aside>
         </div>
     </div>
