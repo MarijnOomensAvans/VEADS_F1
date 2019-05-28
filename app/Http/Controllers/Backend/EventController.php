@@ -317,6 +317,7 @@ class EventController extends Controller
                 $picture->delete();
             }
 
+            $event->partners()->detach();
             $event->volunteers()->detach();
             $event->datetime()->delete();
             $event->delete();
