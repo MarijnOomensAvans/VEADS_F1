@@ -237,6 +237,8 @@ class ProjectController extends Controller
             }
 
             Event::where('project_id', $project->id)->update(['project_id' => null]);
+            $project->requests()->delete();
+            $project->tags()->detach();
             $project->volunteers()->sync([]);
             $project->delete();
             $project->address()->delete();
