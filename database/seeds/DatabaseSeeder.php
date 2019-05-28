@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamMemberSeeder::class);
         $this->call(PartnerSeeder::class);
         $this->call(WinWinProductOptionsTableSeeder::class);
+        $this->call(HomepageOrderSeeder::class);
     }
 }

@@ -8,6 +8,7 @@ use App\Event;
 use App\Partner;
 use App\FacebookPage;
 use App\InstagramPage;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -29,6 +30,9 @@ class HomeController extends Controller
         $events = Event::whereNotNull('featured_position')->where('published', true)->orderBy('featured_position', 'asc')->limit(3)->get();
         $partners = Partner::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();
         $allpartners = Partner::get();
-        return view('front/home', compact('events','partners', 'allpartners', 'socialPosts'));
+
+        $components = array_map(function($item){return $item->component;}, DB::select('SELECT component FROM homepage_order ORDER BY `order` ASC'));
+
+        return view('front/home', compact('events','partners', 'allpartners', 'socialPosts', 'components'));
     }
 }

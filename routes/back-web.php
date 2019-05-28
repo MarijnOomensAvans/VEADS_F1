@@ -81,6 +81,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     // Backend edit content
     Route::get('/edit_content', 'Backend\\EditContentController@index');
     Route::put('/edit_content', 'Backend\\EditContentController@update');
+    Route::post('/edit_content/homepage_order', 'Backend\\EditContentController@homepageOrder');
 
     // Facebook
     Route::get('/facebook', "Backend\\FacebookController@index")->name('admin/facebook');

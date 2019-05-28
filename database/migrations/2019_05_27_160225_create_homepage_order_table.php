@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterVolunteersTable extends Migration
+class CreateHomepageOrderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AlterVolunteersTable extends Migration
      */
     public function up()
     {
-        Schema::table('volunteers', function (Blueprint $table) {
-            $table->string('facebook_url')->nullable();
-            $table->string('instagram_url')->nullable();
-            $table->string('twitter_url')->nullable();
+        Schema::create('homepage_order', function (Blueprint $table) {
+            $table->unsignedInteger('order')->unique();
+            $table->string('component');
         });
     }
 
@@ -27,6 +26,6 @@ class AlterVolunteersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('homepage_order');
     }
 }
