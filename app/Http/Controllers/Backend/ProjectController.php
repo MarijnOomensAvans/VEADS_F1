@@ -9,6 +9,7 @@ use App\Http\Requests\StoreProject;
 use App\Picture;
 use App\Project;
 use App\Tag;
+use App\VeadsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -237,7 +238,7 @@ class ProjectController extends Controller
             }
 
             Event::where('project_id', $project->id)->update(['project_id' => null]);
-            $project->requests()->delete();
+            VeadsRequest::where('project_id', '=', $project->id)->update(['project_id' => null]);
             $project->tags()->detach();
             $project->volunteers()->sync([]);
             $project->delete();
