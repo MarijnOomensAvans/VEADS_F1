@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     public function index(){
-
         $socialPosts = collect();
 
         $facebookPages = FacebookPage::get();
@@ -32,7 +31,7 @@ class HomeController extends Controller
         $allpartners = Partner::get();
 
         $components = array_map(function($item){return $item->component;}, DB::select('SELECT component FROM homepage_order ORDER BY `order` ASC'));
-
+        dd(DB::getQueryLog());
         return view('front/home', compact('events','partners', 'allpartners', 'socialPosts', 'components'));
     }
 }
