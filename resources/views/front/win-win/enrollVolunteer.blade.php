@@ -78,7 +78,7 @@
                                     <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px; margin-bottom: 0;">
                                         <option selected disabled>Selecteer een evenement </option>
                                         @foreach($events as $event)
-                                            <option value="{{$event->id}}"{{ request('event_id') == $event->id ? ' selected' : '' }}>{{$event->name}}</option>
+                                            <option value="{{$event->id}}" {{ $selectedevent == $event->id ? ' selected' : '' }}>{{$event->name}}</option>
                                         @endforeach
                                     </select>
                                     <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="Selecteer hier het evenement waarvoor u als vrijwilliger wilt inschrijven."></span>

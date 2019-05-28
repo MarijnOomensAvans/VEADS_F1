@@ -160,6 +160,17 @@ if (isset($event->pictures[0])) {
                             </ul>
                         </div>
                         @endif
+
+                @if(new DateTime($event->datetime->end) >  new DateTime())
+                    <form method="post" action="/gelijkinschrijven">
+                        @csrf
+                        <input type="hidden" name="eventid" value="{{ $event->id }}">
+                        <button type="submit" class="btn btn-small border-radius-4 btn-royal-blue">
+                            Inschrijven
+                        </button></form>
+                @endif
+
+
             </aside>
         </div>
     </div>
