@@ -52,4 +52,19 @@ class EventController extends Controller
 
         return view('front.searchevents', compact('events'));
     }
+
+    public function applyForEvent(Request $request){
+        $data = $request->validate([
+            'event_id' => 'required',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255|email',
+        ]);
+
+        Event::find($data['event_id'])->participants()->create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+        ]);
+
+        return redirect()->back()->with('message', 'success');
+    }
 }

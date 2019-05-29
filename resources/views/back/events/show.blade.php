@@ -27,6 +27,19 @@
                         </div>
                         <hr/>
                     @endif
+                
+                <div class="row mb-3">
+                    <div class="col-12 col-sm-4 text-sm-right"><label>Deelnemers</label></div>
+                        <div class="col-12 col-sm-8">
+                            <ul>
+                                @foreach($event->participants as $participant)
+                                    <li>{{$participant->name}} ({{$participant->email}})</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                </div>
+
+                <hr/>
 
                 @if(!empty($event->project))
                     <div class="row mb-3">

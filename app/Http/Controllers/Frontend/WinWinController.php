@@ -11,6 +11,7 @@ use App\Address;
 use App\Volunteer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class WinWinController extends Controller
 {
@@ -27,7 +28,7 @@ class WinWinController extends Controller
             ->orderBy('event_date_times.start')
             ->where(function($query) {
                 $query->where('event_date_times.start')
-                    ->orWhere('event_date_times.start', '>', DB::raw('NOW()'));
+                    ->orWhere('event_date_times.start', '>', Carbon::now());
             })
             ->select('events.*')
             ->get();
