@@ -3840,3 +3840,12 @@ aside .latest-post li figure {width: 75px;}
 .carouselcard {height: 300px;max-height: 220px;}
 .text-background-greytrans {background-color: rgba(28,28,28,0.8)}
 .text-shadow {text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;}
+.text-shadow {text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;}
+
+.checkbox label {
+    padding-left: 0;
+}
+
+.checkbox input[type=checkbox] {
+    width: 25%;
+}
