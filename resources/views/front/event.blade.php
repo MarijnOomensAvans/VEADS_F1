@@ -108,8 +108,21 @@ if (isset($event->pictures[0])) {
                 </div> --}}
             </main>
             <aside class="col-md-3 col-sm-12 col-xs-12 pull-right">
-                <div class="margin-45px-bottom xs-margin-25px-bottom">
-                    <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title"><span>Informatie</span></div>
+
+                @if(new DateTime($event->datetime->end) >  new DateTime())
+                    <form method="post" action="/gelijkinschrijven">
+                        @csrf
+                        <input type="hidden" name="eventid" value="{{ $event->id }}">
+                        <button type="submit" class="m-auto btn-success btn btn-small button margin-5px-all lg-margin-15px-bottom d-table d-lg-inline-block md-margin-lr-auto">
+                            Aanmelden als vrijwilliger
+                        </button>
+                    </form>
+                @endif
+
+                <div class="margin-45px-top margin-45px-bottom xs-margin-25px-bottom">
+                    <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title">
+                        <span>Informatie</span>
+                    </div>
                     <ul class="list-style-6 margin-50px-bottom text-small">
                         @if(!empty($event->datetime))
                         <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
@@ -144,32 +157,63 @@ if (isset($event->pictures[0])) {
                             @endforeach
                         </ul>
                     </div>
-                    @endif
-
-                    @if(count($event->partners) > 0)
-                        <div class="margin-45px-bottom xs-margin-25px-bottom">
-                            <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title">
-                                <span>Partners
-                                    <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="Partners zijn bedrijven of personen die dit evenement steunen."></span>
-                                </span>
-                            </div>
-                            <ul class="list-style-6 margin-50px-bottom text-small" style="max-height: 300px; overflow-y: scroll;">
-                                @foreach($event->partners as $partner)
-                                    <li><a href="{{ $partner->link }}"><img src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}" alt="Partner" style="max-width: 30px;" /> {{ $partner->name }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-
-                @if(new DateTime($event->datetime->end) >  new DateTime())
-                    <form method="post" action="/gelijkinschrijven">
-                        @csrf
-                        <input type="hidden" name="eventid" value="{{ $event->id }}">
-                        <button type="submit" class="btn btn-small border-radius-4 btn-royal-blue">
-                            Inschrijven
-                        </button></form>
                 @endif
 
+                @if(count($event->partners) > 0)
+                    <div class="margin-45px-bottom xs-margin-25px-bottom">
+                        <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title">
+                            <span>Partners
+                                <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="Partners zijn bedrijven of personen die dit evenement steunen."></span>
+                            </span>
+                        </div>
+                        <ul class="list-style-6 margin-50px-bottom text-small" style="max-height: 300px; overflow-y: scroll;">
+                            @foreach($event->partners as $partner)
+                                <li><a href="{{ $partner->link }}"><img src="/image/{{ $partner->picture->path }}/{{ $partner->picture->name }}" alt="Partner" style="max-width: 30px;" /> {{ $partner->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if (new DateTime($event->datetime->end) >  new DateTime())
+                    <div class="margin-45px-top">
+                        
+                        <form method="post" action="/deelnemen">
+                            @csrf
+                            <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title">
+                                <span>Deelnemen</span>
+                            </div>
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            @if(session()->has('message'))
+                                <div class="alert alert-success">
+                                    Dank u wel voor het deelnemen!
+                                </div>
+                            @endif
+
+                            <ul class="list-style-6 margin-50px-bottom text-small">
+                                <input type="text" name="event_id" class="hidden" value="{{$event->id}}">
+
+                                <label>Naam:</label>
+                                <input type="text" name="name" class="input-bg" value="{{ old('name') }}">
+
+                                <label>E-mail:</label>
+                                <input type="text" name="email" class="input-bg" value="{{ old('email') }}">
+                            </ul>
+                            <button type="submit" class="m-auto btn-primary btn btn-small button margin-5px-all lg-margin-15px-bottom d-table d-lg-inline-block md-margin-lr-auto">
+                                Deelnemen
+                            </button>
+                        </form>
+                    </div>
+                @endif
 
             </aside>
         </div>

@@ -83,4 +83,8 @@ class Event extends Model
     public function requests() {
         return $this->hasMany('App\VeadsRequest');
     }
+
+    public function participants() {
+        return $this->hasMany('App\Participant');
+    }
 }
