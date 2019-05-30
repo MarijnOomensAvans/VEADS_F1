@@ -51,9 +51,8 @@
 
                                 <div class="checkbox margin-20px-bottom">
                                     <label>
-                                        Ik wil graag anoniem doneren
+                                        <input type="checkbox" name="anonymous" value="1" /> Ik wil graag anoniem doneren
                                     </label>
-                                    <input type="checkbox" name="anonymous" value="1" />
                                 </div>
 
                                 <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">
