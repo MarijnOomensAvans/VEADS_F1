@@ -73,6 +73,11 @@ class FacebookUpdateCommand extends Command
                         $updated--;
                     }
 
+                    if (empty($post['message']) && empty($post['full_picture'])) {
+                        print('Skipping post with id ' . $post['id'] . ', because this post don\'t have any content to show.' . PHP_EOL);
+                        continue;
+                    }
+
                     $p->fill([
                         'id' => $post['id'],
                         'page_id' => $page->id,

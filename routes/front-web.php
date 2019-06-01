@@ -16,9 +16,11 @@ Route::post('/contact', 'Frontend\\ContactController@store');
 // win-win
 Route::get('/ikhelpmee', 'Frontend\\WinWinController@index');
 Route::view('/thanks', 'front.win-win.thanks');
+Route::post('/gelijkinschrijven', 'Frontend\\WinWinController@enrollFromPage');
 Route::get('/inschrijvenvrijwilliger', 'Frontend\\WinWinController@enrollVolunteer');
 Route::post('/inschrijvenvrijwilliger', 'Frontend\\WinWinController@saveEnrollVolunteer');
 Route::get('/giveproducts','Frontend\\WinWinController@giveProducts');
+Route::post('/deelnemen', 'Frontend\\EventController@applyForEvent');
 
 // dont know
 Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->name('event/add-visitor')->where('event', '[0-9]+');

@@ -17,7 +17,7 @@
 
     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 center-col margin-eight-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center last-paragraph-no-margin margin-100px-top">
         <h5 class="alt-font font-weight-700 text-extra-dark-gray text-uppercase">Informatie</h5>
-        <p>U kunt VEADS producten geven of uitlenen om ons te helpen bij projecten en evenemenenten. Hiermee kunnen wij meer projecten organiseren om mensen te helpen.</p>
+        <p>{!! getContent('veads_product_dontate_description')->content !!}</p>
     </div>
 
 @endsection

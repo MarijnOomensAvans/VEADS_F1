@@ -68,7 +68,11 @@ class EditableContentsSeeder extends Seeder
         }
 
         if (empty(\App\EditContent::find('home_show_partners'))) {
-            (new \App\EditContent(['key' => 'home_show_partners', 'title' => 'Partners weergeven', 'type' => 'checkbox', 'content' => 'true', 'category' => 'homepagina']))->save();
+            (new \App\EditContent(['key' => 'home_show_partners', 'title' => 'Uitgelichte partners weergeven', 'type' => 'checkbox', 'content' => 'true', 'category' => 'homepagina']))->save();
+        } else {
+            $edit_content = \App\EditContent::find('home_show_partners');
+            $edit_content->title = 'Uitgelichte partners weergeven';
+            $edit_content->save();
         }
 
         if (empty(\App\EditContent::find('home_video_url'))) {
@@ -151,6 +155,14 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'contact_show_ambassadors', 'title' => 'Ambassadeurs weergeven', 'type' => 'checkbox', 'content' => 'true', 'category' => 'contact']))->save();
         }
 
+        if (empty(\App\EditContent::find('home_show_allpartners'))) {
+            (new \App\EditContent(['key' => 'home_show_allpartners', 'title' => 'Partner carrousel weergeven', 'type' => 'checkbox', 'content' => 'true', 'category' => 'homepagina']))->save();
+        }
+        
+        if (empty(\App\EditContent::find('veads_product_dontate_description'))) {
+            (new \App\EditContent(['key' => 'veads_product_dontate_description', 'title' => 'Product doneren omschrijving', 'type' => 'textarea', 'content' => 'U kunt VEADS producten geven of uitlenen om ons te helpen bij projecten en evenemenenten. Hiermee kunnen wij meer projecten organiseren om mensen te helpen.', 'category' => 'win-win']))->save();
+        }
+       
         // DO NOT TOUCH THIS LINE
     }
 }

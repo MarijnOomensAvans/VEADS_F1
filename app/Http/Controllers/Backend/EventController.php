@@ -8,6 +8,7 @@ use App\EventDateTime;
 use App\Http\Requests\StoreEvent;
 use App\Picture;
 use App\Tag;
+use App\VeadsRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -317,6 +318,9 @@ class EventController extends Controller
                 $picture->delete();
             }
 
+            VeadsRequest::where('event_id', '=', $event->id)->update(['event_id' => null]);
+            $event->tags()->detach();
+            $event->partners()->detach();
             $event->volunteers()->detach();
             $event->datetime()->delete();
             $event->delete();

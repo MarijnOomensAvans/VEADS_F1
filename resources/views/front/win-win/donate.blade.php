@@ -50,9 +50,8 @@
                                 <input type="number" step="0.01" min="0" name="amount" placeholder="Bedrag" class="border-radius-4 bg-white medium-input" value="{{ old('amount') }}">
 
                                 <div class="checkbox margin-20px-bottom">
-                                    <label>
-                                        <input type="checkbox" name="anonymous" value="1" /> Ik wil graag anoniem doneren
-                                    </label>
+                                    <label>Ik wil graag anoniem doneren</label>
+                                    <input type="checkbox" name="anonymous" value="1" />
                                 </div>
 
                                 <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">
