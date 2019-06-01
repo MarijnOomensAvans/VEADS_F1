@@ -15,16 +15,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/', 'Backend\\AdminController@index')->name('admin');
 
     // Backend projects
-    Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
-    Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
-    Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');
-    Route::post('/projects/create', 'Backend\\ProjectController@store')->name('admin/projects/create');
-    Route::get('/projects/{project}/edit', 'Backend\\ProjectController@edit')->name('admin/projects/edit')->where('project', '[0-9]+');
-    Route::post('/projects/{project}/edit', 'Backend\\ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
-    Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
-    Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
-    Route::get('/projects/{project}/image/{picture}', 'Backend\\ProjectController@destroyImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
-    Route::post('/projects/{project}/image/{picture}', 'Backend\\ProjectController@deleteImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
+    // Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
+    // Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
+    // Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');
+    // Route::post('/projects/create', 'Backend\\ProjectController@store')->name('admin/projects/create');
+    // Route::get('/projects/{project}/edit', 'Backend\\ProjectController@edit')->name('admin/projects/edit')->where('project', '[0-9]+');
+    // Route::post('/projects/{project}/edit', 'Backend\\ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
+    // Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    // Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    // Route::get('/projects/{project}/image/{picture}', 'Backend\\ProjectController@destroyImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
+    // Route::post('/projects/{project}/image/{picture}', 'Backend\\ProjectController@deleteImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
 
     // Backend volunteers
     Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
