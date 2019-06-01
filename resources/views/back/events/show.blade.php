@@ -140,7 +140,7 @@
                             <ul class="list-group mb-3">
                                 @foreach($event->donations as $donation)
                                     <li class="list-group-item">
-                                        <a href="{{ action('Backend\DonationController@show', compact('donation')) }}">&euro;{{ number_format($donation->amount, 2, ',', '.') }} - {{ $donation->full_name }}</a>
+                                        &euro;{{ number_format($donation->amount, 2, ',', '.') }} - {{ $donation->full_name }}
                                     </li>
                                 @endforeach
                             </ul>
