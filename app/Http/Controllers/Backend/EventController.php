@@ -97,9 +97,9 @@ class EventController extends Controller
             $event->address_id = $address->id;
         }
 
-        if ($validated['project_id'] == 0) {
-            $event->project_id = null;
-        }
+//        if ($validated['project_id'] == 0) {
+//            $event->project_id = null;
+//        }
 
         $event->save();
 
@@ -224,9 +224,9 @@ class EventController extends Controller
             $event->published = 0;
         }
 
-        if ($validated['project_id'] == 0) {
-            $event->project_id = null;
-        }
+//        if ($validated['project_id'] == 0) {
+//            $event->project_id = null;
+//        }
 
 	    $event->save();
 
