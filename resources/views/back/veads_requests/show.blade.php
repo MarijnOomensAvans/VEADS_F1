@@ -36,7 +36,7 @@
                     <hr/>
                 @endif
 
-                @if(!empty($request->project))
+                <!-- @if(!empty($request->project))
                     <div class="row mb-3">
                         <div class="col-12 col-sm-4 text-sm-right"><label>Project</label></div>
                         <div class="col-12 col-sm-8">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <hr/>
-                @endif
+                @endif -->
 
                 @if(!empty($request->event))
                     <div class="row mb-3">

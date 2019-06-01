@@ -113,7 +113,7 @@
                     switch(value) {
                         case 'product':
                             showContainer('description');
-                            showContainer('project');
+                            // showContainer('project');
                             showContainer('event');
                             showContainer('amount');
                             showContainer('actions');
@@ -121,7 +121,7 @@
 
                         case 'service':
                             showContainer('description');
-                            showContainer('project');
+                            // showContainer('project');
                             showContainer('event');
                             showContainer('actions');
                             break;
