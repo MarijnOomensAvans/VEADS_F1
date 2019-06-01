@@ -51,7 +51,7 @@
             </div>
             <div class="block-content">
                 <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Projecten</label></div>
+                    <!-- <div class="col-12 col-sm-4"><label>Projecten</label></div>
                     <div class="col-12 col-sm-8">
                         @if (count($volunteer->projects) > 0)
                             <ul class="list-group mb-3">
@@ -62,7 +62,7 @@
                                     </li>
                                 @endforeach
                             </ul>
-                        @endif
+                        @endif -->
 
                         <volunteer-add-project-component volunteer="{{ $volunteer->id }}"></volunteer-add-project-component>
                     </div>
