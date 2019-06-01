@@ -108,7 +108,7 @@ class VeadsRequestController extends Controller
         $veadsRequest->fill($validated);
         $veadsRequest->save();
 
-        return redirect(action('Backend\VeadsController@show', compact('veadsRequest')));
+        return redirect(action('Backend\VeadsRequestController@show', compact('veadsRequest')));
     }
 
     /**
