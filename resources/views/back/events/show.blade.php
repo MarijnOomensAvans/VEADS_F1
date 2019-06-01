@@ -27,7 +27,7 @@
                         </div>
                         <hr/>
                     @endif
-                
+
                 @if($event->participants()->count() > 0)
                 <div class="row mb-3">
                     <div class="col-12 col-sm-4 text-sm-right"><label>Deelnemers ({{$event->participants()->count()}})</label></div>
@@ -44,7 +44,7 @@
                 @endif
 
 
-                @if(!empty($event->project))
+                <!-- @if(!empty($event->project))
                     <div class="row mb-3">
                         <div class="col-12 col-sm-4 text-sm-right"><label>Project</label></div>
                         <div class="col-12 col-sm-8">
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <hr/>
-                @endif
+                @endif -->
 
                 @if($event->price > 0)
                     <div class="row mb-3">
