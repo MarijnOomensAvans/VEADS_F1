@@ -61,8 +61,13 @@ class Event extends Model
 
     public function tags() {
         return $this
-            ->belongsToMany('App\Tag')
+            ->belongsToMany('App\Tag', 'tag_event')
             ->withTimestamps();
+    }
+
+    public function tagsText(){
+        $values = array_map(function ($tag) { return $tag['name']; }, $this->tags()->get()->toArray());
+        return implode(', ', $values);
     }
 
     public function project() {
@@ -79,4 +84,7 @@ class Event extends Model
         return $this->hasMany('App\VeadsRequest');
     }
 
+    public function participants() {
+        return $this->hasMany('App\Participant');
+    }
 }

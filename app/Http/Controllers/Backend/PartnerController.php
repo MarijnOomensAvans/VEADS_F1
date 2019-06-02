@@ -128,6 +128,7 @@ class PartnerController extends Controller
             Storage::delete("images/" . $picture->path);
             $picture->delete();
 
+            $partner->events()->detach();
             $partner->delete();
         }
 
@@ -169,7 +170,6 @@ class PartnerController extends Controller
 
     public function deleteImage(Request $request, Partner $partner, Picture $picture) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            Storage::delete("images/" . $picture->path);
             $picture->partners()->detach();
             $picture->delete();
         }

@@ -16,7 +16,10 @@ class Volunteer extends Model
         'first_name',
         'last_name',
         'phone_number',
-        'address_id'
+        'address_id',
+        'facebook_url',
+        'instagram_url',
+        'twitter_url'
     ];
 
     public function user() {

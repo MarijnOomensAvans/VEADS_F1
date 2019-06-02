@@ -50,6 +50,10 @@
                                 <input type="text" name="city" placeholder="Plaats *" class="border-radius-4 bg-white medium-input" value="{{ old('city') ?? Auth::user()->volunteer->address->city ?? '' }}">
                                 <input type="text" name="zipcode" placeholder="Postcode *" class="border-radius-4 bg-white medium-input" value="{{ old('zipcode') ?? Auth::user()->volunteer->address->zipcode ?? '' }}">
                                 <input type="text" name="country" placeholder="Land *" class="border-radius-4 bg-white medium-input" value="{{ old('country') ?? Auth::user()->volunteer->address->country ?? '' }}">
+
+                                <input type="text" name="facebook_url" placeholder="Facebook Link (optioneel)" class="border-radius-4 bg-white medium-input" value="{{ old('facebook_url') ?? Auth::user()->volunteer->facebook_url ?? '' }}">
+                                <input type="text" name="instagram_url" placeholder="Instagram Link (optioneel)" class="border-radius-4 bg-white medium-input" value="{{ old('instagram_url') ?? Auth::user()->volunteer->instagram_url ?? '' }}">
+                                <input type="text" name="twitter_url" placeholder="Twitter Link (optioneel)" class="border-radius-4 bg-white medium-input" value="{{ old('twitter_url') ?? Auth::user()->volunteer->twitter_url ?? '' }}">
                                 {{-- End Register Fields --}}
 
                                 <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">

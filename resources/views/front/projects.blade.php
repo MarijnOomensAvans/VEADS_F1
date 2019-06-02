@@ -45,9 +45,25 @@
     </section>
 @endif
 
+<form action="/searchprojects" method="POST" role="search" style="display: flex; align-items: center;">
+    @csrf
+    <div class="input-group" style="width: 50%; margin-left: 25%; border: 1px solid grey;">
+        <input type="text" class="form-control" name="q"
+               placeholder="Zoek projecten" max="255"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+    </div>
+    <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="U kunt zoeken op de naam van het project of op tags van het project."></span>
+</form>
+
 <section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
         <div class="row equalize xs-equalize-auto">
+            @if($projects->count() < 1)
+                <div class="alert alert-info">Er zijn geen projecten gevonden.</div>
+            @endif
             @foreach ($projects as $project)
                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
                     <div class="blog-post bg-light-gray inner-match-height">

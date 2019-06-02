@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProject;
 use App\Picture;
 use App\Project;
+use App\Tag;
+use App\VeadsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -77,6 +79,36 @@ class ProjectController extends Controller
 
         $project->save();
 
+        if(isset($validated['tags'])) {
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $project->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+
+                // check if tag exits
+                if (empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $project->tags()->create(['name' => $tag]);
+                } else {
+                    // attach bestaande tags
+                    $project->tags()->attach($existingTag->id);
+                }
+
+            }
+        }
+
         if ($request->hasFile('image')) {
             $this->saveImages($project, $request->file('image'));
         }
@@ -121,6 +153,10 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
+        if (!isset($validated['description']) || empty($validated['description'])) {
+            $validated['description'] = '';
+        }
+
         if (isset($validated['street']) && !empty($validated['street'])) {
             if (empty($project->address)) {
                 $address = $project->address;
@@ -141,6 +177,36 @@ class ProjectController extends Controller
 
         $project->fill($validated);
         $project->save();
+
+        if(isset($validated['tags'])) {
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $project->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+
+                // check if tag exits
+                if (empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $project->tags()->create(['name' => $tag]);
+                } else {
+                    // attach bestaande tags
+                    $project->tags()->attach($existingTag->id);
+                }
+
+            }
+        }
 
         if ($request->hasFile('image')) {
             $this->saveImages($project, $request->file('image'));
@@ -172,6 +238,8 @@ class ProjectController extends Controller
             }
 
             Event::where('project_id', $project->id)->update(['project_id' => null]);
+            VeadsRequest::where('project_id', '=', $project->id)->update(['project_id' => null]);
+            $project->tags()->detach();
             $project->volunteers()->sync([]);
             $project->delete();
             $project->address()->delete();
@@ -181,12 +249,11 @@ class ProjectController extends Controller
     }
 
     public function destroyImage(Project $project, Picture $picture) {
-        return view('project/image', compact('project', 'picture'));
+        return view('back.projects.image', compact('project', 'picture'));
     }
 
     public function deleteImage(Request $request, Project $project, Picture $picture) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            Storage::delete("images/" . $picture->path);
             $picture->projects()->detach();
             $picture->delete();
         }
@@ -199,6 +266,10 @@ class ProjectController extends Controller
             $name = $image->getClientOriginalName();
             $filename = $image->hashName();
             $image->storeAs('images', $filename);
+
+            if (strlen($name) > 50) {
+                $name = substr($name, -50);
+            }
 
             $picture = new Picture();
             $picture->name = $name;

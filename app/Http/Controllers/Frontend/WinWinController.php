@@ -10,6 +10,8 @@ use App\DonatedProduct;
 use App\Address;
 use App\Volunteer;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class WinWinController extends Controller
 {
@@ -17,9 +19,21 @@ class WinWinController extends Controller
         return view('front/winwin');
     }
 
-    public function enrollVolunteer() {
-        $events = Event::get();
-        return view('front.win-win.enrollVolunteer', ['events' => $events ]);
+    public function enrollFromPage(Request $request) {
+        return $this->enrollVolunteer($request['eventid']);
+    }
+
+    public function enrollVolunteer($selectedevent = null) {
+        $events = Event::leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
+            ->orderBy('event_date_times.start')
+            ->where(function($query) {
+                $query->where('event_date_times.start')
+                    ->orWhere('event_date_times.start', '>', Carbon::now());
+            })
+            ->select('events.*')
+            ->get();
+
+        return view('front.win-win.enrollVolunteer', compact('events', 'selectedevent'));
     }
 
     public function giveProducts() {

@@ -61,10 +61,10 @@
                             @method("DELETE")
                             <div class="btn-group">
                                 <a href="{{ action('Backend\TeamMemberController@index') }}"
-                                   class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
+                                   class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terug naar alle teamleden"><span class="fas fa-arrow-left"></span></a>
                                 <a href="{{ action('Backend\TeamMemberController@edit', compact('team_member')) }}"
-                                   class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                                <button type="submit" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span>
+                                   class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Teamlid aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                                <button type="submit" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Teamlid verwijderen"><span class="fas fa-trash"></span>
                                 </button>
                             </div>
                         </form>

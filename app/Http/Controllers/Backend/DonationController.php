@@ -16,6 +16,8 @@ class DonationController extends Controller
      */
     public function index(Request $request)
     {
+        return abort(404);
+
         $q = $request->query('q');
 
         $donations = Donation::query()->orderBy('paid_at', 'desc');
@@ -46,11 +48,15 @@ class DonationController extends Controller
      */
     public function show(Donation $donation)
     {
+        return abort(404);
+
         return view('back.donations.show', compact('donation'));
     }
 
     public function refund(Request $request, Donation $donation)
     {
+        return abort(404);
+
         if ($request->post('confirm') != 1) {
             return view('back.donations.refund', compact('donation'));
         }

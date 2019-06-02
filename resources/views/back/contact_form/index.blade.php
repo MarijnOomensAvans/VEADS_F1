@@ -49,8 +49,8 @@
                                             @csrf
                                             @method("DELETE")
                                             <div class="btn-group">
-                                                <a href="{{ action('Backend\ContactFormController@show', compact('contact_form')) }}" class="btn btn-sm btn-primary"><span class="fas fa-eye"></span></a>
-                                                <button type="submit" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></button>
+                                                <a href="{{ action('Backend\ContactFormController@show', compact('contact_form')) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Details weergeven"><span class="fas fa-eye"></span></a>
+                                                <button type="submit" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Contact aanvraag verwijderen"><span class="fas fa-trash"></span></button>
                                             </div>
                                         </form>
                                     </td>

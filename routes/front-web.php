@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Frontend\\HomeController@index')->name('home');
 Route::get('/event', 'Frontend\\EventController@frontIndex');
+Route::post('/searchevents', 'Frontend\\EventController@searchShow');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
-Route::get('/project', 'Frontend\\ProjectController@frontIndex');
-Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
+// Route::get('/project', 'Frontend\\ProjectController@frontIndex');
+// Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
+// Route::post('/searchprojects', 'Frontend\\ProjectController@searchShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 Route::get('/contact', 'Frontend\\ContactController@index');
 Route::post('/contact', 'Frontend\\ContactController@store');
@@ -14,9 +16,11 @@ Route::post('/contact', 'Frontend\\ContactController@store');
 // win-win
 Route::get('/ikhelpmee', 'Frontend\\WinWinController@index');
 Route::view('/thanks', 'front.win-win.thanks');
+Route::post('/gelijkinschrijven', 'Frontend\\WinWinController@enrollFromPage');
 Route::get('/inschrijvenvrijwilliger', 'Frontend\\WinWinController@enrollVolunteer');
 Route::post('/inschrijvenvrijwilliger', 'Frontend\\WinWinController@saveEnrollVolunteer');
 Route::get('/giveproducts','Frontend\\WinWinController@giveProducts');
+Route::post('/deelnemen', 'Frontend\\EventController@applyForEvent');
 
 // dont know
 Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->name('event/add-visitor')->where('event', '[0-9]+');

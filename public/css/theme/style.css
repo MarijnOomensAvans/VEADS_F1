@@ -568,9 +568,9 @@ textarea.input-bg {background-color: #f7f7f7; border-radius: 4px; border: 1px so
     Aside style
 ====================================== */
 
-.aside-title {position: relative; overflow:hidden}
+.aside-title {/*position: relative;*/ overflow-x:hidden}
 .aside-title span {display: inline-block; vertical-align:middle; margin-right: 20px;}
-.aside-title:after {content: ""; display: inline-block; width: 100%; background: #2bd7f2; height: 1px; top: 50%; position: absolute;}
+/*.aside-title:after {content: ""; display: inline-block; width: 100%; background: #2bd7f2; height: 1px; top: 50%; position: absolute;}*/
 .right-sidebar {padding-right:45px;}
 .left-sidebar {padding-left:45px;}
 
@@ -3566,7 +3566,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 .container .blog-post-style4 figure figcaption {padding: 35px;}
 
 /* blog post style 5 */
-.blog-post-style5 .blog-post .blog-post-images {height: 100%; position: relative}
+.blog-post-style5 .blog-post .blog-post-images {position: relative}
 .blog-post-style5 .blog-post .blog-categories { position: absolute; bottom:0; left: 0; z-index: 25; padding: 10px 20px 8px}
 
 /* blog post style 6 */
@@ -3840,3 +3840,12 @@ aside .latest-post li figure {width: 75px;}
 .carouselcard {height: 300px;max-height: 220px;}
 .text-background-greytrans {background-color: rgba(28,28,28,0.8)}
 .text-shadow {text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;}
+.text-shadow {text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;}
+
+.checkbox label {
+    padding-left: 0;
+}
+
+.checkbox input[type=checkbox] {
+    width: 25%;
+}

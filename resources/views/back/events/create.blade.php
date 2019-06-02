@@ -29,12 +29,19 @@
                                 'prefill' => $event->description ?? ''
                             ])@endcomponent
 
-                            <div class="form-group row mb-5">
+                            @component('includes.forms.formgroup', [
+                                'name' => 'tags',
+                                'title' => 'Evenement tags',
+                                'prefill' => empty($event) ? "" : $event->tagsText(),
+                                'help' => 'Je kunt meerdere tags toevoegen door deze met een komma te scheiden.'
+                            ])@endcomponent
+
+                            <!-- <div class="form-group row mb-5">
                                 <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="name">Project</label>
                                 <div class="col-sm-8 col-lg-9">
                                     <project-search-component project="{{ old('project_id', $event->project_id ?? '') }}"></project-search-component>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group row mb-5">
                                 <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="price">Entree prijs

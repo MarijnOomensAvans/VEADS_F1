@@ -35,9 +35,8 @@
                 <div class="row mb-3">
                     <div class="col-12 text-right">
                         <div class="btn-group">
-                            <a href="{{ route('admin/volunteers') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
-{{--                            <a href="{{ route('admin/volunteers/edit', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>--}}
-                            <a href="{{ route('admin/volunteers/destroy', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
+                            <a href="{{ route('admin/volunteers') }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terug naar alle vrijwilligers"><span class="fas fa-arrow-left"></span></a>
+                            <a href="{{ route('admin/volunteers/destroy', ['volunteer' => $volunteer]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Vrijwilliger verwijderen"><span class="fas fa-trash"></span></a>
                         </div>
                     </div>
                 </div>
@@ -48,11 +47,11 @@
     <div class="content">
         <div class="block block-rounded block-bordered">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Connecties</h3>
+                <h3 class="block-title">Connecties <span class="fas fa-question-circle" data-toggle="tooltip" data-placement="right" title="Deze connecties geven aan met welke projecten en/of evenementen deze vrijwilliger verbonden is." style="font-size: 0.75em;"></span></h3>
             </div>
             <div class="block-content">
                 <div class="row mb-3">
-                    <div class="col-12 col-sm-4"><label>Projecten</label></div>
+                    <!-- <div class="col-12 col-sm-4"><label>Projecten</label></div>
                     <div class="col-12 col-sm-8">
                         @if (count($volunteer->projects) > 0)
                             <ul class="list-group mb-3">
@@ -63,7 +62,7 @@
                                     </li>
                                 @endforeach
                             </ul>
-                        @endif
+                        @endif -->
 
                         <volunteer-add-project-component volunteer="{{ $volunteer->id }}"></volunteer-add-project-component>
                     </div>

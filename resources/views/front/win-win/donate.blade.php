@@ -39,7 +39,7 @@
                                 <input type="text" name="last_name" placeholder="Achternaam" class="border-radius-4 bg-white medium-input" value="{{ old('last_name', $volunteer->last_name ?? '') }}">
                                 <input type="text" name="email" placeholder="E-mailadres" class="border-radius-4 bg-white medium-input" value="{{ old('email', $volunteer->user->email ?? '') }}">
 
-                                <small>U kunt geld doneren aan één specifiek evenement of aan VEADS.</small>
+                                <small>U kunt geld doneren aan één specifiek evenement of aan VEADS.<span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="Als u hier kiest voor “VEADS” wordt het geld gedoneerd aan VEADS al geheel. Als u een specifiek evenement kiest zal VEADS uw geld alleen gebruiken voor dat evenement."></span></small>
                                 <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px;">
                                     <option selected value="">VEADS</option>
                                     @foreach($events as $event)
@@ -50,9 +50,8 @@
                                 <input type="number" step="0.01" min="0" name="amount" placeholder="Bedrag" class="border-radius-4 bg-white medium-input" value="{{ old('amount') }}">
 
                                 <div class="checkbox margin-20px-bottom">
-                                    <label>
-                                        <input type="checkbox" name="anonymous" value="1" /> Ik wil graag anoniem doneren
-                                    </label>
+                                    <label>Ik wil graag anoniem doneren</label>
+                                    <input type="checkbox" name="anonymous" value="1" />
                                 </div>
 
                                 <button type="submit" class="btn btn-small border-radius-4 btn-dark-gray">

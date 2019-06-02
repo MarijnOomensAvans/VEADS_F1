@@ -11,11 +11,11 @@ class ContactFormsTableSeeder extends Seeder
      */
     public function run()
     {
-        if (\App\ContactForm::count() > 0) {
-            print("Skipping ContactFormsTableSeeder, because table is already seeded\n");
-            return;
-        }
-
-        factory(\App\ContactForm::class, 50)->create();
+//        if (\App\ContactForm::count() > 0) {
+//            print("Skipping ContactFormsTableSeeder, because table is already seeded\n");
+//            return;
+//        }
+//
+//        factory(\App\ContactForm::class, 50)->create();
     }
 }

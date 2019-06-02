@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Ambassador;
 use App\ContactForm;
 use App\Http\Requests\StoreContactFormRequest;
 use App\TeamMember;
@@ -11,7 +12,8 @@ class ContactController extends Controller
 {
     public function index(){
         $team = TeamMember::get();
-        return view('front/contact', compact('team'));
+        $ambassadors = Ambassador::where('published', 1)->orderBy('name')->get();
+        return view('front/contact', compact('team', 'ambassadors'));
     }
 
     public function store(StoreContactFormRequest $request) {

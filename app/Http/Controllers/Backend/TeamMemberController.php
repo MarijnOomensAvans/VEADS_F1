@@ -106,6 +106,7 @@ class TeamMemberController extends Controller
     public function destroy(TeamMember $team_member)
     {
         $team_member->delete();
+        $team_member->picture->delete();
 
         return redirect(action('Backend\TeamMemberController@index'));
     }
@@ -113,22 +114,6 @@ class TeamMemberController extends Controller
     public function destroyImage(TeamMember $team_member, Picture $picture)
     {
         return view('back.team_member.image', compact('team_member', 'picture'));
-    }
-
-    public function delete(Request $request, TeamMember $team_member)
-    {
-        if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            $picture = $team_member->picture;
-
-            $team_member->picture_id = null;
-            $team_member->save();
-            Storage::delete("images/" . $picture->path);
-            $picture->delete();
-
-            $team_member->delete();
-        }
-
-        return redirect('admin/team_member');
     }
 
     public function deleteImage(Request $request, TeamMember $team_member, Picture $picture)

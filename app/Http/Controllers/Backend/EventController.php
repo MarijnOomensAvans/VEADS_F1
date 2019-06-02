@@ -7,6 +7,8 @@ use App\Event;
 use App\EventDateTime;
 use App\Http\Requests\StoreEvent;
 use App\Picture;
+use App\Tag;
+use App\VeadsRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -95,9 +97,9 @@ class EventController extends Controller
             $event->address_id = $address->id;
         }
 
-        if ($validated['project_id'] == 0) {
-            $event->project_id = null;
-        }
+//        if ($validated['project_id'] == 0) {
+//            $event->project_id = null;
+//        }
 
         $event->save();
 
@@ -115,6 +117,39 @@ class EventController extends Controller
 
             $date->save();
         }
+
+        if(isset($validated['tags'])) {
+
+
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $event->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $event->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $event->tags()->attach($existingTag->id);
+                }
+
+            }
+        }
+
 
         if ($request->hasFile('image')) {
             $this->saveImages($event, $request->file('image'));
@@ -189,9 +224,9 @@ class EventController extends Controller
             $event->published = 0;
         }
 
-        if ($validated['project_id'] == 0) {
-            $event->project_id = null;
-        }
+//        if ($validated['project_id'] == 0) {
+//            $event->project_id = null;
+//        }
 
 	    $event->save();
 
@@ -215,6 +250,37 @@ class EventController extends Controller
             $date->save();
         } elseif (!empty($date)) {
             $date->delete();
+        }
+
+        // add tags to event
+        if(isset($validated['tags'])) {
+
+            // get the input from form
+            $tags = $validated['tags'];
+
+            // split by comma
+            $tagsArrayString = explode(', ', $tags);
+
+            // remove all tags from event
+            $event->tags()->detach();
+
+            // loop trough all tags from form input
+            foreach ($tagsArrayString as $tag) {    // ! ['bader', 'marijn', 'test']
+
+                // find the tag
+                $existingTag = Tag::where('name', '=', $tag)->first();  // ! ['marijn']
+                
+                // check if tag exits
+                if(empty($existingTag)) {
+
+                    // maak een nieuw tags
+                    $event->tags()->create([ 'name' => $tag ]);
+                }else{
+                    // attach bestaande tags
+                    $event->tags()->attach($existingTag->id);
+                }
+                
+            }
         }
 
         if ($request->hasFile('image')) {
@@ -249,10 +315,12 @@ class EventController extends Controller
             $event->pictures()->detach();
 
             foreach($pictures as $picture) {
-                Storage::delete("images/" . $picture->path);
                 $picture->delete();
             }
 
+            VeadsRequest::where('event_id', '=', $event->id)->update(['event_id' => null]);
+            $event->tags()->detach();
+            $event->partners()->detach();
             $event->volunteers()->detach();
             $event->datetime()->delete();
             $event->delete();
@@ -263,12 +331,11 @@ class EventController extends Controller
     }
 
     public function destroyImage(Event $event, Picture $picture) {
-        return view('events/image', compact('event', 'picture'));
+        return view('back.events.image', compact('event', 'picture'));
     }
 
     public function deleteImage(Request $request, Event $event, Picture $picture) {
         if (!empty($confirm = $request->post('confirm')) && $confirm == 1) {
-            Storage::delete("images/" . $picture->path);
             $picture->events()->detach();
             $picture->delete();
         }
@@ -330,11 +397,5 @@ class EventController extends Controller
        $validated = $request->validated();
        $event->partners()->sync($validated["partners"] ??[]);
        return redirect("admin/events");
-    }
-
-    private function connectPartner(Event $event, $partners) {
-        foreach($partners as $partner) {
-            $event->partners()->attach($partner->id);
-        }
     }
 }

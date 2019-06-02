@@ -15,7 +15,7 @@ class EditableContentCategoriesSeeder extends Seeder
         $categories = [
             'homepagina',
             'evenementen',
-            'projecten',
+            // 'projecten',
             'contact',
             'footer',
             'win-win'

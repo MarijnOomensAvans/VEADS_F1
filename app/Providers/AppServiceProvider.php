@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Observers\PictureObservable;
+use App\Picture;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -31,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
                 }
             }
         );
+
+        Picture::observe(PictureObservable::class);
     }
 
     /**

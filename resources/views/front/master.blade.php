@@ -2,7 +2,7 @@
 <!doctype html>
 <html class="no-js" lang="nl">
     <head>
-        
+
         <title>{{ getContent('home_title')->content }}</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="/css/theme/style.css" />
         <link rel="stylesheet" href="/css/theme/responsive.css" />
         <link rel="stylesheet" href="/css/theme/footer.css" />
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
         <!--[if IE]>
             <script src="js/theme/html5shiv.js"></script>
         <![endif]-->
@@ -45,7 +46,11 @@
                 <div class="container nav-header-container">
                     <div class="row">
                         <div class="col-md-2 col-xs-5">
-                            <a href="/" title="{{ getContent('home_title')->content }}" class="logo"><img src="{{ !empty(($header = getContent('footer_logo'))) ? '/image/' . $header->path . '/' . $header->name : '/images/logo.png' }}" class="logo-dark default" alt="Veads logo"></a>
+                            <ul class="text-extra-small xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none bigger-font">
+                                <a href="/" title="{{ getContent('home_title')->content }}" class="logo"><img src="{{ !empty(($header = getContent('footer_logo'))) ? '/image/' . $header->path . '/' . $header->name : '/images/logo.png' }}" class="logo-dark default" alt="Veads logo"></a>
+                                <li class="display-inline-block margin-10px-right"><a class="facebook text-royal-blue" href="{{ getContent('footer_facebook_link')->content }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="display-inline-block margin-10px-right"><a class="instagram text-royal-blue" href="{{ getContent('footer_instagram_link')->content }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
                         </div>
                         <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
                             <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
@@ -64,23 +69,19 @@
                                     <li>
                                         <a href="/event">Evenementen</a>
                                     </li>
-
-                                    <li>
-                                        <a href="/project">Projecten</a>
-                                    </li>
-
+                                    
                                     <li>
                                         <a href="/ikhelpmee">Help mee</a>
                                     </li>
 
                                     <li>
-                                        <a href="/contact">Contact</a>
+                                        <a href="/contact">{{ getContent('contact_title')->content }}</a>
                                     </li>
 
                                     @guest
                                         <li>
                                             <a href="/login">Inloggen</a>
-                                        </li>                                      
+                                        </li>
                                     @endguest
 
                                     @auth
@@ -90,7 +91,7 @@
 
                                         <li>
                                             <a href="/logout">Uitloggen</a>
-                                        </li>                                      
+                                        </li>
                                     @endauth
                                 </ul>
                             </div>
@@ -161,5 +162,9 @@
         <script type="text/javascript" src="/revolution/js/jquery.themepunch.tools.min.js"></script>
         <script type="text/javascript" src="/revolution/js/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="/js/theme/main.js"></script>
+        <script>
+            $('[data-toggle="tooltip"]').tooltip();
+        </script>
+        @stack('scripts')
     </body>
 </html>

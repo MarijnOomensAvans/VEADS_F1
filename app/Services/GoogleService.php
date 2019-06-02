@@ -39,7 +39,7 @@ class GoogleService {
         // Create the DateRange object.
         $dateRange = new Google_Service_AnalyticsReporting_DateRange();
         $dateRange->setStartDate("7daysAgo");
-        $dateRange->setEndDate("today");
+        $dateRange->setEndDate("yesterday");
 
         // Create the Metrics object.
         $sessions = new Google_Service_AnalyticsReporting_Metric();

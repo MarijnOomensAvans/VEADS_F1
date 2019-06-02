@@ -29,6 +29,12 @@
                                 'prefill' => $project->description ?? ''
                             ])@endcomponent
 
+                            @component('includes.forms.formgroup', [
+                                'name' => 'tags',
+                                'title' => 'Project tags',
+                                'prefill' => empty($project) ? "" : $project->tagsText()
+                            ])@endcomponent
+
                             @include('includes.forms.address', ['address' => (isset($project) ? $project->address: null)])
 
                             <div class="form-group row mb-5">

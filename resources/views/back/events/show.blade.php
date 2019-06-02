@@ -20,7 +20,31 @@
                     <hr/>
                 @endif
 
-                @if(!empty($event->project))
+                @if(!empty($event->hasMany('App\Tag')))
+                        <div class="row mb-3">
+                            <div class="col-12 col-sm-4 text-sm-right"><label>Evenement Tags</label></div>
+                                <div class="col-12 col-sm-8">{{$event->tags()->get()->implode('name',", ")}}</div>
+                        </div>
+                        <hr/>
+                    @endif
+
+                @if($event->participants()->count() > 0)
+                <div class="row mb-3">
+                    <div class="col-12 col-sm-4 text-sm-right"><label>Deelnemers ({{$event->participants()->count()}})</label></div>
+                        <div class="col-12 col-sm-8">
+                            <ul>
+                                @foreach($event->participants as $participant)
+                                    <li>{{$participant->name}} ({{$participant->email}})</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                </div>
+                <hr/>
+
+                @endif
+
+
+                <!-- @if(!empty($event->project))
                     <div class="row mb-3">
                         <div class="col-12 col-sm-4 text-sm-right"><label>Project</label></div>
                         <div class="col-12 col-sm-8">
@@ -28,7 +52,7 @@
                         </div>
                     </div>
                     <hr/>
-                @endif
+                @endif -->
 
                 @if($event->price > 0)
                     <div class="row mb-3">
@@ -116,7 +140,7 @@
                             <ul class="list-group mb-3">
                                 @foreach($event->donations as $donation)
                                     <li class="list-group-item">
-                                        <a href="{{ action('Backend\DonationController@show', compact('donation')) }}">&euro;{{ number_format($donation->amount, 2, ',', '.') }} - {{ $donation->full_name }}</a>
+                                        &euro;{{ number_format($donation->amount, 2, ',', '.') }} - {{ $donation->full_name }}
                                     </li>
                                 @endforeach
                             </ul>
@@ -128,9 +152,9 @@
                 <div class="row mb-3">
                     <div class="col-12 text-right">
                         <div class="btn-group">
-                            <a href="{{ route('admin/events') }}" class="btn btn-sm btn-primary"><span class="fas fa-arrow-left"></span></a>
-                            <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-pencil-alt"></span></a>
-                            <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary"><span class="fas fa-trash"></span></a>
+                            <a href="{{ route('admin/events') }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Terug naar alle evenementen"><span class="fas fa-arrow-left"></span></a>
+                            <a href="{{ route('admin/events/edit', ['event' => $event]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Evenement aanpassen"><span class="fas fa-pencil-alt"></span></a>
+                            <a href="{{ route('admin/events/destroy', ['event' => $event]) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Evenement verwijderen"><span class="fas fa-trash"></span></a>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ use App\EditContent;
 use App\Http\Controllers\Controller;
 use App\Picture;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class EditContentController extends Controller
@@ -19,7 +20,8 @@ class EditContentController extends Controller
     public function index()
     {
         $categories = EditableContentCategory::orderBy('category')->get();
-        return view('back.edit_content.index', compact('categories'));
+        $components = array_map(function($item){return $item->component;}, DB::select('SELECT component FROM homepage_order ORDER BY `order` ASC'));
+        return view('back.edit_content.index', compact('categories', 'components'));
     }
 
     /**
@@ -86,5 +88,28 @@ class EditContentController extends Controller
         }
 
         return redirect(action('Backend\EditContentController@index'));
+    }
+
+    public function homepageOrder(Request $request) {
+        $components = $request->post('components');
+
+        if (empty($components)) {
+            return abort(400);
+        }
+
+        DB::delete('DELETE FROM homepage_order');
+
+        foreach($components as $key => $component) {
+            if (empty($component)) {
+                continue;
+            }
+
+            DB::table('homepage_order')->insert([
+                'order' => $key,
+                'component' => $component
+            ]);
+        }
+
+        return response()->json($components);
     }
 }

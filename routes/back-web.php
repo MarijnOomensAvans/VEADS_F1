@@ -15,16 +15,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/', 'Backend\\AdminController@index')->name('admin');
 
     // Backend projects
-    Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
-    Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
-    Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');
-    Route::post('/projects/create', 'Backend\\ProjectController@store')->name('admin/projects/create');
-    Route::get('/projects/{project}/edit', 'Backend\\ProjectController@edit')->name('admin/projects/edit')->where('project', '[0-9]+');
-    Route::post('/projects/{project}/edit', 'Backend\\ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
-    Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
-    Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
-    Route::get('/projects/{project}/image/{picture}', 'Backend\\ProjectController@destroyImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
-    Route::post('/projects/{project}/image/{picture}', 'Backend\\ProjectController@deleteImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
+    // Route::get('/projects', 'Backend\\ProjectController@index')->name('admin/projects');
+    // Route::get('/projects/{project}', 'Backend\\ProjectController@show')->name('admin/project')->where('project', '[0-9]+');
+    // Route::get('/projects/create', 'Backend\\ProjectController@create')->name('admin/projects/create');
+    // Route::post('/projects/create', 'Backend\\ProjectController@store')->name('admin/projects/create');
+    // Route::get('/projects/{project}/edit', 'Backend\\ProjectController@edit')->name('admin/projects/edit')->where('project', '[0-9]+');
+    // Route::post('/projects/{project}/edit', 'Backend\\ProjectController@update')->name('admin/projects/edit')->where('project', '[0-9]+');
+    // Route::get('/projects/{project}/destroy', 'Backend\\ProjectController@destroy')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    // Route::post('/projects/{project}/destroy', 'Backend\\ProjectController@delete')->name('admin/projects/destroy')->where('project', '[0-9]+');
+    // Route::get('/projects/{project}/image/{picture}', 'Backend\\ProjectController@destroyImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
+    // Route::post('/projects/{project}/image/{picture}', 'Backend\\ProjectController@deleteImage')->name('admin/projects/image')->where('project', '[0-9]+')->where('picture', '[0-9]+');
 
     // Backend volunteers
     Route::get('/volunteers', 'Backend\\VolunteerController@index')->name('admin/volunteers');
@@ -81,24 +81,28 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     // Backend edit content
     Route::get('/edit_content', 'Backend\\EditContentController@index');
     Route::put('/edit_content', 'Backend\\EditContentController@update');
+    Route::post('/edit_content/homepage_order', 'Backend\\EditContentController@homepageOrder');
 
     // Facebook
     Route::get('/facebook', "Backend\\FacebookController@index")->name('admin/facebook');
     Route::get('/fb/callback', "Backend\\FacebookController@callback")->name('admin/facebook/callback');
     Route::get('/facebook/update', "Backend\\FacebookController@update")->name('admin/facebook/update');
 
-    // Facebook
+    // Instagram
     Route::get('/instagram', "Backend\\InstagramController@index")->name('admin/instagram');
     Route::get('/instagram/callback', "Backend\\InstagramController@callback")->name('admin/instagram/callback');
     Route::get('/instagram/update', "Backend\\InstagramController@update")->name('admin/instagram/update');
 
     // Donations
-    Route::get('/donations', 'Backend\\DonationController@index');
-    Route::get('/donations/{donation}', 'Backend\\DonationController@show');
-    Route::get('/donations/{donation}/refund', 'Backend\\DonationController@refund');
-    Route::post('/donations/{donation}/refund', 'Backend\\DonationController@refund');
+//    Route::get('/donations', 'Backend\\DonationController@index');
+//    Route::get('/donations/{donation}', 'Backend\\DonationController@show');
+//    Route::get('/donations/{donation}/refund', 'Backend\\DonationController@refund');
+//    Route::post('/donations/{donation}/refund', 'Backend\\DonationController@refund');
 
     // VEADS requests
     Route::resource('/veads_request', 'Backend\\VeadsRequestController');
     Route::get('/veads_response/{veadsResponse}', 'Backend\\VeadsRequestController@response');
+
+    // Ambassadors
+    Route::resource('/ambassador', 'Backend\\AmbassadorController');
 });

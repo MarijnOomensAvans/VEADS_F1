@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-        <h1>Uitgelichte evenementen</h1>
+        <h1>Uitgelichte evenementen <span class="fas fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="De uitgelichte evenementen zijn zichtbaar op de homepagina. Je kunt alleen evenementen kiezen die gepubliceerd zijn." style="font-size: 0.5em;"></span></h1>
     </div>
 
     <form method="post" action="{{ route('admin/events/featured') }}">

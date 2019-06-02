@@ -1,5 +1,9 @@
 <?php
 
+if (!file_exists(__DIR__ . '/../.env')) {
+    copy(__DIR__ . '/../.env.example' , __DIR__ . '/../.env');
+}
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
