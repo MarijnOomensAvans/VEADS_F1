@@ -75,7 +75,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="/contact">Contact</a>
+                                        <a href="/contact">{{ getContent('contact_title')->content }}</a>
                                     </li>
 
                                     @guest

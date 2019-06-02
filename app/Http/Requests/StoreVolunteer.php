@@ -38,7 +38,10 @@ class StoreVolunteer extends FormRequest
             'number_modifier' => 'max:5',
             'zipcode' => 'required',
             'city' => 'required',
-            'country' => 'required'
+            'country' => 'required',
+            'facebook_url' => 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            'instagram_url' => 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            'twitter_url' => 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/'
         ];
     }
 }
