@@ -102,7 +102,7 @@
                                     @endif
 
                                     <div class="blog-post bg-light-gray">
-                                        <div class="post-details padding-40px-all sm-padding-20px-all">
+                                        <div class="post-details padding-40px-all sm-padding-20px-all" style="word-break: break-all;">
                                             <div class="alt-font post-title text-medium text-extra-dark-gray width-100 display-block md-width-100 margin-15px-bottom">{{$team_member->first_name}} {{$team_member->last_name}}</div>
                                             <p>
                                                 {!!$team_member->function!!}

@@ -29,6 +29,9 @@
     <section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
         <div class="container">
             <div class="row equalize xs-equalize-auto">
+                @if($events->count() < 1)
+                    <div class="alert alert-info">Geen evenementen gevonden.</div>
+                @endif
                 @foreach ($events as $event)
                     <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center" style="visibility: visible; animation-name: fadeInUp; height: 542px;">
                         <div class="blog-post bg-light-gray inner-match-height">

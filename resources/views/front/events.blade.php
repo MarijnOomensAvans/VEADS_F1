@@ -71,7 +71,7 @@
                                 <img src="/image/{{ $event->pictures[0]->path }}/{{ $event->pictures[0]->name }}" data-no-retina="">
                             @endif
                         </a>
-                        @if(new DateTime($event->datetime->end) <  new DateTime())
+                        @if(!empty($event->datetime) && new DateTime($event->datetime->end) <  new DateTime())
                             <div class="blog-categories text-uppercase text-extra-small alt-font" style="background: #EA5B5B; color: white;">
                                 Verlopen
                             </div>
