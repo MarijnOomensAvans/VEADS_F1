@@ -124,6 +124,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div><a href="/contactRequest" class="url">Contact</a></div>
                         </div>
                     </div>
                 </div>

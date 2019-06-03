@@ -12,6 +12,8 @@ Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
 Route::get('/image/{hashname}/{filename}', 'Frontend\\ImageController@show')->where('hashname', '[a-zA-Z0-9.]+');
 Route::get('/contact', 'Frontend\\ContactController@index');
 Route::post('/contact', 'Frontend\\ContactController@store');
+Route::get('/contactRequest', 'Frontend\\ContactRequestController@index');
+Route::post('/contactRequest', 'Frontend\\ContactRequestController@store');
 
 // win-win
 Route::get('/ikhelpmee', 'Frontend\\WinWinController@index');
