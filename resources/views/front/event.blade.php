@@ -109,7 +109,7 @@ if (isset($event->pictures[0])) {
             </main>
             <aside class="col-md-3 col-sm-12 col-xs-12 pull-right">
 
-                @if(new DateTime($event->datetime->end) >  new DateTime())
+                @if(!empty($event->datetime) && new DateTime($event->datetime->end) >  new DateTime())
                     <form method="post" action="/gelijkinschrijven">
                         @csrf
                         <input type="hidden" name="eventid" value="{{ $event->id }}">
@@ -174,7 +174,7 @@ if (isset($event->pictures[0])) {
                     </div>
                 @endif
 
-                @if (new DateTime($event->datetime->end) >  new DateTime())
+                @if (!empty($event->datetime) && new DateTime($event->datetime->end) >  new DateTime())
                     <div class="margin-45px-top">
                         
                         <form method="post" action="/deelnemen">
