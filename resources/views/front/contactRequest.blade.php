@@ -27,7 +27,7 @@
                                 </div>
                             @endif
 
-                            <form method="post" action="{{ action('Frontend\ContactController@store') }}"
+                            <form method="post" action="{{ action('Frontend\ContactRequestController@store') }}"
                                   enctype="multipart/form-data">
                                 @csrf
                                 @component('includes.forms.formgroup', [
