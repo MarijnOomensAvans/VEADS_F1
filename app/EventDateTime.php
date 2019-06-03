@@ -25,4 +25,11 @@ class EventDateTime extends Model
     public function event() {
         return $this->belongsTo('App\Event');
     }
+
+    public function startwotime() {
+        $start = $this->start;
+        $arr = explode(" ", $start, 2);
+        $first = $arr[0];
+        return $first;
+    }
 }

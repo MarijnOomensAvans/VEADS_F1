@@ -163,9 +163,9 @@
         <script type="text/javascript" src="/revolution/js/jquery.themepunch.tools.min.js"></script>
         <script type="text/javascript" src="/revolution/js/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="/js/theme/main.js"></script>
+        @stack('scripts')
         <script>
             $('[data-toggle="tooltip"]').tooltip();
         </script>
-        @stack('scripts')
     </body>
 </html>

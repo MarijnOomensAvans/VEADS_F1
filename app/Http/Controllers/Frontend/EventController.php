@@ -67,4 +67,17 @@ class EventController extends Controller
 
         return redirect()->back()->with('message', 'success');
     }
+
+    public function timeline() {
+        $events = Event::leftJoin('addresses', 'events.address_id', '=', 'addresses.id')
+            ->leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
+            ->where('events.published', '=', '1')
+            ->orderBy('event_date_times.start', 'desc')
+            ->select('events.*');
+
+        $events = $events->get()->sortBy('date');
+
+        return view('front.timeline', compact('events'));
+    }
+
 }
