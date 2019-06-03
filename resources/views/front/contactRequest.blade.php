@@ -1,6 +1,19 @@
 @extends('front.master')
 
 @section('content')
+    <section class="cover-background background-position-top top-space width-80 margin-ten-left border-radius-event"
+             style="background-image: url('{{ !empty(($header = getContent('contact_header'))) ? '/image/' . $header->path . '/' . $header->name : '/images/homepage-9-parallax-img5.jpg' }}'); margin-top: 74px; visibility: visible; animation-name: fadeIn;">
+        <div class="opacity-medium bg-light-blue"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
+                    <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
+                        <h1 class="alt-font text-white font-weight-600 no-margin-bottom">{{ getContent('contact_title')->content }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     @if((bool) getContent('contact_show_form')->content)
         <div class="row">
