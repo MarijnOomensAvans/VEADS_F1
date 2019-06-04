@@ -44,39 +44,59 @@
                             <div>
                                 {{-- Start Register Fields (need to split to blade file) --}}
                                 @if(!empty(Auth::user()->volunteer))
+
+                                    <span>Voornaam*:</span>
                                     <input type="hidden" name="first_name" value="{{ Auth::user()->volunteer->first_name }}">
+                                    <span>Achternaam*:</span>
                                     <input type="hidden" name="last_name" value="{{ Auth::user()->volunteer->last_name }}">
+                                    <span>E-mailadres*:</span>
                                     <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                                    <span>Telefoonnummer*:</span>
                                     <input type="hidden" name="phone_number" value="{{ Auth::user()->volunteer->phone_number }}">
+                                    <span>Straatnaam*:</span>
                                     <input type="hidden" name="street" value="{{ Auth::user()->volunteer->address->street }}">
+                                    <span>Huisnummer*:</span>
                                     <input type="hidden" name="number" value="{{ Auth::user()->volunteer->address->number }}">
+                                    <span>Plaats*:</span>
                                     <input type="hidden" name="city" value="{{ Auth::user()->volunteer->address->city }}">
+                                    <span>Postcode*:</span>
                                     <input type="hidden" name="zipcode" value="{{ Auth::user()->volunteer->address->zipcode }}">
+                                    <span>Land*:</span>
                                     <input type="hidden" name="country" value="{{ Auth::user()->volunteer->address->country }}">
                                 @else
-                                    <input type="text" name="first_name" placeholder="Voornaam *" class="border-radius-4 bg-white medium-input" value="{{ old('first_name') ?? Auth::user()->volunteer->first_name ?? '' }}">
-                                    <input type="text" name="last_name" placeholder="Achternaam *" class="border-radius-4 bg-white medium-input" value="{{ old('last_name') ?? Auth::user()->volunteer->last_name ?? '' }}">
-                                    <input type="text" name="email" placeholder="E-mailadres *" class="border-radius-4 bg-white medium-input" value="{{ old('email') ?? Auth::user()->email ?? '' }}">
+                                    <span>Voornaam*:</span>
+                                    <input type="text" name="first_name" class="border-radius-4 bg-white medium-input" value="{{ old('first_name') ?? Auth::user()->volunteer->first_name ?? '' }}">
+                                    <span>Achternaam*:</span>
+                                    <input type="text" name="last_name" class="border-radius-4 bg-white medium-input" value="{{ old('last_name') ?? Auth::user()->volunteer->last_name ?? '' }}">
+                                    <span>E-mailadres*:</span>
+                                    <input type="text" name="email"  class="border-radius-4 bg-white medium-input" value="{{ old('email') ?? Auth::user()->email ?? '' }}">
 
                                     @guest
-                                        <input type="password" name="password" placeholder="Wachtwoord *" class="border-radius-4 bg-white medium-input">
-                                        <input type="password" name="repeat_password" placeholder="Herhaal Wachtwoord *" class="border-radius-4 bg-white medium-input">
+                                        <span>Wachtwoord*:</span>
+                                        <input type="password" name="password" class="border-radius-4 bg-white medium-input">
+                                        <span>Herhaal wachtwoord*:</span>
+                                        <input type="password" name="repeat_password" class="border-radius-4 bg-white medium-input">
                                     @endguest
 
-                                    <input type="tel" name="phone_number" placeholder="Telefoonnummer *" class="border-radius-4 bg-white medium-input" value="{{ old('phone_number') ?? Auth::user()->volunteer->phone_number ?? '' }}">
-
-                                    <input type="text" name="street" placeholder="Straatnaam *" class="border-radius-4 bg-white medium-input" value="{{ old('street') ?? Auth::user()->volunteer->address->street ?? '' }}">
-                                    <input type="text" name="number" placeholder="Nummer *" class="border-radius-4 bg-white medium-input" value="{{ old('number') ?? Auth::user()->volunteer->address->number ?? '' }}">
-                                    <input type="text" name="city" placeholder="Plaats *" class="border-radius-4 bg-white medium-input" value="{{ old('city') ?? Auth::user()->volunteer->address->city ?? '' }}">
-                                    <input type="text" name="zipcode" placeholder="Postcode *" class="border-radius-4 bg-white medium-input" value="{{ old('zipcode') ?? Auth::user()->volunteer->address->zipcode ?? '' }}">
-                                    <input type="text" name="country" placeholder="Land *" class="border-radius-4 bg-white medium-input" value="{{ old('country') ?? Auth::user()->volunteer->address->country ?? '' }}">
+                                    <span>Telefoonnummer*:</span>
+                                    <input type="tel" name="phone_number" class="border-radius-4 bg-white medium-input" value="{{ old('phone_number') ?? Auth::user()->volunteer->phone_number ?? '' }}">
+                                    <span>Straatnaam*:</span>
+                                    <input type="text" name="street" class="border-radius-4 bg-white medium-input" value="{{ old('street') ?? Auth::user()->volunteer->address->street ?? '' }}">
+                                    <span>Huisnummer*:</span>
+                                    <input type="text" name="number" class="border-radius-4 bg-white medium-input" value="{{ old('number') ?? Auth::user()->volunteer->address->number ?? '' }}">
+                                    <span>Plaats*:</span>
+                                    <input type="text" name="city" class="border-radius-4 bg-white medium-input" value="{{ old('city') ?? Auth::user()->volunteer->address->city ?? '' }}">
+                                    <span>Postcode*:</span>
+                                    <input type="text" name="zipcode" class="border-radius-4 bg-white medium-input" value="{{ old('zipcode') ?? Auth::user()->volunteer->address->zipcode ?? '' }}">
+                                    <span>Land*:</span>
+                                    <input type="text" name="country" class="border-radius-4 bg-white medium-input" value="{{ old('country') ?? Auth::user()->volunteer->address->country ?? '' }}">
                                 @endif
                                 {{-- End Register Fields --}}
 
                                 {{-- Start Specific Fields --}}
                                 <div style="display: flex; align-items: center; margin-bottom: 20px;">
                                     <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px; margin-bottom: 0;">
-                                        <option selected disabled>Selecteer een evenement </option>
+                                        <option selected disabled>Selecteer een evenement:</option>
                                         @foreach($events as $event)
                                             <option value="{{$event->id}}" {{ $selectedevent == $event->id ? ' selected' : '' }}>{{$event->name}}</option>
                                         @endforeach
@@ -89,6 +109,8 @@
                                     Aanmelden
                                 </button>
                             </div>
+                            <br>
+                            <span>* velden met een sterretje achter de naam van het invoerveld zijn verplicte velden</span>
                         </form>
                     </div>
                 </div>
