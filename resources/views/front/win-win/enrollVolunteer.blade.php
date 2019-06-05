@@ -94,9 +94,10 @@
                                 {{-- End Register Fields --}}
 
                                 {{-- Start Specific Fields --}}
+                                <span>Event*:</span>
                                 <div style="display: flex; align-items: center; margin-bottom: 20px;">
                                     <select name="event_id" class="border-radius-4 bg-white medium-input" style="height: 45px;text-indent: 12px; margin-bottom: 0;">
-                                        <option selected disabled>Selecteer een evenement:</option>
+                                        <option selected disabled>Selecteer een event:</option>
                                         @foreach($events as $event)
                                             <option value="{{$event->id}}" {{ $selectedevent == $event->id ? ' selected' : '' }}>{{$event->name}}</option>
                                         @endforeach
