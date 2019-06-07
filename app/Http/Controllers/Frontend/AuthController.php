@@ -53,7 +53,7 @@ class AuthController extends Controller
     public function saveRegister(Request $request){
         $this->handleUserFields($request);
         \Session::flash('success',true);
-        return view('front.profile')->with('success', true);
+        return redirect('/');
     }
 
     /**
