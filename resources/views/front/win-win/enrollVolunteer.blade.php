@@ -111,7 +111,7 @@
                                 </button>
                             </div>
                             <br>
-                            <span>* velden met een sterretje achter de naam van het invoerveld zijn verplicte velden</span>
+                            <span>* velden met een sterretje achter de naam van het invoerveld zijn verplichte velden</span>
                         </form>
                     </div>
                 </div>
