@@ -32,6 +32,8 @@ Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->n
 Route::get('/login', 'Frontend\\AuthController@login');
 Route::post('/login', 'Frontend\\AuthController@loginPost');
 Route::get('/logout', 'Frontend\\AuthController@logout');
+Route::get('/register', 'Frontend\\AuthController@register');
+Route::post('/register', 'Frontend\\AuthController@saveRegister');
 
 // Profile
 Route::get('/profile', 'Frontend\\AuthController@profile');
