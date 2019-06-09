@@ -28,6 +28,50 @@
         </div>
     @endif
 
+    @if((bool) getContent('contact_show_team')->content)
+        <div class="row">
+            <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center xs-margin-40px-bottom">
+                <div class="position-relative overflow-hidden width-100">
+                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Bestuur</span>
+                </div>
+
+                <section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="container-fluid">
+                        <div class="row equalize xs-equalize-auto">
+                            @foreach ($team as $team_member)
+                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center"
+                                     style="visibility: visible; animation-name: fadeInUp;">
+
+                                    @if(!empty($team_member->picture))
+                                        <div class="blog-post-images overflow-hidden position-relative border-radius-10">
+                                            <img class="img-fluid width-360px height-350px"
+                                                 src="/image/{{ $team_member->picture->path }}/{{ $team_member->picture->name }}">
+                                        </div>
+                                    @else
+                                        <div class="width-360px height-350px">
+                                        </div>
+                                    @endif
+
+                                    <div class="blog-post bg-light-gray">
+                                        <div class="post-details padding-40px-all sm-padding-20px-all" style="word-break: break-all;">
+                                            <div class="alt-font post-title text-medium text-extra-dark-gray width-100 display-block md-width-100 margin-15px-bottom">{{$team_member->first_name}} {{$team_member->last_name}}</div>
+                                            <p>
+                                                {!!$team_member->function!!}
+
+                                                {!!$team_member->description!!}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    @endif
+
     @if(((bool) getContent('contact_show_ambassadors')->content) && count($ambassadors) > 0)
     <section class="bg-light-gray">
         <div class="container">
@@ -75,50 +119,6 @@
             </div>
         </div>
     </section>
-    @endif
-
-    @if((bool) getContent('contact_show_team')->content)
-        <div class="row">
-            <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center xs-margin-40px-bottom">
-                <div class="position-relative overflow-hidden width-100">
-                    <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Ons Team</span>
-                </div>
-
-                <section class="hover-option4 blog-post-style3" style="visibility: visible; animation-name: fadeIn;">
-                    <div class="container-fluid">
-                        <div class="row equalize xs-equalize-auto">
-                            @foreach ($team as $team_member)
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-text-center"
-                                     style="visibility: visible; animation-name: fadeInUp;">
-
-                                    @if(!empty($team_member->picture))
-                                        <div class="blog-post-images overflow-hidden position-relative border-radius-10">
-                                            <img class="img-fluid width-360px height-350px"
-                                                 src="/image/{{ $team_member->picture->path }}/{{ $team_member->picture->name }}">
-                                        </div>
-                                    @else
-                                        <div class="width-360px height-350px">
-                                        </div>
-                                    @endif
-
-                                    <div class="blog-post bg-light-gray">
-                                        <div class="post-details padding-40px-all sm-padding-20px-all" style="word-break: break-all;">
-                                            <div class="alt-font post-title text-medium text-extra-dark-gray width-100 display-block md-width-100 margin-15px-bottom">{{$team_member->first_name}} {{$team_member->last_name}}</div>
-                                            <p>
-                                                {!!$team_member->function!!}
-
-                                                {!!$team_member->description!!}
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
     @endif
 
 @endsection
