@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Frontend\\HomeController@index')->name('home');
-Route::get('/event', 'Frontend\\EventController@frontIndex');
+Route::get('/event', 'Frontend\\EventController@timeline');
 Route::post('/searchevents', 'Frontend\\EventController@searchShow');
 Route::get('/event/{id}', 'Frontend\\EventController@frontShow');
-Route::get('/timeline', 'Frontend\\EventController@timeline');
+// Route::get('/timeline', 'Frontend\\EventController@timeline');
 // Route::get('/project', 'Frontend\\ProjectController@frontIndex');
 // Route::get('/project/{id}', 'Frontend\\ProjectController@frontShow');
 // Route::post('/searchprojects', 'Frontend\\ProjectController@searchShow');
