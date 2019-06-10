@@ -64,7 +64,17 @@
                             <div class="form-group row mb-5 containers" style="display: none;" id="container-event">
                                 <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="">Evenement</label>
                                 <div class="col-sm-8 col-lg-9">
-                                    <event-search-component name="event_id" event="{{ old('event_id', $request->event_id ?? '') }}"></event-search-component>
+                                    <select name="event_id" class="form-control">
+                                        @if(isset($request))
+                                            @foreach($events as $event)
+                                                <option value="{{$event->id}}"{{ old('id', $event->id ?? '') == $request->event_id ? ' selected' : '' }}>{{$event->name}}</option>
+                                            @endforeach
+                                        @else
+                                            @foreach($events as $event)
+                                                <option value="{{$event->id}}">{{$event->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
                                 </div>
                             </div>
 
