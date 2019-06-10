@@ -189,6 +189,8 @@ return [
         'amount'                => 'bedrag',
         'event_id'              => 'evenement',
         'picture'               => 'foto',
-        'function'              => 'functie'
+        'function'              => 'functie',
+        'end datetime'          => 'eindtijd',
+        'start datetime'        => 'begin tijd'
     ],
 ];
