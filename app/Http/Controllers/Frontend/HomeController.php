@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Donation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
@@ -31,7 +32,9 @@ class HomeController extends Controller
         $allpartners = Partner::get();
 
         $components = array_map(function($item){return $item->component;}, DB::select('SELECT component FROM homepage_order ORDER BY `order` ASC'));
+        $donated = ceil(Donation::whereNotNull('payment_id')->whereNull('refunded_at')->whereNotNull('paid_at')->sum('amount'));
+        $backers = Donation::whereNotNull('payment_id')->whereNull('refunded_at')->whereNotNull('paid_at')->count();
 
-        return view('front/home', compact('events','partners', 'allpartners', 'socialPosts', 'components'));
+        return view('front/home', compact('events','partners', 'allpartners', 'socialPosts', 'components', 'donated', 'backers'));
     }
 }
