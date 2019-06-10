@@ -48,8 +48,6 @@
                         <div class="col-md-2 col-xs-5">
                             <ul class="text-extra-small xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none bigger-font">
                                 <a href="/" title="{{ getContent('home_title')->content }}" class="logo"><img src="{{ !empty(($header = getContent('footer_logo'))) ? '/image/' . $header->path . '/' . $header->name : '/images/logo.png' }}" class="logo-dark default" alt="Veads logo"></a>
-                                <li class="display-inline-block margin-10px-right"><a class="facebook text-royal-blue" href="{{ getContent('footer_facebook_link')->content }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="display-inline-block margin-10px-right"><a class="instagram text-royal-blue" href="{{ getContent('footer_instagram_link')->content }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                         <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
@@ -69,7 +67,7 @@
                                     <li>
                                         <a href="/event">Evenementen</a>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="/ikhelpmee">Help mee</a>
                                     </li>
@@ -95,6 +93,12 @@
                                     @endauth
                                 </ul>
                             </div>
+                        </div>
+                        <div class="col-md-2 col-xs-5">
+                            <ul class="text-extra-small xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none bigger-font">
+                                <li class="display-inline-block margin-10px-right"><a class="facebook text-royal-blue" href="{{ getContent('footer_facebook_link')->content }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="display-inline-block margin-10px-right"><a class="instagram text-royal-blue" href="{{ getContent('footer_instagram_link')->content }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
