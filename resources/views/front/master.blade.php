@@ -67,7 +67,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="/event">Evenementen</a>
+                                        <a href="/event">Events</a>
                                     </li>
                                     
                                     <li>
