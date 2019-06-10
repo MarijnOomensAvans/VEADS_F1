@@ -24,6 +24,7 @@ Route::get('/inschrijvenvrijwilliger', 'Frontend\\WinWinController@enrollVolunte
 Route::post('/inschrijvenvrijwilliger', 'Frontend\\WinWinController@saveEnrollVolunteer');
 Route::get('/giveproducts','Frontend\\WinWinController@giveProducts');
 Route::post('/deelnemen', 'Frontend\\EventController@applyForEvent');
+Route::post('/gelddoneren', 'Frontend\\DonationController@enrollFromDonation');
 
 // dont know
 Route::post('/event/{event}/add-visitor', 'Backend\\VisitorController@store')->name('event/add-visitor')->where('event', '[0-9]+');

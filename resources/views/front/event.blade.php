@@ -159,6 +159,16 @@ if (isset($event->pictures[0])) {
                     </div>
                 @endif
 
+                    @if(!empty($event->datetime) && new DateTime($event->datetime->end) >  new DateTime())
+                        <form method="post" action="/gelddoneren">
+                            @csrf
+                            <input type="hidden" name="eventid" value="{{ $event->id }}">
+                            <button type="submit" class="m-auto btn-success btn btn-small button margin-5px-all lg-margin-15px-bottom d-table d-lg-inline-block md-margin-lr-auto">
+                                Geld doneren
+                            </button>
+                        </form>
+                    @endif
+
                 @if(count($event->partners) > 0)
                     <div class="margin-45px-bottom xs-margin-25px-bottom">
                         <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title">

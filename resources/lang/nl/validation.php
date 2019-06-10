@@ -188,6 +188,7 @@ return [
         'image'                 => 'foto',
         'amount'                => 'bedrag',
         'event_id'              => 'evenement',
-        'picture'               => 'foto'
+        'picture'               => 'foto',
+        'function'               => 'functie'
     ],
 ];
