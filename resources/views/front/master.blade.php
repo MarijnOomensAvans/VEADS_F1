@@ -78,6 +78,10 @@
                                         <a href="/contact">{{ getContent('contact_title')->content }}</a>
                                     </li>
 
+                                    <li>
+                                        <a href="https://www.google.com">Matchsysteem</a>
+                                    </li>
+
                                     @guest
                                         <li>
                                             <a href="/login">Inloggen</a>

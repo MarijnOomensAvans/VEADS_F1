@@ -79,6 +79,10 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'home_video_url', 'title' => 'Youtube video url', 'type' => 'text', 'content' => 'https://www.youtube.com/embed/qpDNXX1Gm-Y', 'category' => 'homepagina']))->save();
         }
 
+        if (empty(\App\EditContent::find('match_url'))) {
+            (new \App\EditContent(['key' => 'match_url', 'title' => 'url', 'type' => 'text', 'content' => 'https://www.google.com', 'category' => 'homepagina']))->save();
+        }
+
         if (empty(\App\EditContent::find('home_show_events'))) {
             (new \App\EditContent(['key' => 'home_show_events', 'title' => 'Evenementen weergeven', 'type' => 'checkbox', 'content' => 'true', 'category' => 'homepagina']))->save();
         }
