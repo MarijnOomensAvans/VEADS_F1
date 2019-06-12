@@ -65,7 +65,13 @@
                 {{-- Message --}}
                 <div class="col-12 col-lg-6 last-paragraph-no-margin">
                     <div class="padding-ten-all bg-light-gray border-radius-6 lg-padding-seven-all sm-padding-30px-all h-100 text-center text-lg-left">
-                        <img src="images/about-img1.jpg" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
+                        <div style="position: relative; margin-bottom: 35px; overflow: hidden; border-radius: 6px;">
+                            <img src="images/about-img1.jpg" alt="" class="" data-no-retina="">
+                            <div class="donated" style="color: white;text-shadow: 0px 0px 2px rgba(0,0,0,0.5);position: absolute;right: -30px;bottom: -65px;border-radius: 100%;background: orange;width: 200px;height: 200px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                                <div class="donated-amount" style="font-size: 2.5em;">&euro;{{ number_format($donated, 0, ',', '.') }}</div>
+                                in totaal gedoneerd!
+                            </div>
+                        </div>
                         <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom d-block">Veads bedankt je!</span>
                         <p>
                             Top dat je geld wil doneren.
