@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Event;
 use App\Http\Requests\StoreVeadsRequestRequest;
 use App\VeadsRequest;
 use App\VeadsResponse;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -37,7 +39,13 @@ class VeadsRequestController extends Controller
      */
     public function create()
     {
-        return view('back.veads_requests.create');
+        $events = Event::leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
+            ->where('event_date_times.end', '>=', Carbon::now())
+            ->orWhereNull('event_date_times.end')
+            ->orderBy('event_date_times.start', 'desc')
+            ->get(array('events.*'));
+
+        return view('back.veads_requests.create', compact('events'));
     }
 
     /**
@@ -83,7 +91,13 @@ class VeadsRequestController extends Controller
      */
     public function edit(VeadsRequest $veadsRequest)
     {
-        return view('back.veads_requests.edit', ['request' => $veadsRequest]);
+        $events = Event::leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
+            ->where('event_date_times.end', '>=', Carbon::now())
+            ->orWhereNull('event_date_times.end')
+            ->orderBy('event_date_times.start', 'desc')
+            ->get(array('events.id', 'events.name'));
+
+        return view('back.veads_requests.edit', ['request' => $veadsRequest], compact('events'));
     }
 
     /**

@@ -35,6 +35,7 @@
     background: #0665d0;
 }
 
+
 .timeline ul li div::before {
     content: '';
     position: absolute;
@@ -64,6 +65,12 @@
     border-color: transparent transparent transparent #0665d0;
 }
 
+.upper ul li:nth-child(even) div::before {
+    right: -15px;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent #d01a1b;
+}
+
 time {
     display: block;
     font-size: 1.2rem;
@@ -85,6 +92,10 @@ a {
 
 .timeline ul li.in-view::after {
     background: #0665d0;
+}
+
+.upper ul li.in-view::after {
+    background: #d01717;
 }
 
 .timeline ul li div {

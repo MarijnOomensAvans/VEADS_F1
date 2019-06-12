@@ -48,7 +48,7 @@
 
                 @if(!empty($request->event))
                     <div class="row mb-3">
-                        <div class="col-12 col-sm-4 text-sm-right"><label>Project</label></div>
+                        <div class="col-12 col-sm-4 text-sm-right"><label>Event</label></div>
                         <div class="col-12 col-sm-8">
                             <a href="{{ route('admin/event', ['event' => $request->event]) }}">{{ $request->event->name }}</a>
                         </div>
