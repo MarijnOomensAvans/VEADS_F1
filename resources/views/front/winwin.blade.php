@@ -62,14 +62,14 @@
                 <a href="/giveproducts" class="fadeUpAnimation delay-400">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 banner-style1 sm-margin-30px-bottom" style="height: 500px;">
                         <figure class="bg-extra-dark-gray">
-                            <div class="banner-image height-500px cover-background" style="background-image:url('images/winwin3.jpg');">
+                            <div class="banner-image height-500px cover-background" style="background-image:url('{{ !empty(($header = getContent('veads_product_donate_image'))) ? '/image/' . $header->path . '/' . $header->name : 'images/winwin3.jpg' }}');">
                             </div>
                             <figcaption>
                                 <div class="display-table width-100 height-100">
                                     <div class="display-table-cell vertical-align-middle text-center">
-                                        <div><h3 class="text-royal-blue font-weight-800 text-border-white">Producten uitlenen of doneren</h3></div>
+                                        <div><h3 class="text-royal-blue font-weight-800 text-border-white">{{ getContent('veads_product_donate_title')->content }}</h3></div>
                                         <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">
-                                            Als u producten over heeft die u graag voor één van de evenementen of projecten van VEADS te leen zou willen stellen kan u ze hier opgeven.
+                                            {{ getContent('veads_product_donate_description')->content }}
                                         </p>
                                     </div>
                                 </div>
