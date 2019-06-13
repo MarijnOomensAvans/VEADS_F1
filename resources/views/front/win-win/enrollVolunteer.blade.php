@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12 center-col text-center margin-40px-top margin-80px-bottom xs-margin-40px-bottom">
                 <div class="position-relative overflow-hidden width-100">
-                    <span class="text-extra-large text-outside-line-full alt-font font-weight-800">Ik help mee als vrijwilliger</span>
+                    <span class="text-extra-large text-outside-line-full alt-font font-weight-800">{{ getContent('veads_volunteer_title')->content }}</span>
                 </div>
             </div>
         </div>
@@ -119,10 +119,10 @@
                 {{-- Message --}}
                 <div class="col-12 col-lg-6 last-paragraph-no-margin">
                     <div class="padding-ten-all bg-light-gray border-radius-6 lg-padding-seven-all sm-padding-30px-all h-100 text-center text-lg-left">
-                        <img src="/images/about-img1.jpg" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
+                        <img src="{{ !empty(($header = getContent('veads_volunteer_thanks_image'))) ? '/image/' . $header->path . '/' . $header->name : '/images/about-img1.jpg' }}" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
                         <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom d-block">Veads bedankt je!</span>
                         <p>
-                            Top dat je wilt meehelpen.
+                            {{ getContent('veads_volunteer_thanks_message')->content }}
                         </p>
                     </div>
                 </div>

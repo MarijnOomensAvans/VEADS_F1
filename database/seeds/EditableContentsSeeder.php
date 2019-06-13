@@ -131,6 +131,18 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'veads_donate_description', 'title' => 'Geld doneren omschrijving', 'type' => 'textarea', 'content' => 'VEADS is altijd blij met uw bijdrage en garandeert dat het geld op een goede plek terecht komt.', 'category' => 'win-win']))->save();
         }
 
+        if (empty(\App\EditContent::find('veads_product_donate_title'))) {
+            (new \App\EditContent(['key' => 'veads_product_donate_title', 'title' => 'Product uitlenen of doneren titel', 'type' => 'text', 'content' => 'Producten uitlenen of doneren.', 'category' => 'win-win']))->save();
+        }
+
+        if (empty(\App\EditContent::find('veads_product_donate_description'))) {
+            (new \App\EditContent(['key' => 'veads_product_donate_description', 'title' => 'Product uitlenen of doneren omschrijving', 'type' => 'textarea', 'content' => 'Als u producten over heeft die u graag voor één van de evenementen of projecten van VEADS te leen zou willen stellen kan u ze hier opgeven.', 'category' => 'win-win']))->save();
+        }
+
+        if (empty(\App\EditContent::find('veads_product_donate_image'))) {
+            (new \App\EditContent(['key' => 'veads_product_donate_image', 'title' => 'Product uitlenen of doneren afbeelding', 'type' => 'image', 'content' => '', 'category' => 'win-win']))->save();
+        }
+
         if (empty(\App\EditContent::find('veads_request_image'))) {
             (new \App\EditContent(['key' => 'veads_request_image', 'title' => 'VEADS zoekt afbeelding', 'type' => 'image', 'content' => '', 'category' => 'win-win']))->save();
         }
@@ -151,6 +163,22 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'veads_request_thanks_message', 'title' => 'VEADS zoekt bedankt tekst', 'type' => 'textarea', 'content' => 'Top dat je wilt meehelpen.', 'category' => 'win-win']))->save();
         }
 
+        if (empty(\App\EditContent::find('veads_volunteer_thanks_image'))) {
+            (new \App\EditContent(['key' => 'veads_volunteer_thanks_image', 'title' => 'Help mee als vrijwilliger bedankt afbeelding', 'type' => 'image', 'content' => '', 'category' => 'win-win']))->save();
+        }
+
+        if (empty(\App\EditContent::find('veads_volunteer_thanks_message'))) {
+            (new \App\EditContent(['key' => 'veads_volunteer_thanks_message', 'title' => 'Help mee als vrijwilliger bedankt tekst', 'type' => 'textarea', 'content' => 'Top dat je wilt meehelpen.', 'category' => 'win-win']))->save();
+        }
+
+        if (empty(\App\EditContent::find('veads_donate_thanks_image'))) {
+            (new \App\EditContent(['key' => 'veads_donate_thanks_image', 'title' => 'Geld doneren bedankt afbeelding', 'type' => 'image', 'content' => '', 'category' => 'win-win']))->save();
+        }
+
+        if (empty(\App\EditContent::find('veads_donate_thanks_message'))) {
+            (new \App\EditContent(['key' => 'veads_donate_thanks_message', 'title' => 'Geld doneren bedankt tekst', 'type' => 'textarea', 'content' => 'Top dat je geld wilt doneren.', 'category' => 'win-win']))->save();
+        }
+
         if (empty(\App\EditContent::find('contact_show_ambassadors'))) {
             (new \App\EditContent(['key' => 'contact_show_ambassadors', 'title' => 'Ambassadeurs weergeven', 'type' => 'checkbox', 'content' => 'true', 'category' => 'contact']))->save();
         }
@@ -159,8 +187,8 @@ class EditableContentsSeeder extends Seeder
             (new \App\EditContent(['key' => 'home_show_allpartners', 'title' => 'Partner carrousel weergeven', 'type' => 'checkbox', 'content' => 'true', 'category' => 'homepagina']))->save();
         }
         
-        if (empty(\App\EditContent::find('veads_product_dontate_description'))) {
-            (new \App\EditContent(['key' => 'veads_product_dontate_description', 'title' => 'Product doneren omschrijving', 'type' => 'textarea', 'content' => 'U kunt VEADS producten geven of uitlenen om ons te helpen bij projecten en evenemenenten. Hiermee kunnen wij meer projecten organiseren om mensen te helpen.', 'category' => 'win-win']))->save();
+        if (empty(\App\EditContent::find('veads_product_donate_page_description'))) {
+            (new \App\EditContent(['key' => 'veads_product_donate_page_description', 'title' => 'Product doneren pagina omschrijving', 'type' => 'textarea', 'content' => 'U kunt VEADS producten geven of uitlenen om ons te helpen bij projecten en evenemenenten. Hiermee kunnen wij meer projecten organiseren om mensen te helpen.', 'category' => 'win-win']))->save();
         }
        
         // DO NOT TOUCH THIS LINE
