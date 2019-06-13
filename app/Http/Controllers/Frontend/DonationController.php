@@ -20,7 +20,9 @@ class DonationController extends Controller {
             $volunteer = Auth::user()->volunteer;
         }
 
-        return view('front.win-win.donate', compact('events', 'volunteer'));
+        $donated = ceil(Donation::whereNotNull('payment_id')->whereNull('refunded_at')->whereNotNull('paid_at')->sum('amount'));
+
+        return view('front.win-win.donate', compact('events', 'volunteer', 'donated'));
     }
 
     public function preparePayment(StoreDonationRequest $request) {
