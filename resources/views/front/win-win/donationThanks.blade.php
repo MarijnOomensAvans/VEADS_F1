@@ -10,11 +10,11 @@
                         <h3 class="alt-font text-extra-dark-gray font-weight-600 no-margin-bottom">Dank u!</h3>
                         <div class="bg-deep-pink separator-line-horrizontal-full display-inline-block margin-25px-tb"></div>
                         @if($success)
-                            <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">Hartelijk dank dat u gekozen hebt om VEADS te helpen met uw donatie!<br/>VEADS heeft uw donatie in goede orde ontvangen.</p>
+                            <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">{!! getContent('veads_doneren_thanks')->content !!}<br/>VEADS heeft uw donatie in goede orde ontvangen.</p>
                         @elseif($pending)
-                            <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">Hartelijk dank dat u gekozen hebt om VEADS te helpen met uw donatie!<br/>Uw donatie wordt momenteel verwerkt.</p>
+                            <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">{!! getContent('veads_doneren_thanks')->content !!}<br/>Uw donatie wordt momenteel verwerkt.</p>
                         @else
-                            <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">Hartelijk dank dat u gekozen hebt om VEADS te helpen met uw donatie!<br/>Er is een fout opgetreden tijdens het verwerken van uw donatie. Probeer het later nog een keer.</p>
+                            <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">{!! getContent('veads_doneren_thanks')->content !!}<br/>Er is een fout opgetreden tijdens het verwerken van uw donatie. Probeer het later nog een keer.</p>
                         @endif
                     </div>
                 </div>

@@ -111,7 +111,7 @@
                                 </button>
                             </div>
                             <br>
-                            <span>* velden met een sterretje achter de naam van het invoerveld zijn verplichte velden</span>
+                            <span>* zijn verplichte velden</span>
                         </form>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                         <img src="{{ !empty(($header = getContent('veads_volunteer_thanks_image'))) ? '/image/' . $header->path . '/' . $header->name : '/images/about-img1.jpg' }}" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
                         <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom d-block">Veads bedankt je!</span>
                         <p>
-                            {{ getContent('veads_volunteer_thanks_message')->content }}
+                            {!! getContent('veads_volunteer_thanks_message')->content !!}
                         </p>
                     </div>
                 </div>

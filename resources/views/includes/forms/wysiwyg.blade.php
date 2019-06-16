@@ -18,7 +18,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             $('#{{ $name }}').summernote({
                 lang: 'nl-NL',
-                height: 300,
+                height: {{ $height ?? 300 }},
                 toolbar: [
                     ['style', ['bold', 'italic', 'underline', 'clear']],
                     ['fontsize', ['fontsize']],

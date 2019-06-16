@@ -105,7 +105,13 @@
                             @include('includes.forms.address', ['address' => (isset($event) ? $event->address: null)])
 
                             <div class="form-group row mb-5">
-                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="image">Foto's</label>
+                                <label class="col-sm-4 col-lg-3 col-form-label text-sm-right" for="image">Foto's
+                                    @if(!isset($event))
+                                        <span class="fas fa-question-circle" data-toggle="tooltip" data-placement="top" title="Je kunt meerdere foto's selecteren om toe te voegen aan het evenement."></span>
+                                    @else
+                                        <span class="fas fa-question-circle" data-toggle="tooltip" data-placement="top" title="Je kunt hier extra foto's toevoegen aan het evenement. Je kunt er meerdere te gelijk selecteren."></span>
+                                    @endif
+                                </label>
                                 <div class="col-sm-8 col-lg-9">
                                     <input type="file" name="image[]" id="image" accept="image/jpeg,image/jpg,image/png,image/png,image/svg" multiple/>
 

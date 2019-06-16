@@ -9,7 +9,7 @@
                         <img src="/images/logo.png" class="margin-30px-bottom" alt="" data-no-retina="">
                         <h3 class="alt-font text-extra-dark-gray font-weight-600 no-margin-bottom">Dank u!</h3>
                         <div class="bg-deep-pink separator-line-horrizontal-full display-inline-block margin-25px-tb"></div>
-                        <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">Hartelijk dank dat u gekozen hebt om VEADS te helpen!</p>
+                        <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">{!! getContent('veads_zoekt_thanks')->content !!}</p>
                     </div>
                 </div>
         </div>

@@ -31,7 +31,7 @@
             <div class="row margin-10px-bottom">
                 @if(count($requests) < 1)
                     <div class="alert alert-info">
-                        Momenteel is VEADS niet opzoek. Bedankt voor je interesse!
+                        {!! getContent('veads_zoekt_empty')->content !!}
                     </div>
                 @endif
 

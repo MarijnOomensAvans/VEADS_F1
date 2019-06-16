@@ -29,7 +29,7 @@
                                     <div class="display-table-cell vertical-align-middle text-center">
                                         <div><h3 class="text-royal-blue font-weight-800 text-border-white">{{ getContent('veads_request_title')->content }}</h3></div>
                                         <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">
-                                            {{ getContent('veads_request_description')->content }}
+                                            {!! getContent('veads_request_description')->content !!}
                                         </p>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                     <div class="display-table-cell vertical-align-middle text-center">
                                         <div><h3 class="text-royal-blue font-weight-800 text-border-white">{{ getContent('veads_volunteer_title')->content }}</h3></div>
                                         <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">
-                                            {{ getContent('veads_volunteer_description')->content }}
+                                            {!! getContent('veads_volunteer_description')->content !!}
                                         </p>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                     <div class="display-table-cell vertical-align-middle text-center">
                                         <div><h3 class="text-royal-blue font-weight-800 text-border-white">{{ getContent('veads_product_donate_title')->content }}</h3></div>
                                         <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">
-                                            {{ getContent('veads_product_donate_description')->content }}
+                                            {!! getContent('veads_product_donate_description')->content !!}
                                         </p>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                                     <div class="display-table-cell vertical-align-middle text-center">
                                         <div><h3 class="text-royal-blue font-weight-800 text-border-white">{{ getContent('veads_donate_title')->content }}</h3></div>
                                         <p class="width-80 center-col margin-20px-top text-white xs-width-100 font-weight-700">
-                                            {{ getContent('veads_donate_description')->content }}
+                                            {!! getContent('veads_donate_description')->content !!}
                                         </p>
                                     </div>
                                 </div>
