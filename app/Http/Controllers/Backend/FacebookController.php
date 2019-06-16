@@ -15,6 +15,18 @@ class FacebookController extends Controller
     public function index(FacebookService $facebookService) {
         $fb = $facebookService->getFacebookClient();
 
+        $pages = FacebookPage::whereNotNull('access_token')->get();
+        $oAuth2Client = $fb->getOAuth2Client();
+
+        foreach($pages as $page) {
+            try {
+                $page->access_token = $oAuth2Client->getLongLivedAccessToken($page->access_token);
+                $page->save();
+            } catch (FacebookSDKException $exception) {
+                $page->delete();
+            }
+        }
+
         $urlHelper = $fb->getRedirectLoginHelper();
         $permissions = ['manage_pages'];
         $fbLoginUrl = $urlHelper->getLoginUrl(config('app.url') . '/admin/fb/callback', $permissions);
