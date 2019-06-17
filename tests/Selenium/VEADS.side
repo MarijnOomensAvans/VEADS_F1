@@ -2,7 +2,7 @@
   "id": "62638e69-372a-4843-844e-b80bafac9234",
   "version": "2.0",
   "name": "VEADS",
-  "url": "http://veads_f1.test/",
+  "url": "https://veads_f1.test/",
   "tests": [{
     "id": "42889889-6089-4939-ada3-c4fd7483e739",
     "name": "Evenement toevoegen - happy flow",
@@ -331,7 +331,7 @@
       "id": "fa4b6b96-ea43-49b2-8738-f7df636bdaab",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/admin/events",
+      "target": "/admin/events",
       "targets": [],
       "value": ""
     }, {
@@ -393,7 +393,7 @@
       "id": "4b154665-4d7d-4eaf-893c-351c863800ff",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/admin/team_member",
+      "target": "/admin/team_member",
       "targets": [],
       "value": ""
     }, {
@@ -522,7 +522,7 @@
       "id": "8a81599e-33aa-4631-b18b-23cf45b6fd91",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/admin/team_member",
+      "target": "/admin/team_member",
       "targets": [],
       "value": ""
     }, {
@@ -778,7 +778,7 @@
       "id": "f8ce5d4a-5aeb-4cf5-829a-b6f38545ef0a",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8000/admin/contact_form",
+      "target": "/admin/contact_form",
       "targets": [],
       "value": ""
     }, {
@@ -826,7 +826,7 @@
       "id": "7aeef000-2512-4c36-9045-1b9a139a153f",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -968,7 +968,7 @@
       "id": "5f6a3604-7d83-4a8f-b274-29f274fde5bd",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -2925,7 +2925,7 @@
       "id": "abe1e330-efdd-4e9f-b175-f24bd3d2b704",
       "comment": "",
       "command": "open",
-      "target": "http://veads_f1.test/admin/veads_request",
+      "target": "/admin/veads_request",
       "targets": [],
       "value": ""
     }, {
@@ -3086,7 +3086,7 @@
       "id": "b4dd1d52-c35c-4edb-9cee-0741f755b63c",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8000/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -3274,7 +3274,7 @@
       "id": "72ee2fe0-424f-4a66-b9a6-9af008b6ef38",
       "comment": "",
       "command": "open",
-      "target": "https://veads_f1.test/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -3352,7 +3352,7 @@
       "id": "a42aa72d-cdae-460e-8981-89d54133261e",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8000/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -3438,7 +3438,7 @@
       "id": "5e9c3e02-2027-420d-86ad-8f30785dea06",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8000/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -3452,7 +3452,7 @@
       "id": "8a6da371-7957-4cd9-8bd4-d7f964ccdc64",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(6) > a",
+      "target": "css=li:nth-child(5) > a",
       "targets": [
         ["css=li:nth-child(6) > a", "css:finder"],
         ["xpath=//a[contains(text(),'Inloggen')]", "xpath:link"],
@@ -3477,7 +3477,7 @@
       "id": "5ef3608f-117a-48a5-b5f5-a96e1e302bbb",
       "comment": "",
       "command": "click",
-      "target": "css=li:nth-child(6) > a",
+      "target": "css=li:nth-child(5) > a",
       "targets": [
         ["css=li:nth-child(6) > a", "css:finder"],
         ["xpath=//a[contains(text(),'Mijn Account')]", "xpath:link"],
@@ -3793,7 +3793,7 @@
       "id": "99439d4c-f713-47d2-9cda-6a73056eed07",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8000/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -4053,7 +4053,7 @@
       "id": "07c4d9c1-4e65-4aed-ac6c-d6672cbcc3ff",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8000/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -4324,7 +4324,7 @@
       "id": "791f7f2a-cf71-4615-84ee-1bcb9df1cf5b",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8000/",
+      "target": "/",
       "targets": [],
       "value": ""
     }, {
@@ -4614,6 +4614,6 @@
     "timeout": 300,
     "tests": ["5dc66ce1-1e09-4d6f-9881-57468699df27", "c81dc408-f3a0-45af-9e91-c9a1079ad1ac", "7b032a0a-013a-4ace-82d6-5f49ff2853eb"]
   }],
-  "urls": ["https://veads-dev.ontwikkel.it/", "http://veads_f1.test/", "https://localhost:8000/", "http://localhost:8000/"],
+  "urls": ["https://veads-dev.ontwikkel.it/", "http://veads_f1.test/", "https://localhost:8000/", "http://localhost:8000/", "https://veads_f1.test/"],
   "plugins": []
 }
