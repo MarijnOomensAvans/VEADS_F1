@@ -44,24 +44,14 @@
                             <div>
                                 {{-- Start Register Fields (need to split to blade file) --}}
                                 @if(!empty(Auth::user()->volunteer))
-
-                                    <span>Voornaam*:</span>
                                     <input type="hidden" name="first_name" value="{{ Auth::user()->volunteer->first_name }}">
-                                    <span>Achternaam*:</span>
                                     <input type="hidden" name="last_name" value="{{ Auth::user()->volunteer->last_name }}">
-                                    <span>E-mailadres*:</span>
                                     <input type="hidden" name="email" value="{{ Auth::user()->email }}">
-                                    <span>Telefoonnummer*:</span>
                                     <input type="hidden" name="phone_number" value="{{ Auth::user()->volunteer->phone_number }}">
-                                    <span>Straatnaam*:</span>
                                     <input type="hidden" name="street" value="{{ Auth::user()->volunteer->address->street }}">
-                                    <span>Huisnummer*:</span>
                                     <input type="hidden" name="number" value="{{ Auth::user()->volunteer->address->number }}">
-                                    <span>Plaats*:</span>
                                     <input type="hidden" name="city" value="{{ Auth::user()->volunteer->address->city }}">
-                                    <span>Postcode*:</span>
                                     <input type="hidden" name="zipcode" value="{{ Auth::user()->volunteer->address->zipcode }}">
-                                    <span>Land*:</span>
                                     <input type="hidden" name="country" value="{{ Auth::user()->volunteer->address->country }}">
                                 @else
                                     <span>Voornaam*:</span>
