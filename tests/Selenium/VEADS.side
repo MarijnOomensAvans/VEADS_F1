@@ -4049,6 +4049,319 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "d7ddcd17-d655-4d78-b00f-0d16c561df29",
+    "name": "Edit content - win-win doneren - titel wijzigen",
+    "commands": [{
+      "id": "8fc14480-fdf1-41b1-9052-a0d8080de42f",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/edit_content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2a015697-7ec2-4c81-8779-da2f82d6c490",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Win-win",
+      "targets": [
+        ["linkText=Win-win", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Win-win')]", "xpath:link"],
+        ["xpath=//div[@id='app']/form/div/div/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#win-win')]", "xpath:href"],
+        ["xpath=//form/div/div/ul/li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Win-win')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9ca49d1-e0f1-4871-95b9-18835a0ec199",
+      "comment": "",
+      "command": "click",
+      "target": "id=veads_donate_title",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ec85e66a-2bbb-4d36-8cac-2ab90ca7e803",
+      "comment": "",
+      "command": "type",
+      "target": "id=veads_donate_title",
+      "targets": [
+        ["id=veads_donate_title", "id"],
+        ["name=veads_donate_title", "name"],
+        ["css=#veads_donate_title", "css:finder"],
+        ["xpath=//input[@id='veads_donate_title']", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "doneren test"
+    }, {
+      "id": "1e77975a-f3be-4b86-82a2-27cc183cb43d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right:nth-child(21) > .btn-primary",
+      "targets": [
+        ["css=.text-right:nth-child(21) > .btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[20]/button", "xpath:idRelative"],
+        ["xpath=//div[20]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aae400cd-d247-492a-bb6d-8d1b5676309d",
+      "comment": "",
+      "command": "open",
+      "target": "/ikhelpmee",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "edca2a8d-6ca8-4d29-8b23-b91bf22cb492",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.fadeUpAnimation:nth-child(4) .text-royal-blue",
+      "targets": [],
+      "value": "doneren test"
+    }]
+  }, {
+    "id": "296e0168-a0e6-4b5c-8f9e-5c72c4e080b5",
+    "name": "Edit content - win-win producten - titel wijzigen",
+    "commands": [{
+      "id": "faee9e23-9d85-4e1a-8359-35f9a2990c02",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/edit_content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8816116-496a-45bb-b3d8-64216a9c5875",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Win-win",
+      "targets": [
+        ["linkText=Win-win", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Win-win')]", "xpath:link"],
+        ["xpath=//div[@id='app']/form/div/div/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#win-win')]", "xpath:href"],
+        ["xpath=//form/div/div/ul/li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Win-win')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3c988c4-e77a-44c0-8cd1-d53a84284106",
+      "comment": "",
+      "command": "click",
+      "target": "id=veads_product_donate_title",
+      "targets": [
+        ["id=veads_product_donate_title", "id"],
+        ["name=veads_product_donate_title", "name"],
+        ["css=#veads_product_donate_title", "css:finder"],
+        ["xpath=//input[@id='veads_product_donate_title']", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[9]/div/input", "xpath:idRelative"],
+        ["xpath=//div[9]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "95ff4ccf-67d0-4982-a32b-247aae460048",
+      "comment": "",
+      "command": "type",
+      "target": "id=veads_product_donate_title",
+      "targets": [
+        ["id=veads_product_donate_title", "id"],
+        ["name=veads_product_donate_title", "name"],
+        ["css=#veads_product_donate_title", "css:finder"],
+        ["xpath=//input[@id='veads_product_donate_title']", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[9]/div/input", "xpath:idRelative"],
+        ["xpath=//div[9]/div/input", "xpath:position"]
+      ],
+      "value": "producten test"
+    }, {
+      "id": "d7ee5370-7901-4058-bd6c-e98057d87402",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right:nth-child(21) > .btn-primary",
+      "targets": [
+        ["css=.text-right:nth-child(21) > .btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[20]/button", "xpath:idRelative"],
+        ["xpath=//div[20]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e645864b-c510-4d6d-a337-d769b77e3862",
+      "comment": "",
+      "command": "open",
+      "target": "/ikhelpmee",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9876cb5-bbca-4246-a312-cdb96fc61bc3",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.fadeUpAnimation:nth-child(3) .text-royal-blue",
+      "targets": [],
+      "value": "producten test"
+    }]
+  }, {
+    "id": "37a8d4b7-84b8-4b3d-bd4b-20bc808e9ac5",
+    "name": "Edit content - win-win veads zoekt - titel wijzigen",
+    "commands": [{
+      "id": "2126bf6a-a682-441e-9c4d-9b0fcc7e5e47",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/edit_content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f948621b-adb4-4150-b7e0-e781c2cc12d4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Win-win",
+      "targets": [
+        ["linkText=Win-win", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Win-win')]", "xpath:link"],
+        ["xpath=//div[@id='app']/form/div/div/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#win-win')]", "xpath:href"],
+        ["xpath=//form/div/div/ul/li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Win-win')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "458076ad-54cf-4fc1-b3ed-d5f0d70fbbd9",
+      "comment": "",
+      "command": "click",
+      "target": "id=veads_request_title",
+      "targets": [
+        ["id=veads_request_title", "id"],
+        ["name=veads_request_title", "name"],
+        ["css=#veads_request_title", "css:finder"],
+        ["xpath=//input[@id='veads_request_title']", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[14]/div/input", "xpath:idRelative"],
+        ["xpath=//div[14]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a3668b7-18e2-45f6-a2f3-d967ab13ca7d",
+      "comment": "",
+      "command": "type",
+      "target": "id=veads_request_title",
+      "targets": [
+        ["id=veads_request_title", "id"],
+        ["name=veads_request_title", "name"],
+        ["css=#veads_request_title", "css:finder"],
+        ["xpath=//input[@id='veads_request_title']", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[14]/div/input", "xpath:idRelative"],
+        ["xpath=//div[14]/div/input", "xpath:position"]
+      ],
+      "value": "veads zoekt test"
+    }, {
+      "id": "e93c4b83-f406-4ec7-a3d5-c7caee7e7936",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right:nth-child(21) > .btn-primary",
+      "targets": [
+        ["css=.text-right:nth-child(21) > .btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[20]/button", "xpath:idRelative"],
+        ["xpath=//div[20]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e31f7653-951c-4d0f-bbb8-cb6361d5fd46",
+      "comment": "",
+      "command": "open",
+      "target": "/ikhelpmee",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3b676425-a4f6-4786-be90-d625ea2d4a4b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.fadeUpAnimation:nth-child(1) .text-royal-blue",
+      "targets": [],
+      "value": "veads zoekt test"
+    }]
+  }, {
+    "id": "2557ef54-5142-4ea9-8320-cf8f4bee2458",
+    "name": "Edit content - win-win vrijwilligers - titel wijzigen",
+    "commands": [{
+      "id": "61efbae5-46e3-4b29-8ead-9502ed6b82bc",
+      "comment": "",
+      "command": "open",
+      "target": "/admin/edit_content",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9099304f-ed32-4041-9381-05db1f1b7205",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Win-win",
+      "targets": [
+        ["linkText=Win-win", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Win-win')]", "xpath:link"],
+        ["xpath=//div[@id='app']/form/div/div/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#win-win')]", "xpath:href"],
+        ["xpath=//form/div/div/ul/li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Win-win')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "03e5b8f6-4ad1-48c5-9d02-c56d0e2cef01",
+      "comment": "",
+      "command": "click",
+      "target": "id=veads_volunteer_title",
+      "targets": [
+        ["id=veads_volunteer_title", "id"],
+        ["name=veads_volunteer_title", "name"],
+        ["css=#veads_volunteer_title", "css:finder"],
+        ["xpath=//input[@id='veads_volunteer_title']", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[19]/div/input", "xpath:idRelative"],
+        ["xpath=//div[19]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5da3f810-1bf4-4ae8-bedf-22ff0fb0a930",
+      "comment": "",
+      "command": "type",
+      "target": "id=veads_volunteer_title",
+      "targets": [
+        ["id=veads_volunteer_title", "id"],
+        ["name=veads_volunteer_title", "name"],
+        ["css=#veads_volunteer_title", "css:finder"],
+        ["xpath=//input[@id='veads_volunteer_title']", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[19]/div/input", "xpath:idRelative"],
+        ["xpath=//div[19]/div/input", "xpath:position"]
+      ],
+      "value": "vrijwilliger test"
+    }, {
+      "id": "a99179a0-362d-4d8c-aa27-6fb9cdf4b041",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right:nth-child(21) > .btn-primary",
+      "targets": [
+        ["css=.text-right:nth-child(21) > .btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//div[@id='win-win']/div[20]/button", "xpath:idRelative"],
+        ["xpath=//div[20]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "478867e2-abea-4f90-a06d-181e8eca4fd9",
+      "comment": "",
+      "command": "open",
+      "target": "/ikhelpmee",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f1430a97-6060-4596-a405-b4f738d9fa3b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.fadeUpAnimation:nth-child(2) .text-royal-blue",
+      "targets": [],
+      "value": "vrijwilliger test"
+    }]
   }],
   "suites": [{
     "id": "2d710faf-ff9f-43fa-99c9-16dfa8f4b5c9",
