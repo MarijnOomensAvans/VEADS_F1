@@ -65,7 +65,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="/event">Events</a>
+                                        <a href="/event">{{ getContent('event_title')->content }}</a>
                                     </li>
 
                                     <li>
