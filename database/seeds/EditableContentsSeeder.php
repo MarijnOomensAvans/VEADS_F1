@@ -174,6 +174,18 @@ class EditableContentsSeeder extends Seeder
         if (empty(\App\EditContent::find('matching_url_title'))) {
             (new \App\EditContent(['key' => 'matching_url_title', 'title' => 'Matching url titel', 'type' => 'text', 'content' => 'Matching systeem', 'category' => 'homepagina']))->save();
         }
+
+        if (empty(\App\EditContent::find('auction_url_title'))) {
+            (new \App\EditContent(['key' => 'auction_url_title', 'title' => 'Auction url titel', 'type' => 'text', 'content' => 'Auction systeem', 'category' => 'homepagina']))->save();
+        }
+
+        if (empty(\App\EditContent::find('auction_url'))) {
+            (new \App\EditContent(['key' => 'auction_url', 'title' => 'Auction url', 'type' => 'text', 'content' => 'https://www.veildeboel.nl/goed-doel-gratis-veilen/veil-de-boel_8', 'category' => 'homepagina']))->save();
+        } else {
+            $edit_content = \App\EditContent::find('auction_url');
+            $edit_content->title = 'Auction url';
+            $edit_content->save();
+        }
        
         // DO NOT TOUCH THIS LINE
     }
