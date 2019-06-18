@@ -15,6 +15,37 @@
         </div>
     </section>
 
+    @if((bool) getContent('event_show_breadcrumb')->content)
+        <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 display-table">
+                        <div class="display-table-cell vertical-align-middle text-left">
+                            <div class="breadcrumb alt-font text-small no-margin-bottom">
+                                <ul>
+                                    <li><a href="/" class="text-medium-gray">Home</a></li>
+                                    <li><a href="/event" class="text-medium-gray">{{ getContent('event_title')->content }}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    @if(!empty(strip_tags($intro = getContent('event_intro')->content)))
+        <section class="padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        {!! $intro !!}
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
     <section class="timeline">
         <ul>
             @foreach($events as $event)
