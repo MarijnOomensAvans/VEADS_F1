@@ -191,6 +191,8 @@ return [
         'picture'               => 'foto',
         'function'              => 'functie',
         'end datetime'          => 'eindtijd',
-        'start datetime'        => 'begin tijd'
+        'start datetime'        => 'begin tijd',
+        'repeat password'       => 'herhaal wachtwoord',
+        'phone number'          => 'telefoonnummer'
     ],
 ];
