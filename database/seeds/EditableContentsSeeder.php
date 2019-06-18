@@ -162,6 +162,18 @@ class EditableContentsSeeder extends Seeder
         if (empty(\App\EditContent::find('veads_product_dontate_description'))) {
             (new \App\EditContent(['key' => 'veads_product_dontate_description', 'title' => 'Product doneren omschrijving', 'type' => 'textarea', 'content' => 'U kunt VEADS producten geven of uitlenen om ons te helpen bij projecten en evenemenenten. Hiermee kunnen wij meer projecten organiseren om mensen te helpen.', 'category' => 'win-win']))->save();
         }
+        
+        if (empty(\App\EditContent::find('matching_url'))) {
+            (new \App\EditContent(['key' => 'matching_url', 'title' => 'Matching url', 'type' => 'text', 'content' => 'http://www.google.com', 'category' => 'homepagina']))->save();
+        } else {
+            $edit_content = \App\EditContent::find('matching_url');
+            $edit_content->title = 'Matching url';
+            $edit_content->save();
+        }
+        
+        if (empty(\App\EditContent::find('matching_url_title'))) {
+            (new \App\EditContent(['key' => 'matching_url_title', 'title' => 'Matching url titel', 'type' => 'text', 'content' => 'Matching systeem', 'category' => 'homepagina']))->save();
+        }
        
         // DO NOT TOUCH THIS LINE
     }
