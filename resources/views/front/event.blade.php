@@ -16,7 +16,7 @@ if (isset($event->pictures[0])) {
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
                 <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
-                    <h1 class="alt-font text-white font-weight-600 no-margin-bottom">{{$event->name}}</h1>
+                    {{-- <h1 class="alt-font text-white font-weight-600 no-margin-bottom">{{$event->name}}</h1> --}}
                 </div>
             </div>
         </div>
