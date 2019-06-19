@@ -74,7 +74,7 @@
                         </div>
                         <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom d-block">Veads bedankt je!</span>
                         <p>
-                            {{ getContent('veads_donate_thanks_message')->content }}
+                            {!! getContent('veads_donate_thanks_message')->content !!}
                         </p>
                     </div>
                 </div>
