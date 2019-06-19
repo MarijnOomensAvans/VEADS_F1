@@ -190,6 +190,30 @@ class EditableContentsSeeder extends Seeder
         if (empty(\App\EditContent::find('veads_product_donate_page_description'))) {
             (new \App\EditContent(['key' => 'veads_product_donate_page_description', 'title' => 'Product doneren pagina omschrijving', 'type' => 'textarea', 'content' => 'U kunt VEADS producten geven of uitlenen om ons te helpen bij projecten en evenemenenten. Hiermee kunnen wij meer projecten organiseren om mensen te helpen.', 'category' => 'win-win']))->save();
         }
+        
+        if (empty(\App\EditContent::find('matching_url'))) {
+            (new \App\EditContent(['key' => 'matching_url', 'title' => 'Matching url', 'type' => 'text', 'content' => 'http://www.google.com', 'category' => 'homepagina']))->save();
+        } else {
+            $edit_content = \App\EditContent::find('matching_url');
+            $edit_content->title = 'Matching url';
+            $edit_content->save();
+        }
+        
+        if (empty(\App\EditContent::find('matching_url_title'))) {
+            (new \App\EditContent(['key' => 'matching_url_title', 'title' => 'Matching url titel', 'type' => 'text', 'content' => 'Matching systeem', 'category' => 'homepagina']))->save();
+        }
+
+        if (empty(\App\EditContent::find('auction_url_title'))) {
+            (new \App\EditContent(['key' => 'auction_url_title', 'title' => 'Auction url titel', 'type' => 'text', 'content' => 'Auction systeem', 'category' => 'homepagina']))->save();
+        }
+
+        if (empty(\App\EditContent::find('auction_url'))) {
+            (new \App\EditContent(['key' => 'auction_url', 'title' => 'Auction url', 'type' => 'text', 'content' => 'https://www.veildeboel.nl/goed-doel-gratis-veilen/veil-de-boel_8', 'category' => 'homepagina']))->save();
+        } else {
+            $edit_content = \App\EditContent::find('auction_url');
+            $edit_content->title = 'Auction url';
+            $edit_content->save();
+        }
        
         if (empty(\App\EditContent::find('veads_zoekt_empty'))) {
             (new \App\EditContent(['key' => 'veads_zoekt_empty', 'title' => 'Tekst als er geen veads zoekt advertenties zijn', 'type' => 'textarea', 'content' => 'Momenteel is VEADS niet opzoek. Bedankt voor je interesse', 'category' => 'win-win']))->save();

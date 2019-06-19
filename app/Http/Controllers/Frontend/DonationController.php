@@ -117,4 +117,21 @@ class DonationController extends Controller {
 
         $donation->save();
     }
+
+    public function enrollFromDonation(Request $request) {
+        return $this->enrollDonation($request['eventid']);
+    }
+
+    public function enrollDonation($selectedevent = null) {
+        $events = Event::leftJoin('event_date_times', 'events.id', '=', 'event_date_times.event_id')
+            ->orderBy('event_date_times.start')
+            ->where(function($query) {
+                $query->where('event_date_times.start')
+                    ->orWhere('event_date_times.start', '>', Carbon::now());
+            })
+            ->select('events.*')
+            ->get();
+
+        return view('front.win-win.donate', compact('events', 'selectedevent'));
+    }
 }

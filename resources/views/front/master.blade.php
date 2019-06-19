@@ -76,6 +76,18 @@
                                         <a href="/contact">{{ getContent('contact_title')->content }}</a>
                                     </li>
 
+                                    @if(!empty(getContent('matching_url')->content))
+                                        <li>
+                                            <a href="{{ getContent('matching_url')->content }}" target="_blank">{{ getContent('matching_url_title')->content }}</a>
+                                        </li>
+                                    @endif
+
+                                    @if(!empty(getContent('auction_url')->content))
+                                        <li>
+                                            <a href="{{ getContent('auction_url')->content }}" target="_blank">{{ getContent('auction_url_title')->content }}</a>
+                                        </li>
+                                    @endif
+
                                     @guest
                                         <li>
                                             <a href="/login">Inloggen</a>
