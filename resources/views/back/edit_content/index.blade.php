@@ -43,7 +43,8 @@
                                         @component('includes.forms.wysiwyg', [
                                             'name' => $content->key,
                                             'title' => $content->title,
-                                            'prefill' => $content->content ?? ''
+                                            'prefill' => $content->content ?? '',
+                                            'height' => 100
                                         ])@endcomponent
                                         @break
 

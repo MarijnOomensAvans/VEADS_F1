@@ -27,6 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->command('facebook:update')->daily();
+        $schedule->command('instagram:update')->daily();
         $schedule->command('facebook:tokens')->weekly();
     }
 

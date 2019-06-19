@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12 center-col text-center margin-40px-top margin-80px-bottom xs-margin-40px-bottom">
                 <div class="position-relative overflow-hidden width-100">
-                    <span class="text-extra-large text-outside-line-full alt-font font-weight-800">Ik wil graag geld doneren</span>
+                    <span class="text-extra-large text-outside-line-full alt-font font-weight-800">{{ getContent('veads_donate_title')->content }}</span>
                 </div>
             </div>
         </div>
@@ -65,10 +65,16 @@
                 {{-- Message --}}
                 <div class="col-12 col-lg-6 last-paragraph-no-margin">
                     <div class="padding-ten-all bg-light-gray border-radius-6 lg-padding-seven-all sm-padding-30px-all h-100 text-center text-lg-left">
-                        <img src="images/about-img1.jpg" alt="" class="border-radius-6 margin-35px-bottom sm-margin-30px-bottom" data-no-retina="">
+                        <div style="position: relative; margin-bottom: 35px; overflow: hidden; border-radius: 6px;">
+                            <img src="{{ !empty(($header = getContent('veads_donate_thanks_image'))) ? '/image/' . $header->path . '/' . $header->name : '/images/about-img1.jpg' }}" alt="" class="" data-no-retina="">
+                            <div class="donated" style="color: white;text-shadow: 0px 0px 2px rgba(0,0,0,0.5);position: absolute;right: -30px;bottom: -65px;border-radius: 100%;background: orange;width: 200px;height: 200px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                                <div class="donated-amount" style="font-size: 2.5em;">&euro;{{ number_format($donated, 0, ',', '.') }}</div>
+                                in totaal gedoneerd!
+                            </div>
+                        </div>
                         <span class="text-large font-weight-600 alt-font text-extra-dark-gray margin-5px-bottom d-block">Veads bedankt je!</span>
                         <p>
-                            Top dat je geld wil doneren.
+                            {!! getContent('veads_donate_thanks_message')->content !!}
                         </p>
                     </div>
                 </div>
