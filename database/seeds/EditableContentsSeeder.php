@@ -192,7 +192,7 @@ class EditableContentsSeeder extends Seeder
         }
         
         if (empty(\App\EditContent::find('matching_url'))) {
-            (new \App\EditContent(['key' => 'matching_url', 'title' => 'Matching url', 'type' => 'text', 'content' => 'http://www.google.com', 'category' => 'homepagina']))->save();
+            (new \App\EditContent(['key' => 'matching_url', 'title' => 'Matching url', 'type' => 'text', 'content' => '', 'category' => 'homepagina']))->save();
         } else {
             $edit_content = \App\EditContent::find('matching_url');
             $edit_content->title = 'Matching url';
@@ -216,7 +216,7 @@ class EditableContentsSeeder extends Seeder
         }
 
         if (empty(\App\EditContent::find('auction_url'))) {
-            (new \App\EditContent(['key' => 'auction_url', 'title' => 'Auction url', 'type' => 'text', 'content' => 'https://www.veildeboel.nl/goed-doel-gratis-veilen/veil-de-boel_8', 'category' => 'homepagina']))->save();
+            (new \App\EditContent(['key' => 'auction_url', 'title' => 'Auction url', 'type' => 'text', 'content' => '', 'category' => 'homepagina']))->save();
         } else {
             $edit_content = \App\EditContent::find('auction_url');
             $edit_content->title = 'Auction url';
