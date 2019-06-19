@@ -15,10 +15,10 @@
                     <div class="swiper-wrapper">
                         @foreach($allpartners as $allpartner)
                             <div class="swiper-slide col-md-4 col-sm-4 col-xs-12 blog-post-style5 last-paragraph-no-margin" style="height: 100%">
-                                <div class="blog-post  bg-light-gray box-shadow-light" style="border-radius: 20px;">
+                                <div class="blog-post bg-light-gray box-shadow-light height-150px width-150px" style="border-radius: 20px;">
                                     <div class="blog-post-images overflow-hidden">
                                         <a href="{{$allpartner->link}}" target="_blank">
-                                            <img src="/image/{{ $allpartner->picture->path }}/{{ $allpartner->picture->name }}">
+                                            <img src="/image/{{ $allpartner->picture->path }}/{{ $allpartner->picture->name }}" class="height-100px">
                                         </a>
                                     </div>
                                     <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
