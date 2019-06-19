@@ -116,7 +116,7 @@ class EditableContentsSeeder extends Seeder
         }
 
         if (empty(\App\EditContent::find('veads_volunteer_title'))) {
-            (new \App\EditContent(['key' => 'veads_volunteer_title', 'title' => 'Help mee als vrijwilliger titel', 'type' => 'text', 'content' => 'Ik help mee als vrijwilliger.', 'category' => 'win-win']))->save();
+            (new \App\EditContent(['key' => 'veads_volunteer_title', 'title' => 'Help mee als vrijwilliger titel', 'type' => 'text', 'content' => 'Helpen als vrijwilliger.', 'category' => 'win-win']))->save();
         }
 
         if (empty(\App\EditContent::find('veads_volunteer_description'))) {
@@ -124,7 +124,7 @@ class EditableContentsSeeder extends Seeder
         }
 
         if (empty(\App\EditContent::find('veads_donate_title'))) {
-            (new \App\EditContent(['key' => 'veads_donate_title', 'title' => 'Geld doneren titel', 'type' => 'text', 'content' => 'Ik wil graag geld doneren.', 'category' => 'win-win']))->save();
+            (new \App\EditContent(['key' => 'veads_donate_title', 'title' => 'Geld doneren titel', 'type' => 'text', 'content' => 'Geld doneren', 'category' => 'win-win']))->save();
         }
 
         if (empty(\App\EditContent::find('veads_donate_description'))) {
@@ -132,7 +132,7 @@ class EditableContentsSeeder extends Seeder
         }
 
         if (empty(\App\EditContent::find('veads_product_donate_title'))) {
-            (new \App\EditContent(['key' => 'veads_product_donate_title', 'title' => 'Product uitlenen of doneren titel', 'type' => 'text', 'content' => 'Producten uitlenen of doneren.', 'category' => 'win-win']))->save();
+            (new \App\EditContent(['key' => 'veads_product_donate_title', 'title' => 'Product uitlenen of doneren titel', 'type' => 'text', 'content' => 'Veiling', 'category' => 'win-win']))->save();
         }
 
         if (empty(\App\EditContent::find('veads_product_donate_description'))) {
