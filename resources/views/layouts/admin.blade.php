@@ -13,6 +13,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700">
     <link rel="stylesheet" id="css-main" href="{{ asset('css/dashmix.min-1.5.css') }}">
+    <link rel="stylesheet" id="css-main" href="{{ asset('css/backend.css') }}">
 </head>
 <body>
 <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-fixed page-header-dark main-content-narrow">
