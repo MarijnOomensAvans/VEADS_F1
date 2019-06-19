@@ -21,7 +21,7 @@
                                             <img src="/image/{{ $allpartner->picture->path }}/{{ $allpartner->picture->name }}" class="height-100px">
                                         </a>
                                     </div>
-                                    <div class="post-details inner-match-height padding-40px-all xs-padding-20px-lr xs-padding-30px-tb">
+                                    <div class="post-details inner-match-height padding-20px-all xs-padding-20px-lr xs-padding-30px-tb">
                                         <div class="blog-hover-color"></div>
                                         <a href="{{$allpartner->link}}" target="_blank" class="alt-font post-title text-medium text-extra-dark-gray width-90 display-block md-width-100 margin-5px-bottom cut-text">{{$allpartner->name}}</a>
                                     </div>
