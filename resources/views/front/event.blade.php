@@ -125,8 +125,8 @@ if (isset($event->pictures[0])) {
                     </div>
                     <ul class="list-style-6 margin-50px-bottom text-small">
                         @if(!empty($event->datetime))
-                        <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
-                        <li><a>Datum Eind: </a><span>{{$event->datetime->end}}</span></li>
+                        <li><a>Datum Begin: </a><span>{{$event->datetime->start()}}</span></li>
+                        <li><a>Datum Eind: </a><span>{{$event->datetime->end()}}</span></li>
                         @endif
                         @if(!empty($event->price))
                         <li><a>Prijs: </a><span>€{{$event->price}}</span></li>

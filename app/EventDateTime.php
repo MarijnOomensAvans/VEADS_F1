@@ -32,4 +32,23 @@ class EventDateTime extends Model
         $first = $arr[0];
         return $first;
     }
+
+    public function start() {
+        $unformatted = $this->start;
+        $splitted = explode(' ', $unformatted, 2);
+
+        $datesplit = explode('-', $splitted[0],3);
+        $normaldate = $datesplit[2] . '-' . $datesplit[1] . '-' . $datesplit[0];
+        return $normaldate . ' ' . $splitted[1];
+    }
+
+    public function end() {
+        $unformatted = $this->end;
+        $splitted = explode(' ', $unformatted, 2);
+
+        $datesplit = explode('-', $splitted[0],3);
+        $normaldate = $datesplit[2] . '-' . $datesplit[1] . '-' . $datesplit[0];
+        return $normaldate . ' ' . $splitted[1];
+    }
+
 }

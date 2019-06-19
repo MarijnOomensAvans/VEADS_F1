@@ -89,7 +89,9 @@ class Event extends Model
     }
 
     public function year() {
-        $datetime = $this->hasOne('App\EventDateTime')->get()->first();
-        return $datetime->startwotime();
+        $datetime = $this->hasOne('App\EventDateTime')->get()->first()->startwotime();
+        $splt = explode('-', $datetime, 3);
+        $goeie = $splt[2] . '-' . $splt[1] . '-' . $splt[0];
+        return $goeie;
     }
 }

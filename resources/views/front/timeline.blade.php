@@ -46,6 +46,19 @@
         </section>
     @endif
 
+    <form action="/searchevents" method="POST" role="search" style="display: flex; align-items: center;">
+        @csrf
+        <div class="input-group" style="width: 50%; margin-left: 25%; border: 1px solid grey;">
+            <input type="text" class="form-control" name="q"
+                   placeholder="Zoek evenementen" max="255"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+        </div>
+        <span class="fa fa-question-circle" style="margin-left: 20px;" data-toggle="tooltip" data-placement="top" title="U kunt zoeken op de naam van het evenement of op tags van het evenement."></span>
+    </form>
+
     <section class="timeline">
         <ul>
             @foreach($events as $event)
