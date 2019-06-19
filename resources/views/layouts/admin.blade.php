@@ -36,6 +36,12 @@
                         <span class="nav-main-link-name">Dashboard</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{ route('home') }}" target="_blank">
+                        <i class="nav-main-link-icon fa fa-home"></i>
+                        <span class="nav-main-link-name">Homepagina website</span>
+                    </a>
+                </li>
                 <li class="nav-main-item nav-main-heading flex-row align-items-center">Content <span class="fa fa-question-circle ml-2" data-toggle="tooltip" data-placement="top" title="Hieronder staan opties die te maken hebben met de inhoud van de website."></span></li>
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ strpos(Request::path(), 'admin/event') !== false ? ' active' : '' }}" href="{{ route('admin/events') }}">

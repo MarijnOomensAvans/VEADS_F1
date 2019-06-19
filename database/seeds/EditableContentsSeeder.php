@@ -200,11 +200,19 @@ class EditableContentsSeeder extends Seeder
         }
         
         if (empty(\App\EditContent::find('matching_url_title'))) {
-            (new \App\EditContent(['key' => 'matching_url_title', 'title' => 'Matching url titel', 'type' => 'text', 'content' => 'Matching systeem', 'category' => 'homepagina']))->save();
+            (new \App\EditContent(['key' => 'matching_url_title', 'title' => 'Matching url titel', 'type' => 'text', 'content' => 'Matching', 'category' => 'homepagina']))->save();
+        } else {
+            $edit_content = \App\EditContent::find('matching_url_title');
+            $edit_content->content = 'Matching';
+            $edit_content->save();
         }
 
         if (empty(\App\EditContent::find('auction_url_title'))) {
-            (new \App\EditContent(['key' => 'auction_url_title', 'title' => 'Auction url titel', 'type' => 'text', 'content' => 'Auction systeem', 'category' => 'homepagina']))->save();
+            (new \App\EditContent(['key' => 'auction_url_title', 'title' => 'Auction url titel', 'type' => 'text', 'content' => 'Auction', 'category' => 'homepagina']))->save();
+        } else {
+            $edit_content = \App\EditContent::find('auction_url_title');
+            $edit_content->content = 'Auction';
+            $edit_content->save();
         }
 
         if (empty(\App\EditContent::find('auction_url'))) {
