@@ -188,6 +188,11 @@ return [
         'image'                 => 'foto',
         'amount'                => 'bedrag',
         'event_id'              => 'evenement',
-        'picture'               => 'foto'
+        'picture'               => 'foto',
+        'function'              => 'functie',
+        'end datetime'          => 'eindtijd',
+        'start datetime'        => 'begin tijd',
+        'repeat password'       => 'herhaal wachtwoord',
+        'phone number'          => 'telefoonnummer'
     ],
 ];

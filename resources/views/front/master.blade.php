@@ -48,11 +48,9 @@
                         <div class="col-md-2 col-xs-5">
                             <ul class="text-extra-small xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none bigger-font">
                                 <a href="/" title="{{ getContent('home_title')->content }}" class="logo"><img src="{{ !empty(($header = getContent('footer_logo'))) ? '/image/' . $header->path . '/' . $header->name : '/images/logo.png' }}" class="logo-dark default" alt="Veads logo"></a>
-                                <li class="display-inline-block margin-10px-right"><a class="facebook text-royal-blue" href="{{ getContent('footer_facebook_link')->content }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="display-inline-block margin-10px-right"><a class="instagram text-royal-blue" href="{{ getContent('footer_instagram_link')->content }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
-                        <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
+                        <div class="col-md-9 col-xs-2 pull-right accordion-menu xs-no-padding-right">
                             <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
                                 <span class="sr-only">toggle navigation</span>
                                 <span class="icon-bar"></span>
@@ -67,9 +65,9 @@
                                     </li>
 
                                     <li>
-                                        <a href="/event">Evenementen</a>
+                                        <a href="/event">{{ getContent('event_title')->content }}</a>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="/ikhelpmee">Help mee</a>
                                     </li>
@@ -77,6 +75,18 @@
                                     <li>
                                         <a href="/contact">{{ getContent('contact_title')->content }}</a>
                                     </li>
+
+                                    @if(!empty(getContent('matching_url')->content))
+                                        <li>
+                                            <a href="{{ getContent('matching_url')->content }}" target="_blank">{{ getContent('matching_url_title')->content }}</a>
+                                        </li>
+                                    @endif
+
+                                    @if(!empty(getContent('auction_url')->content))
+                                        <li>
+                                            <a href="{{ getContent('auction_url')->content }}" target="_blank">{{ getContent('auction_url_title')->content }}</a>
+                                        </li>
+                                    @endif
 
                                     @guest
                                         <li>
@@ -95,6 +105,12 @@
                                     @endauth
                                 </ul>
                             </div>
+                        </div>
+                        <div class="col-md-1 col-xs-5">
+                            <ul class="text-extra-small xs-no-margin-bottom text-uppercase no-padding no-margin-bottom list-style-none bigger-font">
+                                <li class="display-inline-block margin-10px-right"><a class="facebook text-royal-blue" href="{{ getContent('footer_facebook_link')->content }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="display-inline-block margin-10px-right"><a class="instagram text-royal-blue" href="{{ getContent('footer_instagram_link')->content }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -124,6 +140,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div><a href="/contactRequest" class="url">Contact</a></div>
                         </div>
                     </div>
                 </div>
@@ -162,9 +179,9 @@
         <script type="text/javascript" src="/revolution/js/jquery.themepunch.tools.min.js"></script>
         <script type="text/javascript" src="/revolution/js/jquery.themepunch.revolution.min.js"></script>
         <script type="text/javascript" src="/js/theme/main.js"></script>
+        @stack('scripts')
         <script>
             $('[data-toggle="tooltip"]').tooltip();
         </script>
-        @stack('scripts')
     </body>
 </html>

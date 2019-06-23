@@ -3849,3 +3849,8 @@ aside .latest-post li figure {width: 75px;}
 .checkbox input[type=checkbox] {
     width: 25%;
 }
+
+.url{
+    color: white;
+    text-decoration: underline;
+}

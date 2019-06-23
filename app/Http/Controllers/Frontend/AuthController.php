@@ -46,6 +46,16 @@ class AuthController extends Controller
         return view('front.profile')->with('success', true);
     }
 
+    public function register(){
+        return view('front.auth.register');
+    }
+
+    public function saveRegister(Request $request){
+        $this->handleUserFields($request);
+        \Session::flash('success',true);
+        return redirect('/');
+    }
+
     /**
      * Function that handles the users field
      * Create new user if doesn't exists or update existing one

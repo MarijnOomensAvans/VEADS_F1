@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Donation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
@@ -20,11 +21,13 @@ class HomeController extends Controller
 
         $socialPages = collect()->merge($facebookPages)->merge($instagramPages)->sortBy('created_at');
 
+
         foreach ($socialPages as $page) {
             foreach($page->lastPosts(2) as $post){
                 $socialPosts->push($post);
             }
         }
+
 
         $events = Event::whereNotNull('featured_position')->where('published', true)->orderBy('featured_position', 'asc')->limit(3)->get();
         $partners = Partner::whereNotNull('featured_position')->orderBy('featured_position', 'asc')->limit(3)->get();

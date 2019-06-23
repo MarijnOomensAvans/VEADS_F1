@@ -47,7 +47,12 @@
 
             <div class="row">
                 <div class="col-md-12 text-center margin-20px-top">
-                    <a href="/reset_password">Wachtwoord vergeten?</a>
+                    <p>
+                        Heeft u nog geen account, klik dan <a href="/register"><u>hier</u></a>.
+                        <br/>
+                        <a href="/reset_password">Wachtwoord vergeten?</a>
+                    </p>
+                    
                 </div>
             </div>
         </form>

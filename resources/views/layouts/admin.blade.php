@@ -13,6 +13,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700">
     <link rel="stylesheet" id="css-main" href="{{ asset('css/dashmix.min-1.5.css') }}">
+    <link rel="stylesheet" id="css-main" href="{{ asset('css/backend.css') }}">
 </head>
 <body>
 <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-fixed page-header-dark main-content-narrow">
@@ -33,6 +34,12 @@
                     <a class="nav-main-link{{ Request::path() == 'admin' ? ' active' : '' }}" href="{{ route('admin') }}">
                         <i class="nav-main-link-icon si si-cursor"></i>
                         <span class="nav-main-link-name">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{ route('home') }}" target="_blank">
+                        <i class="nav-main-link-icon fa fa-home"></i>
+                        <span class="nav-main-link-name">Homepagina website</span>
                     </a>
                 </li>
                 <li class="nav-main-item nav-main-heading flex-row align-items-center">Content <span class="fa fa-question-circle ml-2" data-toggle="tooltip" data-placement="top" title="Hieronder staan opties die te maken hebben met de inhoud van de website."></span></li>

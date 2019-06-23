@@ -133,7 +133,7 @@ class VolunteerController extends Controller
      */
     public function destroy(Volunteer $volunteer)
     {
-        return view('volunteers.destroy', compact('volunteer'));
+        return view('back.volunteers.destroy', compact('volunteer'));
     }
 
     public function delete(Request $request, Volunteer $volunteer) {

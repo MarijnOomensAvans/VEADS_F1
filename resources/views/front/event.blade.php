@@ -16,7 +16,7 @@ if (isset($event->pictures[0])) {
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
                 <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
-                    <h1 class="alt-font text-white font-weight-600 no-margin-bottom">{{$event->name}}</h1>
+                    {{-- <h1 class="alt-font text-white font-weight-600 no-margin-bottom">{{$event->name}}</h1> --}}
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@ if (isset($event->pictures[0])) {
             </main>
             <aside class="col-md-3 col-sm-12 col-xs-12 pull-right">
 
-                @if(new DateTime($event->datetime->end) >  new DateTime())
+                @if(!empty($event->datetime) && new DateTime($event->datetime->end) >  new DateTime())
                     <form method="post" action="/gelijkinschrijven">
                         @csrf
                         <input type="hidden" name="eventid" value="{{ $event->id }}">
@@ -125,8 +125,8 @@ if (isset($event->pictures[0])) {
                     </div>
                     <ul class="list-style-6 margin-50px-bottom text-small">
                         @if(!empty($event->datetime))
-                        <li><a>Datum Begin: </a><span>{{$event->datetime->start}}</span></li>
-                        <li><a>Datum Eind: </a><span>{{$event->datetime->end}}</span></li>
+                        <li><a>Datum Begin: </a><span>{{$event->datetime->start()}}</span></li>
+                        <li><a>Datum Eind: </a><span>{{$event->datetime->end()}}</span></li>
                         @endif
                         @if(!empty($event->price))
                         <li><a>Prijs: </a><span>€{{$event->price}}</span></li>
@@ -159,6 +159,16 @@ if (isset($event->pictures[0])) {
                     </div>
                 @endif
 
+                    @if(!empty($event->datetime) && new DateTime($event->datetime->end) >  new DateTime())
+                        <form method="post" action="/gelddoneren">
+                            @csrf
+                            <input type="hidden" name="eventid" value="{{ $event->id }}">
+                            <button type="submit" class="m-auto btn-success btn btn-small button margin-5px-all lg-margin-15px-bottom d-table d-lg-inline-block md-margin-lr-auto">
+                                Geld doneren
+                            </button>
+                        </form>
+                    @endif
+
                 @if(count($event->partners) > 0)
                     <div class="margin-45px-bottom xs-margin-25px-bottom">
                         <div class="text-extra-dark-gray margin-20px-bottom alt-font text-uppercase font-weight-600 text-small aside-title">
@@ -174,7 +184,7 @@ if (isset($event->pictures[0])) {
                     </div>
                 @endif
 
-                @if (new DateTime($event->datetime->end) >  new DateTime())
+                @if (!empty($event->datetime) && new DateTime($event->datetime->end) >  new DateTime())
                     <div class="margin-45px-top">
                         
                         <form method="post" action="/deelnemen">

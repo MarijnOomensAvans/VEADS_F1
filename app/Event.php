@@ -87,4 +87,11 @@ class Event extends Model
     public function participants() {
         return $this->hasMany('App\Participant');
     }
+
+    public function year() {
+        $datetime = $this->hasOne('App\EventDateTime')->get()->first()->startwotime();
+        $splt = explode('-', $datetime, 3);
+        $goeie = $splt[2] . '-' . $splt[1] . '-' . $splt[0];
+        return $goeie;
+    }
 }
